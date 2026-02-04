@@ -11,12 +11,19 @@ export const metadata: Metadata = {
     title: "Whisperer – Offline Dictation for Mac",
     description: "Offline voice-to-text for macOS. Hold Fn, speak, release. Text inserts anywhere. 100% offline.",
     type: "website",
-    images: ["/assets/hero-demo.jpg"],
+    images: [
+      {
+        url: "/assets/hero-demo.png?v=2",
+        width: 1200,
+        height: 630,
+        alt: "Whisperer - Offline Dictation for Mac",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     site: "@whispererapp",
-    images: ["/assets/hero-demo.jpg"],
+    images: ["/assets/hero-demo.png?v=2"],
   },
   icons: {
     icon: "/favicon.ico",
