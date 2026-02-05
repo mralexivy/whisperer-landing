@@ -44,7 +44,7 @@ export const Footer = () => {
             </p>
             <div className="text-sm text-muted-foreground">
               <p>Powered by whisper.cpp</p>
-              <p>Whisper is an OpenAI model</p>
+              <p>100% on-device, MIT licensed</p>
             </div>
           </div>
 
