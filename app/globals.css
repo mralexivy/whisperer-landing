@@ -2,102 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    /* Whisperer Dark Theme - Premium dark with mint green accent */
-    --background: 220 20% 4%;
-    --foreground: 0 0% 95%;
+    /* Whisperer Dark Navy Theme - Blue-purple accent */
+    --background: 240 37% 7%;
+    --foreground: 0 0% 100%;
 
-    --card: 220 18% 7%;
-    --card-foreground: 0 0% 95%;
+    --card: 240 37% 12%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 220 18% 7%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 240 37% 12%;
+    --popover-foreground: 0 0% 100%;
 
-    /* Mint green accent - matches app icon */
-    --primary: 142 76% 50%;
-    --primary-foreground: 220 20% 4%;
+    /* Accent blue - #5B6CF7 */
+    --primary: 233 91% 66%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 12%;
+    --secondary: 240 35% 17%;
     --secondary-foreground: 0 0% 85%;
 
-    --muted: 220 15% 15%;
-    --muted-foreground: 220 10% 55%;
+    --muted: 240 35% 17%;
+    --muted-foreground: 240 10% 55%;
 
-    --accent: 142 76% 50%;
-    --accent-foreground: 220 20% 4%;
+    --accent: 233 91% 66%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 15%;
-    --input: 220 15% 12%;
-    --ring: 142 76% 50%;
+    --border: 240 10% 16%;
+    --input: 240 35% 17%;
+    --ring: 233 91% 66%;
 
     --radius: 0.75rem;
 
-    /* Gradient tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(142 76% 50%), hsl(142 76% 40%));
-    --gradient-glow: radial-gradient(ellipse at center, hsl(142 76% 50% / 0.15), transparent 70%);
-    --gradient-card: linear-gradient(180deg, hsl(220 18% 9%), hsl(220 18% 6%));
-    
+    /* Gradient tokens - blue to purple */
+    --gradient-primary: linear-gradient(135deg, hsl(233 91% 66%), hsl(258 90% 66%));
+    --gradient-glow: radial-gradient(ellipse at center, hsl(233 91% 66% / 0.15), transparent 70%);
+    --gradient-card: linear-gradient(180deg, hsl(240 37% 14%), hsl(240 37% 10%));
+
     /* Shadow tokens */
-    --shadow-glow: 0 0 60px hsl(142 76% 50% / 0.2);
+    --shadow-glow: 0 0 60px hsl(233 91% 66% / 0.2);
     --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.3);
-    --shadow-button: 0 0 20px hsl(142 76% 50% / 0.3);
+    --shadow-button: 0 0 20px hsl(233 91% 66% / 0.3);
 
     /* Sidebar tokens */
-    --sidebar-background: 220 18% 6%;
+    --sidebar-background: 240 41% 7%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 142 76% 50%;
-    --sidebar-primary-foreground: 220 20% 4%;
-    --sidebar-accent: 220 15% 12%;
+    --sidebar-primary: 233 91% 66%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 35% 17%;
     --sidebar-accent-foreground: 0 0% 90%;
-    --sidebar-border: 220 15% 15%;
-    --sidebar-ring: 142 76% 50%;
+    --sidebar-border: 240 10% 16%;
+    --sidebar-ring: 233 91% 66%;
   }
 
   .dark {
-    --background: 220 20% 4%;
-    --foreground: 0 0% 95%;
+    --background: 240 37% 7%;
+    --foreground: 0 0% 100%;
 
-    --card: 220 18% 7%;
-    --card-foreground: 0 0% 95%;
+    --card: 240 37% 12%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 220 18% 7%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 240 37% 12%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 142 76% 50%;
-    --primary-foreground: 220 20% 4%;
+    --primary: 233 91% 66%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 12%;
+    --secondary: 240 35% 17%;
     --secondary-foreground: 0 0% 85%;
 
-    --muted: 220 15% 15%;
-    --muted-foreground: 220 10% 55%;
+    --muted: 240 35% 17%;
+    --muted-foreground: 240 10% 55%;
 
-    --accent: 142 76% 50%;
-    --accent-foreground: 220 20% 4%;
+    --accent: 233 91% 66%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 15%;
-    --input: 220 15% 12%;
-    --ring: 142 76% 50%;
+    --border: 240 10% 16%;
+    --input: 240 35% 17%;
+    --ring: 233 91% 66%;
 
-    --sidebar-background: 220 18% 6%;
+    --sidebar-background: 240 41% 7%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 142 76% 50%;
-    --sidebar-primary-foreground: 220 20% 4%;
-    --sidebar-accent: 220 15% 12%;
+    --sidebar-primary: 233 91% 66%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 35% 17%;
     --sidebar-accent-foreground: 0 0% 90%;
-    --sidebar-border: 220 15% 15%;
-    --sidebar-ring: 142 76% 50%;
+    --sidebar-border: 240 10% 16%;
+    --sidebar-ring: 233 91% 66%;
   }
 }
 

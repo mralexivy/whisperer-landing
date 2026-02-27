@@ -3,16 +3,25 @@ import { Zap, Shield, Lock } from "lucide-react";
 const cards = [
   {
     icon: Zap,
+    color: "text-amber-400",
+    bgColor: "bg-amber-400/10",
+    hoverBg: "group-hover:bg-amber-400/20",
     title: "Hold-to-talk. Release-to-insert.",
     description: "No copy/paste steps. No switching apps. Just speak into the active cursor.",
   },
   {
     icon: Shield,
+    color: "text-blue-400",
+    bgColor: "bg-blue-400/10",
+    hoverBg: "group-hover:bg-blue-400/20",
     title: "Doesn't trigger by accident.",
     description: "Smart Fn combo filtering prevents accidental recordings when using brightness/volume keys.",
   },
   {
     icon: Lock,
+    color: "text-green-400",
+    bgColor: "bg-green-400/10",
+    hoverBg: "group-hover:bg-green-400/20",
     title: "Your voice stays on your Mac.",
     description: "No accounts. No servers. No audio uploads.",
   },
@@ -35,12 +44,12 @@ export const ValueProps = () => {
           {cards.map((card, index) => (
             <div
               key={index}
-              className="group relative bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_40px_hsl(142_76%_50%/0.1)]"
+              className="group relative bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_40px_hsl(233_91%_66%/0.1)]"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <card.icon className="w-7 h-7 text-primary" />
+              <div className={`w-14 h-14 rounded-xl ${card.bgColor} flex items-center justify-center mb-6 ${card.hoverBg} transition-colors`}>
+                <card.icon className={`w-7 h-7 ${card.color}`} />
               </div>
 
               <h3 className="text-xl font-semibold text-foreground mb-3">

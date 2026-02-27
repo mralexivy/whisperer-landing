@@ -4,21 +4,29 @@ import { Check, Code, Layers, BookOpen, Keyboard, Apple } from "lucide-react";
 const proFeatures = [
   {
     icon: Code,
+    color: "text-blue-400",
+    bgColor: "bg-blue-400/10",
     title: "Code Mode",
     features: ["Symbol grammar", "Casing commands", "Literal identifiers"],
   },
   {
     icon: Layers,
+    color: "text-purple-400",
+    bgColor: "bg-purple-400/10",
     title: "Per-app Profiles",
     features: ["Automatic switching", "Different format rules per app", "Per-app language (optional)"],
   },
   {
     icon: BookOpen,
+    color: "text-orange-400",
+    bgColor: "bg-orange-400/10",
     title: "Personal Dictionary",
     features: ["Add names/acronyms/terms", "Quick add from overlay", "Import word lists (optional)"],
   },
   {
     icon: Keyboard,
+    color: "text-pink-400",
+    bgColor: "bg-pink-400/10",
     title: "Pro Insertion Engine",
     features: ["Clipboard-safe paste", "Typing fallback when paste fails", "Per-app insertion method"],
   },
@@ -69,7 +77,7 @@ export const ProPackSection = () => {
           </div>
 
           {/* Pro Pack */}
-          <div className="bg-card border-2 border-primary rounded-2xl p-8 relative shadow-[0_0_60px_hsl(142_76%_50%/0.15)]">
+          <div className="bg-card border-2 border-primary rounded-2xl p-8 relative shadow-[0_0_60px_hsl(233_91%_66%/0.15)]">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-bold px-4 py-1 rounded-full">
               MOST POPULAR
             </div>
@@ -103,8 +111,8 @@ export const ProPackSection = () => {
               key={index}
               className="bg-card/50 border border-border rounded-xl p-6 hover:border-primary/50 transition-colors"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                <feature.icon className="w-6 h-6 text-primary" />
+              <div className={`w-12 h-12 rounded-xl ${feature.bgColor} flex items-center justify-center mb-4`}>
+                <feature.icon className={`w-6 h-6 ${feature.color}`} />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-3">
                 {feature.title}

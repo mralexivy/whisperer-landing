@@ -21,7 +21,7 @@ export default function PrivacyPage() {
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(142_76%_50%/0.08),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(233_91%_66%/0.08),transparent_50%)]" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">

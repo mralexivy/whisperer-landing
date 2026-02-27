@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Keyboard, ClipboardCheck, Zap, ToggleRight, Mic, X, Hand, Eye } from "lucide-react";
+import { ChevronLeft, ChevronRight, Keyboard, ClipboardCheck, Zap, ToggleRight, Mic, X, Hand, Eye, Globe } from "lucide-react";
 
 // App icons
 import slackIcon from "../../public/assets/icons/slack.png";
@@ -20,15 +20,23 @@ import antigravityIcon from "../../public/assets/icons/antigravity.png";
 // Whisperer Logo Component
 const WhispererLogo = () => (
   <div className="flex items-center gap-3">
-    <div className="w-10 h-10 rounded-xl bg-[#1fcc5e]/20 flex items-center justify-center">
+    <div className="w-10 h-10 rounded-xl bg-[#14142B] border border-white/[0.08] flex items-center justify-center">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <rect x="3" y="10" width="2" height="4" rx="1" fill="#1fcc5e" />
-        <rect x="6" y="8" width="2" height="8" rx="1" fill="#1fcc5e" />
-        <rect x="9" y="6" width="2" height="12" rx="1" fill="#1fcc5e" />
-        <rect x="12" y="4" width="2" height="16" rx="1" fill="#1fcc5e" />
-        <rect x="15" y="6" width="2" height="12" rx="1" fill="#1fcc5e" />
-        <rect x="18" y="8" width="2" height="8" rx="1" fill="#1fcc5e" />
-        <rect x="21" y="10" width="2" height="4" rx="1" fill="#1fcc5e" />
+        <defs>
+          <linearGradient id="waveGrad" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stopColor="#5B6CF7" />
+            <stop offset="100%" stopColor="#8B5CF6" />
+          </linearGradient>
+        </defs>
+        <rect x="0.6" y="10" width="1.5" height="4" rx="0.75" fill="url(#waveGrad)" />
+        <rect x="3.2" y="8.5" width="1.5" height="7" rx="0.75" fill="url(#waveGrad)" />
+        <rect x="5.9" y="7" width="1.5" height="10" rx="0.75" fill="url(#waveGrad)" />
+        <rect x="8.6" y="5" width="1.5" height="14" rx="0.75" fill="url(#waveGrad)" />
+        <rect x="11.3" y="3.5" width="1.5" height="17" rx="0.75" fill="url(#waveGrad)" />
+        <rect x="13.9" y="5" width="1.5" height="14" rx="0.75" fill="url(#waveGrad)" />
+        <rect x="16.6" y="7" width="1.5" height="10" rx="0.75" fill="url(#waveGrad)" />
+        <rect x="19.3" y="8.5" width="1.5" height="7" rx="0.75" fill="url(#waveGrad)" />
+        <rect x="21.9" y="10" width="1.5" height="4" rx="0.75" fill="url(#waveGrad)" />
       </svg>
     </div>
     <span className="text-white text-xl font-semibold">Whisperer</span>
@@ -47,7 +55,7 @@ const Waveform = ({ height = 120, bars = 60, className = "" }: { height?: number
       return (
         <div
           key={i}
-          className="w-[4px] bg-[#1fcc5e] rounded-full"
+          className="w-[4px] bg-gradient-to-t from-[#5B6CF7] to-[#8B5CF6] rounded-full"
           style={{ height: `${h * 100}%` }}
         />
       );
@@ -56,10 +64,10 @@ const Waveform = ({ height = 120, bars = 60, className = "" }: { height?: number
 );
 
 // Feature Badge Component (matches ValueProps style)
-const FeatureBadge = ({ icon, title, subtitle }: { icon: React.ReactNode; title: string; subtitle: string }) => (
-  <div className="bg-[#111115] border border-gray-800 rounded-xl p-5">
-    <div className="w-10 h-10 rounded-lg bg-[#1fcc5e]/10 flex items-center justify-center mb-4">
-      <div className="text-[#1fcc5e]">{icon}</div>
+const FeatureBadge = ({ icon, title, subtitle, color = "#5B6CF7" }: { icon: React.ReactNode; title: string; subtitle: string; color?: string }) => (
+  <div className="bg-[#14142B] border border-gray-800 rounded-xl p-5">
+    <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: `${color}15` }}>
+      <div style={{ color }}>{icon}</div>
     </div>
     <h3 className="text-base font-semibold text-white mb-2">{title}</h3>
     <p className="text-gray-400 text-sm leading-relaxed">{subtitle}</p>
@@ -68,12 +76,12 @@ const FeatureBadge = ({ icon, title, subtitle }: { icon: React.ReactNode; title:
 
 // PRO Badge
 const ProBadge = () => (
-  <span className="bg-[#1fcc5e] text-black text-xs font-bold px-2 py-1 rounded ml-2">PRO</span>
+  <span className="bg-[#5B6CF7] text-white text-xs font-bold px-2 py-1 rounded ml-2">PRO</span>
 );
 
 // Screenshot 1: Hero
 const Screenshot1 = () => (
-  <div className="w-full h-full bg-[#0a0a0f] p-16 flex flex-col">
+  <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col">
     <WhispererLogo />
 
     <div className="flex-1 flex">
@@ -87,19 +95,19 @@ const Screenshot1 = () => (
         </p>
 
         <div className="flex gap-3 mb-12">
-          <button className="bg-[#1fcc5e] text-black font-semibold px-8 py-4 rounded-full text-lg">
+          <button className="bg-gradient-to-r from-[#5B6CF7] to-[#8B5CF6] text-white font-semibold px-8 py-4 rounded-full text-lg">
             Download on App Store
           </button>
         </div>
 
         <div className="flex gap-3 flex-wrap">
-          <span className="bg-[#1fcc5e]/10 border border-[#1fcc5e]/30 text-[#1fcc5e] px-4 py-2 rounded-full text-sm">
+          <span className="bg-green-500/10 border border-green-500/30 text-green-400 px-4 py-2 rounded-full text-sm">
             Offline on-device transcription
           </span>
-          <span className="bg-[#1fcc5e]/10 border border-[#1fcc5e]/30 text-[#1fcc5e] px-4 py-2 rounded-full text-sm">
+          <span className="bg-[#5B6CF7]/10 border border-[#5B6CF7]/30 text-[#5B6CF7] px-4 py-2 rounded-full text-sm">
             Works in Slack, Gmail, VS Code
           </span>
-          <span className="bg-[#1fcc5e]/10 border border-[#1fcc5e]/30 text-[#1fcc5e] px-4 py-2 rounded-full text-sm">
+          <span className="bg-orange-500/10 border border-orange-500/30 text-orange-400 px-4 py-2 rounded-full text-sm">
             Live preview while you speak
           </span>
         </div>
@@ -108,10 +116,10 @@ const Screenshot1 = () => (
       {/* Right content - App UI mockups */}
       <div className="flex-1 relative flex items-center justify-center">
         {/* Menu bar widget */}
-        <div className="absolute top-8 right-0 bg-[#1a1a1f] rounded-xl border border-gray-800 p-4 w-56 shadow-2xl">
+        <div className="absolute top-8 right-0 bg-[#1C1C3A] rounded-xl border border-gray-800 p-4 w-56 shadow-2xl">
           <div className="text-white font-semibold mb-1">Whisperer</div>
-          <div className="flex items-center gap-2 text-[#1fcc5e] text-sm mb-3">
-            <div className="w-2 h-2 rounded-full bg-[#1fcc5e]" />
+          <div className="flex items-center gap-2 text-[#5B6CF7] text-sm mb-3">
+            <div className="w-2 h-2 rounded-full bg-[#5B6CF7]" />
             Ready
           </div>
           <div className="text-gray-500 text-xs mb-4">Large V3 Turbo Q5</div>
@@ -125,23 +133,23 @@ const Screenshot1 = () => (
           <div className="text-white text-sm font-medium mb-2">How to use</div>
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-[#1fcc5e] text-black text-xs flex items-center justify-center font-bold">1</span>
+              <span className="w-5 h-5 rounded-full bg-[#5B6CF7] text-white text-xs flex items-center justify-center font-bold">1</span>
               <span className="text-gray-400 text-sm">Press Fn</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-[#1fcc5e] text-black text-xs flex items-center justify-center font-bold">2</span>
+              <span className="w-5 h-5 rounded-full bg-[#5B6CF7] text-white text-xs flex items-center justify-center font-bold">2</span>
               <span className="text-gray-400 text-sm">Speak</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-[#1fcc5e] text-black text-xs flex items-center justify-center font-bold">3</span>
+              <span className="w-5 h-5 rounded-full bg-[#5B6CF7] text-white text-xs flex items-center justify-center font-bold">3</span>
               <span className="text-gray-400 text-sm">Release</span>
             </div>
           </div>
         </div>
 
         {/* VS Code window */}
-        <div className="bg-[#1e1e1e] rounded-xl border border-gray-700 overflow-hidden w-[500px] shadow-2xl mt-32">
-          <div className="flex items-center gap-2 px-4 py-2 bg-[#323233] border-b border-gray-700">
+        <div className="bg-[#14142B] rounded-xl border border-gray-700 overflow-hidden w-[500px] shadow-2xl mt-32">
+          <div className="flex items-center gap-2 px-4 py-2 bg-[#1C1C3A] border-b border-gray-700">
             <div className="flex gap-1.5">
               <div className="w-3 h-3 rounded-full bg-red-500" />
               <div className="w-3 h-3 rounded-full bg-yellow-500" />
@@ -160,18 +168,18 @@ const Screenshot1 = () => (
           </div>
 
           {/* Transcription bar */}
-          <div className="bg-[#1a1a1f] border-t border-gray-700 p-3 flex items-center gap-3">
-            <div className="w-3 h-3 rounded-full bg-[#1fcc5e]" />
+          <div className="bg-[#1C1C3A] border-t border-gray-700 p-3 flex items-center gap-3">
+            <div className="w-3 h-3 rounded-full bg-[#5B6CF7]" />
             <div className="flex items-center gap-1">
               {[...Array(12)].map((_, i) => (
-                <div key={i} className="w-1 bg-[#1fcc5e] rounded-full" style={{ height: `${12 + Math.sin(i) * 8}px` }} />
+                <div key={i} className="w-1 bg-gradient-to-t from-[#5B6CF7] to-[#8B5CF6] rounded-full" style={{ height: `${12 + Math.sin(i) * 8}px` }} />
               ))}
             </div>
             <span className="text-gray-300">return results</span>
           </div>
 
           {/* Transcribed badge */}
-          <div className="absolute top-[280px] right-[-20px] bg-[#1fcc5e] text-black font-semibold px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
+          <div className="absolute top-[280px] right-[-20px] bg-[#5B6CF7] text-white font-semibold px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -184,9 +192,9 @@ const Screenshot1 = () => (
     {/* Bottom features */}
     <div className="flex gap-8 pt-8">
       <div className="flex items-center gap-3">
-        <div className="w-6 h-6 rounded-full bg-[#1fcc5e] flex items-center justify-center">
+        <div className="w-6 h-6 rounded-full bg-[#5B6CF7] flex items-center justify-center">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-            <path d="M20 6L9 17L4 12" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
         <div>
@@ -195,9 +203,9 @@ const Screenshot1 = () => (
         </div>
       </div>
       <div className="flex items-center gap-3">
-        <div className="w-6 h-6 rounded-full bg-[#1fcc5e] flex items-center justify-center">
+        <div className="w-6 h-6 rounded-full bg-[#8B5CF6] flex items-center justify-center">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-            <path d="M20 6L9 17L4 12" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
         <div>
@@ -206,9 +214,9 @@ const Screenshot1 = () => (
         </div>
       </div>
       <div className="flex items-center gap-3">
-        <div className="w-6 h-6 rounded-full bg-[#1fcc5e] flex items-center justify-center">
+        <div className="w-6 h-6 rounded-full bg-[#06B6D4] flex items-center justify-center">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-            <path d="M20 6L9 17L4 12" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
         <div>
@@ -222,12 +230,12 @@ const Screenshot1 = () => (
 
 // Screenshot 2: Live Preview
 const Screenshot2 = () => (
-  <div className="w-full h-full bg-[#0a0a0f] p-16 flex flex-col">
+  <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col">
     <WhispererLogo />
 
     <div className="flex-1 flex flex-col items-center justify-center">
       <h1 className="text-6xl font-bold text-white text-center mb-2">
-        See words <span className="text-[#1fcc5e]">as you speak</span>
+        See words <span className="text-[#5B6CF7]">as you speak</span>
       </h1>
       <p className="text-xl text-gray-400 text-center mb-16">
         Live preview while recording. Final pass for accuracy.
@@ -236,28 +244,28 @@ const Screenshot2 = () => (
       {/* Premium transcription bubble - Light theme to match HUD */}
       <div className="relative mb-8">
         {/* Glow effect behind bubble */}
-        <div className="absolute inset-0 bg-[#1fcc5e]/10 rounded-3xl blur-2xl" />
+        <div className="absolute inset-0 bg-[#5B6CF7]/10 rounded-3xl blur-2xl" />
 
         {/* Speech bubble - White/light like HUD */}
         <div className="relative bg-white rounded-2xl px-6 py-5 shadow-2xl max-w-2xl">
           {/* Live indicator */}
           <div className="flex items-center gap-2 mb-3">
-            <div className="w-2 h-2 rounded-full bg-[#1fcc5e] animate-pulse" />
-            <span className="text-[#1fcc5e] text-xs font-medium uppercase tracking-wider">Live Transcription</span>
+            <div className="w-2 h-2 rounded-full bg-[#5B6CF7] animate-pulse" />
+            <span className="text-[#5B6CF7] text-xs font-medium uppercase tracking-wider">Live Transcription</span>
           </div>
 
           {/* Transcription text */}
           <p className="text-lg text-gray-800 font-light leading-relaxed">
             The quarterly report shows significant growth in our enterprise segment,
-            with a <span className="text-[#1fcc5e] font-semibold">47% increase</span> in recurring revenue
-            <span className="inline-block w-0.5 h-5 bg-[#1fcc5e] ml-1 animate-pulse align-middle" />
+            with a <span className="text-[#5B6CF7] font-semibold">47% increase</span> in recurring revenue
+            <span className="inline-block w-0.5 h-5 bg-[#5B6CF7] ml-1 animate-pulse align-middle" />
           </p>
 
           {/* Bottom stats */}
           <div className="flex items-center gap-4 mt-4 pt-3 border-t border-gray-200">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-md bg-[#1fcc5e]/10 flex items-center justify-center">
-                <Mic className="w-3 h-3 text-[#1fcc5e]" />
+              <div className="w-6 h-6 rounded-md bg-[#5B6CF7]/10 flex items-center justify-center">
+                <Mic className="w-3 h-3 text-[#5B6CF7]" />
               </div>
               <span className="text-gray-500 text-xs">Recording</span>
             </div>
@@ -265,7 +273,7 @@ const Screenshot2 = () => (
               {[...Array(10)].map((_, i) => (
                 <div
                   key={i}
-                  className="w-0.5 bg-[#1fcc5e] rounded-full"
+                  className="w-0.5 bg-gradient-to-t from-[#5B6CF7] to-[#8B5CF6] rounded-full"
                   style={{ height: `${6 + Math.sin(i * 0.8) * 8}px` }}
                 />
               ))}
@@ -278,12 +286,12 @@ const Screenshot2 = () => (
         <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45 shadow-lg" />
       </div>
 
-      {/* HUD Overlay - matching landing page style */}
-      <div className="inline-flex items-center gap-3 bg-white rounded-full px-2 py-2 shadow-2xl">
+      {/* HUD Overlay - dark navy capsule matching real app */}
+      <div className="inline-flex items-center gap-3 bg-[#14142B] rounded-full px-2 py-2 shadow-2xl border border-white/[0.06]">
         {/* Left mic with status indicator */}
-        <div className="relative flex items-center justify-center w-12 h-12 rounded-full bg-[#1fcc5e]/10">
-          <Mic className="w-6 h-6 text-[#1fcc5e]" />
-          <div className="absolute bottom-1 right-1 w-3 h-3 rounded-full bg-[#1fcc5e] border-2 border-white" />
+        <div className="relative flex items-center justify-center w-12 h-12 rounded-full bg-[#5B6CF7]/15">
+          <Mic className="w-6 h-6 text-[#5B6CF7]" />
+          <div className="absolute bottom-1 right-1 w-3 h-3 rounded-full bg-[#5B6CF7] border-2 border-[#14142B]" />
         </div>
 
         {/* Waveform dots */}
@@ -291,7 +299,7 @@ const Screenshot2 = () => (
           {[...Array(20)].map((_, i) => (
             <div
               key={i}
-              className="w-1.5 h-1.5 rounded-full bg-[#1fcc5e]/80"
+              className="w-1.5 h-1.5 rounded-full bg-[#5B6CF7]/80"
               style={{
                 opacity: 0.4 + Math.sin(i * 0.5) * 0.6,
               }}
@@ -302,13 +310,13 @@ const Screenshot2 = () => (
         {/* Right controls */}
         <div className="flex items-center gap-2">
           {/* Secondary mic button */}
-          <button className="flex items-center justify-center w-10 h-10 rounded-full bg-[#1fcc5e]/10">
-            <Mic className="w-5 h-5 text-[#1fcc5e]" />
+          <button className="flex items-center justify-center w-10 h-10 rounded-full bg-[#5B6CF7]/15">
+            <Mic className="w-5 h-5 text-[#5B6CF7]" />
           </button>
 
           {/* Cancel button */}
-          <button className="flex items-center justify-center w-10 h-10 rounded-full bg-red-100">
-            <X className="w-5 h-5 text-red-500" />
+          <button className="flex items-center justify-center w-10 h-10 rounded-full bg-red-500/15">
+            <X className="w-5 h-5 text-red-400" />
           </button>
         </div>
       </div>
@@ -320,21 +328,25 @@ const Screenshot2 = () => (
         icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M8 8V6a4 4 0 118 0v2"/></svg>}
         title="On-device processing"
         subtitle="All transcription happens locally on your Mac"
+        color="#5B6CF7"
       />
       <FeatureBadge
         icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>}
         title="No cloud uploads"
         subtitle="Your voice never leaves your device"
+        color="#8B5CF6"
       />
       <FeatureBadge
         icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>}
         title="Works offline"
         subtitle="Airplane mode? No problem."
+        color="#22C55E"
       />
       <FeatureBadge
         icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>}
         title="No account needed"
         subtitle="Download and use — no signup required"
+        color="#F59E0B"
       />
     </div>
   </div>
@@ -342,14 +354,14 @@ const Screenshot2 = () => (
 
 // Screenshot 3: Code Mode
 const Screenshot3 = () => (
-  <div className="w-full h-full bg-[#0a0a0f] p-16 flex flex-col">
+  <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col">
     <div className="flex items-center gap-2 mb-8">
       <WhispererLogo />
       {/* Pro Pack indicator - aligned with logo */}
       <div className="ml-auto flex flex-col items-end gap-2.5">
-        <div className="inline-flex items-center gap-2 bg-[#1fcc5e]/10 border border-[#1fcc5e]/30 rounded-full px-3 py-1.5">
-          <span className="bg-[#1fcc5e] text-black text-xs font-bold px-2 py-0.5 rounded">PRO</span>
-          <span className="text-[#1fcc5e] text-sm font-medium">Part of Pro Pack</span>
+        <div className="inline-flex items-center gap-2 bg-[#5B6CF7]/10 border border-[#5B6CF7]/30 rounded-full px-3 py-1.5">
+          <span className="bg-[#5B6CF7] text-white text-xs font-bold px-2 py-0.5 rounded">PRO</span>
+          <span className="text-[#5B6CF7] text-sm font-medium">Part of Pro Pack</span>
         </div>
         <span className="text-gray-500 text-xs bg-gray-800/50 border border-gray-700 rounded-full px-3 py-1">Available through In-App Purchase</span>
       </div>
@@ -362,30 +374,30 @@ const Screenshot3 = () => (
 
     <div className="flex items-start gap-3 text-gray-400 text-sm mb-8">
       <div className="flex items-center gap-2">
-        <div className="w-2 h-2 rounded-full bg-[#1fcc5e]" />
+        <div className="w-2 h-2 rounded-full bg-[#5B6CF7]" />
         Punctuation & symbols: parentheses, brackets, quotes
       </div>
       <div className="flex items-center gap-2">
-        <div className="w-2 h-2 rounded-full bg-[#1fcc5e]" />
+        <div className="w-2 h-2 rounded-full bg-[#8B5CF6]" />
         Casing commands: camelCase, snake_case, CONSTANT_CASE
       </div>
       <div className="flex items-center gap-2">
-        <div className="w-2 h-2 rounded-full bg-[#1fcc5e]" />
+        <div className="w-2 h-2 rounded-full bg-[#F97316]" />
         Literal mode for identifiers
       </div>
     </div>
 
     <div className="flex-1 flex gap-8">
       {/* Code editor */}
-      <div className="flex-1 bg-[#1e1e1e] rounded-xl border border-gray-700 overflow-hidden">
-        <div className="flex items-center gap-2 px-4 py-2 bg-[#323233] border-b border-gray-700">
+      <div className="flex-1 bg-[#14142B] rounded-xl border border-gray-700 overflow-hidden">
+        <div className="flex items-center gap-2 px-4 py-2 bg-[#1C1C3A] border-b border-gray-700">
           <div className="flex gap-1.5">
             <div className="w-3 h-3 rounded-full bg-red-500" />
             <div className="w-3 h-3 rounded-full bg-yellow-500" />
             <div className="w-3 h-3 rounded-full bg-green-500" />
           </div>
           <span className="text-gray-400 text-sm ml-2">validator.py</span>
-          <span className="ml-auto bg-[#1fcc5e] text-black text-xs font-bold px-2 py-0.5 rounded">Code Mode ON</span>
+          <span className="ml-auto bg-[#5B6CF7] text-white text-xs font-bold px-2 py-0.5 rounded">Code Mode ON</span>
         </div>
         <div className="p-6 font-mono text-sm space-y-1">
           <div><span className="text-gray-500 mr-4">1</span><span className="text-purple-400">import</span> <span className="text-white">re</span></div>
@@ -402,11 +414,11 @@ const Screenshot3 = () => (
       </div>
 
       {/* Voice to Code table */}
-      <div className="w-80 bg-[#111115] rounded-xl border border-gray-800 p-6">
+      <div className="w-80 bg-[#14142B] rounded-xl border border-gray-800 p-6">
         <div className="flex items-center gap-4 mb-6 text-sm font-semibold">
           <span className="text-gray-400">VOICE</span>
           <span className="text-gray-600">→</span>
-          <span className="text-[#1fcc5e]">CODE</span>
+          <span className="text-[#5B6CF7]">CODE</span>
         </div>
 
         <div className="space-y-4 text-sm">
@@ -424,7 +436,7 @@ const Screenshot3 = () => (
           ].map(([voice, code], i) => (
             <div key={i} className="flex justify-between">
               <span className="text-gray-400">{voice}</span>
-              <span className="text-[#1fcc5e] font-mono">{code}</span>
+              <span className="text-[#5B6CF7] font-mono">{code}</span>
             </div>
           ))}
         </div>
@@ -438,14 +450,14 @@ const Screenshot3 = () => (
     </div>
 
     {/* Spoken input / Output */}
-    <div className="mt-8 bg-[#111115] rounded-xl border border-gray-800 p-4">
+    <div className="mt-8 bg-[#14142B] rounded-xl border border-gray-800 p-4">
       <div className="flex items-center gap-4">
         <span className="text-gray-500 text-sm">You said:</span>
         <span className="text-gray-300">"def validate input open paren data colon dict close paren"</span>
       </div>
       <div className="flex items-center gap-4 mt-2">
         <span className="text-gray-500 text-sm">Output:</span>
-        <span className="text-[#1fcc5e] font-mono">def validate_input(data: Dict):</span>
+        <span className="text-[#5B6CF7] font-mono">def validate_input(data: Dict):</span>
       </div>
     </div>
   </div>
@@ -453,14 +465,14 @@ const Screenshot3 = () => (
 
 // Screenshot 4: Per-App Profiles
 const Screenshot4 = () => (
-  <div className="w-full h-full bg-[#0a0a0f] p-16 flex flex-col">
+  <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col">
     <div className="flex items-center gap-2 mb-8">
       <WhispererLogo />
       {/* Pro Pack indicator - aligned with logo */}
       <div className="ml-auto flex flex-col items-end gap-2.5">
-        <div className="inline-flex items-center gap-2 bg-[#1fcc5e]/10 border border-[#1fcc5e]/30 rounded-full px-3 py-1.5">
-          <span className="bg-[#1fcc5e] text-black text-xs font-bold px-2 py-0.5 rounded">PRO</span>
-          <span className="text-[#1fcc5e] text-sm font-medium">Part of Pro Pack</span>
+        <div className="inline-flex items-center gap-2 bg-[#5B6CF7]/10 border border-[#5B6CF7]/30 rounded-full px-3 py-1.5">
+          <span className="bg-[#5B6CF7] text-white text-xs font-bold px-2 py-0.5 rounded">PRO</span>
+          <span className="text-[#5B6CF7] text-sm font-medium">Part of Pro Pack</span>
         </div>
         <span className="text-gray-500 text-xs bg-gray-800/50 border border-gray-700 rounded-full px-3 py-1">Available through In-App Purchase</span>
       </div>
@@ -468,7 +480,7 @@ const Screenshot4 = () => (
 
     <div className="mb-4">
       <h1 className="text-5xl font-bold text-white">Per-App Profiles.</h1>
-      <h1 className="text-5xl font-bold text-[#1fcc5e]">Context-aware dictation.</h1>
+      <h1 className="text-5xl font-bold text-[#5B6CF7]">Context-aware dictation.</h1>
     </div>
 
     <p className="text-gray-400 text-lg mb-2">
@@ -480,14 +492,14 @@ const Screenshot4 = () => (
 
     <div className="flex-1 space-y-6">
       {/* Slack */}
-      <div className="bg-[#111115] rounded-xl border-l-4 border-l-purple-500 p-6">
+      <div className="bg-[#14142B] rounded-xl border-l-4 border-l-purple-500 p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-10 rounded-lg overflow-hidden">
             <img src={slackIcon.src} alt="Slack" className="w-full h-full object-contain" />
           </div>
           <span className="text-white text-xl font-semibold">Slack</span>
           <span className="bg-purple-500 text-white text-xs font-semibold px-2 py-1 rounded">Chat Style</span>
-          <span className="ml-auto bg-[#1fcc5e] text-black text-xs font-semibold px-3 py-1 rounded-full">Active</span>
+          <span className="ml-auto bg-[#5B6CF7] text-white text-xs font-semibold px-3 py-1 rounded-full">Active</span>
         </div>
         <p className="text-gray-300 text-lg mb-2">hey can you review the PR when you get a chance</p>
         <p className="text-gray-300 text-lg mb-4">thanks!</p>
@@ -495,7 +507,7 @@ const Screenshot4 = () => (
       </div>
 
       {/* Gmail */}
-      <div className="bg-[#111115] rounded-xl border-l-4 border-l-red-500 p-6">
+      <div className="bg-[#14142B] rounded-xl border-l-4 border-l-red-500 p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-10 rounded-lg overflow-hidden">
             <img src={gmailIcon.src} alt="Gmail" className="w-full h-full object-contain" />
@@ -509,7 +521,7 @@ const Screenshot4 = () => (
       </div>
 
       {/* VS Code */}
-      <div className="bg-[#111115] rounded-xl border-l-4 border-l-blue-500 p-6">
+      <div className="bg-[#14142B] rounded-xl border-l-4 border-l-blue-500 p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-10 rounded-lg overflow-hidden">
             <img src={vscodeIcon.src} alt="VS Code" className="w-full h-full object-contain" />
@@ -529,28 +541,30 @@ const Screenshot4 = () => (
 
 // Screenshot 5: How It Works
 const Screenshot5 = () => (
-  <div className="w-full h-full bg-[#0a0a0f] p-16 flex flex-col">
+  <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col">
     <WhispererLogo />
 
     <div className="text-center mt-16 mb-16">
       <h1 className="text-5xl font-bold text-white">
-        How Whisperer <span className="text-[#1fcc5e]">works</span>
+        How Whisperer <span className="text-[#5B6CF7]">works</span>
       </h1>
       <p className="text-gray-400 text-lg mt-4">Three simple steps to effortless dictation.</p>
     </div>
 
     <div className="flex-1 flex gap-8">
-      {/* Step 1 */}
-      <div className="flex-1 bg-[#111115] rounded-2xl border border-gray-800 p-8">
+      {/* Step 1 - Blue (Keyboard) */}
+      <div className="flex-1 bg-[#14142B] rounded-2xl border border-gray-800 border-l-4 border-l-[#5B6CF7] p-8">
         <div className="flex justify-between items-start mb-6">
-          <span className="text-[#1fcc5e] text-4xl font-bold">01</span>
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1fcc5e" strokeWidth="1.5">
-            <rect x="2" y="6" width="20" height="12" rx="2"/>
-            <line x1="6" y1="10" x2="6" y2="14"/>
-            <line x1="10" y1="10" x2="10" y2="14"/>
-            <line x1="14" y1="10" x2="14" y2="14"/>
-            <line x1="18" y1="10" x2="18" y2="14"/>
-          </svg>
+          <span className="text-[#5B6CF7] text-4xl font-bold">01</span>
+          <div className="w-12 h-12 rounded-xl bg-[#5B6CF7]/15 flex items-center justify-center">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B6CF7" strokeWidth="1.5">
+              <rect x="2" y="6" width="20" height="12" rx="2"/>
+              <line x1="6" y1="10" x2="6" y2="14"/>
+              <line x1="10" y1="10" x2="10" y2="14"/>
+              <line x1="14" y1="10" x2="14" y2="14"/>
+              <line x1="18" y1="10" x2="18" y2="14"/>
+            </svg>
+          </div>
         </div>
         <h3 className="text-2xl font-bold text-white mb-2">Hold your key</h3>
         <p className="text-gray-400 mb-8">Hold Fn or your chosen shortcut to start recording.</p>
@@ -559,24 +573,26 @@ const Screenshot5 = () => (
           <div className="bg-gray-800 rounded-xl px-8 py-6">
             <span className="text-white text-2xl font-semibold">Fn</span>
           </div>
-          <div className="w-4 h-4 rounded-full bg-[#1fcc5e]" />
+          <div className="w-4 h-4 rounded-full bg-[#5B6CF7]" />
         </div>
       </div>
 
       {/* Arrow */}
       <div className="flex items-center">
-        <div className="w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-[#1fcc5e]" />
+        <div className="w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-[#EF4444]" />
       </div>
 
-      {/* Step 2 */}
-      <div className="flex-1 bg-[#111115] rounded-2xl border border-gray-800 p-8">
+      {/* Step 2 - Red (Microphone) */}
+      <div className="flex-1 bg-[#14142B] rounded-2xl border border-gray-800 border-l-4 border-l-[#EF4444] p-8">
         <div className="flex justify-between items-start mb-6">
-          <span className="text-[#1fcc5e] text-4xl font-bold">02</span>
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1fcc5e" strokeWidth="1.5">
-            <path d="M12 2a3 3 0 00-3 3v7a3 3 0 006 0V5a3 3 0 00-3-3z"/>
-            <path d="M19 10v2a7 7 0 01-14 0v-2"/>
-            <line x1="12" y1="19" x2="12" y2="22"/>
-          </svg>
+          <span className="text-[#EF4444] text-4xl font-bold">02</span>
+          <div className="w-12 h-12 rounded-xl bg-[#EF4444]/15 flex items-center justify-center">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="1.5">
+              <path d="M12 2a3 3 0 00-3 3v7a3 3 0 006 0V5a3 3 0 00-3-3z"/>
+              <path d="M19 10v2a7 7 0 01-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="22"/>
+            </svg>
+          </div>
         </div>
         <h3 className="text-2xl font-bold text-white mb-2">Speak naturally</h3>
         <p className="text-gray-400 mb-8">See a live preview and waveform while you talk.</p>
@@ -585,7 +601,7 @@ const Screenshot5 = () => (
           {[...Array(24)].map((_, i) => (
             <div
               key={i}
-              className="w-2 bg-[#1fcc5e] rounded-full"
+              className="w-2 bg-[#EF4444] rounded-full"
               style={{ height: `${20 + Math.sin(i * 0.5) * 30}px` }}
             />
           ))}
@@ -594,18 +610,20 @@ const Screenshot5 = () => (
 
       {/* Arrow */}
       <div className="flex items-center">
-        <div className="w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-[#1fcc5e]" />
+        <div className="w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-[#22C55E]" />
       </div>
 
-      {/* Step 3 */}
-      <div className="flex-1 bg-[#111115] rounded-2xl border border-gray-800 p-8">
+      {/* Step 3 - Green (Text Insert) */}
+      <div className="flex-1 bg-[#14142B] rounded-2xl border border-gray-800 border-l-4 border-l-[#22C55E] p-8">
         <div className="flex justify-between items-start mb-6">
-          <span className="text-[#1fcc5e] text-4xl font-bold">03</span>
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1fcc5e" strokeWidth="1.5">
-            <rect x="4" y="4" width="16" height="16" rx="2"/>
-            <line x1="8" y1="9" x2="16" y2="9"/>
-            <line x1="8" y1="13" x2="14" y2="13"/>
-          </svg>
+          <span className="text-[#22C55E] text-4xl font-bold">03</span>
+          <div className="w-12 h-12 rounded-xl bg-[#22C55E]/15 flex items-center justify-center">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="1.5">
+              <rect x="4" y="4" width="16" height="16" rx="2"/>
+              <line x1="8" y1="9" x2="16" y2="9"/>
+              <line x1="8" y1="13" x2="14" y2="13"/>
+            </svg>
+          </div>
         </div>
         <h3 className="text-2xl font-bold text-white mb-2">Release to insert</h3>
         <p className="text-gray-400 mb-8">Text is refined and inserted into the focused field.</p>
@@ -617,7 +635,7 @@ const Screenshot5 = () => (
     </div>
 
     <div className="text-center mt-12">
-      <div className="inline-flex items-center gap-2 bg-[#111115] border border-gray-800 rounded-full px-6 py-3">
+      <div className="inline-flex items-center gap-2 bg-[#14142B] border border-gray-800 rounded-full px-6 py-3">
         <span className="text-gray-400">Streaming during recording + a final pass on release for maximum accuracy.</span>
       </div>
     </div>
@@ -626,12 +644,12 @@ const Screenshot5 = () => (
 
 // Screenshot 6: Works in Your Apps
 const Screenshot6 = () => (
-  <div className="w-full h-full bg-[#0a0a0f] p-16 flex flex-col">
+  <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col">
     <WhispererLogo />
 
     <div className="text-center mt-12 mb-4">
       <h1 className="text-5xl font-bold text-white">Works in the apps you</h1>
-      <h1 className="text-5xl font-bold text-[#1fcc5e]">already use</h1>
+      <h1 className="text-5xl font-bold text-[#5B6CF7]">already use</h1>
       <p className="text-gray-400 text-lg mt-4">Insertion uses Accessibility APIs with a paste fallback for compatibility.</p>
     </div>
 
@@ -652,7 +670,7 @@ const Screenshot6 = () => (
           { icon: antigravityIcon, name: 'Antigravity' },
         ].map((app, i) => (
           <div key={i} className="flex flex-col items-center gap-2">
-            <div className="w-16 h-16 rounded-2xl bg-[#111115] border border-gray-800 flex items-center justify-center p-2">
+            <div className="w-16 h-16 rounded-2xl bg-[#14142B] border border-gray-800 flex items-center justify-center p-2">
               <img src={app.icon.src} alt={app.name} className="w-10 h-10 object-contain" />
             </div>
             <span className="text-gray-400 text-sm">{app.name}</span>
@@ -667,21 +685,25 @@ const Screenshot6 = () => (
         icon={<Keyboard className="w-5 h-5" />}
         title="Universal Input"
         subtitle="Works in any text field"
+        color="#F59E0B"
       />
       <FeatureBadge
         icon={<ClipboardCheck className="w-5 h-5" />}
         title="Clipboard-Safe"
         subtitle="Preserves your clipboard"
+        color="#22C55E"
       />
       <FeatureBadge
         icon={<Zap className="w-5 h-5" />}
         title="Smart Fallback"
         subtitle="Types when paste fails"
+        color="#EAB308"
       />
       <FeatureBadge
         icon={<ToggleRight className="w-5 h-5" />}
         title="Auto-Switch"
         subtitle="Profiles change by app"
+        color="#8B5CF6"
       />
     </div>
   </div>
@@ -689,7 +711,7 @@ const Screenshot6 = () => (
 
 // Screenshot 7: One-time Setup
 const Screenshot7 = () => (
-  <div className="w-full h-full bg-[#0a0a0f] p-16 flex flex-col">
+  <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col">
     <WhispererLogo />
 
     <div className="flex-1 flex gap-16 mt-8">
@@ -703,21 +725,21 @@ const Screenshot7 = () => (
 
         <div className="space-y-6">
           <div className="flex items-start gap-4">
-            <span className="w-8 h-8 rounded-full bg-[#1fcc5e] text-black flex items-center justify-center font-bold shrink-0">1</span>
+            <span className="w-8 h-8 rounded-full bg-[#5B6CF7] text-white flex items-center justify-center font-bold shrink-0">1</span>
             <div>
               <div className="text-white font-semibold">Install from App Store</div>
               <div className="text-gray-500 text-sm">Download Whisperer from the Mac App Store</div>
             </div>
           </div>
           <div className="flex items-start gap-4">
-            <span className="w-8 h-8 rounded-full bg-[#1fcc5e] text-black flex items-center justify-center font-bold shrink-0">2</span>
+            <span className="w-8 h-8 rounded-full bg-[#8B5CF6] text-white flex items-center justify-center font-bold shrink-0">2</span>
             <div>
               <div className="text-white font-semibold">Grant permissions</div>
               <div className="text-gray-500 text-sm">Allow Microphone, Accessibility, Input Monitoring</div>
             </div>
           </div>
           <div className="flex items-start gap-4">
-            <span className="w-8 h-8 rounded-full bg-[#1fcc5e] text-black flex items-center justify-center font-bold shrink-0">3</span>
+            <span className="w-8 h-8 rounded-full bg-[#22C55E] text-white flex items-center justify-center font-bold shrink-0">3</span>
             <div>
               <div className="text-white font-semibold">Ready to go!</div>
               <div className="text-gray-500 text-sm">Hold Fn, speak, release. Text appears instantly.</div>
@@ -729,13 +751,13 @@ const Screenshot7 = () => (
       {/* Right: Permission cards */}
       <div className="flex-1 flex gap-6">
         {/* Microphone */}
-        <div className="flex-1 bg-[#111115] rounded-2xl border border-[#1fcc5e] p-6 flex flex-col items-center text-center relative overflow-hidden">
+        <div className="flex-1 bg-[#14142B] rounded-2xl border border-green-500/50 p-6 flex flex-col items-center text-center relative overflow-hidden">
           {/* Subtle glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-[#1fcc5e]/10 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-green-500/10 rounded-full blur-3xl" />
 
           <div className="relative">
-            <div className="w-20 h-20 rounded-2xl bg-[#1fcc5e]/20 flex items-center justify-center mb-4 border border-[#1fcc5e]/30">
-              <Mic className="w-10 h-10 text-[#1fcc5e]" />
+            <div className="w-20 h-20 rounded-2xl bg-green-500/20 flex items-center justify-center mb-4 border border-green-500/30">
+              <Mic className="w-10 h-10 text-green-400" />
             </div>
           </div>
           <h3 className="text-xl font-bold text-white mb-2">Microphone</h3>
@@ -743,26 +765,26 @@ const Screenshot7 = () => (
 
           <div className="mt-auto space-y-3 w-full">
             <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#1fcc5e]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
               Audio stays on device
             </div>
             <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#1fcc5e]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
               No cloud uploads
             </div>
           </div>
 
-          <span className="w-8 h-8 rounded-full bg-[#1fcc5e] text-black flex items-center justify-center font-bold mt-4">1</span>
+          <span className="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center font-bold mt-4">1</span>
         </div>
 
         {/* Accessibility */}
-        <div className="flex-1 bg-[#111115] rounded-2xl border border-[#1fcc5e] p-6 flex flex-col items-center text-center relative overflow-hidden">
+        <div className="flex-1 bg-[#14142B] rounded-2xl border border-[#5B6CF7]/50 p-6 flex flex-col items-center text-center relative overflow-hidden">
           {/* Subtle glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-[#1fcc5e]/10 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-[#5B6CF7]/10 rounded-full blur-3xl" />
 
           <div className="relative">
-            <div className="w-20 h-20 rounded-2xl bg-[#1fcc5e]/20 flex items-center justify-center mb-4 border border-[#1fcc5e]/30">
-              <Hand className="w-10 h-10 text-[#1fcc5e]" />
+            <div className="w-20 h-20 rounded-2xl bg-[#5B6CF7]/20 flex items-center justify-center mb-4 border border-[#5B6CF7]/30">
+              <Hand className="w-10 h-10 text-[#5B6CF7]" />
             </div>
           </div>
           <h3 className="text-xl font-bold text-white mb-2">Accessibility</h3>
@@ -770,26 +792,26 @@ const Screenshot7 = () => (
 
           <div className="mt-auto space-y-3 w-full">
             <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#1fcc5e]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#5B6CF7]" />
               Direct text insertion
             </div>
             <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#1fcc5e]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#5B6CF7]" />
               Works in any app
             </div>
           </div>
 
-          <span className="w-8 h-8 rounded-full bg-[#1fcc5e] text-black flex items-center justify-center font-bold mt-4">2</span>
+          <span className="w-8 h-8 rounded-full bg-[#5B6CF7] text-white flex items-center justify-center font-bold mt-4">2</span>
         </div>
 
         {/* Input Monitoring */}
-        <div className="flex-1 bg-[#111115] rounded-2xl border border-[#1fcc5e] p-6 flex flex-col items-center text-center relative overflow-hidden">
+        <div className="flex-1 bg-[#14142B] rounded-2xl border border-orange-500/50 p-6 flex flex-col items-center text-center relative overflow-hidden">
           {/* Subtle glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-[#1fcc5e]/10 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl" />
 
           <div className="relative">
-            <div className="w-20 h-20 rounded-2xl bg-[#1fcc5e]/20 flex items-center justify-center mb-4 border border-[#1fcc5e]/30">
-              <Eye className="w-10 h-10 text-[#1fcc5e]" />
+            <div className="w-20 h-20 rounded-2xl bg-orange-500/20 flex items-center justify-center mb-4 border border-orange-500/30">
+              <Eye className="w-10 h-10 text-orange-400" />
             </div>
           </div>
           <h3 className="text-xl font-bold text-white mb-2">Input Monitoring</h3>
@@ -797,25 +819,25 @@ const Screenshot7 = () => (
 
           <div className="mt-auto space-y-3 w-full">
             <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#1fcc5e]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-orange-400" />
               Fn key detection
             </div>
             <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#1fcc5e]" />
+              <div className="w-1.5 h-1.5 rounded-full bg-orange-400" />
               Custom shortcuts
             </div>
           </div>
 
-          <span className="w-8 h-8 rounded-full bg-[#1fcc5e] text-black flex items-center justify-center font-bold mt-4">3</span>
+          <span className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold mt-4">3</span>
         </div>
       </div>
     </div>
 
     {/* Bottom badges */}
     <div className="flex justify-center gap-4 mt-8">
-      <span className="border border-[#1fcc5e]/50 text-[#1fcc5e] px-4 py-2 rounded-full text-sm">Standard macOS permissions</span>
-      <span className="border border-[#1fcc5e]/50 text-[#1fcc5e] px-4 py-2 rounded-full text-sm">No data collected</span>
-      <span className="border border-[#1fcc5e]/50 text-[#1fcc5e] px-4 py-2 rounded-full text-sm">No account needed</span>
+      <span className="border border-[#5B6CF7]/50 text-[#5B6CF7] px-4 py-2 rounded-full text-sm">Standard macOS permissions</span>
+      <span className="border border-[#22C55E]/50 text-[#22C55E] px-4 py-2 rounded-full text-sm">No data collected</span>
+      <span className="border border-[#8B5CF6]/50 text-[#8B5CF6] px-4 py-2 rounded-full text-sm">No account needed</span>
     </div>
 
     <p className="text-gray-500 text-center mt-4">Whisperer does not transmit audio. Permissions only enable local dictation and insertion.</p>
@@ -824,12 +846,12 @@ const Screenshot7 = () => (
 
 // Screenshot 8: Models
 const Screenshot8 = () => (
-  <div className="w-full h-full bg-[#0a0a0f] p-16 flex flex-col">
+  <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col">
     <WhispererLogo />
 
     <div className="text-center mt-12 mb-12">
       <h1 className="text-5xl font-bold text-white">
-        Choose <span className="text-[#1fcc5e]">speed or accuracy</span>
+        Choose <span className="text-[#5B6CF7]">speed or accuracy</span>
       </h1>
       <p className="text-gray-400 text-lg mt-4">Optimized offline models for Apple Silicon.</p>
     </div>
@@ -837,20 +859,20 @@ const Screenshot8 = () => (
     <div className="flex-1 flex items-center justify-center">
       <div className="grid grid-cols-3 gap-8 w-full max-w-4xl">
         {[
-          { name: 'Fast', desc: 'Quick responses', time: '~0.3s', size: '75 MB', selected: false },
-          { name: 'Balanced', desc: 'Best of both', time: '~0.8s', size: '500 MB', selected: true },
-          { name: 'Accurate', desc: 'Maximum quality', time: '~2s', size: '3 GB', selected: false },
+          { name: 'Fast', desc: 'Quick responses', time: '~0.3s', size: '75 MB', selected: false, color: '#22C55E' },
+          { name: 'Balanced', desc: 'Best of both', time: '~0.8s', size: '500 MB', selected: true, color: '#5B6CF7' },
+          { name: 'Accurate', desc: 'Maximum quality', time: '~2s', size: '3 GB', selected: false, color: '#8B5CF6' },
         ].map((model, i) => (
           <div
             key={i}
             className={`rounded-2xl p-8 text-center ${
               model.selected
-                ? 'bg-[#1fcc5e]/10 border-2 border-[#1fcc5e]'
-                : 'bg-[#111115] border border-gray-800'
+                ? 'bg-[#5B6CF7]/10 border-2 border-[#5B6CF7]'
+                : 'bg-[#14142B] border border-gray-800'
             }`}
           >
             {model.selected && (
-              <span className="bg-[#1fcc5e] text-black text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block">Selected</span>
+              <span className="bg-[#5B6CF7] text-white text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block">Selected</span>
             )}
             <h3 className="text-3xl font-bold text-white mb-2">{model.name}</h3>
             <p className="text-gray-400 mb-6">{model.desc}</p>
@@ -866,8 +888,8 @@ const Screenshot8 = () => (
               </div>
             </div>
 
-            <div className="flex items-center justify-center gap-2 mt-6 text-[#1fcc5e] text-sm">
-              <div className="w-2 h-2 rounded-full bg-[#1fcc5e]" />
+            <div className="flex items-center justify-center gap-2 mt-6 text-sm" style={{ color: model.color }}>
+              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: model.color }} />
               Preloaded
             </div>
           </div>
@@ -877,7 +899,7 @@ const Screenshot8 = () => (
 
     <div className="flex justify-center gap-4 mt-8">
       <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm flex items-center gap-2">
-        <div className="w-2 h-2 rounded-full bg-[#1fcc5e]" />
+        <div className="w-2 h-2 rounded-full bg-[#5B6CF7]" />
         Instant start (preloaded)
       </span>
       <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm">Offline models</span>
@@ -887,12 +909,12 @@ const Screenshot8 = () => (
 
 // Screenshot 9: Pro Pack
 const Screenshot9 = () => (
-  <div className="w-full h-full bg-[#0a0a0f] p-12 flex flex-col">
+  <div className="w-full h-full bg-[#0C0C1A] p-12 flex flex-col">
     <WhispererLogo />
 
     <div className="text-center mt-6 mb-8">
       <h1 className="text-5xl font-bold text-white">
-        Upgrade <span className="text-[#1fcc5e]">when you need it</span>
+        Upgrade <span className="text-[#5B6CF7]">when you need it</span>
       </h1>
       <p className="text-gray-400 text-lg mt-3">Base dictation included. Pro adds power features.</p>
     </div>
@@ -900,7 +922,7 @@ const Screenshot9 = () => (
     <div className="flex-1 flex items-center justify-center">
       <div className="grid grid-cols-2 gap-8 w-full max-w-4xl">
         {/* Base */}
-        <div className="bg-[#111115] rounded-2xl border border-gray-800 p-6">
+        <div className="bg-[#14142B] rounded-2xl border border-gray-800 p-6">
           <div className="text-sm text-gray-500 mb-1">Base App</div>
           <div className="flex items-baseline gap-1 mb-1">
             <span className="text-3xl font-bold text-white">$2.99</span>
@@ -909,11 +931,17 @@ const Screenshot9 = () => (
           <p className="text-gray-500 text-sm mb-5">Core dictation for everyday use</p>
 
           <div className="space-y-2.5">
-            {['Offline dictation', 'Live preview', 'Works in all apps', 'Multiple models', 'Waveform feedback'].map((feature, i) => (
+            {[
+              { feature: 'Offline dictation', color: '#22C55E' },
+              { feature: 'Live preview', color: '#5B6CF7' },
+              { feature: 'Works in all apps', color: '#06B6D4' },
+              { feature: 'Multiple models', color: '#8B5CF6' },
+              { feature: 'Waveform feedback', color: '#EF4444' },
+            ].map(({ feature, color }, i) => (
               <div key={i} className="flex items-center gap-3">
-                <div className="w-5 h-5 rounded-full bg-[#1fcc5e] flex items-center justify-center">
+                <div className="w-5 h-5 rounded-full flex items-center justify-center" style={{ backgroundColor: color }}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6L9 17L4 12" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <span className="text-gray-300">{feature}</span>
@@ -923,10 +951,10 @@ const Screenshot9 = () => (
         </div>
 
         {/* Pro */}
-        <div className="bg-[#1fcc5e]/10 rounded-2xl border-2 border-[#1fcc5e] p-6 relative">
-          <span className="absolute -top-3 right-6 bg-[#1fcc5e] text-black text-sm font-bold px-4 py-1 rounded-full">MOST POPULAR</span>
+        <div className="bg-[#5B6CF7]/10 rounded-2xl border-2 border-[#5B6CF7] p-6 relative">
+          <span className="absolute -top-3 right-6 bg-[#5B6CF7] text-white text-sm font-bold px-4 py-1 rounded-full">MOST POPULAR</span>
 
-          <div className="text-sm text-[#1fcc5e] mb-1">Pro Pack</div>
+          <div className="text-sm text-[#5B6CF7] mb-1">Pro Pack</div>
           <div className="flex items-baseline gap-1 mb-1">
             <span className="text-3xl font-bold text-white">$14.99</span>
             <span className="text-gray-500 text-sm">lifetime</span>
@@ -934,11 +962,17 @@ const Screenshot9 = () => (
           <p className="text-gray-400 text-sm mb-5">Everything in Base, plus power features</p>
 
           <div className="space-y-2.5">
-            {['Everything in Base', 'Code Mode', 'Per-app profiles', 'Personal dictionary', 'Pro insertion'].map((feature, i) => (
+            {[
+              { feature: 'Everything in Base', color: '#5B6CF7' },
+              { feature: 'Code Mode', color: '#5B6CF7' },
+              { feature: 'Per-app profiles', color: '#8B5CF6' },
+              { feature: 'Personal dictionary', color: '#F97316' },
+              { feature: 'Pro insertion', color: '#EC4899' },
+            ].map(({ feature, color }, i) => (
               <div key={i} className="flex items-center gap-3">
-                <div className="w-5 h-5 rounded-full bg-[#1fcc5e] flex items-center justify-center">
+                <div className="w-5 h-5 rounded-full flex items-center justify-center" style={{ backgroundColor: color }}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6L9 17L4 12" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <span className="text-white font-medium">{feature}</span>
@@ -946,7 +980,7 @@ const Screenshot9 = () => (
             ))}
           </div>
 
-          <button className="w-full mt-5 bg-[#1fcc5e] text-black font-bold py-3 rounded-xl text-lg">
+          <button className="w-full mt-5 bg-gradient-to-r from-[#5B6CF7] to-[#8B5CF6] text-white font-bold py-3 rounded-xl text-lg">
             Get Pro Pack
           </button>
         </div>
@@ -954,7 +988,7 @@ const Screenshot9 = () => (
     </div>
 
     <div className="flex justify-center gap-4 mt-4">
-      <span className="bg-[#1fcc5e] text-black font-semibold px-4 py-2 rounded-full text-sm">One-time Pro Pack</span>
+      <span className="bg-gradient-to-r from-[#5B6CF7] to-[#8B5CF6] text-white font-semibold px-4 py-2 rounded-full text-sm">One-time Pro Pack</span>
       <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm">Restore purchases</span>
     </div>
   </div>
@@ -962,14 +996,14 @@ const Screenshot9 = () => (
 
 // Screenshot 10: Personal Dictionary
 const Screenshot10 = () => (
-  <div className="w-full h-full bg-[#0a0a0f] p-16 flex flex-col">
+  <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col">
     <div className="flex items-center gap-2 mb-8">
       <WhispererLogo />
       {/* Pro Pack indicator - aligned with logo */}
       <div className="ml-auto flex flex-col items-end gap-2.5">
-        <div className="inline-flex items-center gap-2 bg-[#1fcc5e]/10 border border-[#1fcc5e]/30 rounded-full px-3 py-1.5">
-          <span className="bg-[#1fcc5e] text-black text-xs font-bold px-2 py-0.5 rounded">PRO</span>
-          <span className="text-[#1fcc5e] text-sm font-medium">Part of Pro Pack</span>
+        <div className="inline-flex items-center gap-2 bg-[#5B6CF7]/10 border border-[#5B6CF7]/30 rounded-full px-3 py-1.5">
+          <span className="bg-[#5B6CF7] text-white text-xs font-bold px-2 py-0.5 rounded">PRO</span>
+          <span className="text-[#5B6CF7] text-sm font-medium">Part of Pro Pack</span>
         </div>
         <span className="text-gray-500 text-xs bg-gray-800/50 border border-gray-700 rounded-full px-3 py-1">Available through In-App Purchase</span>
       </div>
@@ -982,7 +1016,7 @@ const Screenshot10 = () => (
 
     <div className="flex-1 flex gap-12">
       {/* Dictionary list */}
-      <div className="w-96 bg-[#111115] rounded-2xl border border-gray-800 p-6">
+      <div className="w-96 bg-[#14142B] rounded-2xl border border-gray-800 p-6">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-white font-semibold">Your Dictionary</h3>
           <span className="text-gray-500 text-sm">12 words</span>
@@ -992,7 +1026,7 @@ const Screenshot10 = () => (
           {['Anthropic', 'Claude', 'Kubernetes', 'PostgreSQL', 'GraphQL', 'TypeScript', 'Webpack', 'Vercel'].map((word, i) => (
             <div key={i} className="flex items-center justify-between bg-gray-800 rounded-lg p-3">
               <span className="text-white">{word}</span>
-              <span className="text-[#1fcc5e] text-xs bg-[#1fcc5e]/20 px-2 py-0.5 rounded">Learned</span>
+              <span className="text-[#5B6CF7] text-xs bg-[#5B6CF7]/20 px-2 py-0.5 rounded">Learned</span>
             </div>
           ))}
         </div>
@@ -1003,7 +1037,7 @@ const Screenshot10 = () => (
             placeholder="Add new word..."
             className="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-300 placeholder-gray-500 text-sm"
           />
-          <button className="bg-[#1fcc5e] text-black font-semibold px-4 py-2 rounded-lg text-sm">Add</button>
+          <button className="bg-gradient-to-r from-[#5B6CF7] to-[#8B5CF6] text-white font-semibold px-4 py-2 rounded-lg text-sm">Add</button>
         </div>
       </div>
 
@@ -1015,25 +1049,161 @@ const Screenshot10 = () => (
         </div>
 
         <div className="flex justify-center my-4">
-          <div className="w-10 h-10 rounded-full bg-[#1fcc5e]/20 flex items-center justify-center">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1fcc5e" strokeWidth="2">
+          <div className="w-10 h-10 rounded-full bg-[#5B6CF7]/20 flex items-center justify-center">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5B6CF7" strokeWidth="2">
               <path d="M12 5v14M5 12l7 7 7-7"/>
             </svg>
           </div>
         </div>
 
-        <div className="bg-[#1fcc5e]/10 border border-[#1fcc5e]/30 rounded-xl p-6">
-          <div className="text-[#1fcc5e] text-sm mb-2">With dictionary:</div>
+        <div className="bg-[#5B6CF7]/10 border border-[#5B6CF7]/30 rounded-xl p-6">
+          <div className="text-[#5B6CF7] text-sm mb-2">With dictionary:</div>
           <p className="text-white text-lg">
-            "We need to migrate the <span className="text-[#1fcc5e] font-semibold">PostgreSQL</span> database to <span className="text-[#1fcc5e] font-semibold">Kubernetes</span>"
+            "We need to migrate the <span className="text-[#5B6CF7] font-semibold">PostgreSQL</span> database to <span className="text-[#5B6CF7] font-semibold">Kubernetes</span>"
           </p>
         </div>
       </div>
     </div>
 
     <div className="flex justify-center gap-4 mt-8">
-      <span className="bg-[#1fcc5e] text-black font-semibold px-4 py-2 rounded-full text-sm">Quick add from overlay</span>
+      <span className="bg-gradient-to-r from-[#5B6CF7] to-[#8B5CF6] text-white font-semibold px-4 py-2 rounded-full text-sm">Quick add from overlay</span>
       <span className="bg-gray-800 text-gray-300 px-4 py-2 rounded-full text-sm">Fewer corrections</span>
+    </div>
+  </div>
+);
+
+// Screenshot 11: System-Wide Dictation (Optional Accessibility)
+const Screenshot11 = () => (
+  <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col">
+    {/* Close button */}
+    <button className="w-10 h-10 rounded-full bg-white/[0.06] flex items-center justify-center mb-6 self-start">
+      <X className="w-5 h-5 text-white/50" />
+    </button>
+
+    <div className="flex-1 flex gap-16">
+      {/* Left content */}
+      <div className="flex-1 flex flex-col">
+        {/* Title with Optional badge */}
+        <div className="flex items-center gap-4 mb-3">
+          <h1 className="text-6xl font-bold text-white">Dictate...</h1>
+          <span className="border border-[#22C55E]/50 text-[#22C55E] text-sm font-medium px-4 py-1.5 rounded-full bg-[#22C55E]/10">Optional</span>
+        </div>
+        <p className="text-gray-400 text-lg mb-10">
+          Use Whisperer system-wide — dictate into any text field on your Mac.
+          Accessibility permission is <span className="text-[#22C55E] font-medium">optional</span> and can be enabled later.
+        </p>
+
+        {/* Three step cards */}
+        <div className="space-y-4 mb-10">
+          {/* Hold Shortcut Key - Blue */}
+          <div className="bg-[#1C1C3A] rounded-xl border border-[#5B6CF7]/30 p-5 flex items-center gap-5">
+            <div className="w-14 h-14 rounded-xl bg-[#5B6CF7]/15 flex items-center justify-center shrink-0">
+              <Keyboard className="w-7 h-7 text-[#5B6CF7]" />
+            </div>
+            <div>
+              <h3 className="text-white font-semibold text-lg">Hold Shortcut Key</h3>
+              <p className="text-gray-500 text-sm">Press and hold Fn to start</p>
+            </div>
+          </div>
+
+          {/* Speak Naturally - Red */}
+          <div className="bg-[#1C1C3A] rounded-xl border border-[#EF4444]/30 p-5 flex items-center gap-5">
+            <div className="w-14 h-14 rounded-xl bg-[#EF4444]/15 flex items-center justify-center shrink-0">
+              <div className="flex gap-[3px] items-center">
+                {[8, 14, 20, 14, 8].map((h, i) => (
+                  <div key={i} className="w-[3px] bg-[#EF4444] rounded-full" style={{ height: `${h}px` }} />
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold text-lg">Speak Naturally</h3>
+              <p className="text-gray-500 text-sm">Talk at your normal pace</p>
+            </div>
+          </div>
+
+          {/* Release — Text Appears - Green */}
+          <div className="bg-[#1C1C3A] rounded-xl border border-[#22C55E]/30 p-5 flex items-center gap-5">
+            <div className="w-14 h-14 rounded-xl bg-[#22C55E]/15 flex items-center justify-center shrink-0">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="1.5">
+                <path d="M4 7V4h16v3"/>
+                <path d="M9 20h6"/>
+                <path d="M12 4v16"/>
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-white font-semibold text-lg">Release — Text Appears</h3>
+              <p className="text-gray-500 text-sm">Transcribed text is inserted instantly</p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA button */}
+        <button className="bg-gradient-to-r from-[#5B6CF7] to-[#8B5CF6] text-white font-semibold px-8 py-4 rounded-full text-lg flex items-center gap-3 w-fit mb-4">
+          <Globe className="w-5 h-5" />
+          Enable System-Wide Dictation
+        </button>
+
+        <p className="text-white/50 text-sm mb-3 cursor-pointer hover:text-white/70">Set Up Later</p>
+        <p className="text-gray-600 text-xs">Requires Accessibility permission to detect your shortcut key globally.</p>
+      </div>
+
+      {/* Right illustration */}
+      <div className="flex-1 flex items-center justify-center">
+        <div className="relative w-full h-full bg-[#14142B]/50 rounded-2xl border border-white/[0.06] flex flex-col items-center justify-center">
+          {/* Globe with concentric rings */}
+          <div className="relative mb-16">
+            {/* Glow */}
+            <div className="absolute inset-0 bg-[#5B6CF7]/10 rounded-full blur-3xl scale-125" />
+
+            {/* Outer ring */}
+            <div className="relative w-72 h-72 rounded-full border border-[#5B6CF7]/15 flex items-center justify-center">
+              {/* Middle ring */}
+              <div className="w-52 h-52 rounded-full border border-[#5B6CF7]/25 flex items-center justify-center">
+                {/* Inner ring */}
+                <div className="w-36 h-36 rounded-full border border-[#5B6CF7]/40 flex items-center justify-center bg-[#5B6CF7]/5">
+                  <Globe className="w-16 h-16 text-[#5B6CF7]" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Three small feature icons */}
+          <div className="flex gap-4">
+            <div className="w-14 h-14 rounded-xl bg-[#5B6CF7]/15 flex items-center justify-center border border-[#5B6CF7]/20">
+              <Keyboard className="w-7 h-7 text-[#5B6CF7]" />
+            </div>
+            <div className="w-14 h-14 rounded-xl bg-[#EF4444]/15 flex items-center justify-center border border-[#EF4444]/20">
+              <div className="flex gap-[2px] items-center">
+                {[5, 9, 13, 9, 5].map((h, i) => (
+                  <div key={i} className="w-[2px] bg-[#EF4444] rounded-full" style={{ height: `${h}px` }} />
+                ))}
+              </div>
+            </div>
+            <div className="w-14 h-14 rounded-xl bg-[#22C55E]/15 flex items-center justify-center border border-[#22C55E]/20">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="1.5">
+                <path d="M4 7V4h16v3"/>
+                <path d="M9 20h6"/>
+                <path d="M12 4v16"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Bottom navigation */}
+    <div className="flex items-center justify-between mt-8">
+      <div className="flex items-center gap-2">
+        {[0, 1, 2, 3].map((i) => (
+          <div
+            key={i}
+            className={i === 3 ? 'w-6 h-2.5 rounded-full bg-[#5B6CF7]' : 'w-2.5 h-2.5 rounded-full bg-gray-600'}
+          />
+        ))}
+      </div>
+      <button className="w-10 h-10 rounded-full bg-white/[0.06] flex items-center justify-center">
+        <ChevronLeft className="w-5 h-5 text-white/50" />
+      </button>
     </div>
   </div>
 );
@@ -1049,6 +1219,7 @@ const screenshots = [
   { id: 8, component: Screenshot8, title: "Choose Speed or Accuracy" },
   { id: 9, component: Screenshot9, title: "Pro Pack (Lifetime)" },
   { id: 10, component: Screenshot10, title: "Personal Dictionary (Pro)" },
+  { id: 11, component: Screenshot11, title: "System-Wide Dictation (Optional)" },
 ];
 
 export default function ScreenshotsPage() {
@@ -1076,7 +1247,7 @@ export default function ScreenshotsPage() {
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
-                className={`w-3 h-3 rounded-full ${i === currentIndex ? 'bg-[#1fcc5e]' : 'bg-gray-600'}`}
+                className={`w-3 h-3 rounded-full ${i === currentIndex ? 'bg-[#5B6CF7]' : 'bg-gray-600'}`}
               />
             ))}
           </div>
@@ -1092,7 +1263,7 @@ export default function ScreenshotsPage() {
 
         {/* Title */}
         <div className="text-center mb-4">
-          <span className="text-[#1fcc5e] font-semibold">Screenshot {currentIndex + 1} of {screenshots.length}</span>
+          <span className="text-[#5B6CF7] font-semibold">Screenshot {currentIndex + 1} of {screenshots.length}</span>
           <h2 className="text-xl text-white font-medium">{screenshots[currentIndex].title}</h2>
         </div>
 
@@ -1107,10 +1278,10 @@ export default function ScreenshotsPage() {
             <button
               key={i}
               onClick={() => setCurrentIndex(i)}
-              className={`rounded-lg overflow-hidden border-2 ${i === currentIndex ? 'border-[#1fcc5e]' : 'border-gray-700'}`}
+              className={`rounded-lg overflow-hidden border-2 ${i === currentIndex ? 'border-[#5B6CF7]' : 'border-gray-700'}`}
               style={{ aspectRatio: '16/10' }}
             >
-              <div className="w-full h-full bg-[#0a0a0f] flex items-center justify-center">
+              <div className="w-full h-full bg-[#0C0C1A] flex items-center justify-center">
                 <span className="text-gray-400 text-xs">{i + 1}</span>
               </div>
             </button>
