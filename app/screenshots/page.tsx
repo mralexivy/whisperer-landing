@@ -66,12 +66,12 @@ const Waveform = ({ height = 120, bars = 60, className = "" }: { height?: number
 
 // Feature Badge Component (matches ValueProps style)
 const FeatureBadge = ({ icon, title, subtitle, color = "#5B6CF7" }: { icon: React.ReactNode; title: string; subtitle: string; color?: string }) => (
-  <div className="bg-[#14142B] border border-gray-800 rounded-xl p-5">
+  <div className="bg-[#14142B] border border-white/[0.06] rounded-xl p-5">
     <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: `${color}15` }}>
       <div style={{ color }}>{icon}</div>
     </div>
     <h3 className="text-base font-semibold text-white mb-2">{title}</h3>
-    <p className="text-gray-400 text-sm leading-relaxed">{subtitle}</p>
+    <p className="text-white/50 text-sm leading-relaxed">{subtitle}</p>
   </div>
 );
 
@@ -82,16 +82,16 @@ const ProBadge = () => (
 
 // Screenshot 1: Hero
 const Screenshot1 = () => (
-  <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col">
+  <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col overflow-hidden">
     <WhispererLogo />
 
-    <div className="flex-1 flex">
+    <div className="flex-1 flex min-h-0">
       {/* Left content */}
       <div className="flex-1 flex flex-col justify-center pr-16">
         <h1 className="text-6xl font-bold text-white leading-tight mb-2">
           Hold Fn. Speak. Release.
         </h1>
-        <p className="text-2xl text-gray-400 mb-8">
+        <p className="text-2xl text-white/50 mb-8">
           Text appears where you're typing. 100% offline.
         </p>
 
@@ -115,76 +115,159 @@ const Screenshot1 = () => (
       </div>
 
       {/* Right content - App UI mockups */}
-      <div className="flex-1 relative flex items-center justify-center">
-        {/* Menu bar widget */}
-        <div className="absolute top-8 right-0 bg-[#1C1C3A] rounded-xl border border-gray-800 p-4 w-56 shadow-2xl">
-          <div className="text-white font-semibold mb-1">Whisperer</div>
-          <div className="flex items-center gap-2 text-[#5B6CF7] text-sm mb-3">
-            <div className="w-2 h-2 rounded-full bg-[#5B6CF7]" />
-            Ready
+      <div className="flex-1 relative">
+        {/* Whisperer App Window - top right */}
+        <div className="absolute top-0 right-0 w-[280px] bg-[#0A0A18] rounded-2xl border border-white/[0.06] shadow-2xl overflow-hidden z-10">
+          {/* App Header */}
+          <div className="px-4 pt-4 pb-2">
+            <div className="flex items-center gap-2.5 mb-2.5">
+              <div className="w-8 h-8 rounded-lg bg-[#14142B] border border-white/[0.08] flex items-center justify-center">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  {[3,7,11,15,19].map((x,i) => (
+                    <rect key={i} x={x} y={[7,4,2,4,7][i]} width="2" height={[10,16,20,16,10][i]} rx="1" fill="url(#s1BarG)"/>
+                  ))}
+                  <defs><linearGradient id="s1BarG" x1="0" y1="0" x2="0" y2="1"><stop stopColor="#5B6CF7"/><stop offset="1" stopColor="#8B5CF6"/></linearGradient></defs>
+                </svg>
+              </div>
+              <div>
+                <div className="text-white font-semibold text-xs">Whisperer</div>
+                <div className="flex items-center gap-1">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#5B6CF7]" />
+                  <span className="text-[#5B6CF7] text-[10px]">Ready</span>
+                </div>
+              </div>
+              <div className="ml-auto flex items-center gap-1 bg-white/[0.04] border border-white/[0.06] rounded-md px-2 py-0.5">
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span className="text-white/50 text-[9px]">Large V3 Turbo Q5</span>
+              </div>
+            </div>
+            {/* Tab bar */}
+            <div className="flex gap-0.5">
+              <button className="bg-[#5B6CF7]/15 text-[#5B6CF7] text-[10px] font-medium px-2 py-1 rounded-md flex items-center gap-1">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 12h4l3-9 4 18 3-9h4"/></svg>
+                Status
+              </button>
+              <button className="text-white/[0.35] text-[10px] px-2 py-1 rounded-md flex items-center gap-1">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h2"/></svg>
+                Models
+              </button>
+              <button className="text-white/[0.35] text-[10px] px-2 py-1 rounded-md flex items-center gap-1">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                Settings
+              </button>
+            </div>
           </div>
-          <div className="text-gray-500 text-xs mb-4">Large V3 Turbo Q5</div>
-
-          <div className="flex gap-2 mb-4">
-            <button className="bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg">Status</button>
-            <button className="text-gray-500 text-xs px-3 py-1.5">Models</button>
-            <button className="text-gray-500 text-xs px-3 py-1.5">Settings</button>
+          {/* Cards */}
+          <div className="px-4 pb-3 space-y-1.5">
+            {/* Transcribe card */}
+            <div className="bg-[#14142B] rounded-lg border border-white/[0.06] p-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-0.5 h-full bg-gradient-to-b from-[#5B6CF7] to-[#8B5CF6]" />
+              <div className="flex items-center gap-2 ml-1.5">
+                <div className="w-7 h-7 rounded-lg bg-[#5B6CF7]/10 flex items-center justify-center shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B6CF7" strokeWidth="2" strokeLinecap="round"><rect x="9" y="1" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0014 0"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div className="flex-1">
+                  <div className="text-white font-semibold text-[11px]">Transcribe</div>
+                  <div className="text-white/[0.35] text-[9px]">Record and transcribe your voice</div>
+                </div>
+              </div>
+              <div className="mt-2 ml-1.5">
+                <button className="w-full bg-gradient-to-r from-[#5B6CF7] to-[#8B5CF6] text-white font-semibold text-[11px] py-2 rounded-lg flex items-center justify-center gap-1.5">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="9" y="1" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0014 0"/></svg>
+                  Record
+                </button>
+              </div>
+            </div>
+            {/* Model card */}
+            <div className="bg-[#14142B] rounded-lg border border-white/[0.06] p-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-0.5 h-full bg-gradient-to-b from-[#5B6CF7] to-[#8B5CF6]" />
+              <div className="flex items-center gap-2 ml-1.5">
+                <div className="w-7 h-7 rounded-lg bg-[#5B6CF7]/10 flex items-center justify-center shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B6CF7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h2"/></svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-white/[0.35] text-[9px]">Model</div>
+                  <div className="text-white font-semibold text-[11px] truncate">Large V3 Turbo Q5</div>
+                </div>
+                <span className="text-white/[0.2] text-[9px] bg-white/[0.04] px-1.5 py-0.5 rounded shrink-0">547 MB</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeOpacity="0.2" strokeWidth="2" className="shrink-0"><path d="M9 18l6-6-6-6"/></svg>
+              </div>
+            </div>
+            {/* Microphone card */}
+            <div className="bg-[#14142B] rounded-lg border border-white/[0.06] p-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-0.5 h-full bg-gradient-to-b from-[#5B6CF7] to-[#8B5CF6]" />
+              <div className="flex items-center gap-2 ml-1.5">
+                <div className="w-7 h-7 rounded-lg bg-[#5B6CF7]/10 flex items-center justify-center shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B6CF7" strokeWidth="2" strokeLinecap="round"><rect x="9" y="1" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0014 0"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-white/[0.35] text-[9px]">Microphone</div>
+                  <div className="text-white font-semibold text-[11px] truncate">MacBook Pro Microphone</div>
+                </div>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeOpacity="0.2" strokeWidth="2" className="shrink-0"><path d="M9 18l6-6-6-6"/></svg>
+              </div>
+            </div>
+            {/* System-Wide Dictation card */}
+            <div className="bg-[#14142B] rounded-lg border border-white/[0.06] p-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-0.5 h-full bg-[#22C55E]" />
+              <div className="flex items-center gap-2 ml-1.5">
+                <div className="w-7 h-7 rounded-lg bg-[#22C55E]/10 flex items-center justify-center shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-white/[0.35] text-[9px]">System-Wide Dictation</div>
+                  <div className="text-white font-semibold text-[11px]">Fn → Speak → Release</div>
+                </div>
+                <span className="text-[#22C55E] text-[9px] font-semibold bg-[#22C55E]/10 px-1.5 py-0.5 rounded shrink-0">On</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeOpacity="0.2" strokeWidth="2" className="shrink-0"><path d="M9 18l6-6-6-6"/></svg>
+              </div>
+            </div>
           </div>
-
-          <div className="text-white text-sm font-medium mb-2">How to use</div>
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-[#5B6CF7] text-white text-xs flex items-center justify-center font-bold">1</span>
-              <span className="text-gray-400 text-sm">Press Fn</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-[#5B6CF7] text-white text-xs flex items-center justify-center font-bold">2</span>
-              <span className="text-gray-400 text-sm">Speak</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-[#5B6CF7] text-white text-xs flex items-center justify-center font-bold">3</span>
-              <span className="text-gray-400 text-sm">Release</span>
-            </div>
+          {/* Bottom bar */}
+          <div className="px-4 pb-3 flex gap-1.5">
+            <button className="flex-1 bg-[#5B6CF7]/10 border border-[#5B6CF7]/20 text-[#5B6CF7] text-[10px] font-medium py-1.5 rounded-md flex items-center justify-center gap-1">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+              Workspace
+            </button>
+            <button className="flex-1 bg-[#EF4444]/10 border border-[#EF4444]/20 text-[#EF4444] text-[10px] font-medium py-1.5 rounded-md flex items-center justify-center gap-1">
+              Quit <span className="text-[#EF4444]/50 text-[8px]">⌘Q</span>
+            </button>
           </div>
         </div>
 
-        {/* VS Code window */}
-        <div className="bg-[#14142B] rounded-xl border border-gray-700 overflow-hidden w-[500px] shadow-2xl mt-32">
-          <div className="flex items-center gap-2 px-4 py-2 bg-[#1C1C3A] border-b border-gray-700">
+        {/* VS Code window - below and to the left */}
+        <div className="absolute bottom-4 left-0 w-[460px] bg-[#0A0A18] rounded-2xl border border-white/[0.06] overflow-hidden shadow-2xl">
+          {/* Title bar */}
+          <div className="flex items-center gap-2.5 px-4 py-2.5">
             <div className="flex gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-red-500" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500" />
-              <div className="w-3 h-3 rounded-full bg-green-500" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#F97316]" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#22C55E]" />
             </div>
-            <span className="text-gray-400 text-sm ml-2">metrics.py — VS Code</span>
+            <span className="text-white/50 text-xs ml-1">metrics.py — VS Code</span>
           </div>
-          <div className="p-4 font-mono text-sm">
-            <div><span className="text-gray-500">1</span>  <span className="text-purple-400">def</span> <span className="text-yellow-300">calculate_metrics</span><span className="text-white">(data):</span></div>
-            <div><span className="text-gray-500">2</span>      <span className="text-gray-500"># Process input data</span></div>
-            <div><span className="text-gray-500">3</span>      <span className="text-white">results = []</span></div>
-            <div><span className="text-gray-500">4</span>      <span className="text-purple-400">for</span> <span className="text-white">item</span> <span className="text-purple-400">in</span> <span className="text-white">data:</span></div>
-            <div><span className="text-gray-500">5</span>          <span className="text-purple-400">if</span> <span className="text-white">item.is_valid():</span></div>
-            <div><span className="text-gray-500">6</span>              <span className="text-white">results.append(item)</span></div>
-            <div><span className="text-gray-500">7</span>      <span className="text-purple-400">return</span> <span className="text-white">results</span></div>
+          {/* Code area */}
+          <div className="mx-4 mb-3 bg-[#14142B] rounded-lg border border-white/[0.06] overflow-hidden">
+            <div className="p-3 font-mono text-xs leading-relaxed">
+              <div><span className="text-white/[0.2]">1</span>  <span className="text-purple-400">def</span> <span className="text-yellow-300">calculate_metrics</span><span className="text-white">(data):</span></div>
+              <div><span className="text-white/[0.2]">2</span>      <span className="text-white/[0.35]"># Process input data</span></div>
+              <div><span className="text-white/[0.2]">3</span>      <span className="text-white">results = []</span></div>
+              <div><span className="text-white/[0.2]">4</span>      <span className="text-purple-400">for</span> <span className="text-white">item</span> <span className="text-purple-400">in</span> <span className="text-white">data:</span></div>
+              <div><span className="text-white/[0.2]">5</span>          <span className="text-purple-400">if</span> <span className="text-white">item.is_valid():</span></div>
+              <div><span className="text-white/[0.2]">6</span>              <span className="text-white">results.append(item)</span></div>
+              <div><span className="text-white/[0.2]">7</span>      <span className="text-purple-400">return</span> <span className="text-white">results</span></div>
+            </div>
           </div>
-
           {/* Transcription bar */}
-          <div className="bg-[#1C1C3A] border-t border-gray-700 p-3 flex items-center gap-3">
-            <div className="w-3 h-3 rounded-full bg-[#5B6CF7]" />
-            <div className="flex items-center gap-1">
+          <div className="mx-4 mb-4 bg-[#14142B] rounded-lg border border-white/[0.06] p-2.5 flex items-center gap-2.5 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-0.5 h-full bg-gradient-to-b from-[#5B6CF7] to-[#8B5CF6]" />
+            <div className="w-2.5 h-2.5 rounded-full bg-[#5B6CF7] ml-1.5" />
+            <div className="flex items-center gap-0.5">
               {[...Array(12)].map((_, i) => (
-                <div key={i} className="w-1 bg-gradient-to-t from-[#5B6CF7] to-[#8B5CF6] rounded-full" style={{ height: `${12 + Math.sin(i) * 8}px` }} />
+                <div key={i} className="w-1 bg-gradient-to-t from-[#5B6CF7] to-[#8B5CF6] rounded-full" style={{ height: `${10 + Math.sin(i) * 6}px` }} />
               ))}
             </div>
-            <span className="text-gray-300">return results</span>
-          </div>
-
-          {/* Transcribed badge */}
-          <div className="absolute top-[280px] right-[-20px] bg-[#5B6CF7] text-white font-semibold px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            Transcribed
+            <span className="text-white/90 text-xs">return results</span>
           </div>
         </div>
       </div>
@@ -193,14 +276,14 @@ const Screenshot1 = () => (
     {/* Bottom features */}
     <div className="flex gap-8 pt-8">
       <div className="flex items-center gap-3">
-        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] flex items-center justify-center">
+        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#22C55E] to-[#16A34A] flex items-center justify-center">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
         <div>
           <div className="text-white font-semibold">On-device AI</div>
-          <div className="text-gray-500 text-sm">All processing local</div>
+          <div className="text-white/[0.35] text-sm">All processing local</div>
         </div>
       </div>
       <div className="flex items-center gap-3">
@@ -211,18 +294,18 @@ const Screenshot1 = () => (
         </div>
         <div>
           <div className="text-white font-semibold">100+ languages</div>
-          <div className="text-gray-500 text-sm">Global support</div>
+          <div className="text-white/[0.35] text-sm">Global support</div>
         </div>
       </div>
       <div className="flex items-center gap-3">
-        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] flex items-center justify-center">
+        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#EF4444] to-[#DC2626] flex items-center justify-center">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
         <div>
           <div className="text-white font-semibold">Apple Silicon</div>
-          <div className="text-gray-500 text-sm">Metal optimized</div>
+          <div className="text-white/[0.35] text-sm">Metal optimized</div>
         </div>
       </div>
     </div>
@@ -238,7 +321,7 @@ const Screenshot2 = () => (
       <h1 className="text-6xl font-bold text-white text-center mb-2">
         See words <span className="text-[#5B6CF7]">as you speak</span>
       </h1>
-      <p className="text-xl text-gray-400 text-center mb-16">
+      <p className="text-xl text-white/50 text-center mb-16">
         Live preview while recording. Final pass for accuracy.
       </p>
 
@@ -256,19 +339,19 @@ const Screenshot2 = () => (
           </div>
 
           {/* Transcription text */}
-          <p className="text-lg text-gray-800 font-light leading-relaxed">
+          <p className="text-lg text-slate-800 font-light leading-relaxed">
             The quarterly report shows significant growth in our enterprise segment,
             with a <span className="text-[#5B6CF7] font-semibold">47% increase</span> in recurring revenue
             <span className="inline-block w-0.5 h-5 bg-[#5B6CF7] ml-1 animate-pulse align-middle" />
           </p>
 
           {/* Bottom stats */}
-          <div className="flex items-center gap-4 mt-4 pt-3 border-t border-gray-200">
+          <div className="flex items-center gap-4 mt-4 pt-3 border-t border-slate-200">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 rounded-md bg-[#5B6CF7]/10 flex items-center justify-center">
                 <Mic className="w-3 h-3 text-[#5B6CF7]" />
               </div>
-              <span className="text-gray-500 text-xs">Recording</span>
+              <span className="text-slate-500 text-xs">Recording</span>
             </div>
             <div className="flex items-center gap-0.5">
               {[...Array(10)].map((_, i) => (
@@ -279,7 +362,7 @@ const Screenshot2 = () => (
                 />
               ))}
             </div>
-            <span className="text-gray-400 text-xs ml-auto">0:04</span>
+            <span className="text-slate-400 text-xs ml-auto">0:04</span>
           </div>
         </div>
 
@@ -364,16 +447,16 @@ const Screenshot3 = () => (
           <span className="bg-[#5B6CF7] text-white text-xs font-bold px-2 py-0.5 rounded">PRO</span>
           <span className="text-[#5B6CF7] text-sm font-medium">Part of Pro Pack</span>
         </div>
-        <span className="text-gray-500 text-xs bg-gray-800/50 border border-gray-700 rounded-full px-3 py-1">Available through In-App Purchase</span>
+        <span className="text-white/[0.35] text-xs bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Available through In-App Purchase</span>
       </div>
     </div>
 
     <div className="mb-8">
       <h1 className="text-5xl font-bold text-white mb-2">Code Mode</h1>
-      <p className="text-xl text-gray-400">Speak code naturally.</p>
+      <p className="text-xl text-white/50">Speak code naturally.</p>
     </div>
 
-    <div className="flex items-start gap-3 text-gray-400 text-sm mb-8">
+    <div className="flex items-start gap-3 text-white/50 text-sm mb-8">
       <div className="flex items-center gap-2">
         <div className="w-2 h-2 rounded-full bg-[#5B6CF7]" />
         Punctuation & symbols: parentheses, brackets, quotes
@@ -390,35 +473,35 @@ const Screenshot3 = () => (
 
     <div className="flex-1 flex gap-8">
       {/* Code editor */}
-      <div className="flex-1 bg-[#14142B] rounded-xl border border-gray-700 overflow-hidden">
-        <div className="flex items-center gap-2 px-4 py-2 bg-[#1C1C3A] border-b border-gray-700">
+      <div className="flex-1 bg-[#14142B] rounded-xl border border-white/[0.06] overflow-hidden">
+        <div className="flex items-center gap-2 px-4 py-2 bg-[#1C1C3A] border-b border-white/[0.06]">
           <div className="flex gap-1.5">
             <div className="w-3 h-3 rounded-full bg-red-500" />
             <div className="w-3 h-3 rounded-full bg-yellow-500" />
             <div className="w-3 h-3 rounded-full bg-green-500" />
           </div>
-          <span className="text-gray-400 text-sm ml-2">validator.py</span>
+          <span className="text-white/50 text-sm ml-2">validator.py</span>
           <span className="ml-auto bg-[#5B6CF7] text-white text-xs font-bold px-2 py-0.5 rounded">Code Mode ON</span>
         </div>
         <div className="p-6 font-mono text-sm space-y-1">
-          <div><span className="text-gray-500 mr-4">1</span><span className="text-purple-400">import</span> <span className="text-white">re</span></div>
-          <div><span className="text-gray-500 mr-4">2</span><span className="text-purple-400">from</span> <span className="text-white">typing</span> <span className="text-purple-400">import</span> <span className="text-white">Dict</span></div>
-          <div><span className="text-gray-500 mr-4">3</span></div>
-          <div><span className="text-gray-500 mr-4">4</span><span className="text-purple-400">def</span> <span className="text-yellow-300">validate_input</span><span className="text-white">(data: Dict) -&gt; bool:</span></div>
-          <div><span className="text-gray-500 mr-4">5</span>    <span className="text-green-400">"""Validate user input data."""</span></div>
-          <div><span className="text-gray-500 mr-4">6</span>    <span className="text-purple-400">if not</span> <span className="text-white">data.get("email"):</span></div>
-          <div><span className="text-gray-500 mr-4">7</span>        <span className="text-purple-400">return</span> <span className="text-orange-400">False</span></div>
-          <div><span className="text-gray-500 mr-4">8</span></div>
-          <div><span className="text-gray-500 mr-4">9</span>    <span className="text-white">pattern = r"[a-zA-Z0-9_.+-]+@"</span></div>
-          <div><span className="text-gray-500 mr-4">10</span>    <span className="text-purple-400">return</span> <span className="text-white">bool(re.match(pattern, data["email"]))</span></div>
+          <div><span className="text-white/[0.35] mr-4">1</span><span className="text-purple-400">import</span> <span className="text-white">re</span></div>
+          <div><span className="text-white/[0.35] mr-4">2</span><span className="text-purple-400">from</span> <span className="text-white">typing</span> <span className="text-purple-400">import</span> <span className="text-white">Dict</span></div>
+          <div><span className="text-white/[0.35] mr-4">3</span></div>
+          <div><span className="text-white/[0.35] mr-4">4</span><span className="text-purple-400">def</span> <span className="text-yellow-300">validate_input</span><span className="text-white">(data: Dict) -&gt; bool:</span></div>
+          <div><span className="text-white/[0.35] mr-4">5</span>    <span className="text-green-400">"""Validate user input data."""</span></div>
+          <div><span className="text-white/[0.35] mr-4">6</span>    <span className="text-purple-400">if not</span> <span className="text-white">data.get("email"):</span></div>
+          <div><span className="text-white/[0.35] mr-4">7</span>        <span className="text-purple-400">return</span> <span className="text-orange-400">False</span></div>
+          <div><span className="text-white/[0.35] mr-4">8</span></div>
+          <div><span className="text-white/[0.35] mr-4">9</span>    <span className="text-white">pattern = r"[a-zA-Z0-9_.+-]+@"</span></div>
+          <div><span className="text-white/[0.35] mr-4">10</span>    <span className="text-purple-400">return</span> <span className="text-white">bool(re.match(pattern, data["email"]))</span></div>
         </div>
       </div>
 
       {/* Voice to Code table */}
-      <div className="w-80 bg-[#14142B] rounded-xl border border-gray-800 p-6">
+      <div className="w-80 bg-[#14142B] rounded-xl border border-white/[0.06] p-6">
         <div className="flex items-center gap-4 mb-6 text-sm font-semibold">
-          <span className="text-gray-400">VOICE</span>
-          <span className="text-gray-600">→</span>
+          <span className="text-white/50">VOICE</span>
+          <span className="text-white/[0.2]">→</span>
           <span className="text-[#5B6CF7]">CODE</span>
         </div>
 
@@ -436,7 +519,7 @@ const Screenshot3 = () => (
             ['"string interpolation"', 'f"...{var}..."'],
           ].map(([voice, code], i) => (
             <div key={i} className="flex justify-between">
-              <span className="text-gray-400">{voice}</span>
+              <span className="text-white/50">{voice}</span>
               <span className="text-[#5B6CF7] font-mono">{code}</span>
             </div>
           ))}
@@ -444,20 +527,20 @@ const Screenshot3 = () => (
 
         <div className="flex gap-2 mt-6 flex-wrap">
           {['VS Code', 'JetBrains', 'Xcode', 'Terminal', 'Cursor'].map((app) => (
-            <span key={app} className="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded">{app}</span>
+            <span key={app} className="text-xs text-white/[0.35] bg-white/[0.08] px-2 py-1 rounded">{app}</span>
           ))}
         </div>
       </div>
     </div>
 
     {/* Spoken input / Output */}
-    <div className="mt-8 bg-[#14142B] rounded-xl border border-gray-800 p-4">
+    <div className="mt-8 bg-[#14142B] rounded-xl border border-white/[0.06] p-4">
       <div className="flex items-center gap-4">
-        <span className="text-gray-500 text-sm">You said:</span>
-        <span className="text-gray-300">"def validate input open paren data colon dict close paren"</span>
+        <span className="text-white/[0.35] text-sm">You said:</span>
+        <span className="text-white/90">"def validate input open paren data colon dict close paren"</span>
       </div>
       <div className="flex items-center gap-4 mt-2">
-        <span className="text-gray-500 text-sm">Output:</span>
+        <span className="text-white/[0.35] text-sm">Output:</span>
         <span className="text-[#5B6CF7] font-mono">def validate_input(data: Dict):</span>
       </div>
     </div>
@@ -475,7 +558,7 @@ const Screenshot4 = () => (
           <span className="bg-[#5B6CF7] text-white text-xs font-bold px-2 py-0.5 rounded">PRO</span>
           <span className="text-[#5B6CF7] text-sm font-medium">Part of Pro Pack</span>
         </div>
-        <span className="text-gray-500 text-xs bg-gray-800/50 border border-gray-700 rounded-full px-3 py-1">Available through In-App Purchase</span>
+        <span className="text-white/[0.35] text-xs bg-white/[0.04] border border-white/[0.06] rounded-full px-3 py-1">Available through In-App Purchase</span>
       </div>
     </div>
 
@@ -484,10 +567,10 @@ const Screenshot4 = () => (
       <h1 className="text-5xl font-bold text-[#5B6CF7]">Context-aware dictation.</h1>
     </div>
 
-    <p className="text-gray-400 text-lg mb-2">
+    <p className="text-white/50 text-lg mb-2">
       Slack gets chat style. Gmail gets email format.
     </p>
-    <p className="text-gray-400 text-lg mb-12">
+    <p className="text-white/50 text-lg mb-12">
       IDEs get code mode. Switches automatically.
     </p>
 
@@ -502,9 +585,9 @@ const Screenshot4 = () => (
           <span className="bg-purple-500 text-white text-xs font-semibold px-2 py-1 rounded">Chat Style</span>
           <span className="ml-auto bg-[#5B6CF7] text-white text-xs font-semibold px-3 py-1 rounded-full">Active</span>
         </div>
-        <p className="text-gray-300 text-lg mb-2">hey can you review the PR when you get a chance</p>
-        <p className="text-gray-300 text-lg mb-4">thanks!</p>
-        <p className="text-gray-500 text-sm">Casual, lowercase, quick responses</p>
+        <p className="text-white/90 text-lg mb-2">hey can you review the PR when you get a chance</p>
+        <p className="text-white/90 text-lg mb-4">thanks!</p>
+        <p className="text-white/[0.35] text-sm">Casual, lowercase, quick responses</p>
       </div>
 
       {/* Gmail */}
@@ -516,9 +599,9 @@ const Screenshot4 = () => (
           <span className="text-white text-xl font-semibold">Gmail</span>
           <span className="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">Email Style</span>
         </div>
-        <p className="text-gray-300 text-lg mb-2">Hi team,</p>
-        <p className="text-gray-300 text-lg mb-4">Please review the attached document for the Q3 meeting.</p>
-        <p className="text-gray-500 text-sm">Professional, properly punctuated</p>
+        <p className="text-white/90 text-lg mb-2">Hi team,</p>
+        <p className="text-white/90 text-lg mb-4">Please review the attached document for the Q3 meeting.</p>
+        <p className="text-white/[0.35] text-sm">Professional, properly punctuated</p>
       </div>
 
       {/* VS Code */}
@@ -530,13 +613,13 @@ const Screenshot4 = () => (
           <span className="text-white text-xl font-semibold">VS Code</span>
           <span className="bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded">Code Style</span>
         </div>
-        <p className="text-gray-300 text-lg font-mono mb-2">def validate_input(data: dict) -&gt; bool:</p>
-        <p className="text-gray-300 text-lg font-mono mb-4 pl-8">return data.get('valid', False)</p>
-        <p className="text-gray-500 text-sm">Symbols, casing, structure preserved</p>
+        <p className="text-white/90 text-lg font-mono mb-2">def validate_input(data: dict) -&gt; bool:</p>
+        <p className="text-white/90 text-lg font-mono mb-4 pl-8">return data.get('valid', False)</p>
+        <p className="text-white/[0.35] text-sm">Symbols, casing, structure preserved</p>
       </div>
     </div>
 
-    <p className="text-gray-500 text-center mt-8">Switches automatically based on active app</p>
+    <p className="text-white/[0.35] text-center mt-8">Switches automatically based on active app</p>
   </div>
 );
 
@@ -549,7 +632,7 @@ const Screenshot5 = () => (
       <h1 className="text-5xl font-bold text-white">
         How Whisperer <span className="text-[#5B6CF7]">works</span>
       </h1>
-      <p className="text-gray-400 text-lg mt-4">Three simple steps to effortless dictation.</p>
+      <p className="text-white/50 text-lg mt-4">Three simple steps to effortless dictation.</p>
     </div>
 
     <div className="flex-1 flex items-stretch gap-6">
@@ -564,7 +647,7 @@ const Screenshot5 = () => (
             <span className="text-[#5B6CF7] text-sm font-bold uppercase tracking-wider">Step 1</span>
           </div>
           <h3 className="text-2xl font-bold text-white mb-2">Hold your key</h3>
-          <p className="text-gray-400 text-sm leading-relaxed mb-auto">Hold Fn or your chosen shortcut to start recording.</p>
+          <p className="text-white/50 text-sm leading-relaxed mb-auto">Hold Fn or your chosen shortcut to start recording.</p>
 
           <div className="flex items-center gap-4 mt-6">
             <div className="relative">
@@ -578,10 +661,10 @@ const Screenshot5 = () => (
               </div>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="text-gray-500 text-xs">or customize:</span>
+              <span className="text-white/[0.35] text-xs">or customize:</span>
               <div className="flex gap-1.5">
                 {['⌥', '⌃', '⇧'].map((key) => (
-                  <span key={key} className="bg-[#1C1C3A] border border-white/[0.06] text-gray-400 w-8 h-8 rounded-lg flex items-center justify-center text-sm">{key}</span>
+                  <span key={key} className="bg-[#1C1C3A] border border-white/[0.06] text-white/50 w-8 h-8 rounded-lg flex items-center justify-center text-sm">{key}</span>
                 ))}
               </div>
             </div>
@@ -613,13 +696,13 @@ const Screenshot5 = () => (
             <span className="text-[#EF4444] text-sm font-bold uppercase tracking-wider">Step 2</span>
           </div>
           <h3 className="text-2xl font-bold text-white mb-2">Speak naturally</h3>
-          <p className="text-gray-400 text-sm leading-relaxed mb-auto">See a live preview and waveform while you talk.</p>
+          <p className="text-white/50 text-sm leading-relaxed mb-auto">See a live preview and waveform while you talk.</p>
 
           <div className="mt-6 bg-[#1C1C3A] border border-[#EF4444]/20 rounded-xl p-4">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
               <span className="text-[#EF4444] text-xs font-medium uppercase tracking-wider">Recording</span>
-              <span className="text-gray-500 text-xs ml-auto font-mono">0:04</span>
+              <span className="text-white/[0.35] text-xs ml-auto font-mono">0:04</span>
             </div>
             <div className="flex items-center justify-center gap-[3px] h-10">
               {[...Array(32)].map((_, i) => {
@@ -667,7 +750,7 @@ const Screenshot5 = () => (
             <span className="text-[#22C55E] text-sm font-bold uppercase tracking-wider">Step 3</span>
           </div>
           <h3 className="text-2xl font-bold text-white mb-2">Release to insert</h3>
-          <p className="text-gray-400 text-sm leading-relaxed mb-auto">Text is refined and inserted into the focused field.</p>
+          <p className="text-white/50 text-sm leading-relaxed mb-auto">Text is refined and inserted into the focused field.</p>
 
           <div className="mt-6 bg-[#1C1C3A] border border-[#22C55E]/20 rounded-xl p-4">
             <div className="flex items-center gap-2 mb-2">
@@ -692,7 +775,7 @@ const Screenshot5 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">Streams while recording</span>
+        <span className="text-white/50 text-sm">Streams while recording</span>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#EF4444] to-[#DC2626] flex items-center justify-center">
@@ -700,7 +783,7 @@ const Screenshot5 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">Final pass on release</span>
+        <span className="text-white/50 text-sm">Final pass on release</span>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#22C55E] to-[#16A34A] flex items-center justify-center">
@@ -708,7 +791,7 @@ const Screenshot5 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">Maximum accuracy</span>
+        <span className="text-white/50 text-sm">Maximum accuracy</span>
       </div>
     </div>
   </div>
@@ -723,7 +806,7 @@ const Screenshot6 = () => (
       <h1 className="text-5xl font-bold text-white">
         Works in the apps you <span className="text-[#5B6CF7]">already use</span>
       </h1>
-      <p className="text-gray-400 text-lg mt-4">Accessibility API insertion with a paste fallback for universal compatibility.</p>
+      <p className="text-white/50 text-lg mt-4">Accessibility API insertion with a paste fallback for universal compatibility.</p>
     </div>
 
     <div className="flex-1 flex items-center justify-center">
@@ -747,7 +830,7 @@ const Screenshot6 = () => (
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent" />
               <img src={app.icon.src} alt={app.name} className="w-12 h-12 object-contain relative" />
             </div>
-            <span className="text-gray-400 text-sm font-medium">{app.name}</span>
+            <span className="text-white/50 text-sm font-medium">{app.name}</span>
           </div>
         ))}
       </div>
@@ -767,7 +850,7 @@ const Screenshot6 = () => (
               <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
-          <span className="text-gray-400 text-sm">{item.label}</span>
+          <span className="text-white/50 text-sm">{item.label}</span>
         </div>
       ))}
     </div>
@@ -783,7 +866,7 @@ const Screenshot7 = () => (
       <h1 className="text-5xl font-bold text-white">
         One-time <span className="text-[#5B6CF7]">setup</span>
       </h1>
-      <p className="text-gray-400 text-lg mt-4">Three macOS permissions, then you&apos;re ready to go.</p>
+      <p className="text-white/50 text-lg mt-4">Three macOS permissions, then you&apos;re ready to go.</p>
     </div>
 
     <div className="flex-1 flex items-stretch gap-6">
@@ -798,19 +881,19 @@ const Screenshot7 = () => (
             <span className="text-[#22C55E] text-sm font-bold uppercase tracking-wider">Permission 1</span>
           </div>
           <h3 className="text-2xl font-bold text-white mb-2">Microphone</h3>
-          <p className="text-gray-400 text-sm leading-relaxed mb-auto">Captures your voice for on-device transcription.</p>
+          <p className="text-white/50 text-sm leading-relaxed mb-auto">Captures your voice for on-device transcription.</p>
 
           <div className="mt-6 bg-[#1C1C3A] border border-[#22C55E]/20 rounded-xl p-4">
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-sm text-gray-400">
+              <div className="flex items-center gap-3 text-sm text-white/50">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#22C55E] shrink-0" />
                 Audio stays on device
               </div>
-              <div className="flex items-center gap-3 text-sm text-gray-400">
+              <div className="flex items-center gap-3 text-sm text-white/50">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#22C55E] shrink-0" />
                 No cloud uploads
               </div>
-              <div className="flex items-center gap-3 text-sm text-gray-400">
+              <div className="flex items-center gap-3 text-sm text-white/50">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#22C55E] shrink-0" />
                 Only active when held
               </div>
@@ -843,19 +926,19 @@ const Screenshot7 = () => (
             <span className="text-[#5B6CF7] text-sm font-bold uppercase tracking-wider">Permission 2</span>
           </div>
           <h3 className="text-2xl font-bold text-white mb-2">Accessibility</h3>
-          <p className="text-gray-400 text-sm leading-relaxed mb-auto">Types transcribed text into the focused field.</p>
+          <p className="text-white/50 text-sm leading-relaxed mb-auto">Types transcribed text into the focused field.</p>
 
           <div className="mt-6 bg-[#1C1C3A] border border-[#5B6CF7]/20 rounded-xl p-4">
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-sm text-gray-400">
+              <div className="flex items-center gap-3 text-sm text-white/50">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#5B6CF7] shrink-0" />
                 Direct text insertion
               </div>
-              <div className="flex items-center gap-3 text-sm text-gray-400">
+              <div className="flex items-center gap-3 text-sm text-white/50">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#5B6CF7] shrink-0" />
                 Works in any app
               </div>
-              <div className="flex items-center gap-3 text-sm text-gray-400">
+              <div className="flex items-center gap-3 text-sm text-white/50">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#5B6CF7] shrink-0" />
                 Paste fallback built-in
               </div>
@@ -888,19 +971,19 @@ const Screenshot7 = () => (
             <span className="text-[#EF4444] text-sm font-bold uppercase tracking-wider">Permission 3</span>
           </div>
           <h3 className="text-2xl font-bold text-white mb-2">Input Monitoring</h3>
-          <p className="text-gray-400 text-sm leading-relaxed mb-auto">Detects your activation hotkey globally.</p>
+          <p className="text-white/50 text-sm leading-relaxed mb-auto">Detects your activation hotkey globally.</p>
 
           <div className="mt-6 bg-[#1C1C3A] border border-[#EF4444]/20 rounded-xl p-4">
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-sm text-gray-400">
+              <div className="flex items-center gap-3 text-sm text-white/50">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444] shrink-0" />
                 Fn key detection
               </div>
-              <div className="flex items-center gap-3 text-sm text-gray-400">
+              <div className="flex items-center gap-3 text-sm text-white/50">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444] shrink-0" />
                 Custom shortcuts
               </div>
-              <div className="flex items-center gap-3 text-sm text-gray-400">
+              <div className="flex items-center gap-3 text-sm text-white/50">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#EF4444] shrink-0" />
                 No keylogging
               </div>
@@ -918,7 +1001,7 @@ const Screenshot7 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">Standard macOS permissions</span>
+        <span className="text-white/50 text-sm">Standard macOS permissions</span>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] flex items-center justify-center">
@@ -926,7 +1009,7 @@ const Screenshot7 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">No data collected</span>
+        <span className="text-white/50 text-sm">No data collected</span>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#EF4444] to-[#DC2626] flex items-center justify-center">
@@ -934,7 +1017,7 @@ const Screenshot7 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">No account needed</span>
+        <span className="text-white/50 text-sm">No account needed</span>
       </div>
     </div>
   </div>
@@ -949,7 +1032,7 @@ const Screenshot8 = () => (
       <h1 className="text-5xl font-bold text-white">
         Choose <span className="text-[#5B6CF7]">speed or accuracy</span>
       </h1>
-      <p className="text-gray-400 text-lg mt-4">Optimized offline models for Apple Silicon.</p>
+      <p className="text-white/50 text-lg mt-4">Optimized offline models for Apple Silicon.</p>
     </div>
 
     <div className="flex-1 flex items-stretch gap-6">
@@ -1021,25 +1104,25 @@ const Screenshot8 = () => (
                 {model.selected && (
                   <div className="flex items-center gap-1.5 mt-0.5">
                     <div className="w-2 h-2 rounded-full" style={{ backgroundColor: model.color }} />
-                    <span className="text-xs text-gray-500">Active</span>
+                    <span className="text-xs text-white/[0.35]">Active</span>
                   </div>
                 )}
               </div>
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">{model.name}</h3>
-            <p className="text-gray-400 text-sm leading-relaxed mb-auto">{model.desc}</p>
+            <p className="text-white/50 text-sm leading-relaxed mb-auto">{model.desc}</p>
 
             <div className="mt-6 bg-[#1C1C3A] border rounded-xl p-4 space-y-3" style={{ borderColor: `${model.color}33` }}>
               <div className="flex justify-between items-center">
-                <span className="text-gray-500 text-sm">Latency</span>
+                <span className="text-white/[0.35] text-sm">Latency</span>
                 <span className="text-white text-sm font-medium">{model.time}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-500 text-sm">Model size</span>
+                <span className="text-white/[0.35] text-sm">Model size</span>
                 <span className="text-white text-sm font-medium">{model.size}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-500 text-sm">Quality</span>
+                <span className="text-white/[0.35] text-sm">Quality</span>
                 <div className="flex items-center gap-2">
                   <div className="flex gap-1">
                     {[1, 2, 3, 4].map((bar) => (
@@ -1069,7 +1152,7 @@ const Screenshot8 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">Instant start (preloaded)</span>
+        <span className="text-white/50 text-sm">Instant start (preloaded)</span>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] flex items-center justify-center">
@@ -1077,7 +1160,7 @@ const Screenshot8 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">100% offline models</span>
+        <span className="text-white/50 text-sm">100% offline models</span>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#EF4444] to-[#DC2626] flex items-center justify-center">
@@ -1085,7 +1168,7 @@ const Screenshot8 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">Metal-optimized for Apple Silicon</span>
+        <span className="text-white/50 text-sm">Metal-optimized for Apple Silicon</span>
       </div>
     </div>
   </div>
@@ -1100,7 +1183,7 @@ const Screenshot9 = () => (
       <h1 className="text-5xl font-bold text-white">
         Upgrade <span className="text-[#5B6CF7]">when you need it</span>
       </h1>
-      <p className="text-gray-400 text-lg mt-4">Base dictation included. Pro adds power features.</p>
+      <p className="text-white/50 text-lg mt-4">Base dictation included. Pro adds power features.</p>
     </div>
 
     <div className="flex-1 flex items-stretch gap-6 max-w-5xl mx-auto w-full">
@@ -1120,9 +1203,9 @@ const Screenshot9 = () => (
           </div>
           <div className="flex items-baseline gap-2 mb-1">
             <span className="text-4xl font-bold text-white">$2.99</span>
-            <span className="text-gray-500 text-sm">one-time</span>
+            <span className="text-white/[0.35] text-sm">one-time</span>
           </div>
-          <p className="text-gray-400 text-sm leading-relaxed mb-auto">Core dictation for everyday use.</p>
+          <p className="text-white/50 text-sm leading-relaxed mb-auto">Core dictation for everyday use.</p>
 
           <div className="mt-5 bg-[#1C1C3A] border border-[#22C55E]/20 rounded-xl p-4">
             <div className="space-y-2.5">
@@ -1133,7 +1216,7 @@ const Screenshot9 = () => (
                       <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
-                  <span className="text-gray-300 text-sm">{feature}</span>
+                  <span className="text-white/90 text-sm">{feature}</span>
                 </div>
               ))}
             </div>
@@ -1174,9 +1257,9 @@ const Screenshot9 = () => (
           </div>
           <div className="flex items-baseline gap-2 mb-1">
             <span className="text-4xl font-bold text-white">$14.99</span>
-            <span className="text-gray-500 text-sm">lifetime</span>
+            <span className="text-white/[0.35] text-sm">lifetime</span>
           </div>
-          <p className="text-gray-400 text-sm leading-relaxed mb-auto">Everything in Base, plus power features.</p>
+          <p className="text-white/50 text-sm leading-relaxed mb-auto">Everything in Base, plus power features.</p>
 
           <div className="mt-5 bg-[#1C1C3A] border border-[#5B6CF7]/20 rounded-xl p-4">
             <div className="space-y-2.5">
@@ -1208,7 +1291,7 @@ const Screenshot9 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">One-time purchase</span>
+        <span className="text-white/50 text-sm">One-time purchase</span>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] flex items-center justify-center">
@@ -1216,7 +1299,7 @@ const Screenshot9 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">No subscription</span>
+        <span className="text-white/50 text-sm">No subscription</span>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#EF4444] to-[#DC2626] flex items-center justify-center">
@@ -1224,7 +1307,7 @@ const Screenshot9 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">Restore purchases</span>
+        <span className="text-white/50 text-sm">Restore purchases</span>
       </div>
     </div>
   </div>
@@ -1244,13 +1327,13 @@ const Screenshot10 = () => (
         </div>
 
         <h1 className="text-4xl font-bold text-white mb-2">Personal Dictionary</h1>
-        <p className="text-gray-400 text-sm leading-relaxed mb-8">Names, acronyms, and terms you use daily — always transcribed correctly.</p>
+        <p className="text-white/50 text-sm leading-relaxed mb-8">Names, acronyms, and terms you use daily — always transcribed correctly.</p>
 
         {/* Before/After */}
         <div className="bg-[#14142B] rounded-xl p-5 mb-4 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-1 h-full bg-[#EF4444]" />
           <div className="text-[#EF4444] text-xs font-bold uppercase tracking-wider mb-2">Without dictionary</div>
-          <p className="text-gray-400 text-sm leading-relaxed line-through decoration-[#EF4444]/40">&quot;We need to migrate the post gress queue el database to Cooper netties&quot;</p>
+          <p className="text-white/50 text-sm leading-relaxed line-through decoration-[#EF4444]/40">&quot;We need to migrate the post gress queue el database to Cooper netties&quot;</p>
         </div>
 
         <div className="flex justify-center my-2">
@@ -1290,7 +1373,7 @@ const Screenshot10 = () => (
               <div className="w-3 h-3 rounded-full bg-[#EAB308]" />
               <div className="w-3 h-3 rounded-full bg-[#22C55E]" />
             </div>
-            <span className="text-gray-400 text-sm ml-2">Dictionary — Whisperer</span>
+            <span className="text-white/50 text-sm ml-2">Dictionary — Whisperer</span>
             <div className="ml-auto flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-[#22C55E]" />
               <span className="text-[#22C55E] text-xs">Active</span>
@@ -1301,13 +1384,13 @@ const Screenshot10 = () => (
             {/* Sidebar - Pack list */}
             <div className="w-[180px] bg-[#0F0F23] border-r border-white/[0.06] flex flex-col">
               <div className="p-3">
-                <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg px-3 py-1.5 text-gray-500 text-xs flex items-center gap-2">
+                <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg px-3 py-1.5 text-white/[0.35] text-xs flex items-center gap-2">
                   <Search className="w-3 h-3" />
                   Search packs...
                 </div>
               </div>
               <div className="px-2 mb-1">
-                <span className="text-gray-500 text-[10px] font-bold uppercase tracking-wider px-2">Technical</span>
+                <span className="text-white/[0.35] text-[10px] font-bold uppercase tracking-wider px-2">Technical</span>
               </div>
               <div className="flex-1 overflow-hidden">
                 {[
@@ -1319,14 +1402,14 @@ const Screenshot10 = () => (
                   { name: 'OS & Security', count: 262, active: false },
                   { name: 'Agile', count: 234, active: false },
                 ].map((pack, i) => (
-                  <div key={i} className={`flex items-center justify-between px-3 py-1.5 mx-1 rounded-lg text-xs ${pack.active ? 'bg-[#5B6CF7]/15 text-[#5B6CF7]' : 'text-gray-400'}`}>
+                  <div key={i} className={`flex items-center justify-between px-3 py-1.5 mx-1 rounded-lg text-xs ${pack.active ? 'bg-[#5B6CF7]/15 text-[#5B6CF7]' : 'text-white/50'}`}>
                     <span className={pack.active ? 'font-medium' : ''}>{pack.name}</span>
-                    <span className={pack.active ? 'text-[#5B6CF7]/60' : 'text-gray-600'}>{pack.count}</span>
+                    <span className={pack.active ? 'text-[#5B6CF7]/60' : 'text-white/[0.2]'}>{pack.count}</span>
                   </div>
                 ))}
               </div>
               <div className="px-3 py-2 border-t border-white/[0.06]">
-                <span className="text-gray-500 text-[10px]">12/12 packs enabled</span>
+                <span className="text-white/[0.35] text-[10px]">12/12 packs enabled</span>
               </div>
             </div>
 
@@ -1336,12 +1419,12 @@ const Screenshot10 = () => (
                 <div className="flex items-center gap-2">
                   <BookOpen className="w-4 h-4 text-[#5B6CF7]" />
                   <span className="text-white text-sm font-medium">Concepts</span>
-                  <span className="text-gray-500 text-xs">432 entries</span>
+                  <span className="text-white/[0.35] text-xs">432 entries</span>
                 </div>
                 <div className="bg-[#5B6CF7] text-white text-[10px] font-bold px-2 py-0.5 rounded">+ Add</div>
               </div>
 
-              <div className="flex items-center px-4 py-1.5 border-b border-white/[0.06] text-[10px] text-gray-500 uppercase tracking-wider">
+              <div className="flex items-center px-4 py-1.5 border-b border-white/[0.06] text-[10px] text-white/[0.35] uppercase tracking-wider">
                 <span className="w-8">#</span>
                 <span className="flex-1">Spoken</span>
                 <span className="w-4" />
@@ -1363,9 +1446,9 @@ const Screenshot10 = () => (
                   { spoken: 'algo rithm', corrected: 'algorithm', cat: 'term' },
                 ].map((entry, i) => (
                   <div key={i} className={`flex items-center px-4 py-1.5 text-xs ${i % 2 === 0 ? 'bg-white/[0.01]' : ''} border-b border-white/[0.03]`}>
-                    <span className="w-8 text-gray-600">{i + 1}</span>
-                    <span className="flex-1 text-gray-400">{entry.spoken}</span>
-                    <span className="w-4 text-gray-600">→</span>
+                    <span className="w-8 text-white/[0.2]">{i + 1}</span>
+                    <span className="flex-1 text-white/50">{entry.spoken}</span>
+                    <span className="w-4 text-white/[0.2]">→</span>
                     <span className="flex-1 text-white font-medium">{entry.corrected}</span>
                     <span className="w-16 text-right">
                       <span className="text-[10px] text-[#5B6CF7]/70 bg-[#5B6CF7]/10 px-1.5 py-0.5 rounded">{entry.cat}</span>
@@ -1387,7 +1470,7 @@ const Screenshot10 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">Auto-corrects as you speak</span>
+        <span className="text-white/50 text-sm">Auto-corrects as you speak</span>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] flex items-center justify-center">
@@ -1395,7 +1478,7 @@ const Screenshot10 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">12 built-in packs</span>
+        <span className="text-white/50 text-sm">12 built-in packs</span>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#EF4444] to-[#DC2626] flex items-center justify-center">
@@ -1403,7 +1486,7 @@ const Screenshot10 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">Quick add from overlay</span>
+        <span className="text-white/50 text-sm">Quick add from overlay</span>
       </div>
     </div>
   </div>
@@ -1421,7 +1504,7 @@ const Screenshot11 = () => (
           <h1 className="text-5xl font-bold text-white">Dictate...</h1>
           <span className="bg-[#22C55E]/10 border border-[#22C55E]/30 text-[#22C55E] text-sm font-medium px-4 py-1.5 rounded-full">Optional</span>
         </div>
-        <p className="text-gray-400 text-sm leading-relaxed mb-8">
+        <p className="text-white/50 text-sm leading-relaxed mb-8">
           Use Whisperer system-wide — dictate into any text field on your Mac.
           Accessibility permission is <span className="text-[#22C55E] font-medium">optional</span> and can be enabled later.
         </p>
@@ -1437,7 +1520,7 @@ const Screenshot11 = () => (
               </div>
               <div>
                 <h3 className="text-white font-semibold text-sm">Hold Shortcut Key</h3>
-                <p className="text-gray-500 text-xs mt-0.5">Press and hold Fn to start</p>
+                <p className="text-white/[0.35] text-xs mt-0.5">Press and hold Fn to start</p>
               </div>
             </div>
           </div>
@@ -1451,7 +1534,7 @@ const Screenshot11 = () => (
               </div>
               <div>
                 <h3 className="text-white font-semibold text-sm">Speak Naturally</h3>
-                <p className="text-gray-500 text-xs mt-0.5">Talk at your normal pace</p>
+                <p className="text-white/[0.35] text-xs mt-0.5">Talk at your normal pace</p>
               </div>
             </div>
           </div>
@@ -1469,7 +1552,7 @@ const Screenshot11 = () => (
               </div>
               <div>
                 <h3 className="text-white font-semibold text-sm">Release — Text Appears</h3>
-                <p className="text-gray-500 text-xs mt-0.5">Transcribed text inserted instantly</p>
+                <p className="text-white/[0.35] text-xs mt-0.5">Transcribed text inserted instantly</p>
               </div>
             </div>
           </div>
@@ -1481,8 +1564,8 @@ const Screenshot11 = () => (
           Enable System-Wide Dictation
         </button>
 
-        <p className="text-gray-500 text-sm text-center mb-2">Set Up Later</p>
-        <p className="text-gray-600 text-xs text-center">Requires Accessibility permission to detect your shortcut key globally.</p>
+        <p className="text-white/[0.35] text-sm text-center mb-2">Set Up Later</p>
+        <p className="text-white/[0.2] text-xs text-center">Requires Accessibility permission to detect your shortcut key globally.</p>
       </div>
 
       {/* Right: App demo illustration */}
@@ -1498,20 +1581,20 @@ const Screenshot11 = () => (
                 <div className="w-2.5 h-2.5 rounded-full bg-[#EAB308]" />
                 <div className="w-2.5 h-2.5 rounded-full bg-[#22C55E]" />
               </div>
-              <span className="text-gray-500 text-xs ml-1">Slack — #engineering</span>
+              <span className="text-white/[0.35] text-xs ml-1">Slack — #engineering</span>
             </div>
             <div className="p-4 space-y-3">
               <div className="flex items-start gap-3">
                 <div className="w-7 h-7 rounded-lg bg-[#5B6CF7]/20 shrink-0" />
                 <div>
-                  <span className="text-gray-500 text-xs">Sarah K. · 9:41 AM</span>
-                  <p className="text-gray-400 text-xs mt-0.5">Can someone review the deployment PR?</p>
+                  <span className="text-white/[0.35] text-xs">Sarah K. · 9:41 AM</span>
+                  <p className="text-white/50 text-xs mt-0.5">Can someone review the deployment PR?</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-7 h-7 rounded-lg bg-[#22C55E]/20 shrink-0" />
                 <div>
-                  <span className="text-gray-500 text-xs">You · 9:43 AM</span>
+                  <span className="text-white/[0.35] text-xs">You · 9:43 AM</span>
                   <p className="text-white text-xs mt-0.5">I&apos;ll take a look at it right now and leave comments<span className="inline-block w-0.5 h-3 bg-[#5B6CF7] ml-0.5 align-middle" /></p>
                 </div>
               </div>
@@ -1526,12 +1609,12 @@ const Screenshot11 = () => (
                 <div className="w-2.5 h-2.5 rounded-full bg-[#EAB308]" />
                 <div className="w-2.5 h-2.5 rounded-full bg-[#22C55E]" />
               </div>
-              <span className="text-gray-500 text-xs ml-1">Notes — Meeting Notes</span>
+              <span className="text-white/[0.35] text-xs ml-1">Notes — Meeting Notes</span>
             </div>
             <div className="p-4">
-              <p className="text-gray-500 text-xs mb-2 font-semibold">Q1 Planning</p>
-              <p className="text-gray-400 text-xs leading-relaxed">• Review roadmap priorities</p>
-              <p className="text-gray-400 text-xs leading-relaxed">• Assign feature leads</p>
+              <p className="text-white/[0.35] text-xs mb-2 font-semibold">Q1 Planning</p>
+              <p className="text-white/50 text-xs leading-relaxed">• Review roadmap priorities</p>
+              <p className="text-white/50 text-xs leading-relaxed">• Assign feature leads</p>
               <p className="text-white text-xs leading-relaxed">• <span className="text-[#22C55E]">Discuss the migration timeline for the new infrastructure</span><span className="inline-block w-0.5 h-3 bg-[#5B6CF7] ml-0.5 align-middle" /></p>
             </div>
           </div>
@@ -1544,12 +1627,12 @@ const Screenshot11 = () => (
                 <div className="w-2.5 h-2.5 rounded-full bg-[#EAB308]" />
                 <div className="w-2.5 h-2.5 rounded-full bg-[#22C55E]" />
               </div>
-              <span className="text-gray-500 text-xs ml-1">app.ts — VS Code</span>
+              <span className="text-white/[0.35] text-xs ml-1">app.ts — VS Code</span>
             </div>
             <div className="p-4 font-mono text-xs">
-              <div><span className="text-gray-600">12</span>  <span className="text-gray-500">// TODO: add error handling</span></div>
-              <div><span className="text-gray-600">13</span>  <span className="text-purple-400">async</span> <span className="text-yellow-300">function</span> <span className="text-white">deploy() {'{'}</span></div>
-              <div><span className="text-gray-600">14</span>    <span className="text-[#22C55E]">validate all environment variables before deployment</span><span className="inline-block w-0.5 h-3 bg-[#5B6CF7] ml-0.5 align-middle" /></div>
+              <div><span className="text-white/[0.2]">12</span>  <span className="text-white/[0.35]">// TODO: add error handling</span></div>
+              <div><span className="text-white/[0.2]">13</span>  <span className="text-purple-400">async</span> <span className="text-yellow-300">function</span> <span className="text-white">deploy() {'{'}</span></div>
+              <div><span className="text-white/[0.2]">14</span>    <span className="text-[#22C55E]">validate all environment variables before deployment</span><span className="inline-block w-0.5 h-3 bg-[#5B6CF7] ml-0.5 align-middle" /></div>
             </div>
           </div>
 
@@ -1580,7 +1663,7 @@ const Screenshot11 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">Works in every app</span>
+        <span className="text-white/50 text-sm">Works in every app</span>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] flex items-center justify-center">
@@ -1588,7 +1671,7 @@ const Screenshot11 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">Global Fn hotkey</span>
+        <span className="text-white/50 text-sm">Global Fn hotkey</span>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#EF4444] to-[#DC2626] flex items-center justify-center">
@@ -1596,7 +1679,7 @@ const Screenshot11 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">Accessibility optional</span>
+        <span className="text-white/50 text-sm">Accessibility optional</span>
       </div>
     </div>
   </div>
@@ -1677,7 +1760,7 @@ const Screenshot12 = () => (
         <h1 className="text-5xl font-bold text-white leading-tight mb-2">
           Your <span className="text-[#5B6CF7]">Workspace</span>
         </h1>
-        <p className="text-xl text-gray-400 mb-8">
+        <p className="text-xl text-white/50 mb-8">
           Browse, search, and replay all your past transcriptions.
         </p>
 
@@ -1688,7 +1771,7 @@ const Screenshot12 = () => (
             </div>
             <div>
               <div className="text-white font-semibold">Full History</div>
-              <div className="text-gray-500 text-sm">Every transcription saved and searchable</div>
+              <div className="text-white/[0.35] text-sm">Every transcription saved and searchable</div>
             </div>
           </div>
 
@@ -1698,7 +1781,7 @@ const Screenshot12 = () => (
             </div>
             <div>
               <div className="text-white font-semibold">Audio Playback</div>
-              <div className="text-gray-500 text-sm">Replay recordings alongside text</div>
+              <div className="text-white/[0.35] text-sm">Replay recordings alongside text</div>
             </div>
           </div>
 
@@ -1708,7 +1791,7 @@ const Screenshot12 = () => (
             </div>
             <div>
               <div className="text-white font-semibold">Instant Search</div>
-              <div className="text-gray-500 text-sm">Find any transcription with ⌘K</div>
+              <div className="text-white/[0.35] text-sm">Find any transcription with ⌘K</div>
             </div>
           </div>
 
@@ -1718,7 +1801,7 @@ const Screenshot12 = () => (
             </div>
             <div>
               <div className="text-white font-semibold">WPM Analytics</div>
-              <div className="text-gray-500 text-sm">Track speaking speed over time</div>
+              <div className="text-white/[0.35] text-sm">Track speaking speed over time</div>
             </div>
           </div>
         </div>
@@ -1735,15 +1818,15 @@ const Screenshot12 = () => (
 
       {/* Right content - Workspace window mockup */}
       <div className="flex-1 relative flex items-center justify-center">
-        <div className="bg-[#14142B] rounded-xl border border-gray-700 overflow-hidden w-full shadow-2xl">
+        <div className="bg-[#14142B] rounded-xl border border-white/[0.06] overflow-hidden w-full shadow-2xl">
           {/* Window title bar */}
-          <div className="flex items-center gap-2 px-4 py-2.5 bg-[#1C1C3A] border-b border-gray-700">
+          <div className="flex items-center gap-2 px-4 py-2.5 bg-[#1C1C3A] border-b border-white/[0.06]">
             <div className="flex gap-1.5">
               <div className="w-3 h-3 rounded-full bg-red-500" />
               <div className="w-3 h-3 rounded-full bg-yellow-500" />
               <div className="w-3 h-3 rounded-full bg-green-500" />
             </div>
-            <span className="text-gray-400 text-sm ml-2">Whisperer — Workspace</span>
+            <span className="text-white/50 text-sm ml-2">Whisperer — Workspace</span>
           </div>
 
           {/* Window content - Three column workspace */}
@@ -1769,21 +1852,21 @@ const Screenshot12 = () => (
                 </div>
                 <div>
                   <div className="text-white font-semibold text-xs">Whisperer</div>
-                  <div className="text-gray-500 text-[10px]">Workspace</div>
+                  <div className="text-white/[0.35] text-[10px]">Workspace</div>
                 </div>
               </div>
 
               <div className="space-y-0.5 mb-auto">
                 <div className="flex items-center gap-2 px-2.5 py-2 rounded-lg bg-[#5B6CF7]/10 text-[#5B6CF7]">
-                  <FileText className="w-[14px] h-[14px]" />
+                  <Mic className="w-[14px] h-[14px]" />
                   <span className="text-xs font-medium">Transcriptions</span>
                 </div>
-                <div className="flex items-center gap-2 px-2.5 py-2 rounded-lg text-gray-500">
-                  <BookOpen className="w-[14px] h-[14px]" />
+                <div className="flex items-center gap-2 px-2.5 py-2 rounded-lg text-white/50">
+                  <BookOpen className="w-[14px] h-[14px] text-[#EF4444]" />
                   <span className="text-xs">Dictionary</span>
                 </div>
-                <div className="flex items-center gap-2 px-2.5 py-2 rounded-lg text-gray-500">
-                  <Settings className="w-[14px] h-[14px]" />
+                <div className="flex items-center gap-2 px-2.5 py-2 rounded-lg text-white/50">
+                  <Settings className="w-[14px] h-[14px] text-[#F97316]" />
                   <span className="text-xs">Settings</span>
                 </div>
               </div>
@@ -1791,19 +1874,19 @@ const Screenshot12 = () => (
               <div className="bg-[#14142B] border border-white/[0.06] rounded-lg p-3">
                 <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <div className="text-gray-500 text-[8px] uppercase tracking-wider font-medium">Recordings</div>
+                    <div className="text-white/[0.35] text-[8px] uppercase tracking-wider font-medium">Recordings</div>
                     <div className="text-white font-semibold text-sm">417</div>
                   </div>
                   <div>
-                    <div className="text-gray-500 text-[8px] uppercase tracking-wider font-medium">Words</div>
+                    <div className="text-white/[0.35] text-[8px] uppercase tracking-wider font-medium">Words</div>
                     <div className="text-white font-semibold text-sm">7.2K</div>
                   </div>
                   <div>
-                    <div className="text-gray-500 text-[8px] uppercase tracking-wider font-medium">Avg WPM</div>
+                    <div className="text-white/[0.35] text-[8px] uppercase tracking-wider font-medium">Avg WPM</div>
                     <div className="text-white font-semibold text-sm">134</div>
                   </div>
                   <div>
-                    <div className="text-gray-500 text-[8px] uppercase tracking-wider font-medium">Days</div>
+                    <div className="text-white/[0.35] text-[8px] uppercase tracking-wider font-medium">Days</div>
                     <div className="text-white font-semibold text-sm">18</div>
                   </div>
                 </div>
@@ -1819,34 +1902,34 @@ const Screenshot12 = () => (
                   </div>
                   <div>
                     <div className="text-white font-semibold text-xs">Alexander</div>
-                    <div className="text-gray-500 text-[10px]">Welcome back</div>
+                    <div className="text-white/[0.35] text-[10px]">Welcome back</div>
                   </div>
                 </div>
 
                 <div className="relative mb-3">
-                  <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-500" />
-                  <div className="w-full bg-[#14142B] border border-white/[0.06] rounded-lg pl-8 pr-12 py-2 text-xs text-gray-600">
+                  <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/[0.35]" />
+                  <div className="w-full bg-[#14142B] border border-white/[0.06] rounded-lg pl-8 pr-12 py-2 text-xs text-white/[0.2]">
                     Search transcriptions...
                   </div>
                   <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-0.5">
-                    <kbd className="bg-[#1C1C3A] border border-white/[0.08] text-gray-500 px-1 py-0.5 rounded text-[8px] font-mono">⌘</kbd>
-                    <kbd className="bg-[#1C1C3A] border border-white/[0.08] text-gray-500 px-1 py-0.5 rounded text-[8px] font-mono">K</kbd>
+                    <kbd className="bg-[#1C1C3A] border border-white/[0.08] text-white/[0.35] px-1 py-0.5 rounded text-[8px] font-mono">⌘</kbd>
+                    <kbd className="bg-[#1C1C3A] border border-white/[0.08] text-white/[0.35] px-1 py-0.5 rounded text-[8px] font-mono">K</kbd>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-1.5">
                   <span className="bg-[#5B6CF7] text-white text-[10px] font-medium px-3 py-1 rounded-full">All</span>
-                  <span className="text-gray-500 text-[10px] px-3 py-1 rounded-full flex items-center gap-1">
-                    <Pin className="w-2.5 h-2.5" /> Pinned
+                  <span className="text-white/[0.35] text-[10px] px-3 py-1 rounded-full border border-white/[0.06] flex items-center gap-1">
+                    <Pin className="w-2.5 h-2.5 text-[#F97316]" /> Pinned
                   </span>
-                  <span className="text-gray-500 text-[10px] px-3 py-1 rounded-full flex items-center gap-1">
-                    <Flag className="w-2.5 h-2.5" /> Flagged
+                  <span className="text-white/[0.35] text-[10px] px-3 py-1 rounded-full border border-white/[0.06] flex items-center gap-1">
+                    <Flag className="w-2.5 h-2.5 text-[#EF4444]" /> Flagged
                   </span>
                 </div>
               </div>
 
               <div className="flex-1 overflow-hidden px-4">
-                <div className="text-gray-600 text-[8px] uppercase tracking-wider font-medium mb-2">Tuesday, February 24</div>
+                <div className="text-white/[0.2] text-[8px] uppercase tracking-wider font-medium mb-2">Tuesday, February 24</div>
                 <div className="space-y-1.5 mb-4">
                   {transcriptions.filter(t => t.date === "today").slice(0, 3).map((t) => (
                     <div
@@ -1859,15 +1942,15 @@ const Screenshot12 = () => (
                     >
                       <div className="flex items-start gap-2">
                         <div className="shrink-0 pt-0.5">
-                          <div className={`text-xs font-medium ${t.id === 1 ? "text-[#5B6CF7]" : "text-gray-400"}`}>{t.time}</div>
-                          <div className="text-gray-600 text-[8px]">{t.duration}</div>
+                          <div className={`text-xs font-medium ${t.id === 1 ? "text-[#5B6CF7]" : "text-white/50"}`}>{t.time}</div>
+                          <div className="text-white/[0.2] text-[8px]">{t.duration}</div>
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="text-white/80 text-[11px] leading-relaxed line-clamp-2">{t.text}</p>
                           <div className="flex items-center gap-1.5 mt-1.5">
-                            <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-[#22C55E]/10 text-[#22C55E] font-medium">{t.wpm} wpm</span>
-                            <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-[#8B5CF6]/10 text-[#8B5CF6] font-medium">{t.words} words</span>
-                            <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-[#F97316]/10 text-[#F97316] font-medium">{t.lang}</span>
+                            <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-[#F97316]/10 text-[#F97316] font-medium">{t.wpm} wpm</span>
+                            <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-[#5B6CF7]/10 text-[#5B6CF7] font-medium">{t.words} words</span>
+                            <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-[#EF4444]/10 text-[#EF4444] font-medium">{t.lang}</span>
                           </div>
                         </div>
                       </div>
@@ -1875,21 +1958,21 @@ const Screenshot12 = () => (
                   ))}
                 </div>
 
-                <div className="text-gray-600 text-[8px] uppercase tracking-wider font-medium mb-2">Monday, February 23</div>
+                <div className="text-white/[0.2] text-[8px] uppercase tracking-wider font-medium mb-2">Monday, February 23</div>
                 <div className="space-y-1.5">
                   {transcriptions.filter(t => t.date === "yesterday").map((t) => (
                     <div key={t.id} className="bg-[#14142B] border border-white/[0.04] rounded-lg p-2.5">
                       <div className="flex items-start gap-2">
                         <div className="shrink-0 pt-0.5">
-                          <div className="text-xs font-medium text-gray-400">{t.time}</div>
-                          <div className="text-gray-600 text-[8px]">{t.duration}</div>
+                          <div className="text-xs font-medium text-white/50">{t.time}</div>
+                          <div className="text-white/[0.2] text-[8px]">{t.duration}</div>
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="text-white/80 text-[11px] leading-relaxed line-clamp-2">{t.text}</p>
                           <div className="flex items-center gap-1.5 mt-1.5">
-                            <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-[#22C55E]/10 text-[#22C55E] font-medium">{t.wpm} wpm</span>
-                            <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-[#8B5CF6]/10 text-[#8B5CF6] font-medium">{t.words} words</span>
-                            <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-[#F97316]/10 text-[#F97316] font-medium">{t.lang}</span>
+                            <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-[#F97316]/10 text-[#F97316] font-medium">{t.wpm} wpm</span>
+                            <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-[#5B6CF7]/10 text-[#5B6CF7] font-medium">{t.words} words</span>
+                            <span className="text-[8px] px-1.5 py-0.5 rounded-full bg-[#EF4444]/10 text-[#EF4444] font-medium">{t.lang}</span>
                           </div>
                         </div>
                       </div>
@@ -1902,12 +1985,12 @@ const Screenshot12 = () => (
             {/* Right - Detail View */}
             <div className="w-[260px] shrink-0 flex flex-col p-4 overflow-hidden">
               <div className="mb-4">
-                <div className="text-gray-500 text-[8px] uppercase tracking-wider font-medium mb-0.5">Today</div>
+                <div className="text-white/[0.35] text-[8px] uppercase tracking-wider font-medium mb-0.5">Today</div>
                 <div className="text-white font-semibold text-sm">Feb 24 at 10:01 AM</div>
               </div>
 
               <div className="mb-4">
-                <div className="text-gray-500 text-[8px] uppercase tracking-wider font-medium mb-2">Audio Recording</div>
+                <div className="text-white/[0.35] text-[8px] uppercase tracking-wider font-medium mb-2">Audio Recording</div>
                 <div className="bg-[#14142B] border border-white/[0.06] rounded-lg p-3">
                   <div className="flex items-center gap-2">
                     <button className="w-8 h-8 rounded-full bg-[#5B6CF7] flex items-center justify-center shrink-0">
@@ -1925,14 +2008,14 @@ const Screenshot12 = () => (
                         );
                       })}
                     </div>
-                    <span className="text-gray-500 text-[10px] shrink-0 font-mono">0:11</span>
+                    <span className="text-white/[0.35] text-[10px] shrink-0 font-mono">0:11</span>
                   </div>
                 </div>
               </div>
 
               <div className="mb-4">
                 <div className="flex items-center justify-between mb-2">
-                  <div className="text-gray-500 text-[8px] uppercase tracking-wider font-medium">Transcription</div>
+                  <div className="text-white/[0.35] text-[8px] uppercase tracking-wider font-medium">Transcription</div>
                   <button className="text-[#5B6CF7] text-[10px] font-medium">Edit</button>
                 </div>
                 <div className="bg-[#14142B] border border-white/[0.06] rounded-lg p-3">
@@ -1943,33 +2026,33 @@ const Screenshot12 = () => (
               </div>
 
               <div>
-                <div className="text-gray-500 text-[8px] uppercase tracking-wider font-medium mb-2">Details</div>
+                <div className="text-white/[0.35] text-[8px] uppercase tracking-wider font-medium mb-2">Details</div>
                 <div className="grid grid-cols-2 gap-1.5">
                   <div className="bg-[#14142B] border border-white/[0.06] rounded-lg p-2.5">
                     <div className="flex items-center gap-1.5 mb-1">
                       <Clock className="w-3 h-3 text-[#5B6CF7]" />
-                      <span className="text-gray-500 text-[7px] uppercase tracking-wider font-medium">Duration</span>
+                      <span className="text-white/[0.35] text-[7px] uppercase tracking-wider font-medium">Duration</span>
                     </div>
                     <div className="text-white font-semibold text-xs">0:11</div>
                   </div>
                   <div className="bg-[#14142B] border border-white/[0.06] rounded-lg p-2.5">
                     <div className="flex items-center gap-1.5 mb-1">
-                      <Type className="w-3 h-3 text-[#8B5CF6]" />
-                      <span className="text-gray-500 text-[7px] uppercase tracking-wider font-medium">Words</span>
+                      <Type className="w-3 h-3 text-[#5B6CF7]" />
+                      <span className="text-white/[0.35] text-[7px] uppercase tracking-wider font-medium">Words</span>
                     </div>
                     <div className="text-white font-semibold text-xs">28</div>
                   </div>
                   <div className="bg-[#14142B] border border-white/[0.06] rounded-lg p-2.5">
                     <div className="flex items-center gap-1.5 mb-1">
-                      <Zap className="w-3 h-3 text-[#22C55E]" />
-                      <span className="text-gray-500 text-[7px] uppercase tracking-wider font-medium">WPM</span>
+                      <Zap className="w-3 h-3 text-[#F97316]" />
+                      <span className="text-white/[0.35] text-[7px] uppercase tracking-wider font-medium">WPM</span>
                     </div>
                     <div className="text-white font-semibold text-xs">143</div>
                   </div>
                   <div className="bg-[#14142B] border border-white/[0.06] rounded-lg p-2.5">
                     <div className="flex items-center gap-1.5 mb-1">
-                      <Globe className="w-3 h-3 text-[#F97316]" />
-                      <span className="text-gray-500 text-[7px] uppercase tracking-wider font-medium">Language</span>
+                      <Globe className="w-3 h-3 text-[#EF4444]" />
+                      <span className="text-white/[0.35] text-[7px] uppercase tracking-wider font-medium">Language</span>
                     </div>
                     <div className="text-white font-semibold text-xs">English</div>
                   </div>
@@ -1989,7 +2072,7 @@ const Screenshot12 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">On-device storage</span>
+        <span className="text-white/50 text-sm">On-device storage</span>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#22C55E] to-[#16A34A] flex items-center justify-center">
@@ -1997,7 +2080,7 @@ const Screenshot12 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">Pin & flag transcriptions</span>
+        <span className="text-white/50 text-sm">Pin & flag transcriptions</span>
       </div>
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#F97316] to-[#EA580C] flex items-center justify-center">
@@ -2005,7 +2088,7 @@ const Screenshot12 = () => (
             <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="text-gray-400 text-sm">Replay audio recordings</span>
+        <span className="text-white/50 text-sm">Replay audio recordings</span>
       </div>
     </div>
   </div>
@@ -2043,8 +2126,6 @@ export default function ScreenshotsPage() {
 
       const dataUrl = await toPng(el, {
         pixelRatio: scale,
-        canvasWidth: 2560,
-        canvasHeight: 1600,
         backgroundColor: "#0C0C1A",
       });
       const link = document.createElement("a");
@@ -2060,14 +2141,14 @@ export default function ScreenshotsPage() {
     <div className="min-h-screen bg-gray-900 p-8">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-3xl font-bold text-white mb-2">Mac App Store Screenshots</h1>
-        <p className="text-gray-400 mb-8">2560×1600 (16:10 aspect ratio). Click &quot;Download as PNG&quot; to export.</p>
+        <p className="text-white/50 mb-8">2560×1600 (16:10 aspect ratio). Click &quot;Download as PNG&quot; to export.</p>
 
         {/* Navigation */}
         <div className="flex items-center justify-between mb-6">
           <button
             onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))}
             disabled={currentIndex === 0}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg text-white disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 bg-white/[0.08] rounded-lg text-white disabled:opacity-50"
           >
             <ChevronLeft className="w-5 h-5" /> Previous
           </button>
@@ -2085,7 +2166,7 @@ export default function ScreenshotsPage() {
           <button
             onClick={() => setCurrentIndex(Math.min(screenshots.length - 1, currentIndex + 1))}
             disabled={currentIndex === screenshots.length - 1}
-            className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg text-white disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 bg-white/[0.08] rounded-lg text-white disabled:opacity-50"
           >
             Next <ChevronRight className="w-5 h-5" />
           </button>
@@ -2110,7 +2191,7 @@ export default function ScreenshotsPage() {
         </div>
 
         {/* Screenshot */}
-        <div ref={screenshotRef} className="overflow-hidden shadow-2xl border border-gray-700" style={{ aspectRatio: '16/10' }}>
+        <div ref={screenshotRef} className="overflow-hidden shadow-2xl border border-white/[0.06]" style={{ aspectRatio: '16/10' }}>
           <CurrentScreenshot />
         </div>
 
@@ -2120,11 +2201,11 @@ export default function ScreenshotsPage() {
             <button
               key={i}
               onClick={() => setCurrentIndex(i)}
-              className={`rounded-lg overflow-hidden border-2 ${i === currentIndex ? 'border-[#5B6CF7]' : 'border-gray-700'}`}
+              className={`rounded-lg overflow-hidden border-2 ${i === currentIndex ? 'border-[#5B6CF7]' : 'border-white/[0.06]'}`}
               style={{ aspectRatio: '16/10' }}
             >
               <div className="w-full h-full bg-[#0C0C1A] flex items-center justify-center">
-                <span className="text-gray-400 text-xs">{i + 1}</span>
+                <span className="text-white/50 text-xs">{i + 1}</span>
               </div>
             </button>
           ))}
