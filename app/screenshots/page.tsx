@@ -1499,18 +1499,18 @@ const Screenshot11 = () => (
 
     <div className="flex-1 flex gap-10 mt-6">
       {/* Left: Onboarding content */}
-      <div className="w-[380px] flex flex-col pr-4">
+      <div className="w-[500px] flex flex-col pr-4">
         <div className="flex items-center gap-3 mb-4">
-          <h1 className="text-5xl font-bold text-white">Dictate...</h1>
-          <span className="bg-[#22C55E]/10 border border-[#22C55E]/30 text-[#22C55E] text-sm font-medium px-4 py-1.5 rounded-full">Optional</span>
+          <h1 className="text-5xl font-bold text-white whitespace-nowrap">System-Wide Dictation</h1>
+          <span className="bg-[#22C55E]/10 border border-[#22C55E]/30 text-[#22C55E] text-sm font-medium px-4 py-1.5 rounded-full shrink-0">Optional</span>
         </div>
         <p className="text-white/50 text-sm leading-relaxed mb-8">
-          Use Whisperer system-wide — dictate into any text field on your Mac.
+          Use Whisperer system-wide dictate into any text field on your Mac.
           Accessibility permission is <span className="text-[#22C55E] font-medium">optional</span> and can be enabled later.
         </p>
 
         {/* Three step cards */}
-        <div className="space-y-3 mb-8">
+        <div className="space-y-3 mb-8 w-[85%]">
           {/* Step 1 - Blue */}
           <div className="relative bg-[#14142B] rounded-xl overflow-hidden">
             <div className="absolute top-0 left-0 w-1 h-full bg-[#5B6CF7]" />
@@ -1559,13 +1559,14 @@ const Screenshot11 = () => (
         </div>
 
         {/* CTA Button */}
-        <button className="w-full bg-gradient-to-r from-[#5B6CF7] to-[#8B5CF6] text-white font-semibold py-4 rounded-full text-lg flex items-center justify-center gap-3 shadow-lg shadow-[#5B6CF7]/25 mb-4">
-          <Globe className="w-5 h-5" />
-          Enable System-Wide Dictation
-        </button>
-
-        <p className="text-white/[0.35] text-sm text-center mb-2">Set Up Later</p>
-        <p className="text-white/[0.2] text-xs text-center">Requires Accessibility permission to detect your shortcut key globally.</p>
+        <div className="w-[85%]">
+          <button className="w-full bg-gradient-to-r from-[#5B6CF7] to-[#8B5CF6] text-white font-semibold py-4 rounded-full text-lg flex items-center justify-center gap-3 shadow-lg shadow-[#5B6CF7]/25 mb-4">
+            <span className="bg-white/20 text-white font-bold text-sm px-2.5 py-0.5 rounded-md">Fn</span>
+            Enable System-Wide Dictation
+          </button>
+          <p className="text-white/[0.35] text-sm text-center mb-2">Set Up Later</p>
+          <p className="text-white/[0.2] text-xs text-center">Requires Accessibility permission to detect your shortcut key globally.</p>
+        </div>
       </div>
 
       {/* Right: App demo illustration */}
@@ -1574,7 +1575,7 @@ const Screenshot11 = () => (
           {/* Stacked app windows showing text insertion */}
 
           {/* Back window - Slack */}
-          <div className="absolute top-4 right-4 w-[420px] bg-[#14142B] rounded-xl border border-white/[0.06] overflow-hidden shadow-2xl">
+          <div className="absolute top-[60px] right-4 w-[420px] bg-[#14142B] rounded-xl border border-white/[0.06] overflow-hidden shadow-2xl z-20">
             <div className="flex items-center gap-2 px-3 py-2 bg-[#1C1C3A] border-b border-white/[0.06]">
               <div className="flex gap-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />
@@ -1602,7 +1603,7 @@ const Screenshot11 = () => (
           </div>
 
           {/* Middle window - Notes */}
-          <div className="absolute top-[100px] left-0 w-[380px] bg-[#14142B] rounded-xl border border-white/[0.06] overflow-hidden shadow-2xl">
+          <div className="absolute top-[120px] left-0 w-[420px] bg-[#14142B] rounded-xl border border-white/[0.06] overflow-hidden shadow-2xl">
             <div className="flex items-center gap-2 px-3 py-2 bg-[#1C1C3A] border-b border-white/[0.06]">
               <div className="flex gap-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />
@@ -1620,7 +1621,7 @@ const Screenshot11 = () => (
           </div>
 
           {/* Front window - VS Code */}
-          <div className="absolute bottom-4 left-[80px] w-[400px] bg-[#14142B] rounded-xl border border-white/[0.06] overflow-hidden shadow-2xl">
+          <div className="absolute top-[260px] right-[20px] w-[420px] bg-[#14142B] rounded-xl border border-white/[0.06] overflow-hidden shadow-2xl">
             <div className="flex items-center gap-2 px-3 py-2 bg-[#1C1C3A] border-b border-white/[0.06]">
               <div className="flex gap-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />
@@ -1636,27 +1637,29 @@ const Screenshot11 = () => (
             </div>
           </div>
 
-          {/* HUD overlay */}
-          <div className="absolute bottom-[10px] right-[40px] inline-flex items-center gap-2 bg-[#14142B] rounded-full px-2 py-1.5 shadow-2xl border border-white/[0.06]">
-            <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-[#5B6CF7]/15">
-              <Mic className="w-4 h-4 text-[#5B6CF7]" />
-              <div className="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-[#5B6CF7] border border-[#14142B]" />
+          {/* HUD overlay - below VS Code window */}
+          <div className="absolute top-[420px] left-1/2 -translate-x-1/2 inline-flex items-center gap-3 bg-[#14142B] rounded-full px-4 py-3 shadow-2xl border border-white/[0.06] z-10">
+            <div className="relative flex items-center justify-center w-11 h-11 rounded-full bg-[#5B6CF7]/15">
+              <Mic className="w-5 h-5 text-[#5B6CF7]" />
+              <div className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-[#5B6CF7] border-2 border-[#14142B]" />
             </div>
-            <div className="flex items-center gap-0.5 px-2">
-              {[...Array(10)].map((_, i) => (
-                <div key={i} className="w-1 h-1 rounded-full bg-[#5B6CF7]/80" style={{ opacity: 0.4 + Math.sin(i * 0.6) * 0.6 }} />
+            <div className="flex items-center gap-1 px-3">
+              {[...Array(16)].map((_, i) => (
+                <div key={i} className="w-1 bg-gradient-to-t from-[#5B6CF7] to-[#8B5CF6] rounded-full" style={{ height: `${8 + Math.sin(i * 0.6) * 7}px` }} />
               ))}
             </div>
-            <button className="flex items-center justify-center w-7 h-7 rounded-full bg-red-500/15">
-              <X className="w-3.5 h-3.5 text-red-400" />
+            <span className="text-white/90 text-sm font-medium">Listening...</span>
+            <button className="flex items-center justify-center w-10 h-10 rounded-full bg-[#EF4444]/10">
+              <X className="w-5 h-5 text-[#EF4444]" />
             </button>
           </div>
+
         </div>
       </div>
     </div>
 
     {/* Bottom info */}
-    <div className="flex justify-center gap-6 mt-8">
+    <div className="flex justify-center gap-6 pt-4">
       <div className="flex items-center gap-3">
         <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#22C55E] to-[#16A34A] flex items-center justify-center">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
@@ -1684,7 +1687,6 @@ const Screenshot11 = () => (
     </div>
   </div>
 );
-
 // Transcription data for Workspace screenshot
 const transcriptions = [
   {
