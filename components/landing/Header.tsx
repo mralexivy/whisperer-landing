@@ -48,9 +48,11 @@ export const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="hero" size="sm" className="rounded-full px-6">
-              Download
-            </Button>
+            <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
+              <Button variant="hero" size="sm" className="rounded-full px-6">
+                Download
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -77,9 +79,11 @@ export const Header = () => {
                 {link.label}
               </a>
             ))}
-            <Button variant="hero" className="mt-4 rounded-full">
-              Download
-            </Button>
+            <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
+              <Button variant="hero" className="mt-4 rounded-full">
+                Download
+              </Button>
+            </a>
           </nav>
         </div>
       )}

@@ -70,10 +70,12 @@ export const ProPackSection = () => {
                 </li>
               ))}
             </ul>
-            <Button variant="outline" className="w-full" size="lg">
-              <Apple className="w-5 h-5 mr-2" />
-              Download Free Trial
-            </Button>
+            <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button variant="outline" className="w-full" size="lg">
+                <Apple className="w-5 h-5 mr-2" />
+                Download Free Trial
+              </Button>
+            </a>
           </div>
 
           {/* Pro Pack */}
@@ -97,10 +99,12 @@ export const ProPackSection = () => {
                 </li>
               ))}
             </ul>
-            <Button variant="hero" className="w-full" size="lg">
-              <Apple className="w-5 h-5 mr-2" />
-              Get Pro Pack
-            </Button>
+            <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button variant="hero" className="w-full" size="lg">
+                <Apple className="w-5 h-5 mr-2" />
+                Get Pro Pack
+              </Button>
+            </a>
           </div>
         </div>
 

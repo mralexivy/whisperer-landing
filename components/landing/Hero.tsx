@@ -27,10 +27,12 @@ export const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
-              <Button variant="hero" size="xl" className="gap-3">
-                <Apple className="w-5 h-5" />
-                Download on Mac App Store
-              </Button>
+              <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
+                <Button variant="hero" size="xl" className="gap-3">
+                  <Apple className="w-5 h-5" />
+                  Download on Mac App Store
+                </Button>
+              </a>
               <Button variant="heroOutline" size="xl" className="gap-3">
                 <Play className="w-5 h-5" />
                 Watch 20s demo
