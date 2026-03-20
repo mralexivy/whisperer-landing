@@ -1,9 +1,14 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { faqSchema } from "@/lib/structured-data";
+import { FadeIn } from "@/components/ui/animated";
+import { SectionGlow } from "@/components/ui/decorations";
 
 const faqs = [
   {
@@ -50,15 +55,23 @@ const faqs = [
 
 export const FAQ = () => {
   return (
-    <section id="faq" className="py-24 relative">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+    <section id="faq" className="py-24 relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema(faqs)),
+        }}
+      />
+      <SectionGlow position="bottom-center" color="purple" size="md" intensity={0.06} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <FadeIn className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Frequently asked <span className="text-primary">questions</span>
           </h2>
-        </div>
+        </FadeIn>
 
-        <div className="max-w-3xl mx-auto">
+        <FadeIn delay={0.1} className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem
@@ -77,7 +90,7 @@ export const FAQ = () => {
               </AccordionItem>
             ))}
           </Accordion>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

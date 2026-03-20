@@ -11,22 +11,26 @@ import { PrivacySection } from "@/components/landing/PrivacySection";
 import { PerformanceSection } from "@/components/landing/PerformanceSection";
 import { FAQ } from "@/components/landing/FAQ";
 import { Footer } from "@/components/landing/Footer";
+import { GradientDivider } from "@/components/ui/decorations";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <Hero />
+      <GradientDivider />
       <ValueProps />
       <CodeModeSection />
       <HowItWorks />
       <AppLogos />
       <FeaturesGrid />
+      <GradientDivider />
       <ProPackSection />
       <PermissionsSection />
       <PrivacySection />
       <PerformanceSection />
       <FAQ />
+      <GradientDivider />
       <Footer />
     </div>
   );

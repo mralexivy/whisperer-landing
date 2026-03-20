@@ -92,6 +92,14 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% center" },
+          "100%": { backgroundPosition: "200% center" },
+        },
+        "rotate-gradient": {
+          "0%": { "--border-angle": "0deg" },
+          "100%": { "--border-angle": "360deg" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -101,8 +109,10 @@ export default {
         "glow-pulse": "glow-pulse 3s ease-in-out infinite",
         "waveform": "waveform 1s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
+        "shimmer": "shimmer 3s linear infinite",
+        "rotate-gradient": "rotate-gradient 3s linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

@@ -1,36 +1,84 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { Apple } from "lucide-react";
+import { FadeIn } from "@/components/ui/animated";
+import { SectionGlow, GradientDivider } from "@/components/ui/decorations";
 import appIcon from "../../public/assets/app-icon.png";
 
 const footerLinks = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "#product" },
-      { label: "Pro Pack", href: "#pro-pack" },
-      { label: "How it works", href: "#how-it-works" },
-      { label: "FAQ", href: "#faq" },
+      { label: "Features", href: "/#product" },
+      { label: "Code Mode", href: "/code-mode/" },
+      { label: "Voice Coding", href: "/voice-coding/" },
+      { label: "Pricing", href: "/pricing/" },
+      { label: "FAQ", href: "/#faq" },
     ],
   },
   {
-    title: "Support",
+    title: "Compare",
     links: [
-      { label: "Contact", href: "mailto:support@whisperer.app" },
-      { label: "Troubleshooting", href: "#" },
-      { label: "Feature Requests", href: "#" },
+      { label: "All Comparisons", href: "/compare/" },
+      { label: "vs Superwhisper", href: "/compare/vs-superwhisper/" },
+      { label: "vs Apple Dictation", href: "/compare/vs-apple-dictation/" },
+      { label: "vs Wispr Flow", href: "/compare/vs-wispr-flow/" },
+      { label: "vs Voibe", href: "/compare/vs-voibe/" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Blog", href: "/blog/" },
+      { label: "How to Dictate Code", href: "/blog/how-to-dictate-code-on-mac/" },
+      { label: "Voice Coding with Cursor", href: "/blog/voice-coding-with-cursor/" },
+      { label: "RSI Prevention", href: "/blog/rsi-prevention-voice-coding/" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy Policy", href: "#privacy" },
-      { label: "Terms of Service", href: "#" },
-      { label: "Press Kit", href: "#" },
+      { label: "Privacy Policy", href: "/privacy/" },
+      { label: "Contact", href: "mailto:support@whisperer.app" },
     ],
   },
 ];
 
+const CTASection = () => (
+  <section className="py-24 relative overflow-hidden">
+    <SectionGlow position="center" size="xl" intensity={0.12} />
+    <SectionGlow position="top-left" color="purple" size="md" intensity={0.08} />
+
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <FadeIn className="text-center max-w-2xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          Ready to <span className="text-primary">ditch typing</span>?
+        </h2>
+        <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+          Join developers and power users who dictate faster than they type.
+          One-time purchase. No subscription. No cloud.
+        </p>
+        <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
+          <Button variant="hero" size="xl" className="gap-3">
+            <Apple className="w-5 h-5" />
+            Download on Mac App Store
+          </Button>
+        </a>
+        <p className="text-sm text-muted-foreground mt-6">
+          Free trial included. Pro Pack $14.99 lifetime.
+        </p>
+      </FadeIn>
+    </div>
+  </section>
+);
+
 export const Footer = () => {
   return (
+    <>
+    <CTASection />
     <footer id="support" className="py-16 border-t border-border bg-card/50">
+      <FadeIn>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand */}
@@ -88,6 +136,8 @@ export const Footer = () => {
           </div>
         </div>
       </div>
+      </FadeIn>
     </footer>
+    </>
   );
 };

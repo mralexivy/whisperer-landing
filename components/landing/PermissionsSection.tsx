@@ -1,4 +1,8 @@
+"use client";
+
 import { Mic, Accessibility, Keyboard, Apple, ShieldCheck, Sparkles } from "lucide-react";
+import { FadeIn, ScaleIn, FadeInStagger, StaggerItem } from "@/components/ui/animated";
+import { DotGrid } from "@/components/ui/decorations";
 
 const permissions = [
   {
@@ -35,19 +39,21 @@ const setupSteps = [
 
 export const PermissionsSection = () => {
   return (
-    <section className="py-24 relative bg-secondary/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+    <section className="py-24 relative bg-secondary/30 overflow-hidden">
+      <DotGrid />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <FadeIn className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             One-time setup <span className="text-muted-foreground">(required by macOS)</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Whisperer needs macOS permissions to listen for your shortcut and insert text into other apps. This is standard for system-wide productivity tools.
           </p>
-        </div>
+        </FadeIn>
 
         {/* Permissions Table */}
-        <div className="max-w-2xl mx-auto mb-12">
+        <ScaleIn className="max-w-2xl mx-auto mb-12">
           <div className="bg-card border border-border rounded-2xl overflow-hidden">
             {permissions.map((permission, index) => (
               <div
@@ -68,12 +74,12 @@ export const PermissionsSection = () => {
               </div>
             ))}
           </div>
-        </div>
+        </ScaleIn>
 
         {/* Setup flow preview */}
-        <div className="flex flex-wrap justify-center gap-6 mb-12">
+        <FadeInStagger className="flex flex-wrap justify-center gap-6 mb-12">
           {setupSteps.map((step, index) => (
-            <div
+            <StaggerItem
               key={index}
               className="bg-card border border-border rounded-xl p-6 w-full sm:w-auto sm:min-w-[200px] text-center"
             >
@@ -84,9 +90,9 @@ export const PermissionsSection = () => {
               <div className="text-sm font-medium text-foreground">
                 {step.label}
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </FadeInStagger>
 
         {/* Trust note */}
         <div className="text-center">

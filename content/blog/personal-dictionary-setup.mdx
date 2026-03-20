@@ -1,0 +1,158 @@
+---
+title: "Personal Dictionary Setup — Fix Dictation Accuracy for Technical Terms"
+description: "How to add technical terms, project names, and custom vocabulary to Whisperer's personal dictionary. Improve recognition accuracy for domain-specific words."
+date: "2026-02-03"
+keywords: ["dictation personal dictionary mac", "custom words dictation", "dictation accuracy", "speech recognition custom vocabulary"]
+category: "productivity"
+howToSteps:
+  - name: "Open Personal Dictionary"
+    text: "Open Whisperer from the menu bar and go to Settings > Personal Dictionary."
+  - name: "Add a term"
+    text: "Click Add and type the term exactly as you want it recognized and inserted. For example: Kubernetes, useState, PostgreSQL."
+  - name: "Add variations if needed"
+    text: "If a term can be spoken in multiple ways, add each variation. For example, add both 'PostgreSQL' and 'Postgres' if you use both."
+  - name: "Test your terms"
+    text: "Hold Fn and speak a sentence using your custom terms. Verify they're recognized correctly and appear as entered in the dictionary."
+---
+
+Every speech recognition model has blind spots. Technical terms, library names, acronyms, and project-specific vocabulary are rarely in the training data. The result: your dictation tool produces gibberish when you say the words you use most.
+
+Whisperer's personal dictionary fixes this. Add a term once, and it's recognized correctly every time.
+
+<CTA />
+
+## The Problem
+
+Standard Whisper models are trained on general speech data. They handle everyday English well but struggle with:
+
+<Callout type="warning">
+Common misrecognitions without a personal dictionary:
+
+- "Kubernetes" becomes "Cooper Netties" or "Kuber nettys"
+- "useState" becomes "use state" or "you state"
+- "PostgreSQL" becomes "post gress Q L" or "post rescue"
+- "Tailwind" becomes "tail wind" or "tail wined"
+- "Vercel" becomes "versaille" or "verse cell"
+- "Supabase" becomes "super base" or "soup a base"
+</Callout>
+
+These errors compound fast. If you're dictating code or technical documentation, you'll spend more time correcting misrecognitions than you saved by dictating. A personal dictionary eliminates this problem at the source.
+
+## Setting Up Your Dictionary
+
+Here's what the Dictionary interface looks like in Whisperer:
+
+<DictionaryMockup />
+
+<StepList>
+<Step num="1" title="Open Personal Dictionary">
+Open Whisperer from the menu bar and go to **Settings > Personal Dictionary**. This is where you add and manage custom terms.
+</Step>
+
+<Step num="2" title="Add your first term">
+Click **Add** and type the term exactly as you want it to appear when recognized. The spelling you enter is the spelling that gets inserted.
+</Step>
+
+<Step num="3" title="Test it">
+Hold Fn, speak a sentence using the term, and verify it's recognized correctly. If not, check the spelling in your dictionary and try again.
+</Step>
+</StepList>
+
+<Callout type="tip">
+Add terms as you encounter misrecognitions. Don't try to build a complete dictionary upfront — let real usage guide what needs to be added. Over a few days of use, you'll build a dictionary that covers your entire working vocabulary.
+</Callout>
+
+## What to Add
+
+Here are the categories of terms that benefit most from dictionary entries:
+
+<FeatureGrid>
+<FeatureCard title="Library & Framework Names" icon="package">
+React, Next.js, Tailwind, Prisma, Drizzle, Zustand, Zod, tRPC, Vite, Bun, Deno, FastAPI, Django, Flask, Express, NestJS, Svelte, Nuxt, Remix, Astro.
+</FeatureCard>
+
+<FeatureCard title="Infrastructure & Services" icon="cpu">
+Kubernetes, Docker, Terraform, Vercel, Supabase, PlanetScale, Neon, Cloudflare, Hetzner, Fly.io, Railway, AWS, GCP, Azure, PostgreSQL, Redis, Kafka.
+</FeatureCard>
+
+<FeatureCard title="Project-Specific Terms" icon="folder-open">
+Your product name, internal tool names, microservice names, API endpoint names, database table names — anything unique to your codebase that a general model won't know.
+</FeatureCard>
+
+<FeatureCard title="Team Member Names" icon="user">
+Names of colleagues, clients, and stakeholders you frequently mention in messages, emails, and documentation. Unusual or non-English names especially benefit from dictionary entries.
+</FeatureCard>
+
+<FeatureCard title="Acronyms & Abbreviations" icon="hash">
+CI/CD, RBAC, gRPC, OAuth, JWT, SSR, SSG, ISR, CSR, ORM, SDK, CLI, WASM, HIPAA — any acronym you regularly dictate.
+</FeatureCard>
+
+<FeatureCard title="Domain Vocabulary" icon="library">
+Industry-specific terms: medical terminology if you're in healthtech, financial terms for fintech, legal terms for legaltech. These are rarely in general speech models.
+</FeatureCard>
+</FeatureGrid>
+
+## Before and After
+
+Here's the difference a personal dictionary makes:
+
+<VoiceDemo voice="Deploy the next JS app to Vercel with Supabase" output="Deploy the next JS app to versaille with super base" lang="Without Dictionary" />
+
+<VoiceDemo voice="Deploy the Next.js app to Vercel with Supabase" output="Deploy the Next.js app to Vercel with Supabase" lang="With Dictionary" />
+
+<VoiceDemo voice="Set up Kubernetes with Terraform on Hetzner" output="Set up Cooper Netties with terra form on Hetzner" lang="Without Dictionary" />
+
+<VoiceDemo voice="Set up Kubernetes with Terraform on Hetzner" output="Set up Kubernetes with Terraform on Hetzner" lang="With Dictionary" />
+
+The difference is stark. With dictionary entries, technical terms are recognized as accurately as common English words.
+
+## Pro Tips
+
+<Callout type="tip">
+**Compound terms:** For multi-word terms like "Next.js" or "Fly.io", add the complete term including punctuation. Whisperer will match the spoken form to your written form.
+</Callout>
+
+<Callout type="info">
+**Casing matters in Code Mode.** If you add "useState" to your dictionary, it will be recognized with that exact casing when Code Mode is active. For natural language mode, standard sentence casing rules still apply.
+</Callout>
+
+### Starter List for Web Developers
+
+Here's a quick-start dictionary you can build from if you work in the JavaScript/TypeScript ecosystem:
+
+```
+React
+Next.js
+TypeScript
+Tailwind
+Prisma
+Zustand
+Zod
+tRPC
+Vercel
+Supabase
+PostgreSQL
+Redis
+Vite
+Bun
+Deno
+ESLint
+Prettier
+Vitest
+Playwright
+Storybook
+```
+
+Add these as a starting point and expand as you encounter new misrecognitions in your daily workflow.
+
+## The Compound Effect
+
+A personal dictionary gets more valuable over time. Each term you add eliminates a recurring correction, and the time savings compound:
+
+- **10 custom terms** — catches the most common misrecognitions
+- **25 custom terms** — covers your primary tech stack and project vocabulary
+- **50+ custom terms** — near-perfect accuracy for your entire working vocabulary
+
+Most users find that 25-30 terms cover 95% of their misrecognition issues. It takes about 10 minutes to build and saves hours over weeks of dictation.
+
+<CTA />

@@ -1,0 +1,273 @@
+import { Metadata } from "next";
+import Link from "next/link";
+import { Header } from "@/components/landing/Header";
+import { Footer } from "@/components/landing/Footer";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { breadcrumbSchema, productSchema } from "@/lib/structured-data";
+import { Button } from "@/components/ui/button";
+import { Check, Apple, ArrowRight } from "lucide-react";
+import { FadeIn, FadeInStagger, StaggerItem, ScaleIn, GlowCard } from "@/components/ui/animated";
+import { SectionGlow, DotGrid, GradientDivider, AnimatedBorder } from "@/components/ui/decorations";
+
+export const metadata: Metadata = {
+  title: "Pricing — Whisperer | $14.99 Lifetime, No Subscription",
+  description:
+    "Whisperer pricing: Free base app + $14.99 one-time Pro Pack with Code Mode, per-app profiles, and personal dictionary. No subscription. No cloud fees. Works offline.",
+  keywords:
+    "dictation app no subscription mac, one-time purchase dictation mac, lifetime dictation app, dictation app Mac App Store",
+  openGraph: {
+    title: "Whisperer Pricing — $14.99 Lifetime, No Subscription",
+    description:
+      "Free base app + $14.99 one-time Pro Pack. No subscription. Code Mode for developers.",
+    type: "website",
+  },
+};
+
+export default function PricingPage() {
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <Header />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productSchema()),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", url: "/" },
+              { name: "Pricing", url: "/pricing/" },
+            ])
+          ),
+        }}
+      />
+
+      {/* Hero */}
+      <section className="pt-40 pb-20 relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <SectionGlow position="top-center" size="xl" intensity={0.08} />
+          <DotGrid />
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <Breadcrumbs items={[{ label: "Pricing" }]} />
+          <FadeIn>
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+                Simple, <span className="text-primary">honest</span> pricing
+              </h1>
+              <p className="text-xl text-muted-foreground">
+                No subscriptions. No cloud fees. Pay once, use forever.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Pricing Cards */}
+      <section className="pb-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16 items-stretch">
+            {/* Base App */}
+            <ScaleIn className="h-full">
+              <GlowCard className="bg-card border border-border rounded-2xl h-full">
+                <div className="p-8 flex flex-col h-full">
+                  <div className="text-sm text-muted-foreground mb-2">Base App</div>
+                  <div className="text-4xl font-bold text-foreground mb-2">
+                    $2.99
+                    <span className="text-base font-normal text-muted-foreground"> one-time</span>
+                  </div>
+                  <p className="text-muted-foreground mb-6">
+                    Core dictation features for everyday use.
+                  </p>
+                  <ul className="space-y-3 mb-8 flex-1">
+                    {[
+                      "Hold-to-record dictation (Fn or custom shortcut)",
+                      "Toggle mode (press to start / stop)",
+                      "Live streaming preview",
+                      "100+ languages",
+                      "Multiple Whisper models (speed vs accuracy)",
+                      "Model preloading for instant start",
+                      "100% offline, on-device processing",
+                      "Choose any microphone",
+                      "Live waveform feedback",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                        <span className="text-muted-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer" className="block mt-auto">
+                    <Button variant="outline" className="w-full" size="lg">
+                      <Apple className="w-5 h-5 mr-2" />
+                      Download Free Trial
+                    </Button>
+                  </a>
+                </div>
+              </GlowCard>
+            </ScaleIn>
+
+            {/* Pro Pack */}
+            <ScaleIn delay={0.15} className="h-full">
+              <AnimatedBorder className="h-full" borderRadius="1rem">
+                <div className="p-8 relative flex flex-col h-full">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-bold px-4 py-1 rounded-full z-10">
+                    MOST POPULAR
+                  </div>
+                  <div className="text-sm text-primary mb-2">Pro Pack</div>
+                  <div className="text-4xl font-bold text-foreground mb-2">
+                    $14.99
+                    <span className="text-base font-normal text-muted-foreground"> lifetime</span>
+                  </div>
+                  <p className="text-muted-foreground mb-6">
+                    Everything in Base, plus power features for developers and professionals.
+                  </p>
+                  <ul className="space-y-3 mb-8 flex-1">
+                    {[
+                      "Everything in Base",
+                      "Code Mode — camelCase, snake_case, symbols by voice",
+                      "Per-app profiles — automatic mode switching",
+                      "Personal dictionary — add custom terms",
+                      "Pro insertion engine — clipboard-safe paste",
+                      "Literal mode — prevent autocorrections",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                        <span className="text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer" className="block mt-auto">
+                    <Button variant="hero" className="w-full" size="lg">
+                      <Apple className="w-5 h-5 mr-2" />
+                      Get Pro Pack
+                    </Button>
+                  </a>
+                </div>
+              </AnimatedBorder>
+            </ScaleIn>
+          </div>
+
+          <GradientDivider className="max-w-4xl mx-auto mb-16" />
+
+          {/* Price Comparison */}
+          <FadeIn>
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl font-bold mb-6 text-center">
+                How Whisperer compares on price
+              </h2>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-border">
+                      <th className="text-left py-3 pr-4 font-semibold">App</th>
+                      <th className="text-left py-3 px-4 font-semibold">Price</th>
+                      <th className="text-left py-3 px-4 font-semibold">Annual Cost</th>
+                      <th className="text-left py-3 px-4 font-semibold">3-Year Cost</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    {[
+                      ["Whisperer Pro", "$14.99 one-time", "$14.99", "$14.99"],
+                      ["Superwhisper", "$249 lifetime or $8/mo", "$96–249", "$288–249"],
+                      ["Voibe", "$99 lifetime or $4.90/mo", "$58.80–99", "$176.40–99"],
+                      ["Wispr Flow", "$10–15/mo", "$120–180", "$360–540"],
+                      ["Apple Dictation", "Free", "Free", "Free"],
+                    ].map(([app, price, annual, threeYear], i) => (
+                      <tr key={i} className={`hover:bg-secondary/30 transition-colors ${i === 0 ? "bg-primary/5" : ""}`}>
+                        <td className={`py-3 pr-4 font-medium ${i === 0 ? "text-primary" : "text-foreground"}`}>
+                          {app}
+                        </td>
+                        <td className="py-3 px-4 text-muted-foreground">{price}</td>
+                        <td className="py-3 px-4 text-muted-foreground">{annual}</td>
+                        <td className="py-3 px-4 text-muted-foreground">{threeYear}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-sm text-muted-foreground mt-4 text-center">
+                Whisperer is the most affordable pro dictation app for Mac — and the only one with Code Mode.
+              </p>
+            </div>
+          </FadeIn>
+
+          <GradientDivider className="max-w-3xl mx-auto my-16" />
+
+          {/* FAQ */}
+          <div className="max-w-3xl mx-auto">
+            <FadeIn>
+              <h2 className="text-2xl font-bold mb-8 text-center">Pricing FAQ</h2>
+            </FadeIn>
+            <FadeInStagger className="space-y-6">
+              {[
+                {
+                  q: "Is there a free trial?",
+                  a: "Yes. The base app is available to download and try from the Mac App Store. You can test dictation before deciding on the Pro Pack.",
+                },
+                {
+                  q: "Is Pro Pack a subscription?",
+                  a: "No. $14.99 is a one-time payment. You own it forever. No recurring charges.",
+                },
+                {
+                  q: "Are there any cloud fees?",
+                  a: "No. Whisperer is 100% offline. There are no servers to pay for, no API calls, no usage limits.",
+                },
+                {
+                  q: "What's the refund policy?",
+                  a: "Refunds are handled through Apple according to their standard App Store policies.",
+                },
+                {
+                  q: "Will there be price increases?",
+                  a: "If you buy now, you lock in the current price. Future updates are included.",
+                },
+              ].map((faq, i) => (
+                <StaggerItem key={i}>
+                  <GlowCard className="bg-card border border-border rounded-xl hover:border-primary/50 transition-all duration-300">
+                    <div className="p-6">
+                      <h3 className="font-semibold text-foreground mb-2">{faq.q}</h3>
+                      <p className="text-muted-foreground">{faq.a}</p>
+                    </div>
+                  </GlowCard>
+                </StaggerItem>
+              ))}
+            </FadeInStagger>
+          </div>
+
+          <GradientDivider className="max-w-3xl mx-auto my-16" />
+
+          {/* Links */}
+          <div className="max-w-3xl mx-auto">
+            <FadeInStagger className="grid sm:grid-cols-2 gap-4">
+              {[
+                { title: "Compare with competitors", href: "/compare/" },
+                { title: "Voice Coding Guide", href: "/voice-coding/" },
+                { title: "Code Mode details", href: "/code-mode/" },
+                { title: "Privacy Policy", href: "/privacy/" },
+              ].map((link, i) => (
+                <StaggerItem key={i}>
+                  <Link href={link.href} className="group block">
+                    <GlowCard className="bg-card border border-border rounded-xl p-5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+                          {link.title}
+                        </span>
+                        <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1" />
+                      </div>
+                    </GlowCard>
+                  </Link>
+                </StaggerItem>
+              ))}
+            </FadeInStagger>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}

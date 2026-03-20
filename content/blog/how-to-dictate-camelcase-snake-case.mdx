@@ -1,0 +1,110 @@
+---
+title: "How to Dictate camelCase and snake_case by Voice on Mac"
+description: "Learn how to dictate programming naming conventions by voice — camelCase, snake_case, PascalCase, and CONSTANT_CASE — using Whisperer's Code Mode on Mac."
+date: "2026-03-01"
+keywords: ["camelCase voice dictation", "snake_case dictation", "voice dictation casing", "code mode dictation"]
+category: "voice-coding"
+howToSteps:
+  - name: "Enable Code Mode"
+    text: "Open Whisperer from the menu bar, go to Settings > Profiles, and enable Code Mode for your IDE."
+  - name: "Say the casing command followed by your words"
+    text: "Speak 'camel case' followed by the words you want joined. For example, 'camel case get user name' produces getUserName."
+  - name: "Use snake_case"
+    text: "Say 'snake case' followed by words. For example, 'snake case get user name' produces get_user_name."
+  - name: "Use PascalCase and CONSTANT_CASE"
+    text: "Say 'pascal case' for PascalCase (e.g., UserService) or 'constant case' for CONSTANT_CASE (e.g., MAX_RETRIES)."
+---
+
+Programming naming conventions are one of the biggest barriers to voice coding. Standard dictation tools have no concept of `camelCase`, `snake_case`, or `CONSTANT_CASE`. They just produce space-separated words with default capitalization.
+
+Whisperer's Code Mode solves this with simple voice commands.
+
+## The Casing Commands
+
+Code Mode recognizes four casing commands. Say the command followed by the words you want converted:
+
+### camelCase
+
+<VoiceDemo voice='"camel case get user profile"' output="getUserProfile" lang="JavaScript" />
+
+The first word is lowercase, subsequent words are capitalized, no spaces.
+
+### snake_case
+
+<VoiceDemo voice='"snake case get user profile"' output="get_user_profile" lang="Python" />
+
+All lowercase, separated by underscores.
+
+### PascalCase
+
+<VoiceDemo voice='"pascal case user service"' output="UserService" lang="TypeScript" />
+
+Each word capitalized, no spaces. Used for class names in most languages.
+
+### CONSTANT_CASE
+
+<VoiceDemo voice='"constant case max retry count"' output="MAX_RETRY_COUNT" lang="Any" />
+
+All uppercase, separated by underscores. Used for constants.
+
+---
+
+## Real-World Examples
+
+### JavaScript / TypeScript
+
+<VoiceDemo voice='"const camel case is loading equals false semicolon"' output="const isLoading = false;" lang="JavaScript" />
+
+<VoiceDemo voice='"function camel case handle submit open paren event colon pascal case form event close paren"' output="function handleSubmit(event: FormEvent)" lang="TypeScript" />
+
+### Python
+
+<VoiceDemo voice='"def snake case calculate total price open paren items colon list comma tax rate colon float close paren arrow float colon"' output="def calculate_total_price(items: list, tax_rate: float) -> float:" lang="Python" />
+
+### Combining Casing with Symbols
+
+<VoiceDemo voice='"if camel case is valid open paren camel case user input close paren open brace"' output="if isValid(userInput) {" lang="JavaScript" />
+
+<VoiceDemo voice='"self dot snake case api client dot snake case send request open paren url close paren"' output="self.api_client.send_request(url)" lang="Python" />
+
+## Tips for Natural Flow
+
+<FeatureGrid>
+<FeatureCard title="Continuous Application" icon="link">
+The casing command applies to the following words until a symbol or new casing command interrupts it.
+</FeatureCard>
+<FeatureCard title="No Pausing Needed" icon="mic">
+You don't need to pause between the casing command and the words — speak naturally.
+</FeatureCard>
+<FeatureCard title="Numbers Work Too" icon="hash">
+"camel case get user two" produces `getUser2`.
+</FeatureCard>
+<FeatureCard title="Personal Dictionary" icon="book-open">
+Add common identifiers you use frequently for even faster recognition.
+</FeatureCard>
+</FeatureGrid>
+
+## When to Use Each Convention
+
+| Convention | When to Use | Languages |
+|-----------|------------|-----------|
+| camelCase | Variables, functions | JavaScript, TypeScript, Java |
+| snake_case | Variables, functions | Python, Rust, Ruby |
+| PascalCase | Classes, types | Most languages |
+| CONSTANT_CASE | Constants, env vars | All languages |
+
+## Practice Exercise
+
+<Callout type="tip">
+Try dictating these common patterns by voice. Within an hour of practice, they become second nature.
+</Callout>
+
+<VoiceDemo voice='"const camel case fetch user data equals async open paren close paren fat arrow open brace"' output="const fetchUserData = async () => {" lang="TypeScript" />
+
+<VoiceDemo voice='"def snake case create new account open paren email colon str close paren colon"' output="def create_new_account(email: str):" lang="Python" />
+
+<VoiceDemo voice='"class pascal case user auth service open brace"' output="class UserAuthService {" lang="Java" />
+
+<VoiceDemo voice='"constant case max retry attempts equals three"' output="MAX_RETRY_ATTEMPTS = 3" lang="Any" />
+
+<CTA />

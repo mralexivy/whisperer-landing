@@ -1,0 +1,89 @@
+---
+title: "Offline vs. Cloud Dictation: Privacy, Speed & Reliability Compared"
+description: "Should you use offline or cloud-based dictation? Compare privacy, speed, reliability, and accuracy of on-device vs. cloud speech-to-text for Mac."
+date: "2026-02-25"
+keywords: ["offline vs cloud dictation privacy", "private speech to text", "no cloud dictation", "on-device transcription mac"]
+category: "privacy"
+---
+
+When you dictate on your Mac, where does your voice data go? With cloud-based dictation, it leaves your computer and gets processed on someone else's servers. With offline dictation, it never leaves your device.
+
+This distinction matters more than most people realize.
+
+## How Cloud Dictation Works
+
+<StepList>
+<Step num="1" title="Recording">Your voice is recorded on your Mac.</Step>
+<Step num="2" title="Upload">The audio is uploaded to a remote server.</Step>
+<Step num="3" title="Processing">A large AI model transcribes it in the cloud.</Step>
+<Step num="4" title="Download">The text is sent back to your device.</Step>
+<Step num="5" title="Storage">The audio may be stored for "quality improvement."</Step>
+</StepList>
+
+<Callout type="warning">
+At every step, your spoken words — including confidential information, passwords said aloud, private conversations, and proprietary code — are traveling across the internet.
+</Callout>
+
+## How Offline Dictation Works
+
+<StepList>
+<Step num="1" title="Recording">Your voice is recorded on your Mac.</Step>
+<Step num="2" title="Local Processing">A Whisper model on your Mac's hardware transcribes it.</Step>
+<Step num="3" title="Insertion">The text is inserted into your active app.</Step>
+<Step num="4" title="Your Choice">Audio is optionally saved locally or discarded immediately.</Step>
+</StepList>
+
+No servers. No uploads. No third-party access.
+
+## Privacy Comparison
+
+| Concern | Cloud Dictation | Offline Dictation |
+|---------|----------------|------------------|
+| Audio leaves your device | Yes | No |
+| Third parties can access your speech | Possible | No |
+| Data may be stored for training | Often | Never |
+| Works without internet | No | Yes |
+| HIPAA/NDA-safe | Usually not | Yes |
+| Dictating passwords is safe | No | Yes |
+| Source code stays private | No | Yes |
+
+<FeatureGrid>
+<FeatureCard title="For Developers" icon="code">
+Cloud dictation means your source code is being sent to external servers. For proprietary projects, this can violate NDAs and security policies. With offline dictation, your code never leaves your Mac.
+</FeatureCard>
+<FeatureCard title="For Professionals" icon="scale">
+Lawyers, doctors, and financial professionals need to be careful about where voice data goes. Offline dictation eliminates this concern entirely.
+</FeatureCard>
+</FeatureGrid>
+
+## Speed Comparison
+
+<Callout type="info">
+Cloud dictation has 350–1700ms of inherent latency (upload + processing + download). Offline dictation on Apple Silicon: 50–300ms. With Whisperer's streaming mode, you see text appearing as you speak.
+</Callout>
+
+## Reliability Comparison
+
+Cloud dictation fails when your internet drops, the service has an outage, or you're on a plane. Offline dictation works **always** — on a plane, in a coffee shop with bad WiFi, or even if the company that made the app shuts down.
+
+## Accuracy: Has Offline Caught Up?
+
+This used to be the key advantage of cloud dictation — cloud models were significantly more accurate. But with whisper.cpp and Apple Silicon, the gap has nearly closed:
+
+| Model | Accuracy |
+|-------|----------|
+| Cloud services | ~95–98% for general English |
+| Offline (Large model) | ~94–97% for general English |
+| Offline (Turbo model) | ~92–95% for general English |
+
+<Callout type="tip">
+For code dictation with Code Mode, Whisperer's offline accuracy is actually *better* than cloud services because Code Mode is purpose-built for programming syntax.
+</Callout>
+
+## The Cost of "Free" Cloud Services
+
+Many cloud dictation services appear free, but the real cost is your data: your voice patterns train their models, your content may be reviewed by human contractors, and your usage data is used for targeting.
+
+Offline dictation has a clear value proposition: you pay once for the software, and your data stays yours.
+
+<CTA />

@@ -1,0 +1,136 @@
+---
+title: "How to Dictate Code on Mac — camelCase, snake_case & Symbols by Voice"
+description: "A step-by-step guide to dictating code on your Mac using voice commands for camelCase, snake_case, symbols, and punctuation. Works in VS Code, Cursor, and Terminal."
+date: "2026-03-15"
+keywords: ["dictate code mac", "camelCase voice dictation", "voice coding mac", "code mode dictation", "voice type code symbols"]
+category: "voice-coding"
+howToSteps:
+  - name: "Download Whisperer"
+    text: "Get Whisperer free from the Mac App Store. The Pro Pack ($14.99 one-time) unlocks Code Mode."
+  - name: "Open from the menu bar"
+    text: "Whisperer lives in your menu bar for instant access. Click the icon to open settings and profiles."
+  - name: "Configure your profile"
+    text: "Go to Settings, then Profiles, and enable Code Mode for your IDE (VS Code, Cursor, Terminal, etc.)."
+  - name: "Start speaking"
+    text: "Hold Fn (or your custom shortcut) and start dictating code. Use casing commands like 'camel case' and symbol commands like 'open paren'."
+---
+
+Typing code all day takes a toll on your hands. But what if you could speak your code instead — complete with `camelCase`, `snake_case`, parentheses, brackets, and semicolons?
+
+With [Whisperer's](/code-mode/) Code Mode, you can dictate code naturally on your Mac. Here's how.
+
+<CTA />
+
+## Why Dictate Code?
+
+Developers type an average of 5,000–10,000 keystrokes per day. Over years, that adds up to serious repetitive strain. Voice coding offers a way to stay productive while giving your hands a break.
+
+<Callout type="warning">
+Standard dictation tools are terrible for code. They capitalize words randomly, insert spaces where you don't want them, and have no concept of programming syntax. That's why you need a dictation tool built for developers.
+</Callout>
+
+## Setting Up Code Mode in Whisperer
+
+<StepList>
+<Step num="1" title="Download Whisperer">
+Get it free from the Mac App Store. The Pro Pack ($14.99 one-time) unlocks Code Mode.
+</Step>
+<Step num="2" title="Open from the menu bar">
+Whisperer lives in your menu bar for instant access.
+</Step>
+<Step num="3" title="Configure your profile">
+Go to Settings → Profiles and enable Code Mode for your IDE (VS Code, Cursor, Terminal, etc.).
+</Step>
+<Step num="4" title="Start speaking">
+Hold Fn (or your custom shortcut) and start dictating code.
+</Step>
+</StepList>
+
+<Callout type="tip">
+Code Mode automatically activates when your IDE is in focus if you've set up a per-app profile — no manual switching needed.
+</Callout>
+
+## Dictating Casing Conventions
+
+The hardest part of voice coding is casing. Whisperer handles this with explicit commands:
+
+<VoiceDemo voice='"camel case get user name"' output="getUserName" lang="JavaScript" />
+
+<VoiceDemo voice='"snake case get user name"' output="get_user_name" lang="Python" />
+
+<VoiceDemo voice='"constant case max retries"' output="MAX_RETRIES" lang="Any" />
+
+<VoiceDemo voice='"pascal case user service"' output="UserService" lang="TypeScript" />
+
+These commands work naturally in flowing speech. You don't need to pause or use a special trigger word.
+
+## Speaking Symbols and Punctuation
+
+Code is full of symbols that are awkward to say. Code Mode maps natural voice commands to symbols:
+
+| Voice Command | Output |
+|--------------|--------|
+| "open paren" / "close paren" | `(` / `)` |
+| "open bracket" / "close bracket" | `[` / `]` |
+| "open brace" / "close brace" | `{` / `}` |
+| "semicolon" | `;` |
+| "colon" | `:` |
+| "arrow" | `->` |
+| "fat arrow" | `=>` |
+| "equals" | `=` |
+| "double equals" | `==` |
+| "triple equals" | `===` |
+
+## Real Example: Dictating a Python Function
+
+<VoiceDemo voice='"def snake case validate input open paren data colon dict close paren arrow bool colon"' output="def validate_input(data: dict) -> bool:" lang="Python" />
+
+That's a complete function signature, dictated in one breath.
+
+## Tips for Better Code Dictation
+
+<FeatureGrid>
+<FeatureCard title="Use Per-App Profiles" icon="target">
+Set Code Mode only for your IDE. Keep natural language mode for Slack and email.
+</FeatureCard>
+<FeatureCard title="Speak Naturally" icon="mic">
+Whisperer's streaming preview shows text as you speak, so you can verify in real-time.
+</FeatureCard>
+<FeatureCard title="Use Literal Mode" icon="lock">
+For identifiers that shouldn't be autocorrected, enable literal mode.
+</FeatureCard>
+<FeatureCard title="Train Your Dictionary" icon="book-open">
+Add project-specific terms and variable names to your personal dictionary.
+</FeatureCard>
+</FeatureGrid>
+
+## Supported IDEs and Editors
+
+<FeatureGrid>
+<FeatureCard title="VS Code" icon="code">
+Full support — text inserts directly into the active editor.
+</FeatureCard>
+<FeatureCard title="Cursor" icon="bot">
+Speak AI prompts and code naturally with Code Mode.
+</FeatureCard>
+<FeatureCard title="JetBrains IDEs" icon="brain">
+IntelliJ, WebStorm, PyCharm — all fully supported.
+</FeatureCard>
+<FeatureCard title="Terminal / iTerm2" icon="keyboard">
+Dictate commands, scripts, and git operations.
+</FeatureCard>
+</FeatureGrid>
+
+## Voice Coding vs. Apple Dictation for Code
+
+<Callout type="info">
+Apple's built-in dictation is designed for prose. Try dictating `getUserName` and you'll get "Get user name" — three words, capitalized, with spaces. Whisperer's Code Mode is purpose-built for this problem.
+</Callout>
+
+## Getting Started
+
+Voice coding has a short learning curve — most developers are comfortable within a day or two. Start by dictating comments, then graduate to function signatures, and eventually full blocks of code.
+
+<CTA />
+
+The key is to start. Your hands will thank you.

@@ -1,28 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import appIcon from "../../public/assets/app-icon.png";
 
 const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "Features", href: "#product" },
-  { label: "Pro Pack", href: "#pro-pack" },
-  { label: "How it works", href: "#how-it-works" },
-  { label: "Privacy", href: "#privacy" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Features", href: "/#product" },
+  { label: "Voice Coding", href: "/voice-coding/" },
+  { label: "Pricing", href: "/pricing/" },
+  { label: "Compare", href: "/compare/" },
+  { label: "Blog", href: "/blog/" },
 ];
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : ""}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
+          <a href="/" className="flex items-center gap-3 group">
             <img 
               src={appIcon.src} 
               alt="Whisperer" 

@@ -1,4 +1,8 @@
+"use client";
+
 import { Keyboard, Mic, MousePointerClick } from "lucide-react";
+import { FadeIn, FadeInStagger, StaggerItem } from "@/components/ui/animated";
+import { DotGrid } from "@/components/ui/decorations";
 
 const steps = [
   {
@@ -23,20 +27,22 @@ const steps = [
 
 export const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-24 relative bg-secondary/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+    <section id="how-it-works" className="py-24 relative bg-secondary/30 overflow-hidden">
+      <DotGrid />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <FadeIn className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             How <span className="text-primary">Whisperer</span> works
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Three simple steps to effortless dictation.
           </p>
-        </div>
+        </FadeIn>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12 mb-12">
+        <FadeInStagger className="grid md:grid-cols-3 gap-8 lg:gap-12 mb-12">
           {steps.map((step, index) => (
-            <div key={index} className="relative text-center">
+            <StaggerItem key={index} className="relative text-center">
               {/* Connector line */}
               {index < steps.length - 1 && (
                 <div className="hidden md:block absolute top-12 left-[60%] w-[80%] h-px bg-gradient-to-r from-border to-transparent" />
@@ -58,16 +64,16 @@ export const HowItWorks = () => {
               <p className="text-muted-foreground max-w-xs mx-auto">
                 {step.description}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </FadeInStagger>
 
         {/* Technical note */}
-        <div className="text-center">
+        <FadeIn delay={0.3} className="text-center">
           <p className="text-sm text-muted-foreground bg-card/50 inline-block px-6 py-3 rounded-lg border border-border">
             Streaming during recording + a final pass on release for maximum accuracy.
           </p>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

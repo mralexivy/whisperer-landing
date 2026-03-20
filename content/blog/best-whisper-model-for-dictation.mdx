@@ -1,0 +1,110 @@
+---
+title: "Best Whisper Model for Dictation — Comparing Speed vs. Accuracy"
+description: "Which Whisper model should you use for dictation? Compare Turbo, Large V3, Medium, Small, and Base models for speed, accuracy, and memory usage on Mac."
+date: "2026-02-15"
+keywords: ["best whisper model dictation", "whisper model comparison", "whisper.cpp mac app", "whisper turbo vs large"]
+category: "guides"
+---
+
+Whisperer lets you choose between multiple Whisper models for transcription. But which one should you use? The answer depends on your hardware, language, and priorities.
+
+## Understanding Whisper Models
+
+OpenAI's Whisper is an open-source speech recognition model. [whisper.cpp](https://github.com/ggerganov/whisper.cpp) is a C++ implementation that runs efficiently on Apple Silicon. Whisperer uses whisper.cpp under the hood, giving you access to several model sizes.
+
+## Model Comparison
+
+| Model | Size | RAM Usage | Speed* | Accuracy | Best For |
+|-------|------|-----------|--------|----------|----------|
+| Tiny | ~75MB | ~200MB | Instant | Fair | Quick notes, low-end hardware |
+| Base | ~150MB | ~350MB | Very fast | Good | Fast dictation, older Macs |
+| Small | ~500MB | ~800MB | Fast | Very good | Balanced everyday use |
+| Medium | ~1.5GB | ~2.5GB | Moderate | Excellent | High-accuracy dictation |
+| Large V3 | ~3GB | ~5GB | Slower | Best | Maximum accuracy, long dictation |
+| Turbo | ~800MB | ~1.5GB | Fast | Very good | Best speed/accuracy balance |
+
+*Speed benchmarks on M1 MacBook Pro for a 30-second recording.
+
+## Our Recommendations
+
+<FeatureGrid>
+<FeatureCard title="For Most Users: Turbo (Recommended)" icon="zap">
+
+<Callout type="tip">
+The Turbo model offers the best balance of speed and accuracy. It's significantly faster than Large V3 while maintaining near-equivalent accuracy for English. If you're on Apple Silicon, start here.
+</Callout>
+
+</FeatureCard>
+
+<FeatureCard title="For Maximum Accuracy: Large V3" icon="target">
+
+If accuracy is your top priority and you have a Mac with 16GB+ RAM, Large V3 gives the best results. It's particularly better for:
+- Non-English languages
+- Heavy accents
+- Technical terminology
+- Noisy environments
+
+</FeatureCard>
+
+<FeatureCard title="For Speed: Small or Base" icon="zap">
+
+If you want near-instant transcription and can tolerate occasional errors, the Small model is excellent. The Base model is even faster but accuracy drops noticeably for complex speech.
+
+</FeatureCard>
+
+<FeatureCard title="For Older Macs: Base or Tiny" icon="code">
+
+Intel Macs and older Apple Silicon with 8GB RAM should use Base or Small. Larger models may cause memory pressure and slow down your system.
+
+</FeatureCard>
+</FeatureGrid>
+
+## Language Considerations
+
+<Callout type="info">
+Whisper's accuracy varies by language. For English, even the Small model is quite good. For other languages:
+
+- **Western European languages** (Spanish, French, German): Small or Turbo works well
+- **East Asian languages** (Chinese, Japanese, Korean): Use Medium or Large V3
+- **Less-common languages**: Large V3 recommended for best results
+</Callout>
+
+## Model Preloading
+
+Whisperer can preload your selected model into memory so it's ready instantly when you press the record shortcut. This eliminates the 1–3 second cold start on first use. Enable this in Settings if you have enough RAM.
+
+## Hot-Swapping Models
+
+You can switch between models without restarting Whisperer. This is useful when you want:
+- **Turbo** for quick notes during the day
+- **Large V3** for important dictation that needs to be accurate
+
+## Performance Tips
+
+<FeatureGrid>
+<FeatureCard title="Close memory-heavy apps" icon="sparkles">
+If using Large V3 on a 16GB Mac, free up RAM by closing unused applications.
+</FeatureCard>
+
+<FeatureCard title="Use Turbo for streaming" icon="monitor">
+Use the balanced/Turbo model for live streaming preview — it's fast enough for real-time feedback.
+</FeatureCard>
+
+<FeatureCard title="Enable model preloading" icon="zap">
+Eliminate startup delay by keeping your selected model in memory.
+</FeatureCard>
+
+<FeatureCard title="Choose explicit language" icon="globe">
+Select your language explicitly over auto-detect for better accuracy.
+</FeatureCard>
+
+<FeatureCard title="Use a good microphone" icon="mic">
+Model accuracy matters less than input quality — invest in a decent mic.
+</FeatureCard>
+</FeatureGrid>
+
+## The Bottom Line
+
+Start with the **Turbo** model. If accuracy isn't good enough, try **Large V3**. If speed is more important, drop to **Small**. Whisperer makes it easy to experiment — download multiple models and switch between them instantly.
+
+<CTA />

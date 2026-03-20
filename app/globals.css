@@ -111,6 +111,30 @@ All colors MUST be HSL.
   }
 }
 
+/* Global enhancements */
+::selection {
+  background: hsl(233 91% 66% / 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(240 37% 7%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(233 91% 66% / 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(233 91% 66% / 0.5);
+}
+
 /* Custom animations */
 @keyframes scroll {
   0% {
@@ -119,4 +143,109 @@ All colors MUST be HSL.
   100% {
     transform: translateX(-50%);
   }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes rotate-gradient {
+  0% {
+    --border-angle: 0deg;
+  }
+  100% {
+    --border-angle: 360deg;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Prose typography overrides for dark theme */
+.prose {
+  --tw-prose-body: hsl(240 10% 65%);
+  --tw-prose-headings: hsl(0 0% 100%);
+  --tw-prose-lead: hsl(240 10% 65%);
+  --tw-prose-links: hsl(233 91% 66%);
+  --tw-prose-bold: hsl(0 0% 100%);
+  --tw-prose-counters: hsl(233 91% 66%);
+  --tw-prose-bullets: hsl(233 91% 66%);
+  --tw-prose-hr: hsl(240 10% 20%);
+  --tw-prose-quotes: hsl(0 0% 85%);
+  --tw-prose-quote-borders: hsl(233 91% 66% / 0.5);
+  --tw-prose-captions: hsl(240 10% 55%);
+  --tw-prose-code: hsl(0 0% 100%);
+  --tw-prose-pre-code: hsl(205 82% 89%);
+  --tw-prose-pre-bg: hsl(240 37% 8%);
+  --tw-prose-th-borders: hsl(240 10% 20%);
+  --tw-prose-td-borders: hsl(240 10% 16%);
+}
+
+.prose h2 {
+  @apply text-2xl sm:text-3xl font-bold mt-12 mb-6;
+}
+
+.prose h3 {
+  @apply text-xl sm:text-2xl font-bold mt-10 mb-4;
+}
+
+.prose h4 {
+  @apply text-lg font-semibold mt-8 mb-3;
+}
+
+.prose p {
+  @apply leading-relaxed mb-5;
+}
+
+.prose ul,
+.prose ol {
+  @apply my-6 space-y-2;
+}
+
+.prose li {
+  @apply leading-relaxed;
+}
+
+.prose li::marker {
+  color: hsl(233 91% 66%);
+}
+
+.prose strong {
+  @apply font-semibold;
+}
+
+.prose a {
+  @apply transition-colors hover:underline;
+}
+
+.prose img {
+  @apply rounded-xl border border-border shadow-lg my-8;
+}
+
+/* Neutralize prose table styles — custom components handle table styling */
+.prose :where(table):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  margin: 0;
+}
+.prose :where(thead):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  border: none;
+}
+.prose :where(th):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  padding: 0;
+}
+.prose :where(td):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  padding: 0;
+}
+.prose :where(tr):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  border: none;
+}
+.prose :where(tbody tr):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  border: none;
 }

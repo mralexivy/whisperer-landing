@@ -1,4 +1,7 @@
+"use client";
+
 import { Shield, Cloud, HardDrive, FileText } from "lucide-react";
+import { FadeIn, FadeInStagger, StaggerItem } from "@/components/ui/animated";
 
 const privacyPoints = [
   {
@@ -24,15 +27,15 @@ export const PrivacySection = () => {
     <section id="privacy" className="py-24 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+          <FadeIn className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
               Privacy <span className="text-primary">by design</span>
             </h2>
-          </div>
+          </FadeIn>
 
-          <div className="grid sm:grid-cols-2 gap-6 mb-12">
+          <FadeInStagger className="grid sm:grid-cols-2 gap-6 mb-12">
             {privacyPoints.map((point, index) => (
-              <div
+              <StaggerItem
                 key={index}
                 className="flex items-center gap-4 bg-card border border-border rounded-xl p-5 hover:border-primary/50 transition-colors"
               >
@@ -40,9 +43,9 @@ export const PrivacySection = () => {
                   <point.icon className="w-5 h-5 text-primary" />
                 </div>
                 <span className="text-foreground">{point.text}</span>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </FadeInStagger>
 
           {/* Additional trust note */}
           <div className="text-center">

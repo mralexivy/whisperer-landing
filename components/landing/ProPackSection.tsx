@@ -1,5 +1,9 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Check, Code, Layers, BookOpen, Keyboard, Apple } from "lucide-react";
+import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
+import { SectionGlow } from "@/components/ui/decorations";
 
 const proFeatures = [
   {
@@ -35,25 +39,23 @@ const proFeatures = [
 export const ProPackSection = () => {
   return (
     <section id="pro-pack" className="py-24 relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]" />
-      </div>
+      <SectionGlow position="center" size="xl" intensity={0.1} />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+        <FadeIn className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Pro Pack <span className="text-primary">(Lifetime)</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Power features for people who dictate all day: Code Mode, profiles, dictionary, and pro insertion.
           </p>
-        </div>
+        </FadeIn>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+        <FadeInStagger className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
           {/* Base App */}
-          <div className="bg-card border border-border rounded-2xl p-8 relative">
+          <StaggerItem>
+          <GlowCard className="bg-card border border-border rounded-2xl p-8 relative h-full">
             <div className="text-sm text-muted-foreground mb-2">Base App</div>
             <div className="text-4xl font-bold text-foreground mb-2">
               $2.99
@@ -76,10 +78,12 @@ export const ProPackSection = () => {
                 Download Free Trial
               </Button>
             </a>
-          </div>
+          </GlowCard>
+          </StaggerItem>
 
           {/* Pro Pack */}
-          <div className="bg-card border-2 border-primary rounded-2xl p-8 relative shadow-[0_0_60px_hsl(233_91%_66%/0.15)]">
+          <StaggerItem>
+          <GlowCard className="bg-card border-2 border-primary rounded-2xl p-8 relative shadow-[0_0_60px_hsl(233_91%_66%/0.15)] h-full">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-bold px-4 py-1 rounded-full">
               MOST POPULAR
             </div>
@@ -105,16 +109,15 @@ export const ProPackSection = () => {
                 Get Pro Pack
               </Button>
             </a>
-          </div>
-        </div>
+          </GlowCard>
+          </StaggerItem>
+        </FadeInStagger>
 
         {/* Pro Features Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <FadeInStagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {proFeatures.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-card/50 border border-border rounded-xl p-6 hover:border-primary/50 transition-colors"
-            >
+            <StaggerItem key={index}>
+            <GlowCard className="bg-card/50 border border-border rounded-xl p-6 hover:border-primary/50 transition-colors h-full">
               <div className={`w-12 h-12 rounded-xl ${feature.bgColor} flex items-center justify-center mb-4`}>
                 <feature.icon className={`w-6 h-6 ${feature.color}`} />
               </div>
@@ -129,9 +132,10 @@ export const ProPackSection = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </GlowCard>
+            </StaggerItem>
           ))}
-        </div>
+        </FadeInStagger>
 
         {/* Trust line */}
         <div className="text-center mt-12">

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -5,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Mic, Volume2, Shield, Cpu, Globe } from "lucide-react";
+import { FadeIn } from "@/components/ui/animated";
 
 const featureGroups = [
   {
@@ -62,16 +65,16 @@ export const FeaturesGrid = () => {
   return (
     <section className="py-24 relative bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <FadeIn className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             All the <span className="text-primary">features</span> you need
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Comprehensive dictation tools built for professionals.
           </p>
-        </div>
+        </FadeIn>
 
-        <div className="max-w-3xl mx-auto">
+        <FadeIn delay={0.1} className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="space-y-4">
             {featureGroups.map((group, index) => (
               <AccordionItem
@@ -102,7 +105,7 @@ export const FeaturesGrid = () => {
               </AccordionItem>
             ))}
           </Accordion>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

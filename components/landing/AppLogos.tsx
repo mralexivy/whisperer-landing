@@ -1,3 +1,6 @@
+"use client";
+
+import { FadeIn } from "@/components/ui/animated";
 import slackIcon from "../../public/assets/icons/slack.png";
 import gmailIcon from "../../public/assets/icons/gmail.png";
 import googleDocsIcon from "../../public/assets/icons/googledocs.png";
@@ -30,17 +33,17 @@ export const AppLogos = () => {
   return (
     <section className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <FadeIn className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Works in the apps you <span className="text-primary">already use</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Insertion uses Accessibility APIs with a paste fallback for compatibility.
           </p>
-        </div>
+        </FadeIn>
 
         {/* Scrolling logos */}
-        <div className="relative">
+        <FadeIn delay={0.2} className="relative">
           <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
           
@@ -61,7 +64,7 @@ export const AppLogos = () => {
               ))}
             </div>
           </div>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

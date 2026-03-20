@@ -1,0 +1,148 @@
+---
+title: "Set Up Whisperer in 5 Minutes — Quick Start Guide"
+description: "Get Whisperer running on your Mac in under 5 minutes. Download, grant permissions, choose a Whisper model, and start dictating. Step-by-step setup guide with tips."
+date: "2026-02-10"
+keywords: ["whisperer setup guide", "dictation app setup mac", "hold to talk dictation mac", "whisperer getting started", "Fn key dictation mac"]
+category: "getting-started"
+howToSteps:
+  - name: "Download Whisperer"
+    text: "Get Whisperer free from the Mac App Store. No account or sign-up required."
+  - name: "Grant Accessibility permission"
+    text: "Open System Settings > Privacy & Security > Accessibility and enable Whisperer. This allows it to insert text into other apps."
+  - name: "Grant Input Monitoring permission"
+    text: "Open System Settings > Privacy & Security > Input Monitoring and enable Whisperer. This allows it to detect your keyboard shortcut globally."
+  - name: "Download a Whisper model"
+    text: "Open Whisperer from the menu bar, go to Settings, and download a Whisper model. Turbo is recommended for speed, Large V3 for maximum accuracy."
+  - name: "Hold Fn and speak"
+    text: "Hold the Fn key (or your custom shortcut), speak naturally, then release. Text appears in the focused field."
+  - name: "Set up per-app profiles (optional)"
+    text: "Go to Settings > Profiles and create profiles for different apps. Assign Code Mode to your IDE and natural language to email and chat apps."
+---
+
+Whisperer is an offline dictation app for Mac. You hold a key, speak, release, and text appears in whatever field is focused. No cloud, no account, no subscription.
+
+Here's how to go from download to your first dictation in under five minutes.
+
+<CTA />
+
+## Initial Setup
+
+<StepList>
+<Step num="1" title="Download from the Mac App Store">
+Whisperer is a free download. Search "Whisperer Voice to Text" in the App Store, or use the link above. No account creation or sign-up required.
+</Step>
+
+<Step num="2" title="Grant Accessibility permission">
+When you first launch Whisperer, macOS will prompt for Accessibility access. This is required so Whisperer can insert text into other apps.
+
+Go to **System Settings > Privacy & Security > Accessibility** and toggle Whisperer on.
+</Step>
+
+<Step num="3" title="Grant Input Monitoring permission">
+Whisperer also needs Input Monitoring to detect your keyboard shortcut (Fn key) globally, even when other apps are focused.
+
+Go to **System Settings > Privacy & Security > Input Monitoring** and toggle Whisperer on.
+</Step>
+
+<Step num="4" title="Download a Whisper model">
+Open Whisperer from your menu bar and go to **Settings**. You'll see a list of available Whisper models. Download one to get started.
+</Step>
+
+<Step num="5" title="Hold Fn and speak">
+Click into any text field — a note, a message, a code editor — hold the **Fn** key, speak naturally, then release. Your words appear as text in the focused field.
+</Step>
+</StepList>
+
+<Callout type="tip">
+**Which model should you pick?** Start with **Turbo** — it's fast and accurate for most use cases. If you need maximum accuracy for technical vocabulary or accented speech, try **Large V3**. You can switch models anytime in Settings.
+</Callout>
+
+That's it. You're dictating.
+
+Here's what the full Whisperer workspace looks like once you're set up:
+
+<TranscriptionsMockup />
+
+## Your First Dictation
+
+Try it now. Click into any text field on your Mac, hold Fn, and say something:
+
+<VoiceDemo voice="The quick brown fox jumps over the lazy dog" output="The quick brown fox jumps over the lazy dog" lang="Natural Language" />
+
+Whisperer streams a live preview as you speak, so you can see the text forming in real time. When you release Fn, the final transcription is inserted into the focused field.
+
+<Callout type="info">
+**Hold-to-talk** means dictation is only active while you hold the key. Release and it stops. This gives you precise control — no accidental dictation of background conversations or thinking-out-loud moments.
+</Callout>
+
+## Enabling Code Mode (Pro Pack)
+
+Code Mode is Whisperer's killer feature for developers. It's included in the Pro Pack ($14.99 one-time, no subscription).
+
+<StepList>
+<Step num="1" title="Unlock the Pro Pack">
+Open Whisperer from the menu bar, go to **Settings**, and purchase the Pro Pack via in-app purchase. It's a one-time payment — no subscription.
+</Step>
+
+<Step num="2" title="Enable Code Mode in a profile">
+Go to **Settings > Profiles**. Create a new profile (or edit the default) and set the mode to **Code Mode**.
+</Step>
+
+<Step num="3" title="Assign it to your IDE">
+Set the profile's app filter to your IDE — VS Code, Cursor, Terminal, or any other app. Code Mode activates automatically when that app is in focus.
+</Step>
+</StepList>
+
+Now try dictating code:
+
+<VoiceDemo voice="const camel case fetch user data equals async open paren close paren fat arrow open brace" output="const fetchUserData = async () => {" lang="TypeScript" />
+
+Code Mode understands casing commands (`camelCase`, `snake_case`, `PascalCase`, `CONSTANT_CASE`), symbol commands (parentheses, brackets, braces, arrows, semicolons), and disables autocorrect so your identifiers stay intact.
+
+## Setting Up Per-App Profiles
+
+Per-app profiles let Whisperer automatically switch dictation modes based on the active app. No manual toggling needed.
+
+<VoiceDemo voice="Hey team, the deploy looks good. Let's ship it after lunch." output="Hey team, the deploy looks good. Let's ship it after lunch." lang="Slack (Natural Language)" />
+
+<VoiceDemo voice="def snake case validate input open paren data colon dict close paren arrow bool colon" output="def validate_input(data: dict) -> bool:" lang="VS Code (Code Mode)" />
+
+Same voice, same shortcut — Whisperer detects which app is focused and applies the right profile automatically.
+
+To set this up:
+
+1. Go to **Settings > Profiles**
+2. Create a profile for each context (e.g., "IDE", "Chat", "Email")
+3. Set the mode (Code Mode or Natural Language) and assign an app filter
+4. Whisperer switches profiles automatically as you move between apps
+
+## Tips & Tricks
+
+<FeatureGrid>
+<FeatureCard title="Custom Shortcut" icon="keyboard">
+Don't like Fn? Change the dictation shortcut in Settings. You can use any key combination — double-tap Fn, a function key, or a custom hotkey.
+</FeatureCard>
+
+<FeatureCard title="Personal Dictionary" icon="book-open">
+Add technical terms, project names, and custom vocabulary to your personal dictionary. This improves recognition accuracy for domain-specific words that Whisper might not know. See our [personal dictionary guide](/blog/personal-dictionary-setup/).
+</FeatureCard>
+
+<FeatureCard title="Model Switching" icon="settings">
+Keep multiple models downloaded for different situations. Use Turbo for quick casual dictation and switch to Large V3 when you need maximum accuracy for technical content.
+</FeatureCard>
+
+<FeatureCard title="Streaming Preview" icon="eye">
+Watch your text form in real time as you speak. The streaming preview shows a live transcription so you can catch errors before they're inserted.
+</FeatureCard>
+</FeatureGrid>
+
+## What's Next?
+
+Now that you're set up, explore these guides to get the most out of Whisperer:
+
+- [How to Dictate Code on Mac](/blog/how-to-dictate-code-on-mac/) — camelCase, snake_case, symbols by voice
+- [Voice Coding with Cursor](/blog/voice-coding-with-cursor/) — dictate AI prompts and refactors
+- [Voice Dictation for VS Code](/blog/voice-dictation-for-vscode/) — setup and workflow tips
+- [Per-App Profiles Guide](/blog/dictation-for-per-app-profiles/) — context-aware dictation
+
+<CTA />

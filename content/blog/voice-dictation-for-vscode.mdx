@@ -1,0 +1,83 @@
+---
+title: "Voice Dictation for VS Code — Setup, Workflow & Productivity Tips"
+description: "How to set up voice-to-text dictation in VS Code on Mac. Use Whisperer's Code Mode to dictate code, comments, and Git messages directly in your editor."
+date: "2026-03-10"
+keywords: ["speech to text VS Code", "voice dictation VS Code", "dictation for VS Code mac", "voice coding VS Code"]
+category: "voice-coding"
+---
+
+VS Code is the most popular code editor in the world. But it has no built-in voice dictation — and Apple's Dictation butchers code syntax. Here's how to set up proper voice-to-text for VS Code on Mac.
+
+## The Problem with Built-In Dictation
+
+<Callout type="warning">
+If you try using macOS Dictation in VS Code, you'll hit these issues immediately: autocorrection ruins code (`getUserName` becomes "Get user name"), no symbol support, no casing commands, and your code gets sent to Apple's servers.
+</Callout>
+
+Whisperer solves all of these with offline, Code Mode-aware dictation.
+
+## Setting Up Whisperer for VS Code
+
+<StepList>
+<Step num="1" title="Install Whisperer">
+Download from the Mac App Store. The base app is free.
+</Step>
+<Step num="2" title="Grant Permissions">
+Whisperer needs Microphone (to record), Accessibility (to insert text), and Input Monitoring (for the Fn key shortcut).
+</Step>
+<Step num="3" title="Create a VS Code Profile">
+Open settings and create a per-app profile for VS Code with Code Mode enabled.
+</Step>
+<Step num="4" title="Choose Your Model">
+The balanced model offers good accuracy for technical terms without significant latency.
+</Step>
+</StepList>
+
+## Daily Workflow
+
+### Dictating Code
+
+<VoiceDemo voice='"function camel case calculate total open paren items colon array close paren colon number open brace"' output="function calculateTotal(items: array): number {" lang="TypeScript" />
+
+### Dictating Comments
+
+<VoiceDemo voice='"slash slash to do refactor this to handle edge case when user is not authenticated"' output="// TODO refactor this to handle edge case when user is not authenticated" lang="Comment" />
+
+### Dictating Git Commit Messages
+
+Open the VS Code Source Control panel, focus the commit message input, and speak:
+
+<VoiceDemo voice="Fix authentication timeout by increasing session duration to thirty minutes" output="Fix authentication timeout by increasing session duration to thirty minutes" lang="Commit Message" />
+
+### Dictating Terminal Commands
+
+<VoiceDemo voice='"git checkout dash b feature slash snake case add user auth"' output="git checkout -b feature/add_user_auth" lang="Terminal" />
+
+## Productivity Tips
+
+<FeatureGrid>
+<FeatureCard title="Streaming Preview" icon="eye">
+Whisperer shows a live preview of your transcription as you speak. If something looks wrong, you can stop and re-record.
+</FeatureCard>
+<FeatureCard title="Personal Dictionary" icon="book-open">
+Add project-specific names, libraries, and acronyms for better recognition.
+</FeatureCard>
+<FeatureCard title="Start with Comments" icon="message-square">
+New to voice coding? Start by dictating comments — they're natural language with a minimal learning curve.
+</FeatureCard>
+<FeatureCard title="Toggle Mode" icon="refresh-cw">
+For longer blocks, press once to start, press again to stop. Better than holding Fn for multi-line dictation.
+</FeatureCard>
+</FeatureGrid>
+
+## Whisperer vs. Other VS Code Voice Tools
+
+<Callout type="info">
+Some VS Code extensions offer voice input, but they typically require an internet connection, only work within VS Code, don't handle code syntax, and send your code to third-party servers. Whisperer is system-wide, fully offline, and has Code Mode specifically designed for programming syntax.
+</Callout>
+
+## Performance
+
+On Apple Silicon Macs, Whisperer transcribes with near-zero latency. The balanced model processes speech in real-time with streaming output — you see text appearing as you speak, with a final refinement pass when you release the shortcut.
+
+<CTA />

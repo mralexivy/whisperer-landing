@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Providers } from "@/components/providers";
+import { NoiseOverlay } from "@/components/ui/decorations";
+import { softwareAppSchema, organizationSchema } from "@/lib/structured-data";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://whispererapp.com"),
-  title: "Whisperer – Offline Dictation for Mac | Voice Coding & Speech to Text",
+  title: "Whisperer – Offline Voice-to-Text for Mac | Dictate Code with camelCase & Symbols",
   description: "Private, offline voice-to-text for macOS. $14.99 lifetime – no subscription. Code Mode for developers with camelCase, snake_case by voice. Works in VS Code, Cursor, Terminal. 100% on-device, no cloud.",
   keywords: [
-    // Tier 1: Quick wins (low difficulty, high intent)
     "offline dictation app mac",
     "whisper dictation mac",
     "voice to text mac offline",
@@ -22,13 +23,11 @@ export const metadata: Metadata = {
     "mac dictation alternative",
     "superwhisper alternative",
     "wispr flow alternative",
-    // Privacy-first AI (trending)
     "private speech to text",
     "no cloud dictation",
     "on-device transcription mac",
     "local AI mac",
     "offline AI dictation",
-    // Developer productivity & vibe coding (trending)
     "vibe coding tools",
     "voice coding",
     "dictation for coding",
@@ -36,11 +35,9 @@ export const metadata: Metadata = {
     "developer voice tools",
     "Code Mode dictation",
     "voice camelCase snake_case",
-    // Pricing differentiators (untapped)
     "dictation without subscription",
     "one-time purchase dictation mac",
     "lifetime dictation app",
-    // Core features
     "speech to text mac",
     "voice typing mac",
     "dictation software mac",
@@ -79,6 +76,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(softwareAppSchema()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema()),
+          }}
+        />
+        <NoiseOverlay />
         <Providers>{children}</Providers>
       </body>
     </html>

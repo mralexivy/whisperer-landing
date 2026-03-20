@@ -1,0 +1,120 @@
+---
+title: "Dictation for Terminal & CLI Workflows on Mac"
+description: "How to use voice dictation in Terminal, iTerm2, and Warp on Mac. Speak shell commands, file paths, and scripts with Whisperer's Code Mode."
+date: "2026-02-10"
+keywords: ["dictation app for terminal mac", "voice dictation terminal", "speech to text terminal", "voice coding CLI"]
+category: "voice-coding"
+---
+
+The terminal is where many developers spend a significant portion of their day. Git commands, Docker operations, SSH sessions, file management — all done by typing commands. But what if you could speak them?
+
+Whisperer's Code Mode works in Terminal, iTerm2, Warp, and any other terminal emulator on your Mac.
+
+## Why Voice in the Terminal?
+
+Terminal commands are often long and error-prone. That's 72 characters of precise typing. One typo and it fails. With voice dictation:
+
+<VoiceDemo voice="docker compose dash f docker dash compose dot prod dot yml up dash dash build dash d dash dash remove dash orphans" output="docker compose -f docker-compose.prod.yml up --build -d --remove-orphans" lang="Bash" />
+
+Whisperer produces the exact command. Code Mode handles the dashes and dots correctly.
+
+## Setting Up Terminal Dictation
+
+<StepList>
+<Step num="1" title="Create a terminal profile">
+In Whisperer settings, create a per-app profile for your terminal (Terminal.app, iTerm2, or Warp)
+</Step>
+
+<Step num="2" title="Enable Code Mode">
+Enable **Code Mode** for this profile to handle dashes, dots, and special characters correctly
+</Step>
+
+<Step num="3" title="Start dictating">
+Hold Fn in your terminal and start speaking your commands
+</Step>
+</StepList>
+
+## Common Terminal Commands by Voice
+
+### Git Commands
+
+<VoiceDemo voice="git checkout dash b feature slash snake case add user auth" output="git checkout -b feature/add_user_auth" lang="Bash" />
+
+<VoiceDemo voice="git commit dash m quote fix authentication timeout for expired sessions quote" output='git commit -m "fix authentication timeout for expired sessions"' lang="Bash" />
+
+<VoiceDemo voice="git log dash dash oneline dash n ten" output="git log --oneline -n 10" lang="Bash" />
+
+### File Operations
+
+<VoiceDemo voice="mkdir dash p src slash components slash auth" output="mkdir -p src/components/auth" lang="Bash" />
+
+<VoiceDemo voice="find dot dash name quote star dot ts quote dash type f" output='find . -name "*.ts" -type f' lang="Bash" />
+
+### Docker Commands
+
+<VoiceDemo voice="docker exec dash it snake case postgres container psql dash u postgres" output="docker exec -it postgres_container psql -u postgres" lang="Bash" />
+
+### SSH and Remote
+
+<VoiceDemo voice="ssh dash i tilde slash dot ssh slash id rsa user at one nine two dot one six eight dot one dot one hundred" output="ssh -i ~/.ssh/id_rsa user@192.168.1.100" lang="Bash" />
+
+## Tips for Terminal Dictation
+
+<FeatureGrid>
+<FeatureCard title='Say "dash" for hyphens' icon="minus">
+Code Mode interprets "dash" as `-`
+</FeatureCard>
+
+<FeatureCard title='Say "dash dash" for long flags' icon="terminal">
+Produces `--` for long command-line flags
+</FeatureCard>
+
+<FeatureCard title='Say "dot" for periods' icon="terminal">
+Useful for file extensions and IP addresses
+</FeatureCard>
+
+<FeatureCard title='Say "slash" for path separators' icon="slash">
+Produces `/` for file paths
+</FeatureCard>
+
+<FeatureCard title='Say "tilde" for home directory' icon="terminal">
+Produces `~` for home directory shortcuts
+</FeatureCard>
+
+<FeatureCard title='Say "star" for wildcards' icon="star">
+Produces `*` for wildcard patterns
+</FeatureCard>
+
+<FeatureCard title='Say "pipe" for piping' icon="git-branch">
+Produces `|` for command piping
+</FeatureCard>
+</FeatureGrid>
+
+## Combining with Natural Language
+
+You can mix natural language and code syntax in a single dictation. For example, when writing a script comment before a command:
+
+<VoiceDemo voice="hash space to do add error handling for network failures" output="# TODO add error handling for network failures" lang="Bash" />
+
+## When Voice Shines in Terminal
+
+<Callout type="tip">
+Voice dictation is particularly powerful for:
+
+- **Long complex commands** that are tedious to type
+- **Commands with many flags** like `docker`, `kubectl`, `ffmpeg`
+- **File paths** that are long and error-prone
+- **Commit messages** and documentation
+- **When you're reading logs** and need to type a command without switching context
+</Callout>
+
+## Terminal-Specific Considerations
+
+<Callout type="info">
+- Whisperer inserts text at the cursor position — it works with any shell (zsh, bash, fish)
+- For multi-line commands, use toggle mode instead of hold-to-talk
+- The streaming preview appears in the Whisperer HUD, not in the terminal itself
+- Tab completion still works normally between voice inputs
+</Callout>
+
+<CTA />
