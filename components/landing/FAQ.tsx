@@ -51,6 +51,36 @@ const faqs = [
     answer:
       "Refunds are handled through Apple according to their standard policies.",
   },
+  {
+    question: "Can Whisperer rewrite or format my dictation?",
+    answer:
+      "Yes. Whisperer includes an on-device AI with 10 built-in modes: Rewrite, Translate, Format, Summarize, Grammar, List Format, Coding, Email, Creative, and Custom. All processing is 100% offline.",
+  },
+  {
+    question: "Can I transcribe audio or video files?",
+    answer:
+      "Yes. Drag an audio or video file into Whisperer to transcribe it offline using the same engine as live dictation. No upload, no cloud, no per-minute charges.",
+  },
+  {
+    question: "How many languages does it support?",
+    answer:
+      "Over 100 languages with the Whisper backend. Parakeet supports 25 languages. You can set per-app language profiles and use AI translation between languages — all offline.",
+  },
+  {
+    question: "Can I use different transcription engines?",
+    answer:
+      "Yes. Whisperer supports three backends: Whisper (Metal GPU, 99+ languages), Parakeet (Neural Engine, fastest), and Apple Speech (macOS Tahoe+). Hot-swap between them without restarting.",
+  },
+  {
+    question: "Does it track my dictation history?",
+    answer:
+      "Yes. Every transcription is saved with full-text search, audio playback, re-transcribe, and usage statistics including words per minute, peak hours, and app usage charts.",
+  },
+  {
+    question: "Can it remove filler words like 'um' and 'uh'?",
+    answer:
+      "Yes. Enable filler word removal in Settings to automatically strip um, uh, erm, er, ah, and hmm from your dictation. Smart matching ensures words like 'umbrella' are not affected.",
+  },
 ];
 
 export const FAQ = () => {

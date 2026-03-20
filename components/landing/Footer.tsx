@@ -10,11 +10,12 @@ const footerLinks = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "/#product" },
+      { label: "All Features", href: "/features/" },
+      { label: "AI Writing", href: "/features/ai-writing/" },
+      { label: "Offline Transcription", href: "/features/offline-transcription/" },
       { label: "Code Mode", href: "/code-mode/" },
       { label: "Voice Coding", href: "/voice-coding/" },
       { label: "Pricing", href: "/pricing/" },
-      { label: "FAQ", href: "/#faq" },
     ],
   },
   {
@@ -31,9 +32,10 @@ const footerLinks = [
     title: "Resources",
     links: [
       { label: "Blog", href: "/blog/" },
+      { label: "Getting Started", href: "/blog/getting-started-whisperer/" },
       { label: "How to Dictate Code", href: "/blog/how-to-dictate-code-on-mac/" },
-      { label: "Voice Coding with Cursor", href: "/blog/voice-coding-with-cursor/" },
-      { label: "RSI Prevention", href: "/blog/rsi-prevention-voice-coding/" },
+      { label: "Multilingual Guide", href: "/blog/multilingual-dictation-guide/" },
+      { label: "Dictionary Setup", href: "/blog/personal-dictionary-setup/" },
     ],
   },
   {

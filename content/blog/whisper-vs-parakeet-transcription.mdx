@@ -1,0 +1,75 @@
+---
+title: "Whisper vs. Parakeet vs. Apple Speech — Which Transcription Backend Is Best?"
+description: "Compare Whisperer's three offline transcription engines: Whisper (Metal GPU), Parakeet (Neural Engine), and Apple Speech. Speed, accuracy, language support, and hardware usage compared."
+date: "2026-03-15"
+keywords: ["whisper vs parakeet", "transcription backend comparison", "whisper.cpp vs coreml", "neural engine transcription", "metal GPU speech recognition", "offline transcription engines mac"]
+category: "technical"
+---
+
+Whisperer is unique among Mac dictation apps: it supports three independent transcription backends, each optimized for different hardware and use cases. Here's how to choose between them.
+
+## The Three Backends at a Glance
+
+| | **Whisper** | **Parakeet** | **Apple Speech** |
+|---|---|---|---|
+| Engine | whisper.cpp (C library) | FluidAudio (CoreML) | SpeechAnalyzer |
+| Hardware | Metal GPU | Apple Neural Engine | System ML |
+| Languages | 99+ | 25 (v3) / English (v2) | System languages |
+| Speed | Fast (with Turbo models) | Fastest | Varies |
+| Best For | Accuracy & language coverage | Maximum speed | Native integration |
+
+## Whisper — The Default
+
+Whisper is the default backend and the most versatile. Built on [whisper.cpp](https://github.com/ggerganov/whisper.cpp), it uses Apple Silicon's Metal GPU for fast inference.
+
+**Strengths:**
+- 99+ language support — the broadest coverage of any backend
+- 10+ model sizes from Tiny (75 MB) to Large V3 (2.9 GB)
+- The default Large V3 Turbo Q5 model (547 MB) offers the best balance of speed, size, and accuracy
+- Quantized models (Q5) reduce file size by ~60% with minimal accuracy loss
+
+**When to use:** Most users should stick with Whisper. It's the most accurate across languages and has the widest range of model sizes.
+
+**Recommended model:** Large V3 Turbo Q5 (547 MB) — 8x faster than Large V3 with similar accuracy, and only 547 MB on disk.
+
+## Parakeet — The Speed King
+
+Parakeet uses FluidAudio's CoreML models running on the Apple Neural Engine (ANE). Since it runs on a dedicated chip separate from the GPU, it leaves Metal free for other tasks.
+
+**Strengths:**
+- Fastest inference on Apple Silicon
+- CTC vocabulary boosting — your [dictionary entries](/features/personal-dictionary/) and prompt words bias the decoder at the acoustic level
+- Dedicated hardware means no GPU contention
+
+**Limitations:**
+- Parakeet v3 supports 25 languages (v2 is English-only)
+- Fewer model size options compared to Whisper
+
+**When to use:** If you primarily dictate in a supported language and want absolute maximum speed. The CTC vocabulary boosting feature is also unique to Parakeet — if you have lots of specialized terminology, Parakeet may recognize it better.
+
+## Apple Speech — Native Framework
+
+Available on macOS Tahoe (macOS 26) and later, Apple Speech uses the native SpeechAnalyzer framework. This is Apple's own speech recognition running through system-level optimization.
+
+**When to use:** When you want to use Apple's native speech models or when the other backends aren't available for your use case.
+
+## How Whisperer Uses Each Backend
+
+Whisperer abstracts all three backends behind a unified `TranscriptionBackend` protocol. This means:
+
+- **Hot-swapping**: Switch between backends without restarting the app
+- **Same features**: Dictionary correction, filler word removal, AI post-processing, and history work identically across all backends
+- **Same audio pipeline**: All backends receive the same 16kHz mono Float32 audio
+
+## The Live Preview Connection
+
+Whisperer's [live preview](/features/live-preview/) uses a dedicated lightweight Parakeet EOU model on the Neural Engine, regardless of which main backend you choose. This means:
+
+- If your main backend is **Whisper** (Metal GPU) — live preview runs on Neural Engine, zero contention
+- If your main backend is **Parakeet** (Neural Engine) — the EOU model shares the ANE but is optimized for minimal interference
+
+## Recommendation
+
+Start with **Whisper** using the default Large V3 Turbo Q5 model. It's the safest choice with excellent accuracy across all languages. If you find you need more speed and primarily work in English or a top-25 language, switch to **Parakeet** and see if the speed difference matters for your workflow.
+
+Read the [best Whisper model for dictation](/blog/best-whisper-model-for-dictation/) guide for detailed model comparisons, or explore the [offline transcription engines](/features/offline-transcription/) feature page.

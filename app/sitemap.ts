@@ -10,6 +10,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages = [
     { url: `${baseUrl}/`, changeFrequency: "weekly" as const, priority: 1.0 },
+    { url: `${baseUrl}/features/`, changeFrequency: "monthly" as const, priority: 0.9 },
+    { url: `${baseUrl}/features/ai-writing/`, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${baseUrl}/features/offline-transcription/`, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${baseUrl}/features/live-preview/`, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/features/personal-dictionary/`, changeFrequency: "monthly" as const, priority: 0.85 },
+    { url: `${baseUrl}/features/transcription-history/`, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/features/file-transcription/`, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${baseUrl}/features/multilingual/`, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: `${baseUrl}/voice-coding/`, changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${baseUrl}/code-mode/`, changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${baseUrl}/pricing/`, changeFrequency: "monthly" as const, priority: 0.9 },

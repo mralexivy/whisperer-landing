@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Check, Code, Layers, BookOpen, Keyboard, Apple } from "lucide-react";
+import { Check, Code, Layers, BookOpen, Keyboard, Apple, Sparkles } from "lucide-react";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
 import { SectionGlow } from "@/components/ui/decorations";
 
@@ -26,6 +26,13 @@ const proFeatures = [
     bgColor: "bg-orange-400/10",
     title: "Personal Dictionary",
     features: ["Add names/acronyms/terms", "Quick add from overlay", "Import word lists (optional)"],
+  },
+  {
+    icon: Sparkles,
+    color: "text-cyan-400",
+    bgColor: "bg-cyan-400/10",
+    title: "AI Post-Processing",
+    features: ["Rewrite, translate, summarize offline", "10 built-in modes + custom", "On-device LLM, no cloud"],
   },
   {
     icon: Keyboard,
@@ -65,7 +72,7 @@ export const ProPackSection = () => {
               Core dictation features for everyday use.
             </p>
             <ul className="space-y-3 mb-8">
-              {["Hold-to-record dictation", "Live preview", "100+ languages", "Multiple Whisper models", "Offline processing"].map((item, i) => (
+              {["Hold-to-record dictation", "Live preview", "100+ languages", "Multiple Whisper models", "Offline processing", "File transcription", "Filler word removal"].map((item, i) => (
                 <li key={i} className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-primary" />
                   <span className="text-muted-foreground">{item}</span>
@@ -96,7 +103,7 @@ export const ProPackSection = () => {
               Everything in Base, plus power features.
             </p>
             <ul className="space-y-3 mb-8">
-              {["Everything in Base", "Code Mode", "Per-app Profiles", "Personal Dictionary", "Pro Insertion Engine"].map((item, i) => (
+              {["Everything in Base", "Code Mode", "Per-app Profiles", "Personal Dictionary", "AI Post-Processing (10 modes)", "Pro Insertion Engine"].map((item, i) => (
                 <li key={i} className="flex items-center gap-3">
                   <Check className="w-5 h-5 text-primary" />
                   <span className="text-foreground">{item}</span>
@@ -114,7 +121,7 @@ export const ProPackSection = () => {
         </FadeInStagger>
 
         {/* Pro Features Grid */}
-        <FadeInStagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <FadeInStagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {proFeatures.map((feature, index) => (
             <StaggerItem key={index}>
             <GlowCard className="bg-card/50 border border-border rounded-xl p-6 hover:border-primary/50 transition-colors h-full">

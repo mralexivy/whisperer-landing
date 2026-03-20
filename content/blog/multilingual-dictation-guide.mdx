@@ -1,0 +1,83 @@
+---
+title: "How to Dictate in Multiple Languages on Mac — Complete Guide"
+description: "Set up multilingual dictation on Mac with Whisperer. Configure per-app language profiles, use AI translation between languages, and optimize accuracy for non-English dictation."
+date: "2026-03-12"
+keywords: ["multilingual dictation mac", "dictate multiple languages mac", "voice to text spanish mac", "per-app language profiles", "offline translation dictation", "dictation language switching"]
+category: "guides"
+howToSteps:
+  - name: "Choose Your Language"
+    text: "Open Whisperer Settings and select your primary dictation language. Explicit selection is recommended over auto-detection for best accuracy."
+  - name: "Set Up Per-App Profiles"
+    text: "In Pro Pack settings, create per-app profiles to use different languages in different applications automatically."
+  - name: "Enable AI Translation (Optional)"
+    text: "Enable AI Post-Processing with Translate mode to dictate in one language and receive text in another."
+  - name: "Add Language-Specific Prompt Words"
+    text: "Add proper nouns, technical terms, and frequently used words in your target language to prompt words for better recognition."
+---
+
+If you work in multiple languages, standard dictation apps make you manually switch languages every time. Whisperer handles multilingual workflows natively — with per-app language profiles, AI-powered translation, and over 100 supported languages.
+
+## Setting Your Dictation Language
+
+The most important step for accuracy: **explicitly select your dictation language** rather than relying on auto-detection.
+
+Auto-detection works but can misidentify languages, especially for:
+- Short utterances (fewer words = less data for the model)
+- Languages with similar phonetics (e.g., Spanish and Portuguese)
+- Code-switching (mixing languages in one utterance)
+
+<Callout type="info">
+**Tip:** Explicit language selection gives 10-15% better accuracy than auto-detection for most languages.
+</Callout>
+
+## Per-App Language Profiles
+
+With Whisperer's Pro Pack, you can assign a different dictation language to each application:
+
+- **VS Code / Cursor:** English (for code and comments)
+- **Pages / Word:** French (for documents)
+- **Mail:** German (for correspondence)
+- **Slack:** English (for team chat)
+
+When you switch between apps, Whisperer automatically switches the dictation language. No manual toggling needed.
+
+## AI Translation Mode
+
+Whisperer's [AI post-processing](/features/ai-writing/) includes a Translate mode that converts your dictation to a different language entirely offline:
+
+1. Enable AI Post-Processing in Settings
+2. Select "Translate" mode
+3. Set your target language
+4. Dictate in your native language — the output appears in the target language
+
+This is particularly useful for:
+- Writing emails in a language you can speak but type slowly in
+- Quick translations without opening a separate app
+- Maintaining consistent terminology with your [personal dictionary](/features/personal-dictionary/)
+
+## Language Support by Backend
+
+Not all backends support the same languages:
+
+| Backend | Languages | Best For |
+|---|---|---|
+| **Whisper** | 99+ | Maximum language coverage |
+| **Parakeet v3** | 25 | Fast inference for top languages |
+| **Parakeet v2** | English only | Maximum English speed |
+| **Apple Speech** | System languages | Native macOS integration |
+
+If you need a less common language, Whisper is the only backend with full coverage. For top-25 languages, Parakeet offers the fastest inference.
+
+## Tips for Non-English Accuracy
+
+1. **Use the right model size.** Larger Whisper models (Medium, Large V3) perform significantly better on non-English languages than smaller models
+2. **Add prompt words** for proper nouns, place names, and technical terms in your language
+3. **Set up dictionary corrections** for words the model consistently gets wrong
+4. **Use explicit language selection** rather than auto-detection
+
+## Getting Started
+
+1. [Download Whisperer](https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671)
+2. Go to Settings and select your language
+3. Optionally set up [per-app profiles](/blog/dictation-for-per-app-profiles/) for multilingual workflows
+4. Explore the full [multilingual features](/features/multilingual/)
