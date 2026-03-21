@@ -2096,6 +2096,613 @@ const Screenshot12 = () => (
   </div>
 );
 
+// Screenshot 13: Fn Key Press — Full Workflow
+const Screenshot13 = () => {
+  const waveformBars = [...Array(24)].map((_, i) => {
+    const center = 12;
+    const dist = Math.abs(i - center) / center;
+    const h = 0.2 + (1 - dist) * 0.8 + Math.sin(i * 0.5) * 0.15;
+    return Math.max(0.15, Math.min(1, h));
+  });
+
+  return (
+    <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col overflow-hidden">
+      <WhispererLogo />
+
+      <div className="text-center mt-8 mb-6">
+        <h1 className="text-5xl font-bold text-white">
+          Just press <span className="bg-gradient-to-r from-[#5B6CF7] to-[#8B5CF6] bg-clip-text text-transparent">Fn</span>
+        </h1>
+        <p className="text-white/50 text-lg mt-4">Hold the key. Speak. Release. Your words appear instantly.</p>
+      </div>
+
+      <div className="flex-1 flex flex-col items-center justify-center relative min-h-0">
+
+        {/* Whisperer HUD — Speech bubble + Control bar */}
+        <div className="relative mb-8 z-10 flex flex-col items-center">
+          {/* Glow behind HUD */}
+          <div className="absolute -inset-8 bg-[#5B6CF7]/8 rounded-3xl blur-3xl" />
+
+          {/* Speech bubble — Live Transcription */}
+          <div className="relative mb-6">
+            {/* Bubble body */}
+            <div
+              className="relative rounded-2xl px-5 pt-4 pb-4 shadow-2xl shadow-black/40 w-[420px]"
+              style={{
+                background: '#131325',
+                border: '1px solid rgba(255,255,255,0.04)',
+              }}
+            >
+              {/* Header row */}
+              <div className="flex items-center gap-2.5 mb-3.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#5B6CF7] shrink-0" />
+                <span className="text-[#5B6CF7] text-[11px] font-bold uppercase tracking-[0.18em]">Live Transcription</span>
+              </div>
+              {/* Gradient divider — full-width bleed */}
+              <div className="h-[2px] -mx-5 bg-gradient-to-r from-[#5B6CF7] via-[#7C5CF7] to-[#8B5CF6] mb-4" />
+              {/* Transcription text */}
+              <p className="text-white/70 text-[15px] leading-relaxed">
+                <br /><br />
+              </p>
+            </div>
+            {/* Pointer / caret — CSS triangle for crisp rendering */}
+            <div
+              className="absolute -bottom-[11px] left-1/2 -translate-x-1/2 w-0 h-0"
+              style={{
+                borderLeft: '12px solid transparent',
+                borderRight: '12px solid transparent',
+                borderTop: '12px solid #131325',
+              }}
+            />
+            {/* Pointer border (sits behind, 1px larger) */}
+            <div
+              className="absolute -bottom-[13px] left-1/2 -translate-x-1/2 w-0 h-0 -z-10"
+              style={{
+                borderLeft: '13px solid transparent',
+                borderRight: '13px solid transparent',
+                borderTop: '13px solid rgba(255,255,255,0.06)',
+              }}
+            />
+          </div>
+
+          {/* Control bar — pill shaped */}
+          <div
+            className="relative rounded-full px-4 py-2.5 flex items-center gap-3.5 shadow-2xl shadow-black/40"
+            style={{
+              background: '#111122',
+              border: '1px solid rgba(255,255,255,0.04)',
+            }}
+          >
+            {/* Primary mic icon in circle with indicator dot */}
+            <div className="relative">
+              <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ background: '#1E1E3A', border: '1.5px solid rgba(91,108,247,0.25)' }}>
+                <Mic className="w-[22px] h-[22px] text-[#5B6CF7]" />
+              </div>
+              <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-[#5B6CF7] border-[2.5px] border-[#111122]" />
+            </div>
+
+            {/* Active app icon (VS Code) — small */}
+            <div className="w-6 h-6 rounded flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M17.5 0L7.5 9.5 3.5 6.5 1 8l6.5 5L1 18l2.5 1.5 4-3 10 9.5 5.5-2.5V2.5L17.5 0zM17.5 17.5l-7-5.5 7-5.5v11z" fill="#007ACC"/>
+              </svg>
+            </div>
+
+            {/* Waveform */}
+            <div className="flex items-center gap-[2px] h-8 mx-1">
+              {waveformBars.map((h, i) => (
+                <div
+                  key={i}
+                  className="w-[2.5px] rounded-full"
+                  style={{
+                    height: `${h * 100}%`,
+                    background: `linear-gradient(to top, #5B6CF7, #8B5CF6)`,
+                    opacity: 0.7 + h * 0.3,
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Secondary mic button */}
+            <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ background: '#5B6CF7/10', border: '1.5px solid rgba(91,108,247,0.2)' }}>
+              <Mic className="w-[18px] h-[18px] text-[#5B6CF7]" />
+            </div>
+
+            {/* Close button */}
+            <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ background: 'rgba(239,68,68,0.12)', border: '1.5px solid rgba(239,68,68,0.18)' }}>
+              <X className="w-[18px] h-[18px] text-[#EF4444]" />
+            </div>
+          </div>
+        </div>
+
+        {/* Connection line from HUD to keyboard */}
+        <div className="flex flex-col items-center mb-4">
+          <div className="w-[2px] h-8 bg-gradient-to-b from-[#5B6CF7]/50 to-[#5B6CF7]/5 rounded-full" />
+        </div>
+
+        {/* Mac Keyboard — bottom rows */}
+        <div className="relative">
+          {/* Subtle keyboard glow */}
+          <div className="absolute -inset-8 bg-[#5B6CF7]/[0.03] rounded-3xl blur-xl" />
+
+          <div className="relative flex flex-col gap-1.5">
+            {/* Row 1: Z row */}
+            <div className="flex gap-1.5 justify-center">
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[72px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                <span className="text-white/30 text-xs font-medium">⇧ Shift</span>
+              </div>
+              {['Z','X','C','V','B','N','M'].map(k => (
+                <div key={k} className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[46px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                  <span className="text-white/40 text-sm font-medium">{k}</span>
+                </div>
+              ))}
+              {[',', '.', '/'].map(k => (
+                <div key={k} className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[46px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                  <span className="text-white/30 text-sm">{k}</span>
+                </div>
+              ))}
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[72px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                <span className="text-white/30 text-xs font-medium">⇧ Shift</span>
+              </div>
+            </div>
+
+            {/* Row 2: Bottom modifier row */}
+            <div className="flex gap-1.5 justify-center items-end">
+              {/* Fn key — ACTIVE / PRESSED */}
+              <div className="relative group">
+                {/* Outer glow ring */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-[#5B6CF7]/40 to-[#8B5CF6]/40 rounded-2xl blur-lg" />
+                <div className="absolute -inset-1 bg-gradient-to-br from-[#5B6CF7]/20 to-[#8B5CF6]/20 rounded-xl" />
+                <div className="relative bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] border border-[#5B6CF7]/50 rounded-lg w-[46px] h-[42px] flex items-center justify-center shadow-lg shadow-[#5B6CF7]/40 translate-y-[2px]">
+                  <span className="text-white text-sm font-bold">fn</span>
+                </div>
+              </div>
+
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[46px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                <span className="text-white/30 text-xs">⌃</span>
+              </div>
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[46px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                <span className="text-white/30 text-xs">⌥</span>
+              </div>
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[58px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                <span className="text-white/30 text-xs">⌘</span>
+              </div>
+              {/* Space bar */}
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[260px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+              </div>
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[58px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                <span className="text-white/30 text-xs">⌘</span>
+              </div>
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[46px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                <span className="text-white/30 text-xs">⌥</span>
+              </div>
+              {/* Arrow keys cluster */}
+              <div className="flex flex-col gap-0.5 items-center">
+                <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-md w-[36px] h-[22px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.03), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                  <span className="text-white/20 text-[10px]">▲</span>
+                </div>
+                <div className="flex gap-0.5">
+                  {['◀','▼','▶'].map(arrow => (
+                    <div key={arrow} className="bg-[#1C1C3A] border border-white/[0.06] rounded-md w-[36px] h-[22px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.03), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                      <span className="text-white/20 text-[10px]">{arrow}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom info badges */}
+      <div className="flex justify-center gap-6 mt-8">
+        <div className="flex items-center gap-3">
+          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] flex items-center justify-center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <span className="text-white/50 text-sm">Works system-wide</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] flex items-center justify-center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <span className="text-white/50 text-sm">Customizable shortcut</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] flex items-center justify-center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <span className="text-white/50 text-sm">Hold to record, release to insert</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Screenshot 14: Hands-Free Mode (Fn+L) — same layout as Screenshot13, different HUD
+const Screenshot14 = () => {
+  const waveformBars = [...Array(24)].map((_, i) => {
+    const center = 12;
+    const dist = Math.abs(i - center) / center;
+    const h = 0.2 + (1 - dist) * 0.8 + Math.sin(i * 0.5) * 0.15;
+    return Math.max(0.15, Math.min(1, h));
+  });
+
+  return (
+    <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col overflow-hidden">
+      <WhispererLogo />
+
+      <div className="text-center mt-8 mb-6">
+        <h1 className="text-5xl font-bold text-white">
+          Hands-Free with <span className="bg-gradient-to-r from-[#5B6CF7] to-[#8B5CF6] bg-clip-text text-transparent">Fn+L</span>
+        </h1>
+        <p className="text-white/50 text-lg mt-4">Toggle continuous dictation. No need to hold any key.</p>
+      </div>
+
+      <div className="flex-1 flex flex-col items-center justify-center relative min-h-0">
+
+        {/* Whisperer HUD — Speech bubble + Control bar (same structure as Screenshot13) */}
+        <div className="relative mb-8 z-10 flex flex-col items-center">
+          {/* Glow behind HUD */}
+          <div className="absolute -inset-8 bg-[#5B6CF7]/8 rounded-3xl blur-3xl" />
+
+          {/* Speech bubble — Live Transcription + Hands-Free badge */}
+          <div className="relative mb-6">
+            <div
+              className="relative rounded-2xl px-5 pt-4 pb-4 shadow-2xl shadow-black/40 w-[420px]"
+              style={{
+                background: '#131325',
+                border: '1px solid rgba(255,255,255,0.04)',
+              }}
+            >
+              {/* Header row with Hands-Free badge */}
+              <div className="flex items-center justify-between mb-3.5">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#5B6CF7] shrink-0" />
+                  <span className="text-[#5B6CF7] text-[11px] font-bold uppercase tracking-[0.18em]">Live Transcription</span>
+                </div>
+                <div className="flex items-center gap-1.5 bg-[#5B6CF7]/10 border border-[#5B6CF7]/20 rounded-full px-2.5 py-0.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#5B6CF7]" />
+                  <span className="text-[#5B6CF7] text-[10px] font-bold uppercase tracking-[0.1em]">Hands-Free</span>
+                </div>
+              </div>
+              {/* Gradient divider — full-width bleed */}
+              <div className="h-[2px] -mx-5 bg-gradient-to-r from-[#5B6CF7] via-[#7C5CF7] to-[#8B5CF6] mb-4" />
+              {/* Transcription text with cursor */}
+              <p className="text-white/70 text-[15px] leading-relaxed">
+                Hey team, let&#39;s sync on the API redesign tomorrow morning and finalize the migration plan<span className="inline-block w-[2px] h-[17px] bg-[#5B6CF7] ml-0.5 align-middle" />
+              </p>
+            </div>
+            {/* Pointer */}
+            <div
+              className="absolute -bottom-[11px] left-1/2 -translate-x-1/2 w-0 h-0"
+              style={{
+                borderLeft: '12px solid transparent',
+                borderRight: '12px solid transparent',
+                borderTop: '12px solid #131325',
+              }}
+            />
+            <div
+              className="absolute -bottom-[13px] left-1/2 -translate-x-1/2 w-0 h-0 -z-10"
+              style={{
+                borderLeft: '13px solid transparent',
+                borderRight: '13px solid transparent',
+                borderTop: '13px solid rgba(255,255,255,0.06)',
+              }}
+            />
+          </div>
+
+          {/* Control bar — Hands-Free mode (slightly narrower than bubble, centered) */}
+          <div
+            className="relative rounded-full px-4 py-2.5 flex items-center justify-center gap-3.5 shadow-2xl shadow-black/40 w-[380px]"
+            style={{
+              background: '#111122',
+              border: '1px solid rgba(255,255,255,0.04)',
+            }}
+          >
+            {/* Mic icon with ring */}
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-full border-2 border-[#5B6CF7]/30" />
+              <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ background: '#1E1E3A', border: '1.5px solid rgba(91,108,247,0.25)' }}>
+                <Mic className="w-[22px] h-[22px] text-[#5B6CF7]" />
+              </div>
+            </div>
+
+            {/* Hands-Free Mode label + Fn hint */}
+            <div className="flex flex-col">
+              <span className="text-white text-sm font-semibold">Hands-Free Mode</span>
+              <div className="flex items-center gap-1.5">
+                <span className="text-white/40 text-xs">Press</span>
+                <span className="bg-white/10 border border-white/[0.08] rounded px-1.5 py-0.5 text-white/60 text-[10px] font-semibold">Fn</span>
+                <span className="text-white/40 text-xs">to stop</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Connection line from HUD to keyboard */}
+        <div className="flex flex-col items-center mb-4">
+          <div className="w-[2px] h-8 bg-gradient-to-b from-[#5B6CF7]/50 to-[#5B6CF7]/5 rounded-full" />
+        </div>
+
+        {/* Mac Keyboard — same as Screenshot13 */}
+        <div className="relative">
+          <div className="absolute -inset-8 bg-[#5B6CF7]/[0.03] rounded-3xl blur-xl" />
+
+          <div className="relative flex flex-col gap-1.5">
+            {/* Row 1: Z row */}
+            <div className="flex gap-1.5 justify-center">
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[72px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                <span className="text-white/30 text-xs font-medium">⇧ Shift</span>
+              </div>
+              {['Z','X','C','V','B','N','M'].map(k => (
+                <div key={k} className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[46px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                  <span className="text-white/40 text-sm font-medium">{k}</span>
+                </div>
+              ))}
+              {[',', '.', '/'].map(k => (
+                <div key={k} className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[46px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                  <span className="text-white/30 text-sm">{k}</span>
+                </div>
+              ))}
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[72px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                <span className="text-white/30 text-xs font-medium">⇧ Shift</span>
+              </div>
+            </div>
+
+            {/* Row 2: Bottom modifier row */}
+            <div className="flex gap-1.5 justify-center items-end">
+              {/* Fn key — ACTIVE / PRESSED */}
+              <div className="relative group">
+                <div className="absolute -inset-2 bg-gradient-to-br from-[#5B6CF7]/40 to-[#8B5CF6]/40 rounded-2xl blur-lg" />
+                <div className="absolute -inset-1 bg-gradient-to-br from-[#5B6CF7]/20 to-[#8B5CF6]/20 rounded-xl" />
+                <div className="relative bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] border border-[#5B6CF7]/50 rounded-lg w-[46px] h-[42px] flex items-center justify-center shadow-lg shadow-[#5B6CF7]/40 translate-y-[2px]">
+                  <span className="text-white text-sm font-bold">fn</span>
+                </div>
+              </div>
+
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[46px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                <span className="text-white/30 text-xs">⌃</span>
+              </div>
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[46px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                <span className="text-white/30 text-xs">⌥</span>
+              </div>
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[58px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                <span className="text-white/30 text-xs">⌘</span>
+              </div>
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[260px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+              </div>
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[58px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                <span className="text-white/30 text-xs">⌘</span>
+              </div>
+              <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-lg w-[46px] h-[46px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                <span className="text-white/30 text-xs">⌥</span>
+              </div>
+              {/* Arrow keys cluster */}
+              <div className="flex flex-col gap-0.5 items-center">
+                <div className="bg-[#1C1C3A] border border-white/[0.06] rounded-md w-[36px] h-[22px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.03), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                  <span className="text-white/20 text-[10px]">▲</span>
+                </div>
+                <div className="flex gap-0.5">
+                  {['◀','▼','▶'].map(arrow => (
+                    <div key={arrow} className="bg-[#1C1C3A] border border-white/[0.06] rounded-md w-[36px] h-[22px] flex items-center justify-center" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.03), 0 1px 2px rgba(0,0,0,0.2)' }}>
+                      <span className="text-white/20 text-[10px]">{arrow}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom info badges */}
+      <div className="flex justify-center gap-6 mt-8">
+        <div className="flex items-center gap-3">
+          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] flex items-center justify-center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <span className="text-white/50 text-sm">No key holding required</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] flex items-center justify-center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <span className="text-white/50 text-sm">Continuous dictation</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#5B6CF7] to-[#8B5CF6] flex items-center justify-center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          <span className="text-white/50 text-sm">Press Fn to stop</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Screenshot 15: Text Insertion into VS Code — HUD at bottom, text inserted in editor
+const Screenshot15 = () => {
+  const waveformBars = [...Array(24)].map((_, i) => {
+    const center = 12;
+    const dist = Math.abs(i - center) / center;
+    const h = 0.2 + (1 - dist) * 0.8 + Math.sin(i * 0.5) * 0.15;
+    return Math.max(0.15, Math.min(1, h));
+  });
+
+  return (
+    <div className="w-full h-full bg-[#0C0C1A] p-16 flex flex-col overflow-hidden">
+      <WhispererLogo />
+
+      <div className="text-center mt-4 mb-6">
+        <h1 className="text-5xl font-bold text-white">
+          Release Fn. <span className="bg-gradient-to-r from-[#5B6CF7] to-[#8B5CF6] bg-clip-text text-transparent">Text inserted.</span>
+        </h1>
+        <p className="text-white/50 text-lg mt-3">Your words appear exactly where your cursor is.</p>
+      </div>
+
+      <div className="flex-1 flex flex-col items-center justify-center min-h-0">
+        {/* VS Code Window */}
+        <div className="w-full max-w-[860px] rounded-xl overflow-hidden shadow-2xl" style={{ background: '#1E1E2E', border: '1px solid rgba(255,255,255,0.06)' }}>
+          {/* Title bar */}
+          <div className="flex items-center justify-between px-4 py-2.5" style={{ background: '#181828', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 rounded-full bg-[hsl(0,62%,50%)]" />
+              <div className="w-3 h-3 rounded-full bg-[hsl(45,93%,47%)]" />
+              <div className="w-3 h-3 rounded-full bg-[#28C840]" />
+            </div>
+            <div className="flex items-center gap-2 text-white/50 text-xs">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M17.5 0L7.5 9.5 3.5 6.5 1 8l6.5 5L1 18l2.5 1.5 4-3 10 9.5 5.5-2.5V2.5L17.5 0zM17.5 17.5l-7-5.5 7-5.5v11z" fill="#007ACC"/>
+              </svg>
+              <span className="text-white/60">app.py — MyProject</span>
+            </div>
+            <div className="w-16" />
+          </div>
+
+          {/* Tab bar */}
+          <div className="flex" style={{ background: '#141424', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+            <div className="flex items-center px-4 py-1.5 text-white/40 text-xs" style={{ borderRight: '1px solid rgba(255,255,255,0.04)' }}>app.py</div>
+            <div className="flex items-center gap-1.5 px-4 py-1.5 text-white/80 text-xs" style={{ background: '#1E1E2E', borderRight: '1px solid rgba(255,255,255,0.04)' }}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4845A" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <span>Claude Code</span>
+              <span className="text-white/30 ml-1">×</span>
+            </div>
+            <div className="flex items-center px-4 py-1.5 text-white/40 text-xs">utils.py</div>
+          </div>
+
+          {/* Claude Code content */}
+          <div className="flex">
+            {/* Activity bar */}
+            <div className="w-[44px] flex flex-col items-center py-3 gap-4" style={{ background: '#141424', borderRight: '1px solid rgba(255,255,255,0.04)' }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeOpacity="0.15" strokeWidth="1.5"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeOpacity="0.15" strokeWidth="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4845A" strokeOpacity="0.8" strokeWidth="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+
+            {/* Main content area */}
+            <div className="flex-1 flex flex-col" style={{ minHeight: '340px' }}>
+              {/* Center content - compact */}
+              <div className="flex-1 flex flex-col items-center justify-center px-8">
+                <div className="mb-3">
+                  <svg width="36" height="30" viewBox="0 0 48 40" fill="none">
+                    <rect x="8" y="8" width="32" height="24" rx="4" fill="#D4845A" />
+                    <rect x="4" y="4" width="8" height="12" rx="2" fill="#D4845A" />
+                    <rect x="36" y="4" width="8" height="12" rx="2" fill="#D4845A" />
+                    <rect x="16" y="16" width="4" height="4" rx="1" fill="#1E1E2E" />
+                    <rect x="28" y="16" width="4" height="4" rx="1" fill="#1E1E2E" />
+                    <rect x="4" y="32" width="8" height="6" rx="2" fill="#D4845A" />
+                    <rect x="16" y="32" width="8" height="6" rx="2" fill="#D4845A" />
+                    <rect x="28" y="32" width="8" height="6" rx="2" fill="#D4845A" />
+                    <rect x="36" y="32" width="8" height="6" rx="2" fill="#D4845A" />
+                  </svg>
+                </div>
+                <p className="text-white/30 text-xs text-center leading-relaxed max-w-[280px]">
+                  Tired of repeating yourself? Tell Claude to remember what you&#39;ve told it using CLAUDE.md.
+                </p>
+              </div>
+
+              {/* Bottom hint */}
+              <div className="flex items-center justify-center gap-2 py-2 text-white/30 text-xs">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                <span>Prefer the Terminal experience?</span>
+                <span className="text-white/50">Switch back in Settings.</span>
+                <span className="text-white/20">×</span>
+              </div>
+
+              {/* Input box — matching Claude Code exactly */}
+              <div className="mx-5 mb-4 rounded-2xl" style={{ border: '2px solid rgba(212,132,90,0.5)', background: 'rgba(255,255,255,0.02)' }}>
+                {/* Text input area — dictated text here */}
+                <div className="px-5 py-4">
+                  <span className="text-white/90 text-[15px] leading-relaxed">Hey team, let's sync on the API redesign tomorrow morning and finalize the migration plan</span>
+                  <span className="inline-block w-[2px] h-[16px] bg-white ml-0.5 align-middle" />
+                </div>
+                {/* Toolbar */}
+                <div className="flex items-center justify-between px-4 py-2.5">
+                  <div className="flex items-center gap-3 text-white/30">
+                    <span className="text-xl leading-none">+</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8"/></svg>
+                    <span className="text-white/10 text-lg">|</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+                    <span className="text-white/40 text-xs">extension-output-etmoffat.pip-pack...</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 text-white/40 text-xs">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                      <span>Bypass permissions</span>
+                    </div>
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'rgba(212,132,90,0.7)' }}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Status bar */}
+          <div className="flex items-center justify-between px-4 py-1" style={{ background: '#007ACC' }}>
+            <div className="flex items-center gap-3 text-white/90 text-[11px]"><span>main</span></div>
+            <div className="flex items-center gap-3 text-white/90 text-[11px]"><span>Claude Code</span></div>
+          </div>
+        </div>
+
+        {/* Whisperer HUD at the bottom — fading out */}
+        <div className="mt-6 flex flex-col items-center" style={{ opacity: 0.35 }}>
+          {/* Control bar */}
+          <div
+            className="relative rounded-full px-4 py-2.5 flex items-center gap-3.5 shadow-2xl shadow-black/40"
+            style={{ background: '#111122', border: '1px solid rgba(255,255,255,0.04)' }}
+          >
+            <div className="relative">
+              <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ background: '#1E1E3A', border: '1.5px solid rgba(91,108,247,0.25)' }}>
+                <Mic className="w-[22px] h-[22px] text-[#5B6CF7]" />
+              </div>
+              <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-[#22C55E] border-[2.5px] border-[#111122]" />
+            </div>
+
+            <div className="w-6 h-6 rounded flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M17.5 0L7.5 9.5 3.5 6.5 1 8l6.5 5L1 18l2.5 1.5 4-3 10 9.5 5.5-2.5V2.5L17.5 0zM17.5 17.5l-7-5.5 7-5.5v11z" fill="#007ACC"/>
+              </svg>
+            </div>
+
+            <div className="flex items-center gap-[2px] h-8 mx-1">
+              {waveformBars.map((h, i) => (
+                <div
+                  key={i}
+                  className="w-[2.5px] rounded-full"
+                  style={{ height: `${h * 100}%`, background: 'linear-gradient(to top, #5B6CF7, #8B5CF6)', opacity: 0.7 + h * 0.3 }}
+                />
+              ))}
+            </div>
+
+            <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ background: 'rgba(91,108,247,0.08)', border: '1.5px solid rgba(91,108,247,0.2)' }}>
+              <Mic className="w-[18px] h-[18px] text-[#5B6CF7]" />
+            </div>
+
+            <div className="w-11 h-11 rounded-full flex items-center justify-center" style={{ background: 'rgba(239,68,68,0.12)', border: '1.5px solid rgba(239,68,68,0.18)' }}>
+              <X className="w-[18px] h-[18px] text-[#EF4444]" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const screenshots = [
   { id: 1, component: Screenshot1, title: "Hero: Hold Fn. Speak. Release." },
   { id: 2, component: Screenshot2, title: "Live Preview" },
@@ -2109,6 +2716,9 @@ const screenshots = [
   { id: 10, component: Screenshot10, title: "Personal Dictionary (Pro)" },
   { id: 11, component: Screenshot11, title: "System-Wide Dictation (Optional)" },
   { id: 12, component: Screenshot12, title: "Workspace — Transcriptions" },
+  { id: 13, component: Screenshot13, title: "Fn Key — Instant Activation" },
+  { id: 14, component: Screenshot14, title: "Hands-Free Mode (Fn+L)" },
+  { id: 15, component: Screenshot15, title: "Text Insertion — VS Code" },
 ];
 
 export default function ScreenshotsPage() {
