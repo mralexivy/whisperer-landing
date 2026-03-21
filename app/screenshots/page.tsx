@@ -138,7 +138,7 @@ const Screenshot1 = () => (
               </div>
               <div className="ml-auto flex items-center gap-1 bg-white/[0.04] border border-white/[0.06] rounded-md px-2 py-0.5">
                 <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
-                <span className="text-white/50 text-[9px]">Large V3 Turbo Q5</span>
+                <span className="text-white/50 text-[9px]">WhispererV3</span>
               </div>
             </div>
             {/* Tab bar */}
@@ -187,7 +187,7 @@ const Screenshot1 = () => (
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-white/[0.35] text-[9px]">Model</div>
-                  <div className="text-white font-semibold text-[11px] truncate">Large V3 Turbo Q5</div>
+                  <div className="text-white font-semibold text-[11px] truncate">WhispererV3</div>
                 </div>
                 <span className="text-white/[0.2] text-[9px] bg-white/[0.04] px-1.5 py-0.5 rounded shrink-0">547 MB</span>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeOpacity="0.2" strokeWidth="2" className="shrink-0"><path d="M9 18l6-6-6-6"/></svg>

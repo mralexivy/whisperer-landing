@@ -1,4 +1,4 @@
-import { Mic, Keyboard, Cpu, Settings, BarChart3, Power, Shield, Check, ArrowRight } from "lucide-react";
+import { Mic, Keyboard, Cpu, Settings, BarChart3, Power, Shield, Info, ArrowRight } from "lucide-react";
 
 export const MenuBarMockup = () => {
   return (
@@ -27,8 +27,8 @@ export const MenuBarMockup = () => {
           </div>
         </div>
         <div className="flex items-center gap-1.5 bg-[#1C1C3A] rounded-full px-3 py-1.5 text-sm">
-          <Check className="w-4 h-4 text-[#5B6CF7]" />
-          <span className="text-white/70">Large V3 Turbo Q5</span>
+          <Info className="w-4 h-4 text-[#5B6CF7]" />
+          <span className="text-white/70">About</span>
         </div>
       </div>
 
@@ -57,7 +57,7 @@ export const MenuBarMockup = () => {
           </div>
           <div className="flex-1">
             <div className="text-sm text-white/50">Model</div>
-            <div className="font-semibold text-white">Large V3 Turbo Q5</div>
+            <div className="font-semibold text-white">WhispererV3</div>
           </div>
           <div className="text-sm text-white/50 bg-white/[0.08] rounded-lg px-3 py-1.5 border border-white/[0.06]">
             547 MB
@@ -121,7 +121,7 @@ export const MenuBarMockup = () => {
       <div className="p-4 border-t border-white/[0.06] flex items-center justify-between">
         <button className="flex items-center gap-2 text-white/50 hover:text-white bg-white/[0.08] rounded-lg px-4 py-2">
           <Shield className="w-4 h-4" />
-          Permissions
+          Workspace
         </button>
         <button className="flex items-center gap-2 bg-red-500/15 text-red-400 rounded-lg px-4 py-2 hover:bg-red-500/25">
           <Power className="w-4 h-4" />
