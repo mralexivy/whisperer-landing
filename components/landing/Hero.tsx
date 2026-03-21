@@ -1,13 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Apple, Play } from "lucide-react";
 import { MenuBarMockup } from "./MenuBarMockup";
 import { HUDOverlay } from "./HUDOverlay";
 import { FadeIn, FadeInStagger, StaggerItem } from "@/components/ui/animated";
 import { SectionGlow } from "@/components/ui/decorations";
+import { VideoModal } from "./VideoModal";
 
 export const Hero = () => {
+  const [videoOpen, setVideoOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       {/* Background glow effects */}
@@ -38,9 +42,9 @@ export const Hero = () => {
                   Download on Mac App Store
                 </Button>
               </a>
-              <Button variant="heroOutline" size="xl" className="gap-3">
+              <Button variant="heroOutline" size="xl" className="gap-3" onClick={() => setVideoOpen(true)}>
                 <Play className="w-5 h-5" />
-                Watch 20s demo
+                Watch demo
               </Button>
             </div>
 
@@ -88,6 +92,8 @@ export const Hero = () => {
       <div className="fixed inset-x-0 bottom-8 z-50 flex justify-center animate-float">
         <HUDOverlay />
       </div>
+
+      <VideoModal open={videoOpen} onOpenChange={setVideoOpen} />
     </section>
   );
 };
