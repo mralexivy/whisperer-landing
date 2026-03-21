@@ -1,3 +1,15 @@
 [build]
   command = "npm run build"
   publish = "out"
+
+[[redirects]]
+  from = "https://www.whispererapp.com/*"
+  to = "https://whispererapp.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.whispererapp.com/*"
+  to = "https://whispererapp.com/:splat"
+  status = 301
+  force = true
