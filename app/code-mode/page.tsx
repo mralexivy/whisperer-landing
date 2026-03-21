@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { CodeEditorMockup } from "@/components/landing/CodeEditorMockup";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -91,6 +91,33 @@ const features = [
   },
 ];
 
+const codeFaqs = [
+  {
+    question: "Can you dictate camelCase by voice on Mac?",
+    answer: "Yes. Whisperer's Code Mode lets you say 'camel case get user name' and it outputs 'getUserName'. It also supports snake_case, PascalCase, and CONSTANT_CASE — all by voice.",
+  },
+  {
+    question: "Does Code Mode work in VS Code and Cursor?",
+    answer: "Yes. Code Mode works in any text field on your Mac, including VS Code, Cursor, JetBrains IDEs, Xcode, Terminal, iTerm2, and Warp. It inserts via Accessibility with a paste fallback.",
+  },
+  {
+    question: "How do you dictate symbols like parentheses and brackets?",
+    answer: "Speak the symbol name naturally: 'open paren', 'close bracket', 'semicolon', 'fat arrow' (=>), 'arrow' (->). Code Mode recognizes 20+ symbol commands and inserts the correct character.",
+  },
+  {
+    question: "Is Code Mode available offline?",
+    answer: "Yes. Code Mode is 100% offline — it's a local text transformation, not a cloud service. No internet required, no latency, no data leaves your Mac.",
+  },
+  {
+    question: "How much does Code Mode cost?",
+    answer: "Code Mode is included in the Pro Pack at $14.99 one-time (lifetime). No subscription. The base Whisperer app is $2.99.",
+  },
+  {
+    question: "Can Code Mode handle terminal commands?",
+    answer: "Yes. Code Mode correctly handles dashes, dots, slashes, and paths in terminal commands. Say 'git checkout dash b feature slash snake case add user auth' to get 'git checkout -b feature/add_user_auth'.",
+  },
+];
+
 export default function CodeModePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -105,6 +132,12 @@ export default function CodeModePage() {
               { name: "Code Mode", url: "/code-mode/" },
             ])
           ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema(codeFaqs)),
         }}
       />
 
@@ -244,6 +277,29 @@ export default function CodeModePage() {
                       </div>
                     </GlowCard>
                   </Link>
+                </StaggerItem>
+              ))}
+            </FadeInStagger>
+          </div>
+        </div>
+      </section>
+
+      <GradientDivider />
+
+      {/* FAQ */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <FadeIn>
+              <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+            </FadeIn>
+            <FadeInStagger className="grid gap-4">
+              {codeFaqs.map((faq, i) => (
+                <StaggerItem key={i}>
+                  <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
+                    <h3 className="font-semibold text-foreground mb-2">{faq.question}</h3>
+                    <p className="text-muted-foreground">{faq.answer}</p>
+                  </GlowCard>
                 </StaggerItem>
               ))}
             </FadeInStagger>

@@ -4,36 +4,46 @@ export function softwareAppSchema() {
     "@type": "SoftwareApplication",
     name: "Whisperer",
     operatingSystem: "macOS",
-    applicationCategory: "UtilitiesApplication",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      description: "Free with optional Pro Pack ($14.99)",
-    },
+    applicationCategory: "ProductivityApplication",
     description:
-      "Offline voice-to-text dictation for Mac with Code Mode for developers. 100% on-device, no subscription.",
+      "Offline dictation app for Mac with Code Mode for developers. Hold Fn, speak, release — text appears in the focused field. 100% offline, powered by Whisper, Parakeet, and Apple Speech engines.",
+    offers: [
+      {
+        "@type": "Offer",
+        name: "Base App",
+        price: "2.99",
+        priceCurrency: "USD",
+        description:
+          "Core dictation — hold-to-record, live preview, 100+ languages, 3 engines, file transcription, offline processing",
+      },
+      {
+        "@type": "Offer",
+        name: "Pro Pack",
+        price: "14.99",
+        priceCurrency: "USD",
+        description:
+          "Lifetime unlock — Code Mode, per-app profiles, personal dictionary, AI post-processing (10 modes)",
+      },
+    ],
     url: "https://whispererapp.com",
     downloadUrl:
       "https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671",
+    screenshot: "https://whispererapp.com/assets/hero-demo.png",
     featureList: [
-      "Offline on-device transcription",
-      "AI post-processing (rewrite, translate, summarize, format, grammar)",
-      "Three transcription backends (Whisper, Parakeet, Apple Speech)",
-      "Code Mode for developers (camelCase, snake_case, symbols)",
-      "Live streaming preview with ~300ms latency",
+      "100% offline on-device transcription",
+      "Code Mode for camelCase, snake_case, symbols",
+      "Per-app profiles (Slack, Gmail, VS Code)",
+      "Three transcription engines: Whisper, Parakeet, Apple Speech",
+      "AI post-processing with 10 built-in modes",
+      "100+ language support",
+      "Live preview with ~300ms latency",
       "Personal dictionary with fuzzy and phonetic matching",
-      "Prompt words for vocabulary boosting",
-      "Per-app profiles with automatic switching",
-      "Hold-to-talk and toggle recording modes",
-      "100+ languages with AI translation",
       "File transcription (audio and video)",
       "Transcription history with search and audio playback",
       "Usage statistics (WPM, peak hours, app usage)",
       "Filler word removal",
-      "List formatting (spoken lists to bullets)",
+      "Hold-to-talk and toggle recording modes",
       "VS Code, Cursor, Terminal support",
-      "Voice Activity Detection (Silero VAD)",
       "Metal GPU and Neural Engine acceleration",
     ],
   };
@@ -80,6 +90,7 @@ export function blogPostSchema(post: {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
+    dateModified: post.date,
     author: {
       "@type": "Organization",
       name: "Whisperer",
@@ -91,6 +102,10 @@ export function blogPostSchema(post: {
         "@type": "ImageObject",
         url: "https://whispererapp.com/assets/app-icon.png",
       },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://whispererapp.com/blog/${post.slug}/`,
     },
     url: `https://whispererapp.com/blog/${post.slug}/`,
     image: post.image
@@ -130,6 +145,41 @@ export function breadcrumbSchema(
       name: item.name,
       item: `https://whispererapp.com${item.url}`,
     })),
+  };
+}
+
+export function comparisonPageSchema(competitor: {
+  name: string;
+  price: string;
+  slug: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: `Whisperer vs ${competitor.name} — Mac Dictation Comparison 2026`,
+    description: `Feature-by-feature comparison of Whisperer ($14.99 lifetime) vs ${competitor.name} (${competitor.price}) for offline dictation on Mac.`,
+    url: `https://whispererapp.com/compare/${competitor.slug}/`,
+    about: [
+      {
+        "@type": "SoftwareApplication",
+        name: "Whisperer",
+        operatingSystem: "macOS",
+        offers: {
+          "@type": "Offer",
+          price: "14.99",
+          priceCurrency: "USD",
+        },
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: competitor.name,
+        offers: {
+          "@type": "Offer",
+          price: competitor.price,
+          priceCurrency: "USD",
+        },
+      },
+    ],
   };
 }
 

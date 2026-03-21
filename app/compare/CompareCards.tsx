@@ -85,6 +85,39 @@ const competitors: Competitor[] = [
     wins: ["Code Mode", "Per-app profiles", "Personal dictionary", "3 engines", "History & stats"],
     losses: ["Similar base features"],
   },
+  {
+    slug: "vs-willow",
+    name: "Willow",
+    tagline: "Offline privacy vs. cloud-dependent cross-platform",
+    price: "Subscription",
+    highlight: "100% offline",
+    color: "#14B8A6",
+    icon: null,
+    wins: ["100% offline", "No subscription", "Code Mode", "Per-app profiles", "$14.99 vs sub"],
+    losses: ["Cross-platform"],
+  },
+  {
+    slug: "vs-spokenly",
+    name: "Spokenly",
+    tagline: "Developer features the free tier can't match",
+    price: "Free+",
+    highlight: "Code Mode",
+    color: "#F97316",
+    icon: null,
+    wins: ["Code Mode", "Per-app profiles", "AI post-processing", "3 engines", "File transcription"],
+    losses: ["iOS companion"],
+  },
+  {
+    slug: "vs-jestype",
+    name: "JesType",
+    tagline: "Same price, dramatically more features",
+    price: "€14.95",
+    highlight: "10x features",
+    color: "#06B6D4",
+    icon: null,
+    wins: ["Code Mode", "Per-app profiles", "AI post-processing", "3 engines", "History & stats"],
+    losses: ["Moonshine model"],
+  },
 ];
 
 function CompetitorIcon({ comp }: { comp: Competitor }) {
@@ -99,13 +132,23 @@ function CompetitorIcon({ comp }: { comp: Competitor }) {
       />
     );
   }
-  // Apple Dictation — use Apple icon
+  if (comp.name === "Apple Dictation") {
+    return (
+      <div
+        className="w-10 h-10 rounded-lg flex items-center justify-center"
+        style={{ backgroundColor: comp.color + "20" }}
+      >
+        <Apple className="w-5 h-5" style={{ color: comp.color }} />
+      </div>
+    );
+  }
+  // Letter-based icon for competitors without image
   return (
     <div
-      className="w-10 h-10 rounded-lg flex items-center justify-center"
-      style={{ backgroundColor: comp.color + "20" }}
+      className="w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg"
+      style={{ backgroundColor: comp.color + "20", color: comp.color }}
     >
-      <Apple className="w-5 h-5" style={{ color: comp.color }} />
+      {comp.name.charAt(0)}
     </div>
   );
 }

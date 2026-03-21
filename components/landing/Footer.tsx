@@ -11,11 +11,12 @@ const footerLinks = [
     title: "Product",
     links: [
       { label: "All Features", href: "/features/" },
-      { label: "AI Writing", href: "/features/ai-writing/" },
-      { label: "Offline Transcription", href: "/features/offline-transcription/" },
+      { label: "Offline Dictation", href: "/offline-dictation-mac/" },
       { label: "Code Mode", href: "/code-mode/" },
       { label: "Voice Coding", href: "/voice-coding/" },
+      { label: "For Developers", href: "/voice-to-text-developers/" },
       { label: "Pricing", href: "/pricing/" },
+      { label: "No Subscription", href: "/dictation-no-subscription/" },
     ],
   },
   {
@@ -26,6 +27,8 @@ const footerLinks = [
       { label: "vs Apple Dictation", href: "/compare/vs-apple-dictation/" },
       { label: "vs Wispr Flow", href: "/compare/vs-wispr-flow/" },
       { label: "vs Voibe", href: "/compare/vs-voibe/" },
+      { label: "vs Willow", href: "/compare/vs-willow/" },
+      { label: "Cheapest Dictation App", href: "/cheapest-dictation-mac/" },
     ],
   },
   {

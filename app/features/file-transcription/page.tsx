@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import { Apple, FileAudio, Upload, Cpu, Copy, ArrowRight } from "lucide-react";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
@@ -194,6 +194,45 @@ export default function FileTranscriptionPage() {
           </div>
         </div>
       </section>
+
+      <GradientDivider />
+
+      {/* FAQ */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <FadeIn>
+              <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+            </FadeIn>
+            <FadeInStagger className="grid gap-4">
+              {[
+                { question: "What audio formats does Whisperer support?", answer: "MP3, WAV, M4A, FLAC, OGG, and video formats like MP4, MOV, and MKV. Whisperer extracts the audio track automatically from video files." },
+                { question: "Is file transcription included in the free trial?", answer: "Yes. File transcription is included in the base app ($2.99). No Pro Pack required. Drag any audio or video file into Whisperer to transcribe it offline." },
+                { question: "How long does transcription take?", answer: "Depends on the model and file length. A 10-minute recording typically takes 20-60 seconds with Whisper Large V3 Turbo on Apple Silicon. Smaller models are faster." },
+                { question: "Are there per-minute charges?", answer: "No. Whisperer is a one-time purchase. Transcribe unlimited files with no per-minute fees, no cloud charges, and no usage limits." },
+              ].map((faq, i) => (
+                <StaggerItem key={i}>
+                  <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
+                    <h3 className="font-semibold text-foreground mb-2">{faq.question}</h3>
+                    <p className="text-muted-foreground">{faq.answer}</p>
+                  </GlowCard>
+                </StaggerItem>
+              ))}
+            </FadeInStagger>
+          </div>
+        </div>
+      </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema([
+            { question: "What audio formats does Whisperer support?", answer: "MP3, WAV, M4A, FLAC, OGG, and video formats like MP4, MOV, and MKV. Whisperer extracts the audio track automatically from video files." },
+            { question: "Is file transcription included in the free trial?", answer: "Yes. File transcription is included in the base app ($2.99). No Pro Pack required." },
+            { question: "How long does transcription take?", answer: "Depends on the model and file length. A 10-minute recording typically takes 20-60 seconds with Whisper Large V3 Turbo on Apple Silicon." },
+            { question: "Are there per-minute charges?", answer: "No. Whisperer is a one-time purchase. Transcribe unlimited files with no per-minute fees, no cloud charges, and no usage limits." },
+          ])),
+        }}
+      />
 
       <GradientDivider />
 

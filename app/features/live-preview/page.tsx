@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import { Apple, Eye, Zap, Cpu, Type, Palette, ArrowRight } from "lucide-react";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
@@ -200,6 +200,45 @@ export default function LivePreviewPage() {
           </div>
         </div>
       </section>
+
+      <GradientDivider />
+
+      {/* FAQ */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <FadeIn>
+              <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+            </FadeIn>
+            <FadeInStagger className="grid gap-4">
+              {[
+                { question: "How fast is the live preview?", answer: "The EOU engine processes 320ms audio windows on the Neural Engine, producing word-level partial transcripts with approximately 300ms latency — faster than any cloud service." },
+                { question: "Does live preview affect final accuracy?", answer: "No. Live preview uses a separate lightweight model. The main transcription engine runs independently and delivers the final refined result when you release the record button." },
+                { question: "Can I disable live preview to save battery?", answer: "Yes. Live preview is toggleable in Settings. Disabling it reduces CPU/Neural Engine usage during recording while keeping the main transcription engine active." },
+                { question: "Does live preview work with all engines?", answer: "The primary EOU preview runs on the Neural Engine (Apple Silicon). When unavailable, Whisperer falls back to the StreamingTranscriber using the main engine with 2-second chunks." },
+              ].map((faq, i) => (
+                <StaggerItem key={i}>
+                  <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
+                    <h3 className="font-semibold text-foreground mb-2">{faq.question}</h3>
+                    <p className="text-muted-foreground">{faq.answer}</p>
+                  </GlowCard>
+                </StaggerItem>
+              ))}
+            </FadeInStagger>
+          </div>
+        </div>
+      </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema([
+            { question: "How fast is the live preview?", answer: "The EOU engine processes 320ms audio windows on the Neural Engine, producing word-level partial transcripts with approximately 300ms latency." },
+            { question: "Does live preview affect final accuracy?", answer: "No. Live preview uses a separate lightweight model. The main transcription engine delivers the final refined result independently." },
+            { question: "Can I disable live preview to save battery?", answer: "Yes. Live preview is toggleable in Settings. Disabling it reduces CPU/Neural Engine usage during recording." },
+            { question: "Does live preview work with all engines?", answer: "The primary EOU preview runs on the Neural Engine (Apple Silicon). A StreamingTranscriber fallback is available when the EOU model is unavailable." },
+          ])),
+        }}
+      />
 
       <GradientDivider />
 

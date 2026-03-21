@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { CodeEditorMockup } from "@/components/landing/CodeEditorMockup";
 import { Button } from "@/components/ui/button";
 import { Apple, Code, Terminal, Layers, BookOpen, ArrowRight } from "lucide-react";
@@ -33,6 +33,29 @@ const ides = [
   { name: "Xcode", desc: "Swift and Objective-C development" },
 ];
 
+const voiceCodingFaqs = [
+  {
+    question: "What is the best voice coding tool for Mac?",
+    answer: "Whisperer is the only Mac dictation app with a dedicated Code Mode that supports camelCase, snake_case, PascalCase, CONSTANT_CASE, and 20+ symbol commands by voice. Priced at $14.99 lifetime (Pro Pack), it's also the most affordable option compared to Superwhisper ($249) or Wispr Flow ($10-15/mo).",
+  },
+  {
+    question: "Can I use voice coding in Cursor IDE?",
+    answer: "Yes. Whisperer works in Cursor, VS Code, JetBrains IDEs, Xcode, Terminal, and any text field on your Mac. Code Mode activates automatically when your IDE is in the foreground via per-app profiles.",
+  },
+  {
+    question: "Is voice coding good for developers with RSI?",
+    answer: "Yes. Voice coding reduces repetitive strain by eliminating keyboard typing for routine code. Many developers with RSI, carpal tunnel, or tendinitis use Whisperer to continue coding comfortably. It's 100% offline, so there's no cloud latency.",
+  },
+  {
+    question: "How accurate is voice-to-code dictation?",
+    answer: "Whisperer uses Whisper (Metal GPU), Parakeet (Neural Engine), or Apple Speech for transcription, combined with a personal dictionary for project-specific terms. Code Mode then applies casing and symbol grammar rules — the combination delivers high accuracy for code dictation.",
+  },
+  {
+    question: "Does voice coding work offline?",
+    answer: "Yes. Whisperer is 100% offline. Transcription runs on-device using local AI models. No internet connection needed, no data leaves your Mac, no cloud API charges.",
+  },
+];
+
 const relatedPosts = [
   { title: "How to Dictate Code on Mac", href: "/blog/how-to-dictate-code-on-mac/" },
   { title: "Voice Coding with Cursor", href: "/blog/voice-coding-with-cursor/" },
@@ -56,6 +79,12 @@ export default function VoiceCodingPage() {
               { name: "Voice Coding", url: "/voice-coding/" },
             ])
           ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema(voiceCodingFaqs)),
         }}
       />
 
@@ -280,6 +309,29 @@ export default function VoiceCodingPage() {
                       </div>
                     </GlowCard>
                   </Link>
+                </StaggerItem>
+              ))}
+            </FadeInStagger>
+          </div>
+        </div>
+      </section>
+
+      <GradientDivider />
+
+      {/* FAQ */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <FadeIn>
+              <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+            </FadeIn>
+            <FadeInStagger className="grid gap-4">
+              {voiceCodingFaqs.map((faq, i) => (
+                <StaggerItem key={i}>
+                  <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
+                    <h3 className="font-semibold text-foreground mb-2">{faq.question}</h3>
+                    <p className="text-muted-foreground">{faq.answer}</p>
+                  </GlowCard>
                 </StaggerItem>
               ))}
             </FadeInStagger>

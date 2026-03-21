@@ -99,8 +99,11 @@ export const ProPackSection = () => {
               $14.99
               <span className="text-base font-normal text-muted-foreground"> lifetime</span>
             </div>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-2">
               Everything in Base, plus power features.
+            </p>
+            <p className="text-xs text-muted-foreground/70 mb-6">
+              Superwhisper: $249 &middot; Voibe: $99 &middot; Wispr Flow: $10–15/mo
             </p>
             <ul className="space-y-3 mb-8">
               {["Everything in Base", "Code Mode", "Per-app Profiles", "Personal Dictionary", "AI Post-Processing (10 modes)", "Pro Insertion Engine"].map((item, i) => (

@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm";
 import { getAllComparisons, getComparisonBySlug } from "@/lib/blog";
 import { mdxComponents } from "@/components/mdx/MDXComponents";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, comparisonPageSchema } from "@/lib/structured-data";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
@@ -61,6 +61,19 @@ export default function ComparisonPost({
     (c) => c.meta.slug !== post.meta.slug
   );
 
+  const competitorPrices: Record<string, { name: string; price: string }> = {
+    "vs-superwhisper": { name: "Superwhisper", price: "249" },
+    "vs-voibe": { name: "Voibe", price: "99" },
+    "vs-wispr-flow": { name: "Wispr Flow", price: "10" },
+    "vs-apple-dictation": { name: "Apple Dictation", price: "0" },
+    "vs-macwhisper": { name: "MacWhisper", price: "64" },
+    "vs-voice-ink": { name: "VoiceInk", price: "25" },
+    "vs-willow": { name: "Willow", price: "0" },
+    "vs-spokenly": { name: "Spokenly", price: "0" },
+    "vs-jestype": { name: "JesType", price: "14.95" },
+  };
+  const competitor = competitorPrices[post.meta.slug];
+
   return (
     <>
       <script
@@ -78,6 +91,20 @@ export default function ComparisonPost({
           ),
         }}
       />
+      {competitor && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              comparisonPageSchema({
+                name: competitor.name,
+                price: competitor.price,
+                slug: post.meta.slug,
+              })
+            ),
+          }}
+        />
+      )}
 
       <main className="pt-32 pb-24 relative">
         {/* Background atmosphere */}

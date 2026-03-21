@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import {
   Apple,
@@ -241,6 +241,45 @@ export default function TranscriptionHistoryPage() {
           </div>
         </div>
       </section>
+
+      <GradientDivider />
+
+      {/* FAQ */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <FadeIn>
+              <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+            </FadeIn>
+            <FadeInStagger className="grid gap-4">
+              {[
+                { question: "Does Whisperer save all my transcriptions?", answer: "Yes. Every live dictation and file transcription is saved to your local workspace with full-text search, audio playback, pin, flag, and re-transcribe capabilities. All data stays on your Mac." },
+                { question: "Can I search my transcription history?", answer: "Yes. Full-text search across all transcriptions. Find any word or phrase from any past dictation session instantly." },
+                { question: "What usage statistics does Whisperer track?", answer: "Words per minute (WPM), total words dictated, peak usage hours, per-app usage breakdown, and session history. All computed locally — no data is sent anywhere." },
+                { question: "Can I re-transcribe old recordings?", answer: "Yes. Every recording is saved with its audio. You can re-transcribe with a different model or engine to improve accuracy on past recordings." },
+              ].map((faq, i) => (
+                <StaggerItem key={i}>
+                  <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
+                    <h3 className="font-semibold text-foreground mb-2">{faq.question}</h3>
+                    <p className="text-muted-foreground">{faq.answer}</p>
+                  </GlowCard>
+                </StaggerItem>
+              ))}
+            </FadeInStagger>
+          </div>
+        </div>
+      </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema([
+            { question: "Does Whisperer save all my transcriptions?", answer: "Yes. Every live dictation and file transcription is saved to your local workspace with full-text search, audio playback, pin, flag, and re-transcribe capabilities." },
+            { question: "Can I search my transcription history?", answer: "Yes. Full-text search across all transcriptions. Find any word or phrase from any past dictation session instantly." },
+            { question: "What usage statistics does Whisperer track?", answer: "Words per minute (WPM), total words dictated, peak usage hours, per-app usage breakdown, and session history. All computed locally." },
+            { question: "Can I re-transcribe old recordings?", answer: "Yes. Every recording is saved with its audio. You can re-transcribe with a different model or engine to improve accuracy." },
+          ])),
+        }}
+      />
 
       <GradientDivider />
 

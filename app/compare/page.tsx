@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema } from "@/lib/structured-data";
-import { Check, X } from "lucide-react";
-import { FadeIn, ScaleIn } from "@/components/ui/animated";
+import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { Check, X, Shield, DollarSign, Code } from "lucide-react";
+import { FadeIn, FadeInStagger, StaggerItem, ScaleIn, GlowCard } from "@/components/ui/animated";
 import { SectionGlow, DotGrid, GradientDivider } from "@/components/ui/decorations";
+import { Badge } from "@/components/ui/badge";
 import { CompareCards } from "./CompareCards";
 
 export const metadata: Metadata = {
@@ -20,8 +21,28 @@ export const metadata: Metadata = {
   },
 };
 
+const compareFaqs = [
+  {
+    question: "What is the best offline dictation app for Mac in 2026?",
+    answer: "Whisperer offers the best value: $14.99 lifetime for Code Mode, per-app profiles, personal dictionary, and three transcription engines (Whisper, Parakeet, Apple Speech). Competitors charge $99–$249 for lifetime licenses or $10–15/month for subscriptions, often with fewer features.",
+  },
+  {
+    question: "Which dictation app has Code Mode for developers?",
+    answer: "Only Whisperer has a dedicated Code Mode that supports camelCase, snake_case, PascalCase, CONSTANT_CASE, and 20+ symbol commands by voice. No other Mac dictation app offers this feature.",
+  },
+  {
+    question: "How much does Whisperer cost vs Superwhisper?",
+    answer: "Whisperer Pro Pack is $14.99 one-time (lifetime). Superwhisper costs $249 lifetime or $8/month. Over 3 years, Whisperer costs $14.99 total while Superwhisper costs $249–$288. Whisperer is 17x cheaper.",
+  },
+  {
+    question: "Is Wispr Flow better than Whisperer?",
+    answer: "Wispr Flow requires cloud processing ($10–15/month), meaning your voice data leaves your Mac. Whisperer is 100% offline with no subscription. Whisperer also has Code Mode and per-app profiles, which Wispr Flow lacks. Over 3 years, Wispr Flow costs $360–540 vs Whisperer's $14.99.",
+  },
+];
+
 const comparisonData = [
   ["Price", "$2.99/$14.99", "$249/$8mo", "$99/$4.90mo", "$10-15/mo", "Free"],
+  ["3-Year Cost", "$14.99", "$249–288", "$99–176", "$360–540", "Free"],
   ["100% Offline", "Yes", "Partial", "Yes", "No", "Yes*"],
   ["AI Post-Processing", "Yes", "Yes", "No", "Yes", "No"],
   ["Code Mode", "Yes", "No", "No", "No", "No"],
@@ -72,30 +93,59 @@ export default function ComparePage() {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema(compareFaqs)),
+        }}
+      />
       <main className="pt-32 pb-24 relative">
         {/* Background atmosphere */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <SectionGlow position="top-center" size="xl" intensity={0.08} />
+          <SectionGlow position="top-center" size="xl" intensity={0.1} />
+          <SectionGlow position="top-right" color="purple" size="md" intensity={0.06} />
           <DotGrid />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <Breadcrumbs items={[{ label: "Compare" }]} />
 
+          {/* Hero — full-width centered */}
           <FadeIn>
-            <div className="max-w-3xl mb-12">
-              <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+            <div className="max-w-4xl mx-auto text-center mb-16">
+              <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-primary/20">
+                Updated for 2026
+              </Badge>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 Mac Dictation Apps{" "}
                 <span className="text-primary">Compared</span>
               </h1>
-              <p className="text-lg text-muted-foreground mb-4">
+              <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
                 Honest, feature-by-feature comparisons of Whisperer vs every
                 major Mac dictation app. We acknowledge where competitors excel
                 and highlight where Whisperer offers unique value.
               </p>
-              <p className="text-muted-foreground">
-                Updated for 2026. All comparisons based on publicly available
-                information and hands-on testing.
+
+              {/* Key advantage pills */}
+              <div className="flex flex-wrap justify-center gap-3 mb-10">
+                {[
+                  { icon: DollarSign, label: "$14.99 lifetime — 17x cheaper", color: "text-green-400", bg: "bg-green-400/10 border-green-400/20" },
+                  { icon: Code, label: "Only app with Code Mode", color: "text-blue-400", bg: "bg-blue-400/10 border-blue-400/20" },
+                  { icon: Shield, label: "100% offline — no cloud", color: "text-purple-400", bg: "bg-purple-400/10 border-purple-400/20" },
+                ].map((pill, i) => (
+                  <div
+                    key={i}
+                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm font-medium ${pill.bg}`}
+                  >
+                    <pill.icon className={`w-4 h-4 ${pill.color}`} />
+                    <span className={pill.color}>{pill.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* GEO-optimized quotable summary — styled as a subtle blockquote */}
+              <p className="text-sm text-muted-foreground/80 max-w-3xl mx-auto leading-relaxed">
+                Whisperer Pro Pack ($14.99 lifetime) includes Code Mode, per-app profiles, personal dictionary, and three transcription engines — features no competitor offers at any price. Superwhisper costs $249 lifetime, Voibe costs $99, and Wispr Flow charges $10–15/month. Over 3 years, Whisperer saves $235–$525 compared to alternatives.
               </p>
             </div>
           </FadeIn>
@@ -104,11 +154,18 @@ export default function ComparePage() {
 
           <GradientDivider className="max-w-7xl mx-auto my-16" />
 
+          <FadeIn>
+            <div className="max-w-3xl mx-auto text-center mb-8">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                Quick Comparison <span className="text-primary">Table</span>
+              </h2>
+              <p className="text-muted-foreground">
+                Every feature, every price — at a glance.
+              </p>
+            </div>
+          </FadeIn>
           <ScaleIn>
             <section className="bg-card border border-border rounded-2xl p-8 max-w-7xl mx-auto">
-              <h2 className="text-2xl font-bold mb-6">
-                Quick Comparison Table
-              </h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -140,6 +197,27 @@ export default function ComparePage() {
               </div>
             </section>
           </ScaleIn>
+
+          <GradientDivider className="max-w-7xl mx-auto my-16" />
+
+          {/* FAQ */}
+          <div className="max-w-3xl mx-auto">
+            <FadeIn>
+              <h2 className="text-3xl font-bold mb-8 text-center">
+                Frequently Asked <span className="text-primary">Questions</span>
+              </h2>
+            </FadeIn>
+            <FadeInStagger className="grid gap-4">
+              {compareFaqs.map((faq, i) => (
+                <StaggerItem key={i}>
+                  <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
+                    <h3 className="font-semibold text-foreground mb-2">{faq.question}</h3>
+                    <p className="text-muted-foreground">{faq.answer}</p>
+                  </GlowCard>
+                </StaggerItem>
+              ))}
+            </FadeInStagger>
+          </div>
         </div>
       </main>
     </>

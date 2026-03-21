@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, productSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, productSchema, faqSchema } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import { Check, Apple, ArrowRight } from "lucide-react";
 import { FadeIn, FadeInStagger, StaggerItem, ScaleIn, GlowCard } from "@/components/ui/animated";
@@ -41,6 +41,20 @@ export default function PricingPage() {
             breadcrumbSchema([
               { name: "Home", url: "/" },
               { name: "Pricing", url: "/pricing/" },
+            ])
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            faqSchema([
+              { question: "Is there a free trial?", answer: "Yes. Download from the Mac App Store and try all core features free. The Base App is $2.99 one-time, and Pro Pack is $14.99 lifetime." },
+              { question: "Is Pro Pack a subscription?", answer: "No. $14.99 is a one-time payment. You own it forever. No recurring charges." },
+              { question: "Are there any cloud fees?", answer: "No. Whisperer is 100% offline. There are no servers to pay for, no API calls, no usage limits." },
+              { question: "What's the refund policy?", answer: "Refunds are handled through Apple according to their standard App Store policies." },
+              { question: "Will there be price increases?", answer: "If you buy now, you lock in the current price. Future updates are included." },
             ])
           ),
         }}
@@ -177,7 +191,7 @@ export default function PricingPage() {
                   <tbody className="divide-y divide-border">
                     {[
                       ["Price", "$14.99 once", "$249/$8mo", "$99/$4.90mo", "$10–15/mo", "Free"],
-                      ["3-Year Cost", "$14.99", "$249–288", "$99–176", "$360–540", "Free"],
+                      ["3-Year Cost", "$14.99", "$249–$288", "$99–$176", "$360–$540", "Free"],
                       ["100% Offline", "Yes", "Partial", "Yes", "No", "Yes*"],
                       ["AI Post-Processing", "Yes", "Yes", "No", "Yes", "No"],
                       ["Code Mode", "Yes", "No", "No", "No", "No"],
@@ -208,6 +222,11 @@ export default function PricingPage() {
               <p className="text-sm text-muted-foreground mt-4 text-center">
                 More features at a fraction of the price. Whisperer is the only dictation app with Code Mode, per-app profiles, and personal dictionary — for a one-time $14.99.
               </p>
+              <div className="mt-6 text-center">
+                <span className="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-2 rounded-full border border-primary/20">
+                  17x cheaper than Superwhisper. No subscription like Wispr Flow.
+                </span>
+              </div>
             </div>
           </FadeIn>
 

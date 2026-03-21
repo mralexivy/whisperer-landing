@@ -6,8 +6,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://whispererapp.com"),
-  title: "Whisperer – Offline Voice-to-Text for Mac | Dictate Code with camelCase & Symbols",
-  description: "Private, offline voice-to-text for macOS. $14.99 lifetime – no subscription. Code Mode for developers with camelCase, snake_case by voice. Works in VS Code, Cursor, Terminal. 100% on-device, no cloud.",
+  title: "Whisperer — Offline Dictation for Mac | $14.99 Lifetime | Code Mode | No Subscription",
+  description: "Hold Fn, speak, release — text appears anywhere. Offline Mac dictation with Code Mode for developers. Three AI engines. $2.99 base, $14.99 Pro lifetime. No subscription.",
   keywords: [
     "offline dictation app mac",
     "whisper dictation mac",
@@ -55,8 +55,8 @@ export const metadata: Metadata = {
     "vocabulary boosting dictation",
   ].join(", "),
   openGraph: {
-    title: "Whisperer – Offline Dictation for Mac | Voice Coding App",
-    description: "Private voice-to-text for macOS. $14.99 lifetime Pro. Code Mode for developers. Works in VS Code, Cursor, Terminal. 100% offline, no subscription.",
+    title: "Whisperer — Offline Dictation for Mac | $14.99 Lifetime | Code Mode",
+    description: "Hold Fn, speak, release — text appears anywhere. Code Mode for developers. Three AI engines. $2.99 base, $14.99 Pro lifetime. No subscription.",
     type: "website",
     images: [
       {

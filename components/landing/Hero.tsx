@@ -59,6 +59,14 @@ export const Hero = () => {
                 <span>Live preview while you speak</span>
               </StaggerItem>
             </FadeInStagger>
+
+            {/* Price comparison */}
+            <FadeIn delay={0.4}>
+              <p className="mt-6 text-sm text-muted-foreground">
+                <span className="text-primary font-medium">$14.99 lifetime</span>
+                {" — "}17x cheaper than Superwhisper, no subscription like Wispr Flow.
+              </p>
+            </FadeIn>
           </FadeIn>
 
           {/* Right Visual - Menu Bar Mockup */}

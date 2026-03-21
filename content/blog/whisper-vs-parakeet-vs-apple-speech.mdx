@@ -1,0 +1,163 @@
+---
+title: "Whisper vs Parakeet vs Apple Speech: Which Transcription Engine to Use"
+description: "Deep technical comparison of Whisperer's three transcription engines — Whisper (Metal GPU), Parakeet (Neural Engine), and Apple Speech. Speed, accuracy, model sizes, and when to use each."
+date: "2026-03-15"
+keywords: ["whisper.cpp vs parakeet", "whisper transcription mac", "parakeet neural engine", "apple speech recognition", "best whisper model mac", "transcription engine comparison", "on-device speech recognition"]
+category: "technical"
+---
+
+Whisperer is the only Mac dictation app that supports three transcription engines — Whisper, Parakeet, and Apple Speech. Each uses different hardware, different models, and has different strengths. This guide helps you choose the right engine for your workflow.
+
+## Engine Overview
+
+| | Whisper | Parakeet | Apple Speech |
+|---|---------|----------|--------------|
+| Library | whisper.cpp (vendored) | FluidAudio (CoreML) | SpeechAnalyzer |
+| Hardware | Metal GPU | Apple Neural Engine | System ML |
+| Languages | 99+ | 25 (v3), English (v2) | System languages |
+| Models | 10+ (75MB–2.9GB) | 2 versions | Built-in |
+| Accuracy | Highest | Very high | Good |
+| Speed | Fast (GPU) | Fastest (ANE) | Fast |
+| Min macOS | 14+ | 14+ (Apple Silicon) | 26+ (Tahoe) |
+
+## Whisper — The Default Engine
+
+Whisper is OpenAI's open-source speech recognition model, running locally via [whisper.cpp](https://github.com/ggerganov/whisper.cpp). Whisperer vendors the C library directly — no Python, no dependencies.
+
+### How It Works
+
+Whisper processes your complete audio recording after you release the record button. It runs on Apple Silicon's Metal GPU, which provides fast inference without blocking the CPU or Neural Engine for other tasks.
+
+### Model Sizes
+
+| Model | Size | Speed | Accuracy | Best For |
+|-------|------|-------|----------|----------|
+| Tiny | 75MB | Fastest | Basic | Quick testing |
+| Base | 142MB | Very fast | Good | Low-storage devices |
+| Small | 466MB | Fast | High | Daily dictation |
+| Medium | 1.5GB | Moderate | Very high | Accuracy-focused |
+| Large V3 | 2.9GB | Slower | Highest | Maximum accuracy |
+| Large V3 Turbo | ~1.5GB | Fast | Very high | Best balanced |
+
+<Callout type="tip">
+**Recommended starting point:** Large V3 Turbo (~1.5GB). It offers near-Large accuracy at significantly faster speeds. For most users, this is the "set and forget" model.
+</Callout>
+
+### When to Use Whisper
+
+- You need the **highest accuracy** available
+- You're dictating in **non-English languages** (99+ supported)
+- You want the **widest model selection** to trade speed for accuracy
+- You're doing **file transcription** (Whisper handles long audio well)
+
+## Parakeet — The Fastest Engine
+
+Parakeet is NVIDIA's CTC-based speech recognition model, running on Apple Silicon's Neural Engine via CoreML. It's the fastest option available — and it has a unique feature: CTC vocabulary boosting.
+
+### How It Works
+
+Parakeet uses the dedicated Neural Engine (ANE), which is separate from the GPU. This means Parakeet can run simultaneously with Whisper without resource contention. It's also used for Whisperer's live preview — the EOU (End-of-Utterance) engine that provides ~300ms preview latency.
+
+### CTC Vocabulary Boosting
+
+This is Parakeet's killer feature. Your [personal dictionary](/features/personal-dictionary/) entries and prompt words directly bias the CTC decoder at the acoustic level. This means:
+
+- Project-specific terms are recognized more accurately
+- Names, acronyms, and jargon are decoded correctly
+- The boost happens during decoding, not as a post-processing step
+
+<Callout type="info">
+Vocabulary boosting is unique to Parakeet's CTC architecture. Whisper (attention-based) and Apple Speech don't support this kind of direct decoder biasing. If accurate recognition of custom terms is critical, Parakeet with a well-configured dictionary is the best choice.
+</Callout>
+
+### When to Use Parakeet
+
+- You want the **fastest possible transcription**
+- You have a **large personal dictionary** (vocabulary boosting)
+- You want to **leave the GPU free** for other tasks (video editing, ML training)
+- You primarily dictate in **English** (v2) or one of the **25 supported languages** (v3)
+
+## Apple Speech — The Native Option
+
+Apple Speech uses macOS's built-in SpeechAnalyzer framework, available on macOS 26 (Tahoe) and later. Zero setup — no model downloads required.
+
+### How It Works
+
+Apple Speech leverages the system's built-in speech recognition pipeline. It's deeply integrated with macOS and uses Apple's own ML infrastructure. No additional models to download or manage.
+
+### When to Use Apple Speech
+
+- You're on **macOS 26+** (Tahoe)
+- You want **zero setup** — no model downloads
+- You need **quick, lightweight dictation** without maximum accuracy
+- You're **low on disk space** and can't store Whisper models
+
+## Head-to-Head Comparison
+
+### Accuracy
+
+For English dictation:
+
+| Engine | Short Phrases | Long Dictation | Technical Terms | Code Terms |
+|--------|---------------|----------------|-----------------|------------|
+| Whisper (Large V3 Turbo) | Excellent | Excellent | Very good | Good |
+| Parakeet (v3) | Excellent | Very good | Excellent* | Good |
+| Apple Speech | Good | Good | Fair | Poor |
+
+*With vocabulary boosting enabled and dictionary configured.
+
+### Speed (Apple M1 Pro, typical 10-second recording)
+
+| Engine | Model | Processing Time | Real-Time Factor |
+|--------|-------|-----------------|-------------------|
+| Parakeet v3 | Default | ~0.8s | 0.08x |
+| Whisper | Large V3 Turbo | ~2.5s | 0.25x |
+| Whisper | Small | ~1.2s | 0.12x |
+| Whisper | Large V3 | ~5.0s | 0.50x |
+| Apple Speech | Built-in | ~1.5s | 0.15x |
+
+<Callout type="tip">
+Parakeet is 2–3x faster than Whisper Large V3 Turbo for typical dictation. If speed is your priority and you don't need 99+ languages, Parakeet is the clear winner.
+</Callout>
+
+### Resource Usage
+
+| Engine | Hardware Used | GPU Free? | ANE Free? | Battery Impact |
+|--------|-------------|-----------|-----------|----------------|
+| Whisper | Metal GPU | No | Yes | Moderate |
+| Parakeet | Neural Engine | Yes | No | Low |
+| Apple Speech | System ML | Varies | Varies | Low |
+
+Parakeet's Neural Engine usage means your GPU stays free for video editing, 3D rendering, or ML workloads. This makes Parakeet ideal for multitasking.
+
+## Choosing Your Engine
+
+<FeatureGrid>
+<FeatureCard title="Best Overall" icon="star">
+**Whisper Large V3 Turbo** — the best balance of accuracy and speed. Works for 99+ languages. Start here.
+</FeatureCard>
+<FeatureCard title="Fastest" icon="zap">
+**Parakeet** — 2–3x faster, leaves GPU free. Best for English-primary users with large dictionaries.
+</FeatureCard>
+<FeatureCard title="Zero Setup" icon="sparkles">
+**Apple Speech** — no downloads, instant start. Good enough for casual dictation on macOS 26+.
+</FeatureCard>
+<FeatureCard title="Maximum Accuracy" icon="target">
+**Whisper Large V3** (2.9GB) — the most accurate model available. Use for file transcription or accuracy-critical work.
+</FeatureCard>
+</FeatureGrid>
+
+## Hot-Swapping Engines
+
+Whisperer lets you switch between engines without restarting. Open Settings → Engine and select your preferred backend. The switch is instant — no app restart, no re-configuration.
+
+You can even use different engines for different purposes:
+- **Parakeet** for live dictation (fastest feedback)
+- **Whisper Large V3** for file transcription (maximum accuracy)
+- **Apple Speech** when you're low on battery
+
+---
+
+*Related: [Offline Transcription Engines](/features/offline-transcription/), [Best Whisper Model for Dictation](/blog/best-whisper-model-for-dictation/), [Whisper vs Parakeet Transcription](/blog/whisper-vs-parakeet-transcription/). See [all features](/features/) and [pricing](/pricing/).*
+
+<CTA />

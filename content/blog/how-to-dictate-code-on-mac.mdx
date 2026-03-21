@@ -121,15 +121,89 @@ Dictate commands, scripts, and git operations.
 </FeatureCard>
 </FeatureGrid>
 
+## Dictating Complete Code Blocks
+
+Once you're comfortable with casing and symbols, you can dictate complete code structures:
+
+<VoiceDemo voice='"const camel case fetch user data equals async open paren close paren fat arrow open brace"' output="const fetchUserData = async () => {" lang="TypeScript" />
+
+<VoiceDemo voice='"if camel case is valid open paren camel case user input close paren open brace return true semicolon close brace"' output="if isValid(userInput) { return true; }" lang="JavaScript" />
+
+<VoiceDemo voice='"git checkout dash b feature slash snake case add user auth"' output="git checkout -b feature/add_user_auth" lang="Terminal" />
+
+### IDE-Specific Tips
+
+<FeatureGrid>
+<FeatureCard title="VS Code" icon="code">
+Code Mode works directly in the editor. Use per-app profiles to auto-activate Code Mode when VS Code is focused. Dictate into the editor, terminal panel, or search bar.
+</FeatureCard>
+<FeatureCard title="Cursor" icon="bot">
+Use natural language mode for AI chat prompts and Code Mode for inline code editing. Per-app profiles can handle this automatically if you set up separate profiles for Cursor's chat vs editor views.
+</FeatureCard>
+<FeatureCard title="Terminal / iTerm2" icon="terminal">
+Code Mode handles dashes, dots, slashes, and paths correctly — essential for CLI commands. Say "dash dash verbose" to get `--verbose`.
+</FeatureCard>
+<FeatureCard title="JetBrains IDEs" icon="brain">
+IntelliJ, WebStorm, PyCharm, and other JetBrains IDEs are fully supported. Whisperer inserts via Accessibility into the active editor panel.
+</FeatureCard>
+</FeatureGrid>
+
+## Troubleshooting Common Issues
+
+### Words Not Casing Correctly
+Make sure you say the casing command (e.g., "camel case") *before* the words you want cased. The casing command applies to all words that follow until you stop or use a different command.
+
+### Symbols Not Inserting
+Verify Code Mode is active for your current app. Check Settings → Profiles to ensure Code Mode is enabled for your IDE. If it's still not working, try the [personal dictionary](/features/personal-dictionary/) to add custom symbol mappings.
+
+### Autocorrection Interfering
+Enable Literal Mode in Code Mode settings. This prevents the transcription engine from "correcting" identifiers and technical terms. Say exactly what you mean and get exactly that output.
+
+### Dictionary Terms Not Recognized
+Add project-specific terms to your [personal dictionary](/features/personal-dictionary/). For the Parakeet engine, dictionary terms also enable CTC vocabulary boosting — biasing the decoder at the acoustic level for better recognition.
+
 ## Voice Coding vs. Apple Dictation for Code
 
 <Callout type="info">
-Apple's built-in dictation is designed for prose. Try dictating `getUserName` and you'll get "Get user name" — three words, capitalized, with spaces. Whisperer's Code Mode is purpose-built for this problem.
+Apple's built-in dictation is designed for prose. Try dictating `getUserName` and you'll get "Get user name" — three words, capitalized, with spaces. Whisperer's Code Mode is purpose-built for this problem. See [full comparison](/compare/vs-apple-dictation/).
 </Callout>
 
-## Getting Started
+| Feature | Whisperer Code Mode | Apple Dictation |
+|---------|-------------------|-----------------|
+| camelCase by voice | Yes | No |
+| snake_case by voice | Yes | No |
+| Symbol commands (20+) | Yes | Limited |
+| Per-app mode switching | Yes | No |
+| Personal dictionary | Yes | No |
+| Literal mode | Yes | No |
+| Autocorrection control | Full | None |
+| Price | $14.99 lifetime | Free |
 
-Voice coding has a short learning curve — most developers are comfortable within a day or two. Start by dictating comments, then graduate to function signatures, and eventually full blocks of code.
+## Recommended Learning Path
+
+Voice coding has a short learning curve — most developers are comfortable within a day or two. Here's the recommended progression:
+
+<StepList>
+<Step num="1" title="Start with comments and documentation">
+Dictate inline comments, docstrings, and README content. This is natural language — no Code Mode needed. Immediate 2–3x speed gain.
+</Step>
+<Step num="2" title="Add Slack and email">
+Dictate messages and emails. Use [per-app profiles](/blog/dictation-for-per-app-profiles/) to auto-switch between apps.
+</Step>
+<Step num="3" title="Learn casing commands">
+Practice "camel case," "snake case," "pascal case," and "constant case" with your most common variable names.
+</Step>
+<Step num="4" title="Add symbol commands">
+Learn the most common: "open paren," "close paren," "semicolon," "colon," "fat arrow," "arrow."
+</Step>
+<Step num="5" title="Dictate full code statements">
+Combine casing + symbols to dictate complete function signatures, variable declarations, and code blocks.
+</Step>
+</StepList>
+
+---
+
+*Related guides: [Voice Coding — Complete Guide](/voice-coding/), [How to Dictate camelCase and snake_case](/blog/how-to-dictate-camelcase-snake-case/), [Voice Dictation for Vibe Coding](/blog/vibe-coding-voice-dictation/), [RSI Prevention](/blog/rsi-prevention-voice-coding/). See [Code Mode](/code-mode/), [pricing](/pricing/), and [all features](/features/).*
 
 <CTA />
 
