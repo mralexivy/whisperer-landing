@@ -18,7 +18,7 @@ import { SectionGlow } from "@/components/ui/decorations";
 /* ─────────────────────────────────────────────
    GRAPHIC: Hold-to-Record (Fn key with pulses)
    ───────────────────────────────────────────── */
-function HoldToRecordGraphic() {
+export function HoldToRecordGraphic() {
   return (
     <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
       {/* Dashed outer ring */}
@@ -70,7 +70,7 @@ function HoldToRecordGraphic() {
 /* ─────────────────────────────────────────────
    GRAPHIC: Live Preview (typewriter text)
    ───────────────────────────────────────────── */
-function LivePreviewGraphic() {
+export function LivePreviewGraphic() {
   const words = ["The", "quick", "brown", "fox", "jumps"];
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden px-6">
@@ -131,7 +131,7 @@ function LivePreviewGraphic() {
 /* ─────────────────────────────────────────────
    GRAPHIC: AI Post-Processing (before → after)
    ───────────────────────────────────────────── */
-function AIProcessingGraphic() {
+export function AIProcessingGraphic() {
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden px-5 gap-3">
       {/* Before text */}
@@ -174,7 +174,7 @@ function AIProcessingGraphic() {
 /* ─────────────────────────────────────────────
    GRAPHIC: Transcription Engines (3 chips)
    ───────────────────────────────────────────── */
-function EnginesGraphic() {
+export function EnginesGraphic() {
   const engines = [
     { name: "Whisper", hw: "Metal GPU", color: "from-blue-500/20 to-blue-600/5", delay: 0 },
     { name: "Parakeet", hw: "Neural Engine", color: "from-green-500/20 to-green-600/5", delay: 0.15 },
@@ -210,7 +210,7 @@ function EnginesGraphic() {
 /* ─────────────────────────────────────────────
    GRAPHIC: 100+ Languages (language pills)
    ───────────────────────────────────────────── */
-function LanguagesGraphic() {
+export function LanguagesGraphic() {
   const langs = [
     ["EN", "ES", "FR", "DE"],
     ["JA", "KO", "ZH", "AR"],
@@ -250,7 +250,7 @@ function LanguagesGraphic() {
 /* ─────────────────────────────────────────────
    GRAPHIC: Personal Dictionary (correction)
    ───────────────────────────────────────────── */
-function DictionaryGraphic() {
+export function DictionaryGraphic() {
   const corrections = [
     { from: "tenserflow", to: "TensorFlow", tier: "Fuzzy" },
     { from: "k8s", to: "Kubernetes", tier: "Exact" },
@@ -279,7 +279,7 @@ function DictionaryGraphic() {
 /* ─────────────────────────────────────────────
    GRAPHIC: File Transcription (drag & drop)
    ───────────────────────────────────────────── */
-function FileTranscriptionGraphic() {
+export function FileTranscriptionGraphic() {
   return (
     <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
       {/* Drop zone */}
@@ -311,7 +311,7 @@ function FileTranscriptionGraphic() {
 /* ─────────────────────────────────────────────
    GRAPHIC: History & Statistics (chart mock)
    ───────────────────────────────────────────── */
-function HistoryGraphic() {
+export function HistoryGraphic() {
   const bars = [35, 55, 42, 68, 50, 75, 60];
   const days = ["M", "T", "W", "T", "F", "S", "S"];
   return (
@@ -367,7 +367,7 @@ function HistoryGraphic() {
 /* ─────────────────────────────────────────────
    GRAPHIC: Text Processing (pipeline)
    ───────────────────────────────────────────── */
-function TextProcessingGraphic() {
+export function TextProcessingGraphic() {
   const steps = [
     { label: "um, so basically...", style: "text-white/30" },
     { label: "so basically...", style: "text-white/50", badge: "Filler removed" },

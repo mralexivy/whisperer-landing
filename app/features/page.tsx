@@ -3,19 +3,11 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { breadcrumbSchema } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
-import {
-  Apple,
-  Sparkles,
-  Cpu,
-  Eye,
-  BookOpen,
-  Clock,
-  FileAudio,
-  Globe,
-  ArrowRight,
-} from "lucide-react";
-import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
+import { Apple, ArrowRight } from "lucide-react";
+import { FadeIn } from "@/components/ui/animated";
+import { GlowCard } from "@/components/ui/animated";
 import { SectionGlow, DotGrid } from "@/components/ui/decorations";
+import { FeaturesCards } from "./FeaturesCards";
 
 export const metadata: Metadata = {
   title: "Features — Whisperer | Offline Dictation App for Mac",
@@ -30,72 +22,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
-const features = [
-  {
-    icon: Sparkles,
-    color: "text-purple-400",
-    bgColor: "bg-purple-400/10",
-    title: "AI Writing & Post-Processing",
-    description:
-      "Rewrite, translate, format, summarize, and fix grammar — all with an on-device LLM. 10 built-in modes plus custom prompts.",
-    href: "/features/ai-writing/",
-  },
-  {
-    icon: Cpu,
-    color: "text-blue-400",
-    bgColor: "bg-blue-400/10",
-    title: "Offline Transcription Engines",
-    description:
-      "Three backends — Whisper (Metal GPU), Parakeet (Neural Engine), and Apple Speech. 10+ model sizes from 75MB to 2.9GB.",
-    href: "/features/offline-transcription/",
-  },
-  {
-    icon: Eye,
-    color: "text-cyan-400",
-    bgColor: "bg-cyan-400/10",
-    title: "Live Preview",
-    description:
-      "See your words appear in real-time as you speak. Dual-engine streaming with ~300ms latency and typewriter animation.",
-    href: "/features/live-preview/",
-  },
-  {
-    icon: BookOpen,
-    color: "text-orange-400",
-    bgColor: "bg-orange-400/10",
-    title: "Personal Dictionary & Spell Correction",
-    description:
-      "Three-tier correction engine with fuzzy matching, phonetic matching, and prompt word vocabulary boosting.",
-    href: "/features/personal-dictionary/",
-  },
-  {
-    icon: Clock,
-    color: "text-green-400",
-    bgColor: "bg-green-400/10",
-    title: "Transcription History & Statistics",
-    description:
-      "Full workspace with search, pin, flag, audio playback, re-transcribe, and usage statistics with charts.",
-    href: "/features/transcription-history/",
-  },
-  {
-    icon: FileAudio,
-    color: "text-pink-400",
-    bgColor: "bg-pink-400/10",
-    title: "File Transcription",
-    description:
-      "Transcribe audio and video files offline. Drag-and-drop interface using the same high-quality transcription engine.",
-    href: "/features/file-transcription/",
-  },
-  {
-    icon: Globe,
-    color: "text-amber-400",
-    bgColor: "bg-amber-400/10",
-    title: "100+ Languages",
-    description:
-      "Dictate in over 100 languages with per-app language profiles. AI-powered translation between languages, all offline.",
-    href: "/features/multilingual/",
-  },
-];
 
 export default function FeaturesPage() {
   return (
@@ -136,36 +62,13 @@ export default function FeaturesPage() {
       </section>
 
       {/* Features Grid */}
-      <section className="pb-24">
+      <section className="pt-8 pb-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeInStagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {features.map((feature, i) => (
-              <StaggerItem key={i}>
-                <Link href={feature.href} className="group block h-full">
-                  <GlowCard className="bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-                    <div
-                      className={`w-14 h-14 rounded-xl ${feature.bgColor} flex items-center justify-center mb-6`}
-                    >
-                      <feature.icon className={`w-7 h-7 ${feature.color}`} />
-                    </div>
-                    <h2 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                      {feature.title}
-                    </h2>
-                    <p className="text-muted-foreground leading-relaxed flex-1">
-                      {feature.description}
-                    </p>
-                    <div className="flex items-center gap-2 mt-4 text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                      Learn more <ArrowRight className="w-4 h-4" />
-                    </div>
-                  </GlowCard>
-                </Link>
-              </StaggerItem>
-            ))}
-          </FadeInStagger>
+          <FeaturesCards />
 
-          {/* Also link to Code Mode and Voice Coding */}
+          {/* Developer Features */}
           <FadeIn delay={0.3}>
-            <div className="max-w-6xl mx-auto mt-12">
+            <div className="max-w-7xl mx-auto mt-12">
               <h3 className="text-lg font-semibold text-muted-foreground mb-4 text-center">
                 Developer Features
               </h3>
@@ -214,8 +117,8 @@ export default function FeaturesPage() {
                 Try every feature, <span className="text-primary">free</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Download Whisperer free from the Mac App Store. Upgrade to Pro Pack ($14.99 lifetime)
-                for Code Mode, per-app profiles, and personal dictionary.
+                Download Whisperer from the Mac App Store with a free trial. Base App $2.99, Pro Pack $14.99 lifetime
+                for Code Mode, AI post-processing, per-app profiles, and personal dictionary.
               </p>
               <a
                 href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671"

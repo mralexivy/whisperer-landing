@@ -12,13 +12,13 @@ import { SectionGlow, DotGrid, GradientDivider, AnimatedBorder } from "@/compone
 export const metadata: Metadata = {
   title: "Pricing — Whisperer | $14.99 Lifetime, No Subscription",
   description:
-    "Whisperer pricing: Free base app + $14.99 one-time Pro Pack with Code Mode, per-app profiles, and personal dictionary. No subscription. No cloud fees. Works offline.",
+    "Whisperer pricing: $2.99 base app + $14.99 one-time Pro Pack with Code Mode, per-app profiles, and personal dictionary. No subscription. No cloud fees. Works offline.",
   keywords:
     "dictation app no subscription mac, one-time purchase dictation mac, lifetime dictation app, dictation app Mac App Store",
   openGraph: {
     title: "Whisperer Pricing — $14.99 Lifetime, No Subscription",
     description:
-      "Free base app + $14.99 one-time Pro Pack. No subscription. Code Mode for developers.",
+      "$2.99 base app + $14.99 Pro Pack. One-time purchase, no subscription. Code Mode for developers.",
     type: "website",
   },
 };
@@ -47,7 +47,7 @@ export default function PricingPage() {
       />
 
       {/* Hero */}
-      <section className="pt-40 pb-20 relative overflow-hidden">
+      <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <SectionGlow position="top-center" size="xl" intensity={0.08} />
           <DotGrid />
@@ -68,7 +68,7 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="pb-24">
+      <section className="pt-8 pb-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16 items-stretch">
             {/* Base App */}
@@ -81,19 +81,19 @@ export default function PricingPage() {
                     <span className="text-base font-normal text-muted-foreground"> one-time</span>
                   </div>
                   <p className="text-muted-foreground mb-6">
-                    Core dictation features for everyday use.
+                    Core dictation with free trial included.
                   </p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {[
                       "Hold-to-record dictation (Fn or custom shortcut)",
                       "Toggle mode (press to start / stop)",
                       "Live streaming preview",
+                      "3 transcription engines (Whisper, Parakeet, Apple)",
                       "100+ languages",
-                      "Multiple Whisper models (speed vs accuracy)",
-                      "Model preloading for instant start",
+                      "File transcription (audio & video)",
+                      "Transcription history with search",
+                      "Filler word removal",
                       "100% offline, on-device processing",
-                      "Choose any microphone",
-                      "Live waveform feedback",
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
@@ -129,11 +129,13 @@ export default function PricingPage() {
                   <ul className="space-y-3 mb-8 flex-1">
                     {[
                       "Everything in Base",
+                      "AI Post-Processing — rewrite, translate, summarize, 10 modes",
                       "Code Mode — camelCase, snake_case, symbols by voice",
                       "Per-app profiles — automatic mode switching",
                       "Personal dictionary — add custom terms",
                       "Pro insertion engine — clipboard-safe paste",
                       "Literal mode — prevent autocorrections",
+                      "Usage statistics — WPM, peak hours, charts",
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
@@ -158,40 +160,53 @@ export default function PricingPage() {
           <FadeIn>
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl font-bold mb-6 text-center">
-                How Whisperer compares on price
+                How Whisperer compares
               </h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-border">
-                      <th className="text-left py-3 pr-4 font-semibold">App</th>
-                      <th className="text-left py-3 px-4 font-semibold">Price</th>
-                      <th className="text-left py-3 px-4 font-semibold">Annual Cost</th>
-                      <th className="text-left py-3 px-4 font-semibold">3-Year Cost</th>
+                      <th className="text-left py-3 pr-4 font-semibold"></th>
+                      <th className="text-center py-3 px-3 font-semibold text-primary bg-primary/5">Whisperer</th>
+                      <th className="text-center py-3 px-3 font-semibold">Superwhisper</th>
+                      <th className="text-center py-3 px-3 font-semibold">Voibe</th>
+                      <th className="text-center py-3 px-3 font-semibold">Wispr Flow</th>
+                      <th className="text-center py-3 px-3 font-semibold">Apple</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-border">
                     {[
-                      ["Whisperer Pro", "$14.99 one-time", "$14.99", "$14.99"],
-                      ["Superwhisper", "$249 lifetime or $8/mo", "$96–249", "$288–249"],
-                      ["Voibe", "$99 lifetime or $4.90/mo", "$58.80–99", "$176.40–99"],
-                      ["Wispr Flow", "$10–15/mo", "$120–180", "$360–540"],
-                      ["Apple Dictation", "Free", "Free", "Free"],
-                    ].map(([app, price, annual, threeYear], i) => (
-                      <tr key={i} className={`hover:bg-secondary/30 transition-colors ${i === 0 ? "bg-primary/5" : ""}`}>
-                        <td className={`py-3 pr-4 font-medium ${i === 0 ? "text-primary" : "text-foreground"}`}>
-                          {app}
-                        </td>
-                        <td className="py-3 px-4 text-muted-foreground">{price}</td>
-                        <td className="py-3 px-4 text-muted-foreground">{annual}</td>
-                        <td className="py-3 px-4 text-muted-foreground">{threeYear}</td>
+                      ["Price", "$14.99 once", "$249/$8mo", "$99/$4.90mo", "$10–15/mo", "Free"],
+                      ["3-Year Cost", "$14.99", "$249–288", "$99–176", "$360–540", "Free"],
+                      ["100% Offline", "Yes", "Partial", "Yes", "No", "Yes*"],
+                      ["AI Post-Processing", "Yes", "Yes", "No", "Yes", "No"],
+                      ["Code Mode", "Yes", "No", "No", "No", "No"],
+                      ["Per-App Profiles", "Yes", "No", "No", "No", "No"],
+                      ["Personal Dictionary", "Yes", "No", "No", "No", "No"],
+                      ["Multiple Engines", "3", "1", "1", "Cloud", "1"],
+                      ["File Transcription", "Yes", "Yes", "Yes", "No", "No"],
+                      ["History & Stats", "Yes", "Partial", "No", "No", "No"],
+                    ].map(([feature, ...values], i) => (
+                      <tr key={i} className="hover:bg-secondary/30 transition-colors">
+                        <td className="py-3 pr-4 text-muted-foreground font-medium">{feature}</td>
+                        {values.map((val, j) => (
+                          <td key={j} className={`text-center py-3 px-3 ${j === 0 ? "bg-primary/5" : ""}`}>
+                            {val === "Yes" ? (
+                              <Check className={`w-4 h-4 mx-auto ${j === 0 ? "text-primary" : "text-green-400"}`} />
+                            ) : val === "No" ? (
+                              <span className="text-muted-foreground/40">—</span>
+                            ) : (
+                              <span className={j === 0 ? "text-primary font-medium" : "text-muted-foreground"}>{val}</span>
+                            )}
+                          </td>
+                        ))}
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
               <p className="text-sm text-muted-foreground mt-4 text-center">
-                Whisperer is the most affordable pro dictation app for Mac — and the only one with Code Mode.
+                More features at a fraction of the price. Whisperer is the only dictation app with Code Mode, per-app profiles, and personal dictionary — for a one-time $14.99.
               </p>
             </div>
           </FadeIn>
@@ -207,7 +222,7 @@ export default function PricingPage() {
               {[
                 {
                   q: "Is there a free trial?",
-                  a: "Yes. The base app is available to download and try from the Mac App Store. You can test dictation before deciding on the Pro Pack.",
+                  a: "Yes. Download from the Mac App Store and try all core features free. The Base App is $2.99 one-time, and Pro Pack is $14.99 lifetime.",
                 },
                 {
                   q: "Is Pro Pack a subscription?",
