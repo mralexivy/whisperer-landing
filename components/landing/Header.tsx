@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import appIcon from "../../public/assets/app-icon.png";
 
 const navLinks = [
+  { label: "Why Whisperer", href: "/why-whisperer" },
   { label: "Features", href: "/features" },
   { label: "Voice Coding", href: "/voice-coding" },
   { label: "Pricing", href: "/pricing" },
