@@ -6,11 +6,11 @@ import { Menu, X } from "lucide-react";
 import appIcon from "../../public/assets/app-icon.png";
 
 const navLinks = [
-  { label: "Features", href: "/features/" },
-  { label: "Voice Coding", href: "/voice-coding/" },
-  { label: "Pricing", href: "/pricing/" },
-  { label: "Compare", href: "/compare/" },
-  { label: "Blog", href: "/blog/" },
+  { label: "Features", href: "/features" },
+  { label: "Voice Coding", href: "/voice-coding" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Compare", href: "/compare" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export const Header = () => {

@@ -258,7 +258,7 @@ export function CompareCards() {
     <FadeInStagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
       {competitors.map((comp) => (
         <StaggerItem key={comp.slug}>
-          <Link href={`/compare/${comp.slug}/`} className="block group h-full">
+          <Link href={`/compare/${comp.slug}`} className="block group h-full">
             <GlowCard className="bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-500 h-full flex flex-col">
               {/* Graphic area */}
               <div className="relative h-[200px] bg-gradient-to-b from-white/[0.02] to-transparent border-b border-white/[0.05] overflow-hidden">

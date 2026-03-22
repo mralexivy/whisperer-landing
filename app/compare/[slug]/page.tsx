@@ -118,7 +118,7 @@ export default function ComparisonPost({
           <div className="max-w-3xl mx-auto">
             <Breadcrumbs
               items={[
-                { label: "Compare", href: "/compare/" },
+                { label: "Compare", href: "/compare" },
                 { label: post.meta.title },
               ]}
             />
@@ -152,7 +152,7 @@ export default function ComparisonPost({
                   {otherComparisons.map((c) => (
                     <StaggerItem key={c.meta.slug}>
                       <Link
-                        href={`/compare/${c.meta.slug}/`}
+                        href={`/compare/${c.meta.slug}`}
                         className="group block"
                       >
                         <GlowCard className="bg-card border border-border rounded-xl p-5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">

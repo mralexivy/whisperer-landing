@@ -303,7 +303,7 @@ export default function OfflineDictationMacPage() {
                     Download on Mac App Store
                   </Button>
                 </a>
-                <Link href="/pricing/">
+                <Link href="/pricing">
                   <Button variant="heroOutline" size="xl" className="gap-3">
                     View Pricing
                   </Button>
@@ -575,19 +575,19 @@ export default function OfflineDictationMacPage() {
               {[
                 {
                   title: "Offline Transcription Engines",
-                  href: "/features/offline-transcription/",
+                   href: "/features/offline-transcription",
                 },
                 {
                   title: "Privacy: Offline vs Cloud Dictation",
-                  href: "/blog/offline-vs-cloud-dictation-privacy/",
+                   href: "/blog/offline-vs-cloud-dictation-privacy",
                 },
                 {
                   title: "Compare All Dictation Apps",
-                  href: "/compare/",
+                   href: "/compare",
                 },
                 {
                   title: "Pricing — $14.99 Lifetime",
-                  href: "/pricing/",
+                   href: "/pricing",
                 },
               ].map((link, i) => (
                 <StaggerItem key={i}>

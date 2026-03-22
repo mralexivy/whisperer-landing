@@ -592,18 +592,18 @@ export default function CheapestDictationMacPage() {
             </FadeIn>
             <FadeInStagger className="grid sm:grid-cols-2 gap-4">
               {[
-                { title: "Full Pricing Details", href: "/pricing/" },
+                { title: "Full Pricing Details", href: "/pricing" },
                 {
                   title: "No Subscription — $14.99 Lifetime",
-                  href: "/dictation-no-subscription/",
+                   href: "/dictation-no-subscription",
                 },
                 {
                   title: "Compare All Dictation Apps",
-                  href: "/compare/",
+                   href: "/compare",
                 },
                 {
                   title: "Offline Dictation for Mac",
-                  href: "/offline-dictation-mac/",
+                   href: "/offline-dictation-mac",
                 },
               ].map((link, i) => (
                 <StaggerItem key={i}>

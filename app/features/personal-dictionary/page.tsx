@@ -120,7 +120,7 @@ export default function PersonalDictionaryPage() {
           <DotGrid />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <Breadcrumbs items={[{ label: "Features", href: "/features/" }, { label: "Personal Dictionary" }]} />
+          <Breadcrumbs items={[{ label: "Features", href: "/features" }, { label: "Personal Dictionary" }]} />
           <FadeIn>
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -291,10 +291,10 @@ export default function PersonalDictionaryPage() {
             </FadeIn>
             <FadeInStagger className="grid sm:grid-cols-2 gap-3">
               {[
-                { title: "Personal Dictionary Setup Guide", href: "/blog/personal-dictionary-setup/" },
-                { title: "AI Writing & Post-Processing", href: "/features/ai-writing/" },
-                { title: "Live Preview", href: "/features/live-preview/" },
-                { title: "Offline Transcription Engines", href: "/features/offline-transcription/" },
+                { title: "Personal Dictionary Setup Guide", href: "/blog/personal-dictionary-setup" },
+                { title: "AI Writing & Post-Processing", href: "/features/ai-writing" },
+                { title: "Live Preview", href: "/features/live-preview" },
+                { title: "Offline Transcription Engines", href: "/features/offline-transcription" },
               ].map((link, i) => (
                 <StaggerItem key={i}>
                   <Link href={link.href} className="group block">

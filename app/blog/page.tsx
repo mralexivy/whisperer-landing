@@ -48,7 +48,7 @@ export default function BlogIndex() {
           {featured && (
             <FadeIn delay={0.1} className="mb-10">
               <Link
-                href={`/blog/${featured.meta.slug}/`}
+                href={`/blog/${featured.meta.slug}`}
                 className="group block"
               >
                 <GlowCard className="bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300">
@@ -89,7 +89,7 @@ export default function BlogIndex() {
             {rest.map((post) => (
               <StaggerItem key={post.meta.slug}>
                 <Link
-                  href={`/blog/${post.meta.slug}/`}
+                  href={`/blog/${post.meta.slug}`}
                   className="group block"
                 >
                   <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">

@@ -26,7 +26,7 @@ const features: {
     title: "AI Writing & Post-Processing",
     description:
       "Rewrite, translate, format, summarize, and fix grammar — all with an on-device LLM. 10 built-in modes plus custom prompts.",
-    href: "/features/ai-writing/",
+     href: "/features/ai-writing",
     graphic: AIProcessingGraphic,
   },
   {
@@ -34,7 +34,7 @@ const features: {
     title: "Offline Transcription Engines",
     description:
       "Three backends — Whisper (Metal GPU), Parakeet (Neural Engine), and Apple Speech. 10+ model sizes from 75MB to 2.9GB.",
-    href: "/features/offline-transcription/",
+     href: "/features/offline-transcription",
     graphic: EnginesGraphic,
   },
   {
@@ -42,7 +42,7 @@ const features: {
     title: "Live Preview",
     description:
       "See your words appear in real-time as you speak. Dual-engine streaming with ~300ms latency and typewriter animation.",
-    href: "/features/live-preview/",
+     href: "/features/live-preview",
     graphic: LivePreviewGraphic,
   },
   {
@@ -50,7 +50,7 @@ const features: {
     title: "Personal Dictionary & Spell Correction",
     description:
       "Three-tier correction engine with fuzzy matching, phonetic matching, and prompt word vocabulary boosting.",
-    href: "/features/personal-dictionary/",
+     href: "/features/personal-dictionary",
     graphic: DictionaryGraphic,
   },
   {
@@ -58,7 +58,7 @@ const features: {
     title: "Transcription History & Statistics",
     description:
       "Full workspace with search, pin, flag, audio playback, re-transcribe, and usage statistics with charts.",
-    href: "/features/transcription-history/",
+     href: "/features/transcription-history",
     graphic: HistoryGraphic,
   },
   {
@@ -66,7 +66,7 @@ const features: {
     title: "File Transcription",
     description:
       "Transcribe audio and video files offline. Drag-and-drop interface using the same high-quality transcription engine.",
-    href: "/features/file-transcription/",
+     href: "/features/file-transcription",
     graphic: FileTranscriptionGraphic,
   },
   {
@@ -74,7 +74,7 @@ const features: {
     title: "100+ Languages",
     description:
       "Dictate in over 100 languages with per-app language profiles. AI-powered translation between languages, all offline.",
-    href: "/features/multilingual/",
+     href: "/features/multilingual",
     graphic: LanguagesGraphic,
   },
 ];

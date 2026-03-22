@@ -261,10 +261,10 @@ export default function CodeModePage() {
             </FadeIn>
             <FadeInStagger className="grid gap-4">
               {[
-                { title: "How to Dictate Code on Mac", href: "/blog/how-to-dictate-code-on-mac/" },
-                { title: "How to Dictate camelCase and snake_case", href: "/blog/how-to-dictate-camelcase-snake-case/" },
-                { title: "Voice Coding — The Complete Guide", href: "/voice-coding/" },
-                { title: "Compare Whisperer vs. Competitors", href: "/compare/" },
+                { title: "How to Dictate Code on Mac", href: "/blog/how-to-dictate-code-on-mac" },
+                { title: "How to Dictate camelCase and snake_case", href: "/blog/how-to-dictate-camelcase-snake-case" },
+                { title: "Voice Coding — The Complete Guide", href: "/voice-coding" },
+                { title: "Compare Whisperer vs. Competitors", href: "/compare" },
               ].map((link, i) => (
                 <StaggerItem key={i}>
                   <Link href={link.href} className="group block">

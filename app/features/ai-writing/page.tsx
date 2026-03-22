@@ -147,15 +147,15 @@ const faqs = [
 ];
 
 const relatedPosts = [
-  { title: "How to Rewrite Dictation with Offline AI", href: "/blog/ai-rewriting-dictation-offline/" },
-  { title: "Dictation for Email: Write Emails 3x Faster", href: "/blog/dictation-for-email/" },
-  { title: "Personal Dictionary Setup", href: "/blog/personal-dictionary-setup/" },
+  { title: "How to Rewrite Dictation with Offline AI", href: "/blog/ai-rewriting-dictation-offline" },
+  { title: "Dictation for Email: Write Emails 3x Faster", href: "/blog/dictation-for-email" },
+  { title: "Personal Dictionary Setup", href: "/blog/personal-dictionary-setup" },
 ];
 
 const relatedFeatures = [
-  { title: "Personal Dictionary & Spell Correction", href: "/features/personal-dictionary/" },
-  { title: "100+ Languages & Translation", href: "/features/multilingual/" },
-  { title: "Transcription History", href: "/features/transcription-history/" },
+  { title: "Personal Dictionary & Spell Correction", href: "/features/personal-dictionary" },
+  { title: "100+ Languages & Translation", href: "/features/multilingual" },
+  { title: "Transcription History", href: "/features/transcription-history" },
 ];
 
 export default function AIWritingPage() {
@@ -185,7 +185,7 @@ export default function AIWritingPage() {
           <DotGrid />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <Breadcrumbs items={[{ label: "Features", href: "/features/" }, { label: "AI Writing" }]} />
+          <Breadcrumbs items={[{ label: "Features", href: "/features" }, { label: "AI Writing" }]} />
           <FadeIn>
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">

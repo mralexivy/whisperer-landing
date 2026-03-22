@@ -122,7 +122,7 @@ export default function OfflineTranscriptionPage() {
           <DotGrid />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <Breadcrumbs items={[{ label: "Features", href: "/features/" }, { label: "Offline Transcription" }]} />
+          <Breadcrumbs items={[{ label: "Features", href: "/features" }, { label: "Offline Transcription" }]} />
           <FadeIn>
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -298,10 +298,10 @@ export default function OfflineTranscriptionPage() {
             </FadeIn>
             <FadeInStagger className="grid sm:grid-cols-2 gap-3">
               {[
-                { title: "Best Whisper Model for Dictation", href: "/blog/best-whisper-model-for-dictation/" },
-                { title: "Whisper vs Parakeet vs Apple Speech", href: "/blog/whisper-vs-parakeet-transcription/" },
-                { title: "Live Preview Engine", href: "/features/live-preview/" },
-                { title: "100+ Languages", href: "/features/multilingual/" },
+                { title: "Best Whisper Model for Dictation", href: "/blog/best-whisper-model-for-dictation" },
+                { title: "Whisper vs Parakeet vs Apple Speech", href: "/blog/whisper-vs-parakeet-transcription" },
+                { title: "Live Preview Engine", href: "/features/live-preview" },
+                { title: "100+ Languages", href: "/features/multilingual" },
               ].map((link, i) => (
                 <StaggerItem key={i}>
                   <Link href={link.href} className="group block">

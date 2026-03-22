@@ -73,7 +73,7 @@ export default function FeaturesPage() {
                 Developer Features
               </h3>
               <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                <Link href="/code-mode/" className="group block">
+                <Link href="/code-mode" className="group block">
                   <GlowCard className="bg-card border border-border rounded-xl p-5 hover:border-primary/50 transition-all duration-300">
                     <div className="flex items-center justify-between">
                       <span className="font-medium text-foreground group-hover:text-primary transition-colors">
@@ -86,7 +86,7 @@ export default function FeaturesPage() {
                     </p>
                   </GlowCard>
                 </Link>
-                <Link href="/voice-coding/" className="group block">
+                <Link href="/voice-coding" className="group block">
                   <GlowCard className="bg-card border border-border rounded-xl p-5 hover:border-primary/50 transition-all duration-300">
                     <div className="flex items-center justify-between">
                       <span className="font-medium text-foreground group-hover:text-primary transition-colors">

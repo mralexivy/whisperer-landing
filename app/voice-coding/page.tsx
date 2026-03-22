@@ -57,12 +57,12 @@ const voiceCodingFaqs = [
 ];
 
 const relatedPosts = [
-  { title: "How to Dictate Code on Mac", href: "/blog/how-to-dictate-code-on-mac/" },
-  { title: "Voice Coding with Cursor", href: "/blog/voice-coding-with-cursor/" },
-  { title: "Voice Dictation for VS Code", href: "/blog/voice-dictation-for-vscode/" },
-  { title: "How to Dictate camelCase and snake_case", href: "/blog/how-to-dictate-camelcase-snake-case/" },
-  { title: "RSI Prevention for Developers", href: "/blog/rsi-prevention-voice-coding/" },
-  { title: "Voice Coding vs. Typing Speed", href: "/blog/voice-coding-vs-typing-speed/" },
+  { title: "How to Dictate Code on Mac", href: "/blog/how-to-dictate-code-on-mac" },
+  { title: "Voice Coding with Cursor", href: "/blog/voice-coding-with-cursor" },
+  { title: "Voice Dictation for VS Code", href: "/blog/voice-dictation-for-vscode" },
+  { title: "How to Dictate camelCase and snake_case", href: "/blog/how-to-dictate-camelcase-snake-case" },
+  { title: "RSI Prevention for Developers", href: "/blog/rsi-prevention-voice-coding" },
+  { title: "Voice Coding vs. Typing Speed", href: "/blog/voice-coding-vs-typing-speed" },
 ];
 
 export default function VoiceCodingPage() {
@@ -112,7 +112,7 @@ export default function VoiceCodingPage() {
                     Download on Mac App Store
                   </Button>
                 </a>
-                <Link href="/code-mode/">
+                <Link href="/code-mode">
                   <Button variant="heroOutline" size="xl" className="gap-3">
                     <Code className="w-5 h-5" />
                     Learn about Code Mode

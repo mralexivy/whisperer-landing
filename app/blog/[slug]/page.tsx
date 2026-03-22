@@ -116,7 +116,7 @@ export default function BlogPost({
           <div className="max-w-3xl mx-auto">
             <Breadcrumbs
               items={[
-                { label: "Blog", href: "/blog/" },
+                { label: "Blog", href: "/blog" },
                 { label: post.meta.title },
               ]}
             />
@@ -159,7 +159,7 @@ export default function BlogPost({
                   {related.map((r) => (
                     <StaggerItem key={r.meta.slug}>
                       <Link
-                        href={`/blog/${r.meta.slug}/`}
+                        href={`/blog/${r.meta.slug}`}
                         className="group block"
                       >
                         <GlowCard className="bg-card border border-border rounded-xl p-5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">

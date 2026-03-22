@@ -58,7 +58,7 @@ export const CodeModeSection = () => {
               ))}
             </ul>
             <Link
-              href="/code-mode/"
+               href="/code-mode"
               className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
             >
               Learn more about Code Mode

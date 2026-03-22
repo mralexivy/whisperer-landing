@@ -105,9 +105,9 @@ export function blogPostSchema(post: {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://whispererapp.com/blog/${post.slug}/`,
+      "@id": `https://whispererapp.com/blog/${post.slug}`,
     },
-    url: `https://whispererapp.com/blog/${post.slug}/`,
+    url: `https://whispererapp.com/blog/${post.slug}`,
     image: post.image
       ? `https://whispererapp.com${post.image}`
       : "https://whispererapp.com/assets/hero-demo.png",
@@ -158,7 +158,7 @@ export function comparisonPageSchema(competitor: {
     "@type": "WebPage",
     name: `Whisperer vs ${competitor.name} — Mac Dictation Comparison 2026`,
     description: `Feature-by-feature comparison of Whisperer ($14.99 lifetime) vs ${competitor.name} (${competitor.price}) for offline dictation on Mac.`,
-    url: `https://whispererapp.com/compare/${competitor.slug}/`,
+    url: `https://whispererapp.com/compare/${competitor.slug}`,
     about: [
       {
         "@type": "SoftwareApplication",

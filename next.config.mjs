@@ -5,7 +5,7 @@ const nextConfig = {
   images: {
     unoptimized: true, // Required for static export
   },
-  trailingSlash: true, // Generate /privacy/ instead of /privacy for better static hosting
+  trailingSlash: false,
 };
 
 export default nextConfig;

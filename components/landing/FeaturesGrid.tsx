@@ -418,7 +418,7 @@ const features = [
     description:
       "Hold Fn or any custom shortcut to record. Release to transcribe and insert. Toggle mode and hands-free mode also available.",
     graphic: HoldToRecordGraphic,
-    href: "/features/",
+     href: "/features",
   },
   {
     icon: Eye,
@@ -426,7 +426,7 @@ const features = [
     description:
       "See words appear in real-time as you speak. Dual-engine streaming with ~300ms latency and typewriter animation.",
     graphic: LivePreviewGraphic,
-    href: "/features/live-preview/",
+     href: "/features/live-preview",
   },
   {
     icon: Sparkles,
@@ -434,7 +434,7 @@ const features = [
     description:
       "Rewrite, translate, format, summarize, fix grammar — 10 built-in AI modes plus custom prompts. All offline with on-device LLM.",
     graphic: AIProcessingGraphic,
-    href: "/features/ai-writing/",
+     href: "/features/ai-writing",
   },
   {
     icon: Cpu,
@@ -442,7 +442,7 @@ const features = [
     description:
       "Whisper (Metal GPU), Parakeet (Neural Engine), or Apple Speech. 10+ model sizes. Hot-swap without restarting.",
     graphic: EnginesGraphic,
-    href: "/features/offline-transcription/",
+     href: "/features/offline-transcription",
   },
   {
     icon: Globe,
@@ -450,7 +450,7 @@ const features = [
     description:
       "Dictate in over 100 languages with per-app language profiles and AI-powered offline translation between languages.",
     graphic: LanguagesGraphic,
-    href: "/features/multilingual/",
+     href: "/features/multilingual",
   },
   {
     icon: BookOpen,
@@ -458,7 +458,7 @@ const features = [
     description:
       "Three-tier correction with fuzzy SymSpell, phonetic matching, and prompt words for vocabulary boosting at the decoder level.",
     graphic: DictionaryGraphic,
-    href: "/features/personal-dictionary/",
+     href: "/features/personal-dictionary",
   },
   {
     icon: FileAudio,
@@ -466,7 +466,7 @@ const features = [
     description:
       "Transcribe audio and video files offline. Drag-and-drop interface using the same engine. No upload, no per-minute charges.",
     graphic: FileTranscriptionGraphic,
-    href: "/features/file-transcription/",
+     href: "/features/file-transcription",
   },
   {
     icon: Clock,
@@ -474,7 +474,7 @@ const features = [
     description:
       "Every transcription saved with search, pin, flag, and audio playback. Usage stats: WPM, peak hours, app usage charts.",
     graphic: HistoryGraphic,
-    href: "/features/transcription-history/",
+     href: "/features/transcription-history",
   },
   {
     icon: Filter,
@@ -482,7 +482,7 @@ const features = [
     description:
       "Automatic filler word removal, spoken list detection, spell correction pipeline, and trailing space insertion.",
     graphic: TextProcessingGraphic,
-    href: "/features/",
+     href: "/features",
   },
 ];
 

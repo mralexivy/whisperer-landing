@@ -75,7 +75,7 @@ export default function LivePreviewPage() {
           <DotGrid />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <Breadcrumbs items={[{ label: "Features", href: "/features/" }, { label: "Live Preview" }]} />
+          <Breadcrumbs items={[{ label: "Features", href: "/features" }, { label: "Live Preview" }]} />
           <FadeIn>
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -251,10 +251,10 @@ export default function LivePreviewPage() {
             </FadeIn>
             <FadeInStagger className="grid sm:grid-cols-2 gap-3">
               {[
-                { title: "Offline Transcription Engines", href: "/features/offline-transcription/" },
-                { title: "Personal Dictionary", href: "/features/personal-dictionary/" },
-                { title: "Getting Started Guide", href: "/blog/getting-started-whisperer/" },
-                { title: "All Features", href: "/features/" },
+                { title: "Offline Transcription Engines", href: "/features/offline-transcription" },
+                { title: "Personal Dictionary", href: "/features/personal-dictionary" },
+                { title: "Getting Started Guide", href: "/blog/getting-started-whisperer" },
+                { title: "All Features", href: "/features" },
               ].map((link, i) => (
                 <StaggerItem key={i}>
                   <Link href={link.href} className="group block">

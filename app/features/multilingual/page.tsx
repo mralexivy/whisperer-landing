@@ -101,7 +101,7 @@ export default function MultilingualPage() {
           <DotGrid />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <Breadcrumbs items={[{ label: "Features", href: "/features/" }, { label: "Multilingual" }]} />
+          <Breadcrumbs items={[{ label: "Features", href: "/features" }, { label: "Multilingual" }]} />
           <FadeIn>
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -268,10 +268,10 @@ export default function MultilingualPage() {
             </FadeIn>
             <FadeInStagger className="grid sm:grid-cols-2 gap-3">
               {[
-                { title: "Multilingual Dictation Guide", href: "/blog/multilingual-dictation-guide/" },
-                { title: "Offline Transcription Engines", href: "/features/offline-transcription/" },
-                { title: "AI Writing & Translation", href: "/features/ai-writing/" },
-                { title: "Per-App Profiles Blog Post", href: "/blog/dictation-for-per-app-profiles/" },
+                { title: "Multilingual Dictation Guide", href: "/blog/multilingual-dictation-guide" },
+                { title: "Offline Transcription Engines", href: "/features/offline-transcription" },
+                { title: "AI Writing & Translation", href: "/features/ai-writing" },
+                { title: "Per-App Profiles Blog Post", href: "/blog/dictation-for-per-app-profiles" },
               ].map((link, i) => (
                 <StaggerItem key={i}>
                   <Link href={link.href} className="group block">

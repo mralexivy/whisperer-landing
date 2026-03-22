@@ -84,7 +84,7 @@ export default function FileTranscriptionPage() {
           <DotGrid />
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <Breadcrumbs items={[{ label: "Features", href: "/features/" }, { label: "File Transcription" }]} />
+          <Breadcrumbs items={[{ label: "Features", href: "/features" }, { label: "File Transcription" }]} />
           <FadeIn>
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -245,10 +245,10 @@ export default function FileTranscriptionPage() {
             </FadeIn>
             <FadeInStagger className="grid sm:grid-cols-2 gap-3">
               {[
-                { title: "Transcribe Audio Files Offline (Guide)", href: "/blog/transcribe-audio-files-offline-mac/" },
-                { title: "Offline Transcription Engines", href: "/features/offline-transcription/" },
-                { title: "Transcription History", href: "/features/transcription-history/" },
-                { title: "100+ Languages", href: "/features/multilingual/" },
+                { title: "Transcribe Audio Files Offline (Guide)", href: "/blog/transcribe-audio-files-offline-mac" },
+                { title: "Offline Transcription Engines", href: "/features/offline-transcription" },
+                { title: "Transcription History", href: "/features/transcription-history" },
+                { title: "100+ Languages", href: "/features/multilingual" },
               ].map((link, i) => (
                 <StaggerItem key={i}>
                   <Link href={link.href} className="group block">

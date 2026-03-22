@@ -254,7 +254,7 @@ export default function VoiceToTextDevelopersPage() {
                     Download on Mac App Store
                   </Button>
                 </a>
-                <Link href="/code-mode/">
+                <Link href="/code-mode">
                   <Button variant="heroOutline" size="xl" className="gap-3">
                     <Code className="w-5 h-5" />
                     Learn about Code Mode
@@ -478,7 +478,7 @@ export default function VoiceToTextDevelopersPage() {
                   </ul>
                   <div className="mt-6">
                     <Link
-                      href="/blog/rsi-prevention-voice-coding/"
+                       href="/blog/rsi-prevention-voice-coding"
                       className="text-primary hover:underline text-sm font-medium inline-flex items-center gap-1"
                     >
                       Read: RSI Prevention for Developers
@@ -535,19 +535,19 @@ export default function VoiceToTextDevelopersPage() {
               {[
                 {
                   title: "How to Dictate Code on Mac",
-                  href: "/blog/how-to-dictate-code-on-mac/",
+                   href: "/blog/how-to-dictate-code-on-mac",
                 },
                 {
                   title: "Voice Coding with Cursor",
-                  href: "/blog/voice-coding-with-cursor/",
+                   href: "/blog/voice-coding-with-cursor",
                 },
                 {
                   title: "RSI Prevention for Developers",
-                  href: "/blog/rsi-prevention-voice-coding/",
+                   href: "/blog/rsi-prevention-voice-coding",
                 },
                 {
                   title: "Voice Coding — Complete Guide",
-                  href: "/voice-coding/",
+                   href: "/voice-coding",
                 },
               ].map((link, i) => (
                 <StaggerItem key={i}>

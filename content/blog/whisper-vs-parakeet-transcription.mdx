@@ -38,7 +38,7 @@ Parakeet uses FluidAudio's CoreML models running on the Apple Neural Engine (ANE
 
 **Strengths:**
 - Fastest inference on Apple Silicon
-- CTC vocabulary boosting — your [dictionary entries](/features/personal-dictionary/) and prompt words bias the decoder at the acoustic level
+- CTC vocabulary boosting — your [dictionary entries](/features/personal-dictionary) and prompt words bias the decoder at the acoustic level
 - Dedicated hardware means no GPU contention
 
 **Limitations:**
@@ -63,7 +63,7 @@ Whisperer abstracts all three backends behind a unified `TranscriptionBackend` p
 
 ## The Live Preview Connection
 
-Whisperer's [live preview](/features/live-preview/) uses a dedicated lightweight Parakeet EOU model on the Neural Engine, regardless of which main backend you choose. This means:
+Whisperer's [live preview](/features/live-preview) uses a dedicated lightweight Parakeet EOU model on the Neural Engine, regardless of which main backend you choose. This means:
 
 - If your main backend is **Whisper** (Metal GPU) — live preview runs on Neural Engine, zero contention
 - If your main backend is **Parakeet** (Neural Engine) — the EOU model shares the ANE but is optimized for minimal interference
@@ -72,4 +72,4 @@ Whisperer's [live preview](/features/live-preview/) uses a dedicated lightweight
 
 Start with **Whisper** using the default Large V3 Turbo Q5 model. It's the safest choice with excellent accuracy across all languages. If you find you need more speed and primarily work in English or a top-25 language, switch to **Parakeet** and see if the speed difference matters for your workflow.
 
-Read the [best Whisper model for dictation](/blog/best-whisper-model-for-dictation/) guide for detailed model comparisons, or explore the [offline transcription engines](/features/offline-transcription/) feature page.
+Read the [best Whisper model for dictation](/blog/best-whisper-model-for-dictation) guide for detailed model comparisons, or explore the [offline transcription engines](/features/offline-transcription) feature page.

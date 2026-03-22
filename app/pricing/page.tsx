@@ -278,10 +278,10 @@ export default function PricingPage() {
           <div className="max-w-3xl mx-auto">
             <FadeInStagger className="grid sm:grid-cols-2 gap-4">
               {[
-                { title: "Compare with competitors", href: "/compare/" },
-                { title: "Voice Coding Guide", href: "/voice-coding/" },
-                { title: "Code Mode details", href: "/code-mode/" },
-                { title: "Privacy Policy", href: "/privacy/" },
+                { title: "Compare with competitors", href: "/compare" },
+                { title: "Voice Coding Guide", href: "/voice-coding" },
+                { title: "Code Mode details", href: "/code-mode" },
+                { title: "Privacy Policy", href: "/privacy" },
               ].map((link, i) => (
                 <StaggerItem key={i}>
                   <Link href={link.href} className="group block">

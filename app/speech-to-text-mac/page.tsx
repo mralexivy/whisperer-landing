@@ -296,7 +296,7 @@ export default function SpeechToTextMacPage() {
                     Download on Mac App Store
                   </Button>
                 </a>
-                <Link href="/pricing/">
+                <Link href="/pricing">
                   <Button variant="heroOutline" size="xl" className="gap-3">
                     View Pricing
                   </Button>
@@ -547,7 +547,7 @@ export default function SpeechToTextMacPage() {
           <FadeIn delay={0.3}>
             <div className="text-center mt-8">
               <Link
-                href="/features/offline-transcription/"
+                 href="/features/offline-transcription"
                 className="text-primary hover:underline text-sm font-medium inline-flex items-center gap-1"
               >
                 Compare engines in detail
@@ -601,19 +601,19 @@ export default function SpeechToTextMacPage() {
               {[
                 {
                   title: "Offline Dictation for Mac",
-                  href: "/offline-dictation-mac/",
+                   href: "/offline-dictation-mac",
                 },
                 {
                   title: "Voice to Text for Developers",
-                  href: "/voice-to-text-developers/",
+                   href: "/voice-to-text-developers",
                 },
                 {
                   title: "Compare All Dictation Apps",
-                  href: "/compare/",
+                   href: "/compare",
                 },
                 {
                   title: "Pricing — $14.99 Lifetime",
-                  href: "/pricing/",
+                   href: "/pricing",
                 },
               ].map((link, i) => (
                 <StaggerItem key={i}>
