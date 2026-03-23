@@ -18,6 +18,10 @@ dist-ssr
 /out/
 next-env.d.ts
 
+# Remotion
+remotion/node_modules
+remotion/out
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
