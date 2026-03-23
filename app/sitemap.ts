@@ -7,7 +7,7 @@ export async function generateStaticParams() {
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://whispererapp.com";
-  const now = new Date();
+  const now = new Date().toISOString().split("T")[0];
 
   const staticPages = [
     { url: `${baseUrl}/`, lastModified: now, changeFrequency: "weekly" as const, priority: 1.0 },
@@ -35,14 +35,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogPosts = getAllPosts().map((post) => ({
     url: `${baseUrl}/blog/${post.meta.slug}`,
-    lastModified: new Date(post.meta.date),
+    lastModified: new Date(post.meta.date).toISOString().split("T")[0],
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
   const comparisons = getAllComparisons().map((post) => ({
     url: `${baseUrl}/compare/${post.meta.slug}`,
-    lastModified: new Date(post.meta.date),
+    lastModified: new Date(post.meta.date).toISOString().split("T")[0],
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
