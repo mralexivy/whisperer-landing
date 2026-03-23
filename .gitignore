@@ -32,3 +32,4 @@ remotion/out
 *.njsproj
 *.sln
 *.sw?
+.env.local

@@ -1,4 +1,4 @@
-// Word-level timing for TTS dictation audio (~5.4s total)
+// Word-level timing for TTS dictation audio (~7.8s total)
 // "Hey team, let's sync on the API redesign tomorrow morning and finalize the migration plan."
 
 export const DICTATION_TEXT =
@@ -6,27 +6,27 @@ export const DICTATION_TEXT =
 
 export const FPS = 30;
 
-// Word timestamps (seconds) — estimated from TTS at 170wpm
+// Word timestamps (seconds) — adjusted for ElevenLabs Cassius voice (~7.8s)
 export const WORD_TIMINGS: { word: string; start: number }[] = [
   { word: "Hey", start: 0.0 },
-  { word: "team,", start: 0.3 },
-  { word: "let's", start: 0.7 },
-  { word: "sync", start: 1.0 },
-  { word: "on", start: 1.3 },
-  { word: "the", start: 1.45 },
-  { word: "API", start: 1.65 },
-  { word: "redesign", start: 2.05 },
-  { word: "tomorrow", start: 2.65 },
-  { word: "morning", start: 3.15 },
-  { word: "and", start: 3.65 },
-  { word: "finalize", start: 3.9 },
-  { word: "the", start: 4.45 },
-  { word: "migration", start: 4.6 },
-  { word: "plan.", start: 5.2 },
+  { word: "team,", start: 0.35 },
+  { word: "let's", start: 0.9 },
+  { word: "sync", start: 1.3 },
+  { word: "on", start: 1.7 },
+  { word: "the", start: 1.9 },
+  { word: "API", start: 2.15 },
+  { word: "redesign", start: 2.7 },
+  { word: "tomorrow", start: 3.5 },
+  { word: "morning", start: 4.1 },
+  { word: "and", start: 4.8 },
+  { word: "finalize", start: 5.1 },
+  { word: "the", start: 5.8 },
+  { word: "migration", start: 6.0 },
+  { word: "plan.", start: 6.8 },
 ];
 
-export const AUDIO_DURATION_SEC = 6.0;
-export const AUDIO_DURATION_FRAMES = Math.ceil(AUDIO_DURATION_SEC * FPS); // ~180
+export const AUDIO_DURATION_SEC = 7.84;
+export const AUDIO_DURATION_FRAMES = Math.ceil(AUDIO_DURATION_SEC * FPS); // ~236
 
 // Get visible text at a given time offset (seconds from dictation start)
 export function getVisibleText(elapsedSeconds: number): string {
@@ -61,24 +61,24 @@ export const SCENES = {
 
   // Phase 4: Dictation — TTS plays, words appear in HUD only
   DICTATION_START: 100,
-  DICTATION_END: 280, // 100 + 180 frames of audio
+  DICTATION_END: 336, // 100 + 236 frames of audio
 
   // Phase 5: Brief silence — waveform settles
-  SILENCE_START: 280,
-  SILENCE_END: 310, // 1s
+  SILENCE_START: 336,
+  SILENCE_END: 366, // 1s
 
   // Phase 6: Fn release — key returns, HUD fades out
-  FN_RELEASE_START: 310,
-  FN_RELEASE_END: 333, // ~0.8s
+  FN_RELEASE_START: 366,
+  FN_RELEASE_END: 389, // ~0.8s
 
   // Phase 7: Text insertion — full text appears all at once in input
-  TEXT_INSERT_START: 333,
-  TEXT_INSERT_END: 333, // instant
+  TEXT_INSERT_START: 389,
+  TEXT_INSERT_END: 389, // instant
 
   // Phase 8: Outro hold — show result
-  OUTRO_START: 333,
-  OUTRO_END: 408, // 2.5s hold
+  OUTRO_START: 389,
+  OUTRO_END: 464, // 2.5s hold
 
   // Total
-  TOTAL_FRAMES: 408,
+  TOTAL_FRAMES: 464,
 } as const;
