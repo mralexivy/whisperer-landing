@@ -9,24 +9,24 @@ export const FPS = 30;
 // Word timestamps (seconds) — estimated from TTS at 170wpm
 export const WORD_TIMINGS: { word: string; start: number }[] = [
   { word: "Hey", start: 0.0 },
-  { word: "team,", start: 0.25 },
-  { word: "let's", start: 0.6 },
-  { word: "sync", start: 0.85 },
-  { word: "on", start: 1.15 },
-  { word: "the", start: 1.3 },
-  { word: "API", start: 1.5 },
-  { word: "redesign", start: 1.85 },
-  { word: "tomorrow", start: 2.4 },
-  { word: "morning", start: 2.85 },
-  { word: "and", start: 3.3 },
-  { word: "finalize", start: 3.5 },
-  { word: "the", start: 4.0 },
-  { word: "migration", start: 4.15 },
-  { word: "plan.", start: 4.7 },
+  { word: "team,", start: 0.3 },
+  { word: "let's", start: 0.7 },
+  { word: "sync", start: 1.0 },
+  { word: "on", start: 1.3 },
+  { word: "the", start: 1.45 },
+  { word: "API", start: 1.65 },
+  { word: "redesign", start: 2.05 },
+  { word: "tomorrow", start: 2.65 },
+  { word: "morning", start: 3.15 },
+  { word: "and", start: 3.65 },
+  { word: "finalize", start: 3.9 },
+  { word: "the", start: 4.45 },
+  { word: "migration", start: 4.6 },
+  { word: "plan.", start: 5.2 },
 ];
 
-export const AUDIO_DURATION_SEC = 5.4;
-export const AUDIO_DURATION_FRAMES = Math.ceil(AUDIO_DURATION_SEC * FPS); // ~162
+export const AUDIO_DURATION_SEC = 6.0;
+export const AUDIO_DURATION_FRAMES = Math.ceil(AUDIO_DURATION_SEC * FPS); // ~180
 
 // Get visible text at a given time offset (seconds from dictation start)
 export function getVisibleText(elapsedSeconds: number): string {
@@ -61,24 +61,24 @@ export const SCENES = {
 
   // Phase 4: Dictation — TTS plays, words appear in HUD only
   DICTATION_START: 100,
-  DICTATION_END: 262, // 100 + 162 frames of audio
+  DICTATION_END: 280, // 100 + 180 frames of audio
 
   // Phase 5: Brief silence — waveform settles
-  SILENCE_START: 262,
-  SILENCE_END: 292, // 1s
+  SILENCE_START: 280,
+  SILENCE_END: 310, // 1s
 
   // Phase 6: Fn release — key returns, HUD fades out
-  FN_RELEASE_START: 292,
-  FN_RELEASE_END: 315, // ~0.8s
+  FN_RELEASE_START: 310,
+  FN_RELEASE_END: 333, // ~0.8s
 
   // Phase 7: Text insertion — full text appears all at once in input
-  TEXT_INSERT_START: 315,
-  TEXT_INSERT_END: 315, // instant
+  TEXT_INSERT_START: 333,
+  TEXT_INSERT_END: 333, // instant
 
   // Phase 8: Outro hold — show result
-  OUTRO_START: 315,
-  OUTRO_END: 390, // 2.5s hold
+  OUTRO_START: 333,
+  OUTRO_END: 408, // 2.5s hold
 
   // Total
-  TOTAL_FRAMES: 390,
+  TOTAL_FRAMES: 408,
 } as const;
