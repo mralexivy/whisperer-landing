@@ -32,6 +32,7 @@ export const metadata: Metadata = {
       "Rewrite, translate, format, and summarize your dictation with an on-device LLM. 10 built-in modes. 100% offline.",
     type: "website",
   },
+  alternates: { canonical: "/features/ai-writing" },
 };
 
 const aiModes = [

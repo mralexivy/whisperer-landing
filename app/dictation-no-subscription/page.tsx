@@ -53,6 +53,7 @@ export const metadata: Metadata = {
     description:
       "$14.99 one-time. No subscription, no cloud fees. Code Mode for developers.",
   },
+  alternates: { canonical: "/dictation-no-subscription" },
 };
 
 const costData = [

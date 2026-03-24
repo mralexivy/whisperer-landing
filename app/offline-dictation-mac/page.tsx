@@ -53,6 +53,7 @@ export const metadata: Metadata = {
     description:
       "Three local transcription engines. No internet required. $14.99 lifetime.",
   },
+  alternates: { canonical: "/offline-dictation-mac" },
 };
 
 const benefits = [

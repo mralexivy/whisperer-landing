@@ -52,6 +52,7 @@ export const metadata: Metadata = {
     description:
       "17x cheaper than Superwhisper. Code Mode for developers. 100% offline.",
   },
+  alternates: { canonical: "/cheapest-dictation-mac" },
 };
 
 const priceComparison = [

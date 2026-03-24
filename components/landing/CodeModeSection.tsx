@@ -94,15 +94,15 @@ export const CodeModeSection = () => {
             {/* Style pills with real icons */}
             <div className="flex flex-wrap gap-3">
               <div className="flex items-center gap-2 bg-card border border-border rounded-full px-4 py-2">
-                <img src={slackIcon.src} alt="Slack icon" className="w-5 h-5" />
+                <img src={slackIcon.src} alt="Slack icon" width={20} height={20} loading="lazy" className="w-5 h-5" />
                 <span className="text-foreground">Chat style</span>
               </div>
               <div className="flex items-center gap-2 bg-card border border-border rounded-full px-4 py-2">
-                <img src={gmailIcon.src} alt="Gmail icon" className="w-5 h-5" />
+                <img src={gmailIcon.src} alt="Gmail icon" width={20} height={20} loading="lazy" className="w-5 h-5" />
                 <span className="text-foreground">Email style</span>
               </div>
               <div className="flex items-center gap-2 bg-card border border-border rounded-full px-4 py-2">
-                <img src={vscodeIcon.src} alt="VS Code icon" className="w-5 h-5" />
+                <img src={vscodeIcon.src} alt="VS Code icon" width={20} height={20} loading="lazy" className="w-5 h-5" />
                 <span className="text-foreground">Code style</span>
               </div>
             </div>
@@ -114,7 +114,7 @@ export const CodeModeSection = () => {
               <div className="bg-card border border-border rounded-xl p-5 relative overflow-hidden hover:border-primary/30 transition-colors">
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#E91E8C]" />
                 <div className="flex items-center gap-3 mb-3">
-                  <img src={slackIcon.src} alt="Slack icon" className="w-5 h-5" />
+                  <img src={slackIcon.src} alt="Slack icon" width={20} height={20} loading="lazy" className="w-5 h-5" />
                   <span className="text-foreground font-semibold">Slack</span>
                   <span className="bg-[#E91E8C]/20 text-[#E91E8C] text-xs font-medium px-2 py-0.5 rounded">Chat Style</span>
                 </div>
@@ -128,7 +128,7 @@ export const CodeModeSection = () => {
               <div className="bg-card border border-border rounded-xl p-5 relative overflow-hidden hover:border-primary/30 transition-colors">
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#3B82F6]" />
                 <div className="flex items-center gap-3 mb-3">
-                  <img src={gmailIcon.src} alt="Gmail icon" className="w-5 h-5" />
+                  <img src={gmailIcon.src} alt="Gmail icon" width={20} height={20} loading="lazy" className="w-5 h-5" />
                   <span className="text-foreground font-semibold">Gmail</span>
                   <span className="bg-[#3B82F6]/20 text-[#3B82F6] text-xs font-medium px-2 py-0.5 rounded">Email Style</span>
                 </div>
@@ -143,7 +143,7 @@ export const CodeModeSection = () => {
               <div className="bg-card border border-border rounded-xl p-5 relative overflow-hidden hover:border-primary/30 transition-colors">
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary" />
                 <div className="flex items-center gap-3 mb-3">
-                  <img src={vscodeIcon.src} alt="VS Code icon" className="w-5 h-5" />
+                  <img src={vscodeIcon.src} alt="VS Code icon" width={20} height={20} loading="lazy" className="w-5 h-5" />
                   <span className="text-foreground font-semibold">VS Code</span>
                   <span className="bg-primary/20 text-primary text-xs font-medium px-2 py-0.5 rounded">Code Style</span>
                 </div>

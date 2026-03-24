@@ -22,6 +22,7 @@ export const metadata: Metadata = {
       "Dictate code by voice with camelCase, snake_case, and symbols. Works in VS Code, Cursor, Terminal. 100% offline.",
     type: "website",
   },
+  alternates: { canonical: "/voice-coding" },
 };
 
 const ides = [

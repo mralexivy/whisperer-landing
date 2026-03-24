@@ -16,6 +16,7 @@ export const metadata: Metadata = {
       "Guides and tutorials on voice coding, offline dictation, and developer productivity for Mac.",
     type: "website",
   },
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogIndex() {

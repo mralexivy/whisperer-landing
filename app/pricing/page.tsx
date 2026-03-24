@@ -21,6 +21,7 @@ export const metadata: Metadata = {
       "$2.99 base app + $14.99 Pro Pack. One-time purchase, no subscription. Code Mode for developers.",
     type: "website",
   },
+  alternates: { canonical: "/pricing" },
 };
 
 export default function PricingPage() {

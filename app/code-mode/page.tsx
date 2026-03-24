@@ -23,6 +23,7 @@ export const metadata: Metadata = {
       "Speak camelCase, snake_case, symbols, and punctuation. Built for developers.",
     type: "website",
   },
+  alternates: { canonical: "/code-mode" },
 };
 
 const examples = [

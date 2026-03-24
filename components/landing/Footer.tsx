@@ -90,7 +90,7 @@ export const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <img src={appIcon.src} alt="Whisperer" className="w-10 h-10 rounded-xl" />
+              <img src={appIcon.src} alt="Whisperer" width={40} height={40} loading="lazy" className="w-10 h-10 rounded-xl" />
               <span className="text-xl font-semibold text-foreground">Whisperer</span>
             </div>
             <p className="text-muted-foreground max-w-sm mb-6">

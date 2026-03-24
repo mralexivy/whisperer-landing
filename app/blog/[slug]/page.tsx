@@ -46,6 +46,7 @@ export function generateMetadata({
       title: post.meta.title,
       description: post.meta.description,
     },
+    alternates: { canonical: `/blog/${params.slug}` },
   };
 }
 

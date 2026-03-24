@@ -19,6 +19,7 @@ export const metadata: Metadata = {
       "Drag-and-drop audio/video files for offline transcription. Same engine as live dictation. No cloud, no per-minute charges.",
     type: "website",
   },
+  alternates: { canonical: "/features/file-transcription" },
 };
 
 const steps = [

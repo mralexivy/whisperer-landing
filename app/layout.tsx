@@ -72,6 +72,9 @@ export const metadata: Metadata = {
     site: "@whispererapp",
     images: ["/assets/hero-demo.png?v=2"],
   },
+  alternates: {
+    canonical: '/',
+  },
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",

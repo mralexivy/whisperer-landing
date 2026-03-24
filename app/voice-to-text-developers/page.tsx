@@ -50,6 +50,7 @@ export const metadata: Metadata = {
     description:
       "Dictate code by voice. camelCase, snake_case, symbols. VS Code, Cursor, Terminal.",
   },
+  alternates: { canonical: "/voice-to-text-developers" },
 };
 
 const casingCommands = [

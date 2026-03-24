@@ -19,6 +19,7 @@ export const metadata: Metadata = {
       "Dictate in 100+ languages with per-app language profiles and AI-powered offline translation.",
     type: "website",
   },
+  alternates: { canonical: "/features/multilingual" },
 };
 
 const languageHighlights = [

@@ -45,6 +45,7 @@ export function generateMetadata({
       title: post.meta.title,
       description: post.meta.description,
     },
+    alternates: { canonical: `/compare/${params.slug}` },
   };
 }
 

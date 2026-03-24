@@ -31,6 +31,7 @@ export const metadata: Metadata = {
       "Search, pin, flag, and replay your transcriptions. Track WPM, peak hours, and app usage with built-in statistics.",
     type: "website",
   },
+  alternates: { canonical: "/features/transcription-history" },
 };
 
 const workspaceFeatures = [

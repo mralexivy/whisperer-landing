@@ -21,6 +21,7 @@ export const metadata: Metadata = {
       "AI writing, 3 transcription engines, live preview, personal dictionary, history, file transcription, 100+ languages. All offline on Mac.",
     type: "website",
   },
+  alternates: { canonical: "/features" },
 };
 
 export default function FeaturesPage() {

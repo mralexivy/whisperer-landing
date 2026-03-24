@@ -19,6 +19,7 @@ export const metadata: Metadata = {
       "Three-tier correction engine fixes technical terms, names, and jargon. Prompt words bias recognition at the acoustic level.",
     type: "website",
   },
+  alternates: { canonical: "/features/personal-dictionary" },
 };
 
 const correctionTiers = [

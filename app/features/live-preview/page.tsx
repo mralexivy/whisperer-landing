@@ -19,6 +19,7 @@ export const metadata: Metadata = {
       "See transcribed words appear in real-time as you speak. Dual-engine streaming with ~300ms latency.",
     type: "website",
   },
+  alternates: { canonical: "/features/live-preview" },
 };
 
 const features = [

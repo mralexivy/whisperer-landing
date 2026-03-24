@@ -54,9 +54,12 @@ export const AppLogos = () => {
                   key={index}
                   className="flex-shrink-0 bg-card border border-border rounded-xl px-8 py-6 flex items-center gap-4 hover:border-primary/50 transition-colors min-w-[180px]"
                 >
-                  <img 
-                    src={app.icon.src} 
+                  <img
+                    src={app.icon.src}
                     alt={`${app.name} icon`}
+                    width={32}
+                    height={32}
+                    loading="lazy"
                     className="w-8 h-8 object-contain"
                   />
                   <span className="text-foreground font-medium">{app.name}</span>

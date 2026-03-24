@@ -54,6 +54,7 @@ export const metadata: Metadata = {
     description:
       "Three offline AI engines. Code Mode. 100+ languages. No subscription.",
   },
+  alternates: { canonical: "/speech-to-text-mac" },
 };
 
 const howItWorks = [

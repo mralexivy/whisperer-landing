@@ -30,10 +30,12 @@ export const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-3 group cursor-pointer">
-            <img 
-              src={appIcon.src} 
-              alt="Whisperer" 
-              className="w-8 h-8 rounded-lg transition-transform group-hover:scale-110" 
+            <img
+              src={appIcon.src}
+              alt="Whisperer"
+              width={32}
+              height={32}
+              className="w-8 h-8 rounded-lg transition-transform group-hover:scale-110"
             />
             <span className="text-xl font-semibold text-foreground">
               Whisperer
