@@ -15,12 +15,13 @@ export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.meta.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const post = getPostBySlug(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) return {};
 
   return {
@@ -46,16 +47,17 @@ export function generateMetadata({
       title: post.meta.title,
       description: post.meta.description,
     },
-    alternates: { canonical: `/blog/${params.slug}` },
+    alternates: { canonical: `/blog/${slug}` },
   };
 }
 
-export default function BlogPost({
+export default async function BlogPost({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = getPostBySlug(params.slug);
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) notFound();
 
   const allPosts = getAllPosts();

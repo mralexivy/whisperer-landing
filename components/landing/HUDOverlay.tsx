@@ -17,7 +17,7 @@ export const HUDOverlay = () => {
             className="w-1.5 h-1.5 rounded-full bg-[#5B6CF7]/80 animate-pulse"
             style={{
               animationDelay: `${i * 0.08}s`,
-              opacity: 0.4 + Math.sin(i * 0.5) * 0.6,
+              opacity: parseFloat((0.4 + Math.sin(i * 0.5) * 0.6).toFixed(4)),
             }}
           />
         ))}

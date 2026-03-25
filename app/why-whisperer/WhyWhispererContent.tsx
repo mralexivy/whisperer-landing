@@ -590,9 +590,9 @@ function LivePreviewGraphic() {
             <motion.div
               key={i}
               className="w-[3px] rounded-full bg-primary/50"
-              animate={{ height: [4, 8 + Math.random() * 12, 4] }}
+              animate={{ height: [4, 8 + ((i * 7 + 3) % 12), 4] }}
               transition={{
-                duration: 0.6 + Math.random() * 0.4,
+                duration: 0.6 + ((i * 3 + 1) % 5) * 0.08,
                 repeat: Infinity,
                 delay: i * 0.05,
                 ease: "easeInOut",

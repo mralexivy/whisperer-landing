@@ -15,12 +15,13 @@ export function generateStaticParams() {
   return getAllComparisons().map((post) => ({ slug: post.meta.slug }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const post = getComparisonBySlug(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getComparisonBySlug(slug);
   if (!post) return {};
 
   return {
@@ -45,16 +46,17 @@ export function generateMetadata({
       title: post.meta.title,
       description: post.meta.description,
     },
-    alternates: { canonical: `/compare/${params.slug}` },
+    alternates: { canonical: `/compare/${slug}` },
   };
 }
 
-export default function ComparisonPost({
+export default async function ComparisonPost({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = getComparisonBySlug(params.slug);
+  const { slug } = await params;
+  const post = getComparisonBySlug(slug);
   if (!post) notFound();
 
   const allComparisons = getAllComparisons();

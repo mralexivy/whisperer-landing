@@ -98,7 +98,7 @@ function getChildText(children: React.ReactNode): string {
   if (typeof children === "number") return String(children);
   if (Array.isArray(children)) return children.map(getChildText).join("");
   if (children && typeof children === "object" && "props" in children) {
-    return getChildText((children as React.ReactElement).props.children);
+    return getChildText((children as React.ReactElement<{ children?: React.ReactNode }>).props.children);
   }
   return "";
 }

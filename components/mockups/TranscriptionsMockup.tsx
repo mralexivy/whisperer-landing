@@ -138,7 +138,7 @@ export function TranscriptionsMockup() {
                       <div
                         key={i}
                         className="w-[2px] bg-[#5B6CF7]/60 rounded-full"
-                        style={{ height: `${4 + Math.random() * 24}px` }}
+                        style={{ height: `${4 + ((i * 7 + 3) % 24)}px` }}
                       />
                     ))}
                   </div>
