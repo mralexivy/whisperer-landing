@@ -67,14 +67,14 @@ const urls = [
   // Blog posts
   ...blogPosts.map((post) => ({
     loc: `${SITE_URL}/blog/${post.slug}/`,
-    lastmod: toW3CDate(post.date),
+    lastmod: today,
     changefreq: "monthly",
     priority: "0.7",
   })),
   // Comparison pages
   ...comparisons.map((comp) => ({
     loc: `${SITE_URL}/compare/${comp.slug}/`,
-    lastmod: toW3CDate(comp.date),
+    lastmod: today,
     changefreq: "monthly",
     priority: "0.8",
   })),

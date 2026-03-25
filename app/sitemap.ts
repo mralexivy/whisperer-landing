@@ -35,14 +35,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogPosts = getAllPosts().map((post) => ({
     url: `${baseUrl}/blog/${post.meta.slug}`,
-    lastModified: new Date(post.meta.date).toISOString().split("T")[0],
+    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
   const comparisons = getAllComparisons().map((post) => ({
     url: `${baseUrl}/compare/${post.meta.slug}`,
-    lastModified: new Date(post.meta.date).toISOString().split("T")[0],
+    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
