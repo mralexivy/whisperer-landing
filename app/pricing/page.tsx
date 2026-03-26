@@ -3,14 +3,14 @@ import Link from "next/link";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, productSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, productSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import { Check, Apple, ArrowRight } from "lucide-react";
 import { FadeIn, FadeInStagger, StaggerItem, ScaleIn, GlowCard } from "@/components/ui/animated";
 import { SectionGlow, DotGrid, GradientDivider, AnimatedBorder } from "@/components/ui/decorations";
 
 export const metadata: Metadata = {
-  title: "Pricing — Whisperer | $14.99 Lifetime, No Subscription",
+  title: "Pricing | $14.99 Lifetime, No Subscription",
   description:
     "Whisperer pricing: $2.99 base app + $14.99 one-time Pro Pack with Code Mode, per-app profiles, and personal dictionary. No subscription. No cloud fees. Works offline.",
   keywords:
@@ -29,37 +29,18 @@ export default function PricingPage() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(productSchema()),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Pricing", url: "/pricing" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            faqSchema([
-              { question: "Is there a free trial?", answer: "Yes. Download from the Mac App Store and try all core features free. The Base App is $2.99 one-time, and Pro Pack is $14.99 lifetime." },
-              { question: "Is Pro Pack a subscription?", answer: "No. $14.99 is a one-time payment. You own it forever. No recurring charges." },
-              { question: "Are there any cloud fees?", answer: "No. Whisperer is 100% offline. There are no servers to pay for, no API calls, no usage limits." },
-              { question: "What's the refund policy?", answer: "Refunds are handled through Apple according to their standard App Store policies." },
-              { question: "Will there be price increases?", answer: "If you buy now, you lock in the current price. Future updates are included." },
-            ])
-          ),
-        }}
-      />
+      <JsonLd data={productSchema()} />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Pricing", url: "/pricing" },
+      ])} />
+      <JsonLd data={faqSchema([
+        { question: "Is there a free trial?", answer: "Yes. Download from the Mac App Store and try all core features free. The Base App is $2.99 one-time, and Pro Pack is $14.99 lifetime." },
+        { question: "Is Pro Pack a subscription?", answer: "No. $14.99 is a one-time payment. You own it forever. No recurring charges." },
+        { question: "Are there any cloud fees?", answer: "No. Whisperer is 100% offline. There are no servers to pay for, no API calls, no usage limits." },
+        { question: "What's the refund policy?", answer: "Refunds are handled through Apple according to their standard App Store policies." },
+        { question: "Will there be price increases?", answer: "If you buy now, you lock in the current price. Future updates are included." },
+      ])} />
 
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden">

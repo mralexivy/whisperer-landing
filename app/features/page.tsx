@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, JsonLd } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import { Apple, ArrowRight } from "lucide-react";
 import { FadeIn } from "@/components/ui/animated";
@@ -10,7 +10,7 @@ import { SectionGlow, DotGrid } from "@/components/ui/decorations";
 import { FeaturesCards } from "./FeaturesCards";
 
 export const metadata: Metadata = {
-  title: "Features — Whisperer | Offline Dictation App for Mac",
+  title: "Features | Offline Dictation App for Mac",
   description:
     "Explore all Whisperer features: AI post-processing, multiple transcription engines, live preview, personal dictionary, transcription history, file transcription, and 100+ languages. All offline.",
   keywords:
@@ -27,17 +27,10 @@ export const metadata: Metadata = {
 export default function FeaturesPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Features", url: "/features" },
-            ])
-          ),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Features", url: "/features" },
+      ])} />
 
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">

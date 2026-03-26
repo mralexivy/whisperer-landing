@@ -1,12 +1,22 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { Providers } from "@/components/providers";
 import { NoiseOverlay } from "@/components/ui/decorations";
-import { softwareAppSchema, organizationSchema } from "@/lib/structured-data";
+import { JsonLd, softwareAppSchema, organizationSchema } from "@/lib/structured-data";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://whispererapp.com"),
-  title: "Whisperer — Offline Dictation for Mac | $14.99 Lifetime | Code Mode | No Subscription",
+  title: {
+    default: "Whisperer — Offline Dictation for Mac | $14.99 Lifetime | Code Mode | No Subscription",
+    template: "%s — Whisperer",
+  },
   description: "Hold Fn, speak, release — text appears anywhere. Offline Mac dictation with Code Mode for developers. Three AI engines. $2.99 base, $14.99 Pro lifetime. No subscription.",
   keywords: [
     "offline dictation app mac",
@@ -87,20 +97,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(softwareAppSchema()),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema()),
-          }}
-        />
+        <JsonLd data={softwareAppSchema()} />
+        <JsonLd data={organizationSchema()} />
         <NoiseOverlay />
         <Providers>{children}</Providers>
       </body>

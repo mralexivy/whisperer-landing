@@ -1,5 +1,3 @@
-"use client";
-
 // --- SectionGlow ---
 const positionMap = {
   "top-left": "top-0 left-0 -translate-x-1/4 -translate-y-1/4",

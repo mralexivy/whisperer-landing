@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { Check, X, Shield, DollarSign, Code } from "lucide-react";
 import { FadeIn, FadeInStagger, StaggerItem, ScaleIn, GlowCard } from "@/components/ui/animated";
 import { SectionGlow, DotGrid, GradientDivider } from "@/components/ui/decorations";
@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { CompareCards } from "./CompareCards";
 
 export const metadata: Metadata = {
-  title: "Mac Dictation Apps Compared: 2026 Guide — Whisperer vs Competitors",
+  title: "Mac Dictation Apps Compared: 2026 Guide",
   description:
     "Compare Whisperer with Superwhisper, Voibe, Wispr Flow, Apple Dictation, MacWhisper, and VoiceInk. Feature-by-feature comparison of Mac dictation apps in 2026.",
   keywords:
@@ -83,23 +83,11 @@ function ValueCell({ value, isWhisperer }: { value: string; isWhisperer: boolean
 export default function ComparePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Compare", url: "/compare" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema(compareFaqs)),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Compare", url: "/compare" },
+      ])} />
+      <JsonLd data={faqSchema(compareFaqs)} />
       <main className="pt-32 pb-24 relative">
         {/* Background atmosphere */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

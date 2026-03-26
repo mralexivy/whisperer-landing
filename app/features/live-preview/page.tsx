@@ -1,14 +1,14 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import { Apple, Eye, Zap, Cpu, Type, Palette, ArrowRight } from "lucide-react";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
 import { SectionGlow, DotGrid, GradientDivider } from "@/components/ui/decorations";
 
 export const metadata: Metadata = {
-  title: "Live Preview — Real-Time Streaming Transcription | Whisperer",
+  title: "Live Preview — Real-Time Streaming Transcription",
   description:
     "See your words appear in real-time as you speak with Whisperer's dual-engine live preview. ~300ms latency, typewriter animation, keyword highlighting. 100% offline on Mac.",
   keywords:
@@ -56,18 +56,11 @@ const features = [
 export default function LivePreviewPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Features", url: "/features" },
-              { name: "Live Preview", url: "/features/live-preview" },
-            ])
-          ),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Features", url: "/features" },
+        { name: "Live Preview", url: "/features/live-preview" },
+      ])} />
 
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">
@@ -229,17 +222,12 @@ export default function LivePreviewPage() {
           </div>
         </div>
       </section>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema([
-            { question: "How fast is the live preview?", answer: "The EOU engine processes 320ms audio windows on the Neural Engine, producing word-level partial transcripts with approximately 300ms latency." },
-            { question: "Does live preview affect final accuracy?", answer: "No. Live preview uses a separate lightweight model. The main transcription engine delivers the final refined result independently." },
-            { question: "Can I disable live preview to save battery?", answer: "Yes. Live preview is toggleable in Settings. Disabling it reduces CPU/Neural Engine usage during recording." },
-            { question: "Does live preview work with all engines?", answer: "The primary EOU preview runs on the Neural Engine (Apple Silicon). A StreamingTranscriber fallback is available when the EOU model is unavailable." },
-          ])),
-        }}
-      />
+      <JsonLd data={faqSchema([
+        { question: "How fast is the live preview?", answer: "The EOU engine processes 320ms audio windows on the Neural Engine, producing word-level partial transcripts with approximately 300ms latency." },
+        { question: "Does live preview affect final accuracy?", answer: "No. Live preview uses a separate lightweight model. The main transcription engine delivers the final refined result independently." },
+        { question: "Can I disable live preview to save battery?", answer: "Yes. Live preview is toggleable in Settings. Disabling it reduces CPU/Neural Engine usage during recording." },
+        { question: "Does live preview work with all engines?", answer: "The primary EOU preview runs on the Neural Engine (Apple Silicon). A StreamingTranscriber fallback is available when the EOU model is unavailable." },
+      ])} />
 
       <GradientDivider />
 

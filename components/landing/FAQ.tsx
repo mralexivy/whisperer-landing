@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { faqSchema } from "@/lib/structured-data";
+import { faqSchema, JsonLd } from "@/lib/structured-data";
 import { FadeIn } from "@/components/ui/animated";
 import { SectionGlow } from "@/components/ui/decorations";
 
@@ -137,12 +137,7 @@ export const FAQ = () => {
 
   return (
     <section id="faq" className="py-24 relative overflow-hidden">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema(allFaqs)),
-        }}
-      />
+      <JsonLd data={faqSchema(allFaqs)} />
       <SectionGlow
         position="bottom-center"
         color="purple"

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { CodeEditorMockup } from "@/components/landing/CodeEditorMockup";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -12,7 +12,7 @@ import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/an
 import { SectionGlow, DotGrid, GradientDivider, AnimatedBorder } from "@/components/ui/decorations";
 
 export const metadata: Metadata = {
-  title: "Code Mode — Dictate Code by Voice | Whisperer for Mac",
+  title: "Code Mode — Dictate Code by Voice on Mac",
   description:
     "Whisperer's Code Mode lets you dictate camelCase, snake_case, CONSTANT_CASE, symbols, and punctuation by voice. Built for developers who use VS Code, Cursor, and Terminal.",
   keywords:
@@ -124,23 +124,11 @@ export default function CodeModePage() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Code Mode", url: "/code-mode" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema(codeFaqs)),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Code Mode", url: "/code-mode" },
+      ])} />
+      <JsonLd data={faqSchema(codeFaqs)} />
 
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">

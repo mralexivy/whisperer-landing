@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { CodeEditorMockup } from "@/components/landing/CodeEditorMockup";
 import { Button } from "@/components/ui/button";
 import {
@@ -33,7 +33,7 @@ import {
 
 export const metadata: Metadata = {
   title:
-    "Voice to Text for Developers — Code Mode for Mac | Whisperer",
+    "Voice to Text for Developers — Code Mode for Mac",
   description:
     "Dictate code by voice with Whisperer's Code Mode. camelCase, snake_case, symbols, parentheses — all by voice. Works in VS Code, Cursor, JetBrains, Terminal. 100% offline. $14.99 lifetime.",
   keywords:
@@ -198,24 +198,11 @@ export default function VoiceToTextDevelopersPage() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              {
-                name: "Voice to Text for Developers",
-                url: "/voice-to-text-developers",
-              },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Voice to Text for Developers", url: "/voice-to-text-developers" },
+      ])} />
+      <JsonLd data={faqSchema(faqs)} />
 
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">

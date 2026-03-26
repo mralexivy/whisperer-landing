@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import {
   Apple,
@@ -36,7 +36,7 @@ import {
 
 export const metadata: Metadata = {
   title:
-    "Offline Dictation for Mac — 100% On-Device, No Cloud | Whisperer",
+    "Offline Dictation for Mac — 100% On-Device, No Cloud",
   description:
     "Whisperer is a 100% offline dictation app for Mac. Three local transcription engines (Whisper, Parakeet, Apple Speech), no internet required, no data leaves your Mac. $14.99 lifetime.",
   keywords:
@@ -246,21 +246,11 @@ export default function OfflineDictationMacPage() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Offline Dictation for Mac", url: "/offline-dictation-mac" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Offline Dictation for Mac", url: "/offline-dictation-mac" },
+      ])} />
+      <JsonLd data={faqSchema(faqs)} />
 
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden">

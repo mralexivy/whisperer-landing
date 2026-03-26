@@ -1,14 +1,14 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import { Apple, Globe, Languages, Layers, Cpu, ArrowRight } from "lucide-react";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
 import { SectionGlow, DotGrid, GradientDivider } from "@/components/ui/decorations";
 
 export const metadata: Metadata = {
-  title: "100+ Languages — Multilingual Offline Dictation | Whisperer",
+  title: "100+ Languages — Multilingual Offline Dictation",
   description:
     "Dictate in over 100 languages on Mac with Whisperer. Per-app language profiles, AI-powered offline translation, and language-specific accuracy. All offline — no cloud, no subscription.",
   keywords:
@@ -78,22 +78,12 @@ const faqs = [
 export default function MultilingualPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Features", url: "/features" },
-              { name: "Multilingual", url: "/features/multilingual" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Features", url: "/features" },
+        { name: "Multilingual", url: "/features/multilingual" },
+      ])} />
+      <JsonLd data={faqSchema(faqs)} />
 
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">

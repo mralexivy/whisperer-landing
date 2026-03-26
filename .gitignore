@@ -33,3 +33,5 @@ remotion/out
 *.sln
 *.sw?
 .env.local
+.claude/*
+.agents/*

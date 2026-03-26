@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import {
   Apple,
@@ -21,7 +21,7 @@ import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/an
 import { SectionGlow, DotGrid, GradientDivider } from "@/components/ui/decorations";
 
 export const metadata: Metadata = {
-  title: "Voice Coding on Mac — The Complete Guide | Whisperer",
+  title: "Voice Coding on Mac — The Complete Guide",
   description:
     "The definitive guide to voice coding on Mac. Learn what voice coding is, who uses it, how it compares to typing, and how to get started with Whisperer's Code Mode.",
   keywords:
@@ -167,23 +167,11 @@ export default function VoiceCodingPage() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Voice Coding", url: "/voice-coding" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema(voiceCodingFaqs)),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Voice Coding", url: "/voice-coding" },
+      ])} />
+      <JsonLd data={faqSchema(voiceCodingFaqs)} />
 
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">

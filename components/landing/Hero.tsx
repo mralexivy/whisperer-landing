@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import { Apple, Play } from "lucide-react";
 import { MenuBarMockup } from "./MenuBarMockup";
 import { HUDOverlay } from "./HUDOverlay";
 import { FadeIn, FadeInStagger, StaggerItem } from "@/components/ui/animated";
 import { SectionGlow } from "@/components/ui/decorations";
-import { VideoModal } from "./VideoModal";
+
+const VideoModal = dynamic(() => import("./VideoModal").then(m => ({ default: m.VideoModal })));
 
 export const Hero = () => {
   const [videoOpen, setVideoOpen] = useState(false);

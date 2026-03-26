@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { mdxComponents } from "@/components/mdx/MDXComponents";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { blogPostSchema, breadcrumbSchema, howToSchema } from "@/lib/structured-data";
+import { blogPostSchema, breadcrumbSchema, howToSchema, JsonLd } from "@/lib/structured-data";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
@@ -25,7 +25,7 @@ export async function generateMetadata({
   if (!post) return {};
 
   return {
-    title: `${post.meta.title} — Whisperer Blog`,
+    title: post.meta.title,
     description: post.meta.description,
     keywords: post.meta.keywords.join(", "),
     openGraph: {
@@ -71,40 +71,21 @@ export default async function BlogPost({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(blogPostSchema(post.meta)),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Blog", url: "/blog" },
-              {
-                name: post.meta.title,
-                url: `/blog/${post.meta.slug}`,
-              },
-            ])
-          ),
-        }}
-      />
+      <JsonLd data={blogPostSchema(post.meta)} />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Blog", url: "/blog" },
+        {
+          name: post.meta.title,
+          url: `/blog/${post.meta.slug}`,
+        },
+      ])} />
       {post.meta.howToSteps && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(
-              howToSchema({
-                name: post.meta.title,
-                description: post.meta.description,
-                steps: post.meta.howToSteps,
-              })
-            ),
-          }}
-        />
+        <JsonLd data={howToSchema({
+          name: post.meta.title,
+          description: post.meta.description,
+          steps: post.meta.howToSteps,
+        })} />
       )}
 
       <main className="pt-32 pb-24 relative">

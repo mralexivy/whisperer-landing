@@ -9,7 +9,7 @@ Landing/marketing site for **Whisperer**, an offline dictation app for Mac. The 
 ## Commands
 
 - `npm run dev` — start dev server
-- `npm run build` — static export (outputs to `out/`)
+- `npm run build` — static export (outputs to `build/`)
 - `npm run lint` — ESLint
 
 Both `bun.lockb` and `package-lock.json` exist; either package manager works.
@@ -40,4 +40,4 @@ Blog and comparison posts are `.mdx` files in `content/`. Frontmatter fields: `t
 
 ### Deployment
 
-Netlify (`netlify.toml`): builds with `npm run build`, publishes `out/` directory. `trailingSlash: true` is set for clean static URLs.
+Netlify (`netlify.toml`): builds with `npm run build`, publishes `build/` directory. `trailingSlash: false` is set; Netlify strips trailing slashes via 301 redirect.

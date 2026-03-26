@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import {
   Apple,
@@ -20,7 +20,7 @@ import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/an
 import { SectionGlow, DotGrid, GradientDivider } from "@/components/ui/decorations";
 
 export const metadata: Metadata = {
-  title: "Transcription History & Statistics — Workspace | Whisperer",
+  title: "Transcription History & Statistics — Workspace",
   description:
     "Whisperer's workspace saves every transcription with full-text search, pin, flag, audio playback, re-transcribe, and usage statistics. Track words per minute, peak hours, and app usage — all offline.",
   keywords:
@@ -69,18 +69,11 @@ const metadata_pills = [
 export default function TranscriptionHistoryPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Features", url: "/features" },
-              { name: "Transcription History", url: "/features/transcription-history" },
-            ])
-          ),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Features", url: "/features" },
+        { name: "Transcription History", url: "/features/transcription-history" },
+      ])} />
 
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">
@@ -270,17 +263,12 @@ export default function TranscriptionHistoryPage() {
           </div>
         </div>
       </section>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema([
-            { question: "Does Whisperer save all my transcriptions?", answer: "Yes. Every live dictation and file transcription is saved to your local workspace with full-text search, audio playback, pin, flag, and re-transcribe capabilities." },
-            { question: "Can I search my transcription history?", answer: "Yes. Full-text search across all transcriptions. Find any word or phrase from any past dictation session instantly." },
-            { question: "What usage statistics does Whisperer track?", answer: "Words per minute (WPM), total words dictated, peak usage hours, per-app usage breakdown, and session history. All computed locally." },
-            { question: "Can I re-transcribe old recordings?", answer: "Yes. Every recording is saved with its audio. You can re-transcribe with a different model or engine to improve accuracy." },
-          ])),
-        }}
-      />
+      <JsonLd data={faqSchema([
+        { question: "Does Whisperer save all my transcriptions?", answer: "Yes. Every live dictation and file transcription is saved to your local workspace with full-text search, audio playback, pin, flag, and re-transcribe capabilities." },
+        { question: "Can I search my transcription history?", answer: "Yes. Full-text search across all transcriptions. Find any word or phrase from any past dictation session instantly." },
+        { question: "What usage statistics does Whisperer track?", answer: "Words per minute (WPM), total words dictated, peak usage hours, per-app usage breakdown, and session history. All computed locally." },
+        { question: "Can I re-transcribe old recordings?", answer: "Yes. Every recording is saved with its audio. You can re-transcribe with a different model or engine to improve accuracy." },
+      ])} />
 
       <GradientDivider />
 

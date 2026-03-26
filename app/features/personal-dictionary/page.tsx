@@ -1,14 +1,14 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import { Apple, BookOpen, Search, Ear, Zap, Target, ArrowRight, FileJson, Tag } from "lucide-react";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
 import { SectionGlow, DotGrid, GradientDivider } from "@/components/ui/decorations";
 
 export const metadata: Metadata = {
-  title: "Personal Dictionary & Spell Correction — Fix Dictation Accuracy | Whisperer",
+  title: "Personal Dictionary & Spell Correction — Fix Dictation Accuracy",
   description:
     "Whisperer's three-tier correction engine with exact match, fuzzy SymSpell matching, and phonetic matching fixes dictation accuracy for technical terms, names, and jargon. Plus prompt words for vocabulary boosting.",
   keywords:
@@ -97,22 +97,12 @@ const faqs = [
 export default function PersonalDictionaryPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Features", url: "/features" },
-              { name: "Personal Dictionary", url: "/features/personal-dictionary" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Features", url: "/features" },
+        { name: "Personal Dictionary", url: "/features/personal-dictionary" },
+      ])} />
+      <JsonLd data={faqSchema(faqs)} />
 
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">

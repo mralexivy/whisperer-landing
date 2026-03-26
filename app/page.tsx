@@ -1,20 +1,22 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
-import { ValueProps } from "@/components/landing/ValueProps";
-import { CodeModeSection } from "@/components/landing/CodeModeSection";
-import { HowItWorks } from "@/components/landing/HowItWorks";
-import { AppLogos } from "@/components/landing/AppLogos";
-import { FeaturesGrid } from "@/components/landing/FeaturesGrid";
-import { ProPackSection } from "@/components/landing/ProPackSection";
-import { PermissionsSection } from "@/components/landing/PermissionsSection";
-import { PrivacySection } from "@/components/landing/PrivacySection";
-import { PerformanceSection } from "@/components/landing/PerformanceSection";
-import { FAQ } from "@/components/landing/FAQ";
-import { Footer } from "@/components/landing/Footer";
 import { GradientDivider } from "@/components/ui/decorations";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
 import { ArrowRight, Mic, Code, WifiOff, Scale, Sparkles } from "lucide-react";
+
+const ValueProps = dynamic(() => import("@/components/landing/ValueProps").then(m => ({ default: m.ValueProps })));
+const CodeModeSection = dynamic(() => import("@/components/landing/CodeModeSection").then(m => ({ default: m.CodeModeSection })));
+const HowItWorks = dynamic(() => import("@/components/landing/HowItWorks").then(m => ({ default: m.HowItWorks })));
+const AppLogos = dynamic(() => import("@/components/landing/AppLogos").then(m => ({ default: m.AppLogos })));
+const FeaturesGrid = dynamic(() => import("@/components/landing/FeaturesGrid").then(m => ({ default: m.FeaturesGrid })));
+const ProPackSection = dynamic(() => import("@/components/landing/ProPackSection").then(m => ({ default: m.ProPackSection })));
+const PermissionsSection = dynamic(() => import("@/components/landing/PermissionsSection").then(m => ({ default: m.PermissionsSection })));
+const PrivacySection = dynamic(() => import("@/components/landing/PrivacySection").then(m => ({ default: m.PrivacySection })));
+const PerformanceSection = dynamic(() => import("@/components/landing/PerformanceSection").then(m => ({ default: m.PerformanceSection })));
+const FAQ = dynamic(() => import("@/components/landing/FAQ").then(m => ({ default: m.FAQ })));
+const Footer = dynamic(() => import("@/components/landing/Footer").then(m => ({ default: m.Footer })));
 
 const exploreLinks = [
   {

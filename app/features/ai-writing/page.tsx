@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import {
   Apple,
@@ -21,7 +21,7 @@ import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/an
 import { SectionGlow, DotGrid, GradientDivider } from "@/components/ui/decorations";
 
 export const metadata: Metadata = {
-  title: "AI Writing & Post-Processing — Offline AI for Dictation | Whisperer",
+  title: "AI Writing & Post-Processing — Offline AI for Dictation",
   description:
     "Whisperer's on-device AI rewrites, translates, formats, summarizes, and fixes grammar in your dictation — 100% offline. 10 built-in modes plus custom prompts. No cloud, no subscription.",
   keywords:
@@ -162,22 +162,12 @@ const relatedFeatures = [
 export default function AIWritingPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Features", url: "/features" },
-              { name: "AI Writing", url: "/features/ai-writing" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Features", url: "/features" },
+        { name: "AI Writing", url: "/features/ai-writing" },
+      ])} />
+      <JsonLd data={faqSchema(faqs)} />
 
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">

@@ -1,5 +1,6 @@
 import type { MDXComponents as MDXComponentsType } from "mdx/types";
 import Link from "next/link";
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { TranscriptionsMockup } from "@/components/mockups/TranscriptionsMockup";
 import { FileTranscriptionMockup } from "@/components/mockups/FileTranscriptionMockup";
@@ -119,9 +120,9 @@ export const mdxComponents: MDXComponentsType = {
     return <a href={href} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer" {...props}>{children}</a>;
   },
 
-  img: ({ src, alt, ...props }) => (
+  img: ({ src, alt }) => (
     <figure className="my-8">
-      <img src={src} alt={alt} className="rounded-xl border border-border shadow-lg w-full" {...props} />
+      <Image src={src ?? ""} alt={alt ?? ""} width={800} height={450} className="rounded-xl border border-border shadow-lg w-full" />
       {alt && alt !== "" && <figcaption className="text-center text-sm text-muted-foreground mt-3">{alt}</figcaption>}
     </figure>
   ),
@@ -328,7 +329,7 @@ export const mdxComponents: MDXComponentsType = {
           </div>
         )}
         <h4 className="text-lg font-semibold text-foreground mb-2">{title}</h4>
-        <p className="text-sm text-muted-foreground leading-relaxed">{children}</p>
+        <div className="text-sm text-muted-foreground leading-relaxed">{children}</div>
         {/* Hover glow overlay */}
         <div className="absolute inset-0 rounded-2xl bg-primary/[0.03] opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
       </div>

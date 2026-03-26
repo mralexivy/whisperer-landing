@@ -7,7 +7,7 @@ import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/an
 import { SectionGlow, DotGrid } from "@/components/ui/decorations";
 
 export const metadata: Metadata = {
-  title: "Blog — Whisperer | Voice Coding & Dictation Tips for Mac",
+  title: "Blog | Voice Coding & Dictation Tips for Mac",
   description:
     "Guides, tutorials, and insights on voice coding, offline dictation, and developer productivity on Mac. Learn to dictate code, use Code Mode, and type faster with your voice.",
   openGraph: {

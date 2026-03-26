@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm";
 import { getAllComparisons, getComparisonBySlug } from "@/lib/blog";
 import { mdxComponents } from "@/components/mdx/MDXComponents";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, comparisonPageSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, comparisonPageSchema, JsonLd } from "@/lib/structured-data";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
@@ -25,7 +25,7 @@ export async function generateMetadata({
   if (!post) return {};
 
   return {
-    title: `${post.meta.title} — Whisperer`,
+    title: post.meta.title,
     description: post.meta.description,
     keywords: post.meta.keywords.join(", "),
     openGraph: {
@@ -79,34 +79,20 @@ export default async function ComparisonPost({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Compare", url: "/compare" },
-              {
-                name: post.meta.title,
-                url: `/compare/${post.meta.slug}`,
-              },
-            ])
-          ),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Compare", url: "/compare" },
+        {
+          name: post.meta.title,
+          url: `/compare/${post.meta.slug}`,
+        },
+      ])} />
       {competitor && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(
-              comparisonPageSchema({
-                name: competitor.name,
-                price: competitor.price,
-                slug: post.meta.slug,
-              })
-            ),
-          }}
-        />
+        <JsonLd data={comparisonPageSchema({
+          name: competitor.name,
+          price: competitor.price,
+          slug: post.meta.slug,
+        })} />
       )}
 
       <main className="pt-32 pb-24 relative">

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import appIcon from "../../public/assets/app-icon.png";
+import appIcon from "../../public/assets/app-icon.webp";
 
 const navLinks = [
   { label: "Why Whisperer", href: "/why-whisperer" },

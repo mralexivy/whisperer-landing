@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Whisperer | 100% Offline Dictation for Mac",
+  title: "Privacy Policy | 100% Offline Dictation for Mac",
   description:
     "Whisperer privacy policy. All transcription happens on-device. No accounts, no audio uploads, no telemetry required. Your voice data never leaves your Mac.",
   alternates: { canonical: "/privacy" },

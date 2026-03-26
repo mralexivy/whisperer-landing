@@ -1,14 +1,14 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import { Apple, Cpu, Zap, Brain, ArrowRight, Shield, HardDrive } from "lucide-react";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
 import { SectionGlow, DotGrid, GradientDivider } from "@/components/ui/decorations";
 
 export const metadata: Metadata = {
-  title: "Offline Transcription Engines — Whisper, Parakeet & Apple Speech | Whisperer",
+  title: "Offline Transcription Engines — Whisper, Parakeet & Apple Speech",
   description:
     "Whisperer supports three offline transcription backends: Whisper (Metal GPU), Parakeet (Neural Engine), and Apple Speech. Compare 10+ model sizes from 75MB to 2.9GB. 100% on-device, no cloud.",
   keywords:
@@ -99,22 +99,12 @@ const faqs = [
 export default function OfflineTranscriptionPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Features", url: "/features" },
-              { name: "Offline Transcription", url: "/features/offline-transcription" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Features", url: "/features" },
+        { name: "Offline Transcription", url: "/features/offline-transcription" },
+      ])} />
+      <JsonLd data={faqSchema(faqs)} />
 
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">

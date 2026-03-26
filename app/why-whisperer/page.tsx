@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { WhyWhispererContent } from "./WhyWhispererContent";
 
 export const metadata: Metadata = {
@@ -96,23 +96,11 @@ const whyWhispererFaqs = [
 export default function WhyWhispererPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Why Whisperer", url: "/why-whisperer" },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema(whyWhispererFaqs)),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Why Whisperer", url: "/why-whisperer" },
+      ])} />
+      <JsonLd data={faqSchema(whyWhispererFaqs)} />
       <WhyWhispererContent />
     </>
   );

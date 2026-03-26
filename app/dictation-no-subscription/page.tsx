@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import {
   Apple,
@@ -36,7 +36,7 @@ import {
 
 export const metadata: Metadata = {
   title:
-    "Dictation App — No Subscription | $14.99 Lifetime | Whisperer for Mac",
+    "Dictation App — No Subscription | $14.99 Lifetime for Mac",
   description:
     "Whisperer is a one-time purchase dictation app for Mac. $2.99 base, $14.99 Pro Pack lifetime. No subscription, no cloud fees, no recurring charges. Code Mode, per-app profiles, 3 engines.",
   keywords:
@@ -205,24 +205,11 @@ export default function DictationNoSubscriptionPage() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              {
-                name: "Dictation — No Subscription",
-                url: "/dictation-no-subscription",
-              },
-            ])
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Dictation — No Subscription", url: "/dictation-no-subscription" },
+      ])} />
+      <JsonLd data={faqSchema(faqs)} />
 
       {/* Hero */}
       <section className="pt-32 pb-20 relative overflow-hidden">

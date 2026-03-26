@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Apple } from "lucide-react";
 import { FadeIn } from "@/components/ui/animated";
 import { SectionGlow, GradientDivider } from "@/components/ui/decorations";
-import appIcon from "../../public/assets/app-icon.png";
+import appIcon from "../../public/assets/app-icon.webp";
 
 const footerLinks = [
   {

@@ -1,14 +1,14 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import { Apple, FileAudio, Upload, Cpu, Copy, ArrowRight } from "lucide-react";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
 import { SectionGlow, DotGrid, GradientDivider } from "@/components/ui/decorations";
 
 export const metadata: Metadata = {
-  title: "File Transcription — Transcribe Audio & Video Files Offline | Whisperer",
+  title: "File Transcription — Transcribe Audio & Video Files Offline",
   description:
     "Transcribe audio and video files offline on your Mac with Whisperer. Drag-and-drop interface, same high-quality Whisper/Parakeet engine used for live dictation. No upload, no cloud, no per-minute charges.",
   keywords:
@@ -65,18 +65,11 @@ const benefits = [
 export default function FileTranscriptionPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbSchema([
-              { name: "Home", url: "/" },
-              { name: "Features", url: "/features" },
-              { name: "File Transcription", url: "/features/file-transcription" },
-            ])
-          ),
-        }}
-      />
+      <JsonLd data={breadcrumbSchema([
+        { name: "Home", url: "/" },
+        { name: "Features", url: "/features" },
+        { name: "File Transcription", url: "/features/file-transcription" },
+      ])} />
 
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">
@@ -223,17 +216,12 @@ export default function FileTranscriptionPage() {
           </div>
         </div>
       </section>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema([
-            { question: "What audio formats does Whisperer support?", answer: "MP3, WAV, M4A, FLAC, OGG, and video formats like MP4, MOV, and MKV. Whisperer extracts the audio track automatically from video files." },
-            { question: "Is file transcription included in the free trial?", answer: "Yes. File transcription is included in the base app ($2.99). No Pro Pack required." },
-            { question: "How long does transcription take?", answer: "Depends on the model and file length. A 10-minute recording typically takes 20-60 seconds with Whisper Large V3 Turbo on Apple Silicon." },
-            { question: "Are there per-minute charges?", answer: "No. Whisperer is a one-time purchase. Transcribe unlimited files with no per-minute fees, no cloud charges, and no usage limits." },
-          ])),
-        }}
-      />
+      <JsonLd data={faqSchema([
+        { question: "What audio formats does Whisperer support?", answer: "MP3, WAV, M4A, FLAC, OGG, and video formats like MP4, MOV, and MKV. Whisperer extracts the audio track automatically from video files." },
+        { question: "Is file transcription included in the free trial?", answer: "Yes. File transcription is included in the base app ($2.99). No Pro Pack required." },
+        { question: "How long does transcription take?", answer: "Depends on the model and file length. A 10-minute recording typically takes 20-60 seconds with Whisper Large V3 Turbo on Apple Silicon." },
+        { question: "Are there per-minute charges?", answer: "No. Whisperer is a one-time purchase. Transcribe unlimited files with no per-minute fees, no cloud charges, and no usage limits." },
+      ])} />
 
       <GradientDivider />
 
