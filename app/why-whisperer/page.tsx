@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     images: ["/assets/hero-demo.png?v=2"],
   },
   alternates: {
-    canonical: "https://whispererapp.com/why-whisperer",
+    canonical: "/why-whisperer",
   },
 };
 
@@ -102,7 +102,7 @@ export default function WhyWhispererPage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Why Whisperer", url: "/why-whisperer/" },
+              { name: "Why Whisperer", url: "/why-whisperer" },
             ])
           ),
         }}

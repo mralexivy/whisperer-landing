@@ -83,10 +83,10 @@ export default async function BlogPost({
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Blog", url: "/blog/" },
+              { name: "Blog", url: "/blog" },
               {
                 name: post.meta.title,
-                url: `/blog/${post.meta.slug}/`,
+                url: `/blog/${post.meta.slug}`,
               },
             ])
           ),

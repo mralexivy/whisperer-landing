@@ -62,8 +62,8 @@ export default function LivePreviewPage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Features", url: "/features/" },
-              { name: "Live Preview", url: "/features/live-preview/" },
+              { name: "Features", url: "/features" },
+              { name: "Live Preview", url: "/features/live-preview" },
             ])
           ),
         }}

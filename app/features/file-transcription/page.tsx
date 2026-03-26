@@ -71,8 +71,8 @@ export default function FileTranscriptionPage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Features", url: "/features/" },
-              { name: "File Transcription", url: "/features/file-transcription/" },
+              { name: "Features", url: "/features" },
+              { name: "File Transcription", url: "/features/file-transcription" },
             ])
           ),
         }}

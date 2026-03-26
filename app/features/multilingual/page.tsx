@@ -84,8 +84,8 @@ export default function MultilingualPage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Features", url: "/features/" },
-              { name: "Multilingual", url: "/features/multilingual/" },
+              { name: "Features", url: "/features" },
+              { name: "Multilingual", url: "/features/multilingual" },
             ])
           ),
         }}

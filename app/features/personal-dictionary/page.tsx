@@ -103,8 +103,8 @@ export default function PersonalDictionaryPage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Features", url: "/features/" },
-              { name: "Personal Dictionary", url: "/features/personal-dictionary/" },
+              { name: "Features", url: "/features" },
+              { name: "Personal Dictionary", url: "/features/personal-dictionary" },
             ])
           ),
         }}

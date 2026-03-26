@@ -206,7 +206,7 @@ export default function CheapestDictationMacPage() {
               { name: "Home", url: "/" },
               {
                 name: "Cheapest Dictation App for Mac",
-                url: "/cheapest-dictation-mac/",
+                url: "/cheapest-dictation-mac",
               },
             ])
           ),

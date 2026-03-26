@@ -252,7 +252,7 @@ export default function OfflineDictationMacPage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Offline Dictation for Mac", url: "/offline-dictation-mac/" },
+              { name: "Offline Dictation for Mac", url: "/offline-dictation-mac" },
             ])
           ),
         }}

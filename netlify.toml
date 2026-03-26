@@ -15,6 +15,13 @@
   status = 301
   force = true
 
+# Strip trailing slashes to avoid duplicate URLs (canonical mismatch)
+[[redirects]]
+  from = "/*/"
+  to = "/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/assets/*"
   [headers.values]

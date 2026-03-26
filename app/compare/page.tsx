@@ -89,7 +89,7 @@ export default function ComparePage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Compare", url: "/compare/" },
+              { name: "Compare", url: "/compare" },
             ])
           ),
         }}

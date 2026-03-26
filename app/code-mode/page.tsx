@@ -130,7 +130,7 @@ export default function CodeModePage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Code Mode", url: "/code-mode/" },
+              { name: "Code Mode", url: "/code-mode" },
             ])
           ),
         }}

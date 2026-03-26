@@ -105,8 +105,8 @@ export default function OfflineTranscriptionPage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Features", url: "/features/" },
-              { name: "Offline Transcription", url: "/features/offline-transcription/" },
+              { name: "Features", url: "/features" },
+              { name: "Offline Transcription", url: "/features/offline-transcription" },
             ])
           ),
         }}

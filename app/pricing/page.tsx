@@ -41,7 +41,7 @@ export default function PricingPage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Pricing", url: "/pricing/" },
+              { name: "Pricing", url: "/pricing" },
             ])
           ),
         }}

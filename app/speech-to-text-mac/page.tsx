@@ -246,7 +246,7 @@ export default function SpeechToTextMacPage() {
               { name: "Home", url: "/" },
               {
                 name: "Speech to Text for Mac",
-                url: "/speech-to-text-mac/",
+                url: "/speech-to-text-mac",
               },
             ])
           ),

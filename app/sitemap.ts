@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/voice-to-text-developers`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${baseUrl}/cheapest-dictation-mac`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${baseUrl}/speech-to-text-mac`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
+    { url: `${baseUrl}/why-whisperer`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: `${baseUrl}/screenshots`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.4 },
     { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.3 },
   ];

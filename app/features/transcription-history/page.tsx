@@ -75,8 +75,8 @@ export default function TranscriptionHistoryPage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Features", url: "/features/" },
-              { name: "Transcription History", url: "/features/transcription-history/" },
+              { name: "Features", url: "/features" },
+              { name: "Transcription History", url: "/features/transcription-history" },
             ])
           ),
         }}

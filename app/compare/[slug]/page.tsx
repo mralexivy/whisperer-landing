@@ -85,10 +85,10 @@ export default async function ComparisonPost({
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Compare", url: "/compare/" },
+              { name: "Compare", url: "/compare" },
               {
                 name: post.meta.title,
-                url: `/compare/${post.meta.slug}/`,
+                url: `/compare/${post.meta.slug}`,
               },
             ])
           ),

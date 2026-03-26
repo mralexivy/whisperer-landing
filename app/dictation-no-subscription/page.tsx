@@ -213,7 +213,7 @@ export default function DictationNoSubscriptionPage() {
               { name: "Home", url: "/" },
               {
                 name: "Dictation — No Subscription",
-                url: "/dictation-no-subscription/",
+                url: "/dictation-no-subscription",
               },
             ])
           ),

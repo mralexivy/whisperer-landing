@@ -33,7 +33,7 @@ export default function FeaturesPage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Features", url: "/features/" },
+              { name: "Features", url: "/features" },
             ])
           ),
         }}

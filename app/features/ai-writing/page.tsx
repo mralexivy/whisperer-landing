@@ -168,8 +168,8 @@ export default function AIWritingPage() {
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: "/" },
-              { name: "Features", url: "/features/" },
-              { name: "AI Writing", url: "/features/ai-writing/" },
+              { name: "Features", url: "/features" },
+              { name: "AI Writing", url: "/features/ai-writing" },
             ])
           ),
         }}

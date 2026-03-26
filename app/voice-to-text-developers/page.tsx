@@ -206,7 +206,7 @@ export default function VoiceToTextDevelopersPage() {
               { name: "Home", url: "/" },
               {
                 name: "Voice to Text for Developers",
-                url: "/voice-to-text-developers/",
+                url: "/voice-to-text-developers",
               },
             ])
           ),
