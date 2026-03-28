@@ -3,6 +3,12 @@
   publish = "build"
   ignore = "git diff --quiet $CACHED_COMMIT HEAD -- . ':!remotion'"
 
+# Cache Next.js build cache between deploys (speeds up builds)
+[[plugins]]
+  package = "netlify-plugin-cache"
+  [plugins.inputs]
+    paths = [".next/cache"]
+
 [[redirects]]
   from = "https://www.whispererapp.com/*"
   to = "https://whispererapp.com/:splat"
