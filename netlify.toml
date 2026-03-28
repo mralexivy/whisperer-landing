@@ -15,13 +15,8 @@
   status = 301
   force = true
 
-# Strip trailing slashes to avoid duplicate URLs (canonical mismatch)
-# Use :splat instead of * to require at least one path segment (avoids root / loop)
-[[redirects]]
-  from = "/:splat/"
-  to = "/:splat"
-  status = 301
-  force = true
+# Trailing slash redirect removed - was causing redirect loops
+# Next.js handles this with trailingSlash: false in next.config.mjs
 
 [[headers]]
   for = "/assets/*"
