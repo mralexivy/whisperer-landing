@@ -37,13 +37,13 @@ const backendLanguages = [
     hardware: "Metal GPU",
   },
   {
-    backend: "Parakeet v3",
+    backend: "NVIDIA",
     count: "25",
     description: "Top 25 languages with optimized Neural Engine models. Fastest inference for supported languages.",
     hardware: "Neural Engine",
   },
   {
-    backend: "Parakeet v2",
+    backend: "NVIDIA (English)",
     count: "1",
     description: "English-only optimized model. Maximum speed for English dictation.",
     hardware: "Neural Engine",
@@ -59,7 +59,7 @@ const backendLanguages = [
 const faqs = [
   {
     question: "How many languages does Whisperer support?",
-    answer: "With the Whisper backend, Whisperer supports 99+ languages — virtually every major language and many regional ones. Parakeet v3 supports 25 languages, and Parakeet v2 is English-only.",
+    answer: "With the Whisper backend, Whisperer supports 99+ languages — virtually every major language and many regional ones. NVIDIA supports 25 languages, with an English-only optimized model also available.",
   },
   {
     question: "Can I dictate in one language and translate to another?",

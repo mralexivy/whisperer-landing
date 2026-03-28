@@ -130,7 +130,7 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-semibold mb-6">Third-Party Services</h2>
             <div className="space-y-3">
               {[
-                { label: "Hugging Face", desc: "Used solely to download open-source whisper.cpp AI models. No personal data is transmitted." },
+                { label: "Hugging Face", desc: "Used solely to download open-source Whisper AI models. No personal data is transmitted." },
                 { label: "No Analytics", desc: "We do not use Google Analytics, Mixpanel, Segment, or any other analytics platform." },
                 { label: "No Ads", desc: "The app contains no advertising or ad networks." },
               ].map((item, i) => (

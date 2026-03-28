@@ -110,7 +110,7 @@ const uniqueFeatures = [
     bgColor: "bg-amber-400/10",
     title: "Three Engines",
     description:
-      "Whisper (Metal GPU), Parakeet (Neural Engine), and Apple Speech. Hot-swap between engines without restarting. Most competitors offer only one engine.",
+      "Whisper (Metal GPU), NVIDIA (Neural Engine), and Apple Speech. Hot-swap between engines without restarting. Most competitors offer only one engine.",
   },
 ];
 

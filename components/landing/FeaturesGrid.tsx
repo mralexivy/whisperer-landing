@@ -177,7 +177,7 @@ export function AIProcessingGraphic() {
 export function EnginesGraphic() {
   const engines = [
     { name: "Whisper", hw: "Metal GPU", color: "from-blue-500/20 to-blue-600/5", delay: 0 },
-    { name: "Parakeet", hw: "Neural Engine", color: "from-green-500/20 to-green-600/5", delay: 0.15 },
+    { name: "NVIDIA", hw: "Neural Engine", color: "from-green-500/20 to-green-600/5", delay: 0.15 },
     { name: "Apple Speech", hw: "System ML", color: "from-purple-500/20 to-purple-600/5", delay: 0.3 },
   ];
   return (
@@ -440,7 +440,7 @@ const features = [
     icon: Cpu,
     title: "Three Engines",
     description:
-      "Whisper (Metal GPU), Parakeet (Neural Engine), or Apple Speech. 10+ model sizes. Hot-swap without restarting.",
+      "Whisper (Metal GPU), NVIDIA (Neural Engine), or Apple Speech. 10+ model sizes. Hot-swap without restarting.",
     graphic: EnginesGraphic,
      href: "/features/offline-transcription",
   },

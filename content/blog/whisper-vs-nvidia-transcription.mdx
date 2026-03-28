@@ -1,8 +1,8 @@
 ---
-title: "Whisper vs. Parakeet vs. Apple Speech — Which Transcription Backend Is Best?"
-description: "Compare Whisperer's three offline transcription engines: Whisper (Metal GPU), Parakeet (Neural Engine), and Apple Speech. Speed, accuracy, language support, and hardware usage compared."
-date: "2026-03-15"
-keywords: ["whisper vs parakeet", "transcription backend comparison", "whisper.cpp vs coreml", "neural engine transcription", "metal GPU speech recognition", "offline transcription engines mac"]
+title: "Whisper vs. NVIDIA vs. Apple Speech — Which Transcription Backend Is Best?"
+description: "Compare Whisperer's three offline transcription engines: Whisper (Metal GPU), NVIDIA (Neural Engine), and Apple Speech. Speed, accuracy, language support, and hardware usage compared."
+date: "2026-03-28"
+keywords: ["whisper vs nvidia", "transcription backend comparison", "neural engine transcription", "metal GPU speech recognition", "offline transcription engines mac"]
 category: "technical"
 ---
 
@@ -10,17 +10,17 @@ Whisperer is unique among Mac dictation apps: it supports three independent tran
 
 ## The Three Backends at a Glance
 
-| | **Whisper** | **Parakeet** | **Apple Speech** |
+| | **Whisper** | **NVIDIA** | **Apple Speech** |
 |---|---|---|---|
-| Engine | whisper.cpp (C library) | FluidAudio (CoreML) | SpeechAnalyzer |
+| Engine | Local Whisper | CoreML | SpeechAnalyzer |
 | Hardware | Metal GPU | Apple Neural Engine | System ML |
-| Languages | 99+ | 25 (v3) / English (v2) | System languages |
+| Languages | 99+ | 25 | System languages |
 | Speed | Fast (with Turbo models) | Fastest | Varies |
 | Best For | Accuracy & language coverage | Maximum speed | Native integration |
 
 ## Whisper — The Default
 
-Whisper is the default backend and the most versatile. Built on [whisper.cpp](https://github.com/ggerganov/whisper.cpp), it uses Apple Silicon's Metal GPU for fast inference.
+Whisper is the default backend and the most versatile. It uses Apple Silicon's Metal GPU for fast inference.
 
 **Strengths:**
 - 99+ language support — the broadest coverage of any backend
@@ -32,9 +32,9 @@ Whisper is the default backend and the most versatile. Built on [whisper.cpp](ht
 
 **Recommended model:** Large V3 Turbo Q5 (547 MB) — 8x faster than Large V3 with similar accuracy, and only 547 MB on disk.
 
-## Parakeet — The Speed King
+## NVIDIA — The Speed King
 
-Parakeet uses FluidAudio's CoreML models running on the Apple Neural Engine (ANE). Since it runs on a dedicated chip separate from the GPU, it leaves Metal free for other tasks.
+NVIDIA uses CoreML models running on the Apple Neural Engine (ANE). Since it runs on a dedicated chip separate from the GPU, it leaves Metal free for other tasks.
 
 **Strengths:**
 - Fastest inference on Apple Silicon
@@ -42,10 +42,10 @@ Parakeet uses FluidAudio's CoreML models running on the Apple Neural Engine (ANE
 - Dedicated hardware means no GPU contention
 
 **Limitations:**
-- Parakeet v3 supports 25 languages (v2 is English-only)
+- Supports 25 languages
 - Fewer model size options compared to Whisper
 
-**When to use:** If you primarily dictate in a supported language and want absolute maximum speed. The CTC vocabulary boosting feature is also unique to Parakeet — if you have lots of specialized terminology, Parakeet may recognize it better.
+**When to use:** If you primarily dictate in a supported language and want absolute maximum speed. The CTC vocabulary boosting feature is also unique to NVIDIA — if you have lots of specialized terminology, NVIDIA may recognize it better.
 
 ## Apple Speech — Native Framework
 
@@ -63,13 +63,13 @@ Whisperer abstracts all three backends behind a unified `TranscriptionBackend` p
 
 ## The Live Preview Connection
 
-Whisperer's [live preview](/features/live-preview) uses a dedicated lightweight Parakeet EOU model on the Neural Engine, regardless of which main backend you choose. This means:
+Whisperer's [live preview](/features/live-preview) uses a dedicated lightweight EOU model on the Neural Engine, regardless of which main backend you choose. This means:
 
 - If your main backend is **Whisper** (Metal GPU) — live preview runs on Neural Engine, zero contention
-- If your main backend is **Parakeet** (Neural Engine) — the EOU model shares the ANE but is optimized for minimal interference
+- If your main backend is **NVIDIA** (Neural Engine) — the EOU model shares the ANE but is optimized for minimal interference
 
 ## Recommendation
 
-Start with **Whisper** using the default Large V3 Turbo Q5 model. It's the safest choice with excellent accuracy across all languages. If you find you need more speed and primarily work in English or a top-25 language, switch to **Parakeet** and see if the speed difference matters for your workflow.
+Start with **Whisper** using the default Large V3 Turbo Q5 model. It's the safest choice with excellent accuracy across all languages. If you find you need more speed and primarily work in English or a top-25 language, switch to **NVIDIA** and see if the speed difference matters for your workflow.
 
 Read the [best Whisper model for dictation](/blog/best-whisper-model-for-dictation) guide for detailed model comparisons, or explore the [offline transcription engines](/features/offline-transcription) feature page.

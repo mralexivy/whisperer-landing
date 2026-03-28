@@ -33,7 +33,7 @@ const features: {
     icon: Cpu,
     title: "Offline Transcription Engines",
     description:
-      "Three backends — Whisper (Metal GPU), Parakeet (Neural Engine), and Apple Speech. 10+ model sizes from 75MB to 2.9GB.",
+      "Three backends — Whisper (Metal GPU), NVIDIA (Neural Engine), and Apple Speech. 10+ model sizes from 75MB to 2.9GB.",
      href: "/features/offline-transcription",
     graphic: EnginesGraphic,
   },

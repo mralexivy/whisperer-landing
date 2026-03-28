@@ -42,7 +42,7 @@ export const ValueProps = () => {
             Why <span className="text-primary">Whisperer</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Three on-device engines — Whisper, Parakeet, Apple Speech — with Code Mode for camelCase and symbols. $2.99 base, $14.99 Pro lifetime. No subscription, no cloud.
+            Three on-device engines — Whisper, NVIDIA, Apple Speech — with Code Mode for camelCase and symbols. $2.99 base, $14.99 Pro lifetime. No subscription, no cloud.
           </p>
         </FadeIn>
 

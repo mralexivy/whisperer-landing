@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   title:
     "Offline Dictation for Mac — 100% On-Device, No Cloud",
   description:
-    "Whisperer is a 100% offline dictation app for Mac. Three local transcription engines (Whisper, Parakeet, Apple Speech), no internet required, no data leaves your Mac. $14.99 lifetime.",
+    "Whisperer is a 100% offline dictation app for Mac. Three local transcription engines (Whisper, NVIDIA, Apple Speech), no internet required, no data leaves your Mac. $14.99 lifetime.",
   keywords:
     "offline dictation mac, speech to text mac offline, voice to text mac no cloud, offline voice recognition mac, on-device transcription mac, private dictation app mac, no internet dictation mac",
   openGraph: {
@@ -103,7 +103,7 @@ const benefits = [
     bgColor: "bg-rose-400/10",
     title: "Apple Silicon Optimized",
     description:
-      "Metal GPU acceleration for Whisper, Neural Engine for Parakeet. Whisperer is built specifically for Apple Silicon to maximize speed and efficiency.",
+      "Metal GPU acceleration for Whisper, Neural Engine for NVIDIA. Whisperer is built specifically for Apple Silicon to maximize speed and efficiency.",
   },
 ];
 
@@ -116,17 +116,17 @@ const engines = [
     badge: "Default",
     badgeColor: "bg-blue-500/20 text-blue-400",
     description:
-      "OpenAI's Whisper via whisper.cpp. Best accuracy and broadest language support. Uses Apple Silicon Metal GPU for fast inference.",
+      "OpenAI's Whisper model. Best accuracy and broadest language support. Uses Apple Silicon Metal GPU for fast inference.",
   },
   {
-    name: "Parakeet",
+    name: "NVIDIA",
     hardware: "Neural Engine",
-    languages: "25 languages (v3)",
+    languages: "25 languages",
     models: "CTC with vocab boosting",
     badge: "Fastest",
     badgeColor: "bg-green-500/20 text-green-400",
     description:
-      "NVIDIA Parakeet via CoreML. Runs on the dedicated Neural Engine, leaving GPU free. Supports CTC vocabulary boosting from your dictionary.",
+      "NVIDIA model via CoreML. Runs on the dedicated Neural Engine, leaving GPU free. Supports CTC vocabulary boosting from your dictionary.",
   },
   {
     name: "Apple Speech",
@@ -160,7 +160,7 @@ const faqs = [
   {
     question: "What is the best offline dictation app for Mac?",
     answer:
-      "Whisperer is the most feature-rich offline dictation app for Mac, with three transcription engines (Whisper, Parakeet, Apple Speech), Code Mode for developers, per-app profiles, and personal dictionary — all for $14.99 lifetime. No competitor offers this combination at any price.",
+      "Whisperer is the most feature-rich offline dictation app for Mac, with three transcription engines (Whisper, NVIDIA, Apple Speech), Code Mode for developers, per-app profiles, and personal dictionary — all for $14.99 lifetime. No competitor offers this combination at any price.",
   },
   {
     question: "How does offline dictation compare to cloud-based?",
@@ -170,12 +170,12 @@ const faqs = [
   {
     question: "Does offline dictation work on Intel Macs?",
     answer:
-      "Yes, but Apple Silicon is recommended. Whisper runs on CPU for Intel Macs (slower). Parakeet and Apple Speech require Apple Silicon. Most models work well on M1 and later.",
+      "Yes, but Apple Silicon is recommended. Whisper runs on CPU for Intel Macs (slower). NVIDIA and Apple Speech require Apple Silicon. Most models work well on M1 and later.",
   },
   {
     question: "How much storage do the models require?",
     answer:
-      "Whisper models range from 75MB (Tiny) to 2.9GB (Large V3). The recommended balanced model is about 500MB. Parakeet models are 100–200MB. You choose which models to download.",
+      "Whisper models range from 75MB (Tiny) to 2.9GB (Large V3). The recommended balanced model is about 500MB. NVIDIA models are 100–200MB. You choose which models to download.",
   },
   {
     question: "Can I use offline dictation in any app?",
@@ -190,7 +190,7 @@ const faqs = [
   {
     question: "Does Whisperer support multiple languages offline?",
     answer:
-      "Yes. Whisper supports 99+ languages offline. Parakeet supports 25 languages. You can set different languages per app with per-app profiles and use AI translation between languages — all offline.",
+      "Yes. Whisper supports 99+ languages offline. NVIDIA supports 25 languages. You can set different languages per app with per-app profiles and use AI translation between languages — all offline.",
   },
 ];
 
@@ -201,7 +201,7 @@ const specs = [
   { label: "Best model", value: "~1.5GB (Large V3 Turbo)" },
   { label: "Live preview", value: "~300ms latency" },
   { label: "GPU acceleration", value: "Metal (Whisper)" },
-  { label: "Neural Engine", value: "Parakeet / EOU" },
+  { label: "Neural Engine", value: "NVIDIA / EOU" },
   { label: "Audio formats", value: "MP3, WAV, M4A, MP4+" },
 ];
 
@@ -279,7 +279,7 @@ export default function OfflineDictationMacPage() {
               </p>
               <p className="text-sm text-muted-foreground mb-8">
                 100% offline voice-to-text for macOS with Whisper (Metal GPU),
-                Parakeet (Neural Engine), and Apple Speech. Code Mode for
+                NVIDIA (Neural Engine), and Apple Speech. Code Mode for
                 developers. Per-app profiles. Personal dictionary. No
                 subscription.
               </p>

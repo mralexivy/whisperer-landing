@@ -84,7 +84,7 @@ export default function PricingPage() {
                       "Hold-to-record dictation (Fn or custom shortcut)",
                       "Toggle mode (press to start / stop)",
                       "Live streaming preview",
-                      "3 transcription engines (Whisper, Parakeet, Apple)",
+                      "3 transcription engines (Whisper, NVIDIA, Apple)",
                       "100+ languages",
                       "File transcription (audio & video)",
                       "Transcription history with search",

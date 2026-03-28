@@ -10,7 +10,7 @@ import { SectionGlow, DotGrid, GradientDivider } from "@/components/ui/decoratio
 export const metadata: Metadata = {
   title: "File Transcription — Transcribe Audio & Video Files Offline",
   description:
-    "Transcribe audio and video files offline on your Mac with Whisperer. Drag-and-drop interface, same high-quality Whisper/Parakeet engine used for live dictation. No upload, no cloud, no per-minute charges.",
+    "Transcribe audio and video files offline on your Mac with Whisperer. Drag-and-drop interface, same high-quality Whisper/NVIDIA engine used for live dictation. No upload, no cloud, no per-minute charges.",
   keywords:
     "transcribe audio files offline mac, offline audio transcription, transcribe video mac, offline file transcription, transcribe mp3 offline, transcribe wav mac, local audio transcription, batch transcription mac, whisper file transcription",
   openGraph: {
@@ -33,7 +33,7 @@ const steps = [
     icon: Cpu,
     step: "02",
     title: "Transcribe offline",
-    description: "The same Whisper/Parakeet engine processes the file entirely on your Mac.",
+    description: "The same Whisper/NVIDIA engine processes the file entirely on your Mac.",
   },
   {
     icon: Copy,
@@ -86,7 +86,7 @@ export default function FileTranscriptionPage() {
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                 Drop an audio or video file into Whisperer and get a full transcription — offline,
-                private, with no per-minute charges. Uses the same high-quality Whisper or Parakeet
+                private, with no per-minute charges. Uses the same high-quality Whisper or NVIDIA
                 engine as live dictation.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">

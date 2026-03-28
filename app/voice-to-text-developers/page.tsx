@@ -184,7 +184,7 @@ const faqs = [
   {
     question: "What transcription engines does Whisperer use?",
     answer:
-      "Three engines: Whisper (Metal GPU, 99+ languages, 10+ models), Parakeet (Neural Engine, fastest), and Apple Speech (macOS 26+). Hot-swap between them without restarting.",
+      "Three engines: Whisper (Metal GPU, 99+ languages, 10+ models), NVIDIA (Neural Engine, fastest), and Apple Speech (macOS 26+). Hot-swap between them without restarting.",
   },
   {
     question: "How much does voice coding cost?",

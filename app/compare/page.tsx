@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const compareFaqs = [
   {
     question: "What is the best offline dictation app for Mac in 2026?",
-    answer: "Whisperer offers the best value: $14.99 lifetime for Code Mode, per-app profiles, personal dictionary, and three transcription engines (Whisper, Parakeet, Apple Speech). Competitors charge $99–$249 for lifetime licenses or $10–15/month for subscriptions, often with fewer features.",
+    answer: "Whisperer offers the best value: $14.99 lifetime for Code Mode, per-app profiles, personal dictionary, and three transcription engines (Whisper, NVIDIA, Apple Speech). Competitors charge $99–$249 for lifetime licenses or $10–15/month for subscriptions, often with fewer features.",
   },
   {
     question: "Which dictation app has Code Mode for developers?",

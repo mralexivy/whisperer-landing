@@ -97,7 +97,7 @@ export const Footer = () => {
               Offline dictation for Mac. Hold Fn, speak, release. Text inserts anywhere.
             </p>
             <div className="text-sm text-muted-foreground">
-              <p>Powered by whisper.cpp</p>
+              <p>Powered by Whisper</p>
               <p>100% on-device, MIT licensed</p>
             </div>
           </div>

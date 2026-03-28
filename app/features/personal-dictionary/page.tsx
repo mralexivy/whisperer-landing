@@ -78,7 +78,7 @@ const dictionaryFeatures = [
 const faqs = [
   {
     question: "What are prompt words?",
-    answer: "Prompt words bias transcription toward specific vocabulary — proper nouns, technical terms, brand names. For Whisper, they're passed as 'previous context'. For Parakeet, they're compiled into CTC vocabulary models that boost probability at the acoustic decoder level.",
+    answer: "Prompt words bias transcription toward specific vocabulary — proper nouns, technical terms, brand names. For Whisper, they're passed as 'previous context'. For NVIDIA, they're compiled into CTC vocabulary models that boost probability at the acoustic decoder level.",
   },
   {
     question: "Will the dictionary change correctly spelled words?",
@@ -195,7 +195,7 @@ export default function PersonalDictionaryPage() {
               </p>
               <p className="text-lg text-muted-foreground mb-8">
                 For the Whisper backend, prompt words are passed as &quot;previous context&quot; so the model
-                expects these terms. For Parakeet, they&apos;re compiled into CTC vocabulary models that
+                expects these terms. For NVIDIA, they&apos;re compiled into CTC vocabulary models that
                 boost probability at the acoustic decoder level.
               </p>
             </FadeIn>

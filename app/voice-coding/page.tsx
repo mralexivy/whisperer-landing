@@ -149,7 +149,7 @@ const voiceCodingFaqs = [
   {
     question: "Does voice coding work offline?",
     answer:
-      "With Whisperer, yes. Transcription runs on-device using local AI models (Whisper, Parakeet, or Apple Speech). No internet connection needed, no data leaves your Mac, no cloud API charges.",
+      "With Whisperer, yes. Transcription runs on-device using local AI models (Whisper, NVIDIA, or Apple Speech). No internet connection needed, no data leaves your Mac, no cloud API charges.",
   },
 ];
 

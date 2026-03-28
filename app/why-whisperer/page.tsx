@@ -79,7 +79,7 @@ const whyWhispererFaqs = [
   {
     question: "Does Whisperer work offline?",
     answer:
-      "Yes. Whisperer is 100% offline. Transcription runs on-device using three engines: Whisper (Metal GPU), Parakeet (Neural Engine), and Apple Speech. No internet connection needed, no data leaves your Mac, no cloud API charges.",
+      "Yes. Whisperer is 100% offline. Transcription runs on-device using three engines: Whisper (Metal GPU), NVIDIA (Neural Engine), and Apple Speech. No internet connection needed, no data leaves your Mac, no cloud API charges.",
   },
   {
     question: "Can I use Whisperer in VS Code, Cursor, and Terminal?",

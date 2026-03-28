@@ -608,7 +608,7 @@ function LivePreviewGraphic() {
 function ThreeEnginesGraphic() {
   const engines = [
     { name: "Whisper", hw: "Metal GPU", color: "from-blue-500/20 to-blue-600/5" },
-    { name: "Parakeet", hw: "Neural Engine", color: "from-green-500/20 to-green-600/5" },
+    { name: "NVIDIA", hw: "Neural Engine", color: "from-green-500/20 to-green-600/5" },
     { name: "Apple Speech", hw: "System ML", color: "from-purple-500/20 to-purple-600/5" },
   ];
   return (
@@ -744,7 +744,7 @@ const advantages = [
     color: "text-purple-400",
     bgColor: "bg-purple-400/10",
     title: "Three Transcription Engines",
-    description: "Whisper (Metal GPU), Parakeet (Neural Engine), or Apple Speech. 10+ model sizes. Hot-swap without restarting.",
+    description: "Whisper (Metal GPU), NVIDIA (Neural Engine), or Apple Speech. 10+ model sizes. Hot-swap without restarting.",
     graphic: ThreeEnginesGraphic,
   },
   {

@@ -93,7 +93,7 @@ const features = [
     bgColor: "bg-teal-400/10",
     title: "100+ Languages",
     description:
-      "Whisper supports 99+ languages offline. Parakeet supports 25. Set different languages per app with per-app profiles.",
+      "Whisper supports 99+ languages offline. NVIDIA supports 25. Set different languages per app with per-app profiles.",
   },
   {
     icon: Code,
@@ -168,7 +168,7 @@ const faqs = [
   {
     question: "What is the best speech to text app for Mac?",
     answer:
-      "Whisperer is the most feature-rich speech-to-text app for Mac at $14.99 lifetime. It includes three offline transcription engines (Whisper, Parakeet, Apple Speech), Code Mode for developers, per-app profiles, personal dictionary, and AI post-processing. No competitor offers this combination of features.",
+      "Whisperer is the most feature-rich speech-to-text app for Mac at $14.99 lifetime. It includes three offline transcription engines (Whisper, NVIDIA, Apple Speech), Code Mode for developers, per-app profiles, personal dictionary, and AI post-processing. No competitor offers this combination of features.",
   },
   {
     question: "Is speech to text available offline on Mac?",
@@ -193,7 +193,7 @@ const faqs = [
   {
     question: "Does speech to text work with multiple languages?",
     answer:
-      "Yes. Whisperer supports 100+ languages with the Whisper engine and 25 languages with Parakeet. You can set different languages per app using per-app profiles, and use offline AI translation between languages.",
+      "Yes. Whisperer supports 100+ languages with the Whisper engine and 25 languages with NVIDIA. You can set different languages per app using per-app profiles, and use offline AI translation between languages.",
   },
 ];
 
@@ -494,7 +494,7 @@ export default function SpeechToTextMacPage() {
                 desc: "Best accuracy. 99+ languages. 10+ model sizes from 75MB to 2.9GB.",
               },
               {
-                name: "Parakeet",
+                name: "NVIDIA",
                 badge: "Fastest",
                 badgeColor: "bg-green-500/20 text-green-400",
                 hardware: "Neural Engine",

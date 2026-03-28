@@ -8,13 +8,13 @@ import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/an
 import { SectionGlow, DotGrid, GradientDivider } from "@/components/ui/decorations";
 
 export const metadata: Metadata = {
-  title: "Offline Transcription Engines — Whisper, Parakeet & Apple Speech",
+  title: "Offline Transcription Engines — Whisper, NVIDIA & Apple Speech",
   description:
-    "Whisperer supports three offline transcription backends: Whisper (Metal GPU), Parakeet (Neural Engine), and Apple Speech. Compare 10+ model sizes from 75MB to 2.9GB. 100% on-device, no cloud.",
+    "Whisperer supports three offline transcription backends: Whisper (Metal GPU), NVIDIA (Neural Engine), and Apple Speech. Compare 10+ model sizes from 75MB to 2.9GB. 100% on-device, no cloud.",
   keywords:
-    "whisper.cpp mac app, offline speech recognition mac, parakeet transcription, whisper model comparison, metal GPU transcription, neural engine speech, apple silicon dictation, on-device transcription, whisper large v3 turbo, offline voice recognition",
+    "whisper mac app, offline speech recognition mac, nvidia transcription, whisper model comparison, metal GPU transcription, neural engine speech, apple silicon dictation, on-device transcription, whisper large v3 turbo, offline voice recognition",
   openGraph: {
-    title: "Offline Transcription Engines — Whisper, Parakeet & Apple Speech",
+    title: "Offline Transcription Engines — Whisper, NVIDIA & Apple Speech",
     description:
       "Three offline backends, 10+ models, Metal GPU acceleration. Compare speed vs accuracy for on-device dictation.",
     type: "website",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const backends = [
   {
     name: "Whisper",
-    engine: "whisper.cpp (vendored C library)",
+    engine: "Local Whisper",
     hardware: "Metal GPU",
     languages: "99+ languages",
     description:
@@ -34,10 +34,10 @@ const backends = [
     badgeColor: "bg-blue-500/20 text-blue-400",
   },
   {
-    name: "Parakeet",
-    engine: "FluidAudio (CoreML)",
+    name: "NVIDIA",
+    engine: "CoreML",
     hardware: "Apple Neural Engine",
-    languages: "25 languages (v3), English-only (v2)",
+    languages: "25 languages",
     description:
       "Fastest backend on Apple Silicon. Runs on the dedicated Neural Engine, leaving GPU free for other tasks. Features CTC vocabulary boosting — your dictionary entries and prompt words bias the decoder at the acoustic level.",
     badge: "Fastest",
@@ -80,7 +80,7 @@ const engineeringHighlights = [
 const faqs = [
   {
     question: "Which transcription backend should I choose?",
-    answer: "Start with Whisper (the default). It offers the best accuracy and language coverage. If you want maximum speed and primarily dictate in English, try Parakeet. Apple Speech requires macOS Tahoe or later.",
+    answer: "Start with Whisper (the default). It offers the best accuracy and language coverage. If you want maximum speed and primarily dictate in English, try NVIDIA. Apple Speech requires macOS Tahoe or later.",
   },
   {
     question: "Which Whisper model is best?",
@@ -120,7 +120,7 @@ export default function OfflineTranscriptionPage() {
                 Three transcription engines, <span className="text-primary">zero cloud</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Whisper on Metal GPU, Parakeet on Neural Engine, or Apple Speech. Choose from 10+
+                Whisper on Metal GPU, NVIDIA on Neural Engine, or Apple Speech. Choose from 10+
                 model sizes to match your hardware and accuracy needs. Everything runs locally on your Mac.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
@@ -290,7 +290,7 @@ export default function OfflineTranscriptionPage() {
             <FadeInStagger className="grid sm:grid-cols-2 gap-3">
               {[
                 { title: "Best Whisper Model for Dictation", href: "/blog/best-whisper-model-for-dictation" },
-                { title: "Whisper vs Parakeet vs Apple Speech", href: "/blog/whisper-vs-parakeet-transcription" },
+                { title: "Whisper vs NVIDIA vs Apple Speech", href: "/blog/whisper-vs-nvidia-transcription" },
                 { title: "Live Preview Engine", href: "/features/live-preview" },
                 { title: "100+ Languages", href: "/features/multilingual" },
               ].map((link, i) => (

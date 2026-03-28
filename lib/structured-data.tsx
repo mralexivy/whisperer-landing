@@ -17,7 +17,7 @@ export function softwareAppSchema() {
     operatingSystem: "macOS",
     applicationCategory: "ProductivityApplication",
     description:
-      "Offline dictation app for Mac with Code Mode for developers. Hold Fn, speak, release — text appears in the focused field. 100% offline, powered by Whisper, Parakeet, and Apple Speech engines.",
+      "Offline dictation app for Mac with Code Mode for developers. Hold Fn, speak, release — text appears in the focused field. 100% offline, powered by Whisper, NVIDIA, and Apple Speech engines.",
     offers: [
       {
         "@type": "Offer",
@@ -44,7 +44,7 @@ export function softwareAppSchema() {
       "100% offline on-device transcription",
       "Code Mode for camelCase, snake_case, symbols",
       "Per-app profiles (Slack, Gmail, VS Code)",
-      "Three transcription engines: Whisper, Parakeet, Apple Speech",
+      "Three transcription engines: Whisper, NVIDIA, Apple Speech",
       "AI post-processing with 10 built-in modes",
       "100+ language support",
       "Live preview with ~300ms latency",

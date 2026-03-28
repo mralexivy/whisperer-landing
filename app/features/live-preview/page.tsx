@@ -109,7 +109,7 @@ export default function LivePreviewPage() {
                 <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
                   <div className="text-sm font-semibold text-primary mb-2">Primary: EOU Engine</div>
                   <p className="text-sm text-muted-foreground mb-3">
-                    A dedicated Parakeet End-of-Utterance model runs on the Apple Neural Engine,
+                    A dedicated NVIDIA End-of-Utterance model runs on the Apple Neural Engine,
                     processing 320ms audio windows. Produces word-level partial transcripts with ~300ms latency.
                   </p>
                   <div className="text-xs text-muted-foreground bg-secondary/50 rounded-lg px-3 py-2">

@@ -28,7 +28,7 @@ const categories: FaqCategory[] = [
       {
         question: "Is it fully offline?",
         answer:
-          "Yes. Transcription runs locally using whisper.cpp and local models. After the initial model download, no internet connection is required.",
+          "Yes. Transcription runs locally using Whisper and local models. After the initial model download, no internet connection is required.",
       },
       {
         question: "Does it work in Slack/Gmail/VS Code?",
@@ -73,12 +73,12 @@ const categories: FaqCategory[] = [
       {
         question: "Can I use different transcription engines?",
         answer:
-          "Yes. Whisperer supports three backends: Whisper (Metal GPU, 99+ languages), Parakeet (Neural Engine, fastest), and Apple Speech (macOS Tahoe+). Hot-swap between them without restarting.",
+          "Yes. Whisperer supports three backends: Whisper (Metal GPU, 99+ languages), NVIDIA (Neural Engine, fastest), and Apple Speech (macOS Tahoe+). Hot-swap between them without restarting.",
       },
       {
         question: "How many languages does it support?",
         answer:
-          "Over 100 languages with the Whisper backend. Parakeet supports 25 languages. You can set per-app language profiles and use AI translation between languages — all offline.",
+          "Over 100 languages with the Whisper backend. NVIDIA supports 25 languages. You can set per-app language profiles and use AI translation between languages — all offline.",
       },
       {
         question: "Can I transcribe audio or video files?",
