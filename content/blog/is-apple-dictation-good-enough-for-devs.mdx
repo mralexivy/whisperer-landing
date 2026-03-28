@@ -6,9 +6,9 @@ keywords: ["Apple dictation developers", "Apple dictation alternative", "is Appl
 category: "comparison"
 ---
 
-Apple ships free dictation on every Mac. Press the microphone key, speak, and text appears. For sending a quick message or drafting an email, it works fine.
+Apple ships free dictation on every Mac. Press the mic key, talk, text appears. For emails and messages, it's fine.
 
-But if you write code for a living, Apple Dictation will fight you at every step. It autocorrects identifiers, capitalizes randomly, ignores symbols, and sends your audio to the cloud. Let's break down exactly where it falls short — and when you need something built for developers.
+But try using it for code and you'll want to throw your laptop. It mangles identifiers, adds random capitals, doesn't know what parentheses are, and ships your audio to Apple's servers. Here's where it actually breaks down.
 
 
 ---
@@ -17,63 +17,63 @@ But if you write code for a living, Apple Dictation will fight you at every step
 
 <CTA />
 
-## What Apple Dictation Does Well
+## What it actually does well
 
-Credit where it's due — Apple Dictation is a solid general-purpose tool:
+Apple Dictation isn't bad. For its intended purpose, it's pretty good:
 
 <FeatureGrid>
 <FeatureCard title="Zero Setup" icon="zap">
-It's built into macOS. No download, no account, no configuration. Press the microphone key and start speaking.
+Built into macOS. No download, no account. Press the mic key and go.
 </FeatureCard>
 
-<FeatureCard title="Natural Language" icon="message-square">
-For prose — emails, messages, notes, documents — Apple Dictation produces clean, well-punctuated text with decent accuracy.
+<FeatureCard title="Good for Prose" icon="message-square">
+Emails, messages, notes, documents. The accuracy is solid and punctuation is reasonable.
 </FeatureCard>
 
-<FeatureCard title="System-Wide" icon="monitor">
-Works in any text field across macOS, including Safari, Notes, Pages, and most third-party apps.
+<FeatureCard title="Works Everywhere" icon="monitor">
+Any text field in any app. Safari, Notes, Pages, whatever.
 </FeatureCard>
 
 <FeatureCard title="Free" icon="dollar-sign">
-No cost, no subscription, no in-app purchase. It's part of macOS.
+No cost, no subscription. It's just there.
 </FeatureCard>
 </FeatureGrid>
 
-For non-technical users who dictate emails and documents, Apple Dictation is genuinely good enough. The problems start when you open your IDE.
+If you're writing emails all day, Apple Dictation probably is good enough. Problems start when you open an IDE.
 
-## Where Apple Dictation Fails for Code
+## Where it falls apart for code
 
-### The Casing Problem
+### Casing
 
-This is the biggest issue. Developers live in `camelCase`, `snake_case`, `PascalCase`, and `CONSTANT_CASE`. Apple Dictation has no concept of any of these.
+This is the dealbreaker. Code uses `camelCase`, `snake_case`, `PascalCase`, `CONSTANT_CASE`. Apple Dictation has no idea these exist.
 
 <VoiceDemo voice="get user name" output="Get user name" lang="Apple Dictation" />
 
 <VoiceDemo voice="camel case get user name" output="getUserName" lang="Whisperer Code Mode" />
 
-Apple Dictation produces prose: capitalized first word, spaces between words. There's no way to say "camelCase" or "snake_case" and get the correct output. You'd have to dictate and then manually edit every identifier — which defeats the purpose of voice coding.
+You get prose output: capital first word, spaces between words. No way to get actual camelCase. You'd have to dictate then manually fix every identifier. At that point, just type.
 
-### The Symbol Problem
+### Symbols
 
-Code is full of symbols: parentheses, brackets, braces, semicolons, colons, arrows, equals signs. Apple Dictation handles basic punctuation (period, comma, question mark) but struggles with programming symbols.
+Code has parentheses, brackets, braces, semicolons, colons, arrows, equals signs. Apple handles period and comma. That's about it.
 
 <VoiceDemo voice="open paren data colon dict close paren arrow bool" output="(data: dict) -> bool" lang="Whisperer Code Mode" />
 
-Try saying "open paren" to Apple Dictation and you'll get the literal text "open paren" — not the `(` character. Whisperer's Code Mode maps natural voice commands to their corresponding symbols.
+Say "open paren" and you get the words "open paren." Not the `(` character. Code Mode maps voice to actual symbols.
 
-### The Autocorrect Problem
+### Autocorrect
 
 <Callout type="warning">
-Apple Dictation aggressively autocorrects text to match natural language patterns. It capitalizes the first word of sentences, adds periods, and "fixes" unusual words. For code, this is destructive — it turns `useState` into "Use state" and `forEach` into "For each."
+Apple Dictation "fixes" things aggressively. It capitalizes sentence starts, adds periods, and changes unusual words. `useState` becomes "Use state." `forEach` becomes "For each." It's doing what it's supposed to do for prose. It just destroys code.
 </Callout>
 
-Whisperer's Code Mode disables all autocorrection. What you speak is what you get — no "helpful" modifications that break your syntax.
+Code Mode turns off all autocorrection. What you say is what you get.
 
-### The Privacy Problem
+### Privacy
 
-Apple Dictation sends audio to Apple's servers for processing (unless you enable on-device mode, which has reduced accuracy and language support). For developers working with proprietary code, client projects, or under NDA, sending code snippets to the cloud is a non-starter.
+Apple Dictation sends audio to Apple's servers unless you enable on-device mode (which is less accurate). If you're working with proprietary code or anything under NDA, that's a problem.
 
-Whisperer runs 100% on-device using Whisper. Your audio never leaves your Mac.
+Whisperer runs entirely on-device. Nothing leaves your Mac.
 
 ## Side-by-Side Comparison
 
@@ -91,60 +91,60 @@ Whisperer runs 100% on-device using Whisper. Your audio never leaves your Mac.
 | IDE-optimized | No | Yes (VS Code, Cursor, Terminal) |
 | Streaming preview | No | Yes |
 
-## Developer-Specific Gaps
+## Other gaps for developers
 
-Beyond the code formatting issues, Apple Dictation misses several features that developers need daily:
+Beyond the code-specific stuff, there are workflow issues:
 
 <FeatureGrid>
 <FeatureCard title="No Per-App Profiles" icon="layers">
-Apple uses the same dictation mode everywhere. There's no way to automatically switch between Code Mode for your IDE and natural language for Slack. Whisperer switches profiles based on the active app — zero manual toggling.
+Same dictation mode everywhere. Can't auto-switch between Code Mode for VS Code and prose for Slack. You'd have to toggle manually every time you switch apps.
 </FeatureCard>
 
-<FeatureCard title="No Personal Dictionary" icon="book-open">
-Technical terms, library names, and project-specific vocabulary get mangled by Apple's speech model. Whisperer's personal dictionary lets you add terms like "Kubernetes," "useState," "PostgreSQL," and your project's custom terminology.
+<FeatureCard title="No Custom Dictionary" icon="book-open">
+Technical terms get mangled. "Kubernetes" might become "Cooper Netties." No way to teach it your project's vocabulary.
 </FeatureCard>
 
 <FeatureCard title="No Hold-to-Talk" icon="hand">
-Apple Dictation uses a toggle or auto-stop model. Whisperer's hold-to-talk (hold Fn, speak, release) gives you precise control over when dictation is active — essential for coding where you think between bursts of input.
+Apple uses toggle or auto-stop. No hold-Fn-and-speak option. For coding, where you think between bursts, the toggle model is awkward.
 </FeatureCard>
 
-<FeatureCard title="Cloud Dependency" icon="lock">
-Even with Apple's "Enhanced Dictation" (on-device), accuracy drops compared to the cloud model. Whisperer uses local Whisper models that deliver cloud-quality accuracy without any network dependency.
+<FeatureCard title="Cloud or Worse Accuracy" icon="lock">
+On-device mode exists but accuracy drops. You're choosing between privacy and quality. Whisperer's local Whisper models don't have that tradeoff.
 </FeatureCard>
 </FeatureGrid>
 
-## When Apple Dictation Is Fine
+## When Apple Dictation works fine
 
-To be fair, Apple Dictation works well for:
+Fair's fair. It's good for:
 
-- **Writing emails and messages** — prose dictation is solid
-- **Quick notes** — short bursts of natural language text
-- **Accessibility** — essential for users who can't type due to physical limitations
-- **Casual use** — when you don't need precision or formatting control
+- **Emails and messages** - prose dictation is solid
+- **Quick notes** - short bursts of normal text
+- **Accessibility** - if you can't type, it's way better than nothing
+- **Casual use** - when you don't care about precision
 
-If you never write code, scripts, or technical documentation by voice, Apple Dictation might be all you need.
+If you never write code by voice, Apple Dictation is probably fine.
 
-## When You Need Whisperer
+## When you need something else
 
-If any of these apply to you, Apple Dictation won't cut it:
+If any of these are you, Apple Dictation won't work:
 
-- You write code in VS Code, Cursor, JetBrains IDEs, Xcode, or Terminal
-- You need `camelCase`, `snake_case`, or `PascalCase` by voice
-- You dictate symbols, brackets, parentheses, and other programming syntax
-- You want different dictation behavior per app (Code Mode for IDE, prose for Slack)
-- You work with proprietary code and need 100% offline privacy
-- You prefer hold-to-talk over toggle-based dictation
-- You have project-specific terms that standard dictation constantly misrecognizes
+- You code in VS Code, Cursor, JetBrains, Xcode, or Terminal
+- You need `camelCase`, `snake_case`, or `PascalCase`
+- You dictate brackets, parentheses, and other symbols
+- You want Code Mode in your IDE but prose mode in Slack
+- You work with proprietary code and can't send it to the cloud
+- You like hold-to-talk instead of toggle
+- You have project jargon that gets misrecognized constantly
 
 <Callout type="tip">
-Whisperer's base app is free. You can try it alongside Apple Dictation and see the difference for yourself. The Pro Pack ($14.99 one-time) unlocks Code Mode, per-app profiles, and personal dictionary.
+Whisperer's free tier lets you try it alongside Apple Dictation. Pro Pack ($14.99 one-time) adds Code Mode, per-app profiles, and personal dictionary.
 </Callout>
 
-## The Bottom Line
+## So... is it good enough?
 
-Apple Dictation is a good general-purpose tool that happens to be terrible for developers. It wasn't designed for code, and it shows in every interaction — from mangled identifiers to missing symbols to aggressive autocorrect.
+For developers? No. Apple Dictation was built for emails and documents. Every time you try to use it for code, you're fighting against its design.
 
-Whisperer was built specifically for developers who want to dictate code, terminal commands, and technical content without fighting their tools. It runs offline, respects your privacy, and costs less than a single month of most cloud dictation services.
+Whisperer exists because I got tired of that fight. It runs offline, handles code syntax, and costs less than one month of most cloud dictation subscriptions.
 
 
 ---

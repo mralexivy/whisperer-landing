@@ -6,9 +6,9 @@ keywords: ["whisper vs nvidia", "whisper transcription mac", "nvidia neural engi
 category: "technical"
 ---
 
-Whisperer is the only Mac dictation app that supports three transcription engines — Whisper, NVIDIA, and Apple Speech. Each uses different hardware, different models, and has different strengths. This guide helps you choose the right engine for your workflow.
+Whisperer runs three different transcription engines. They use different hardware and have different strengths. Here's how to pick.
 
-## Engine Overview
+## Overview
 
 | | Whisper | NVIDIA | Apple Speech |
 |---|---------|----------|--------------|
@@ -20,15 +20,15 @@ Whisperer is the only Mac dictation app that supports three transcription engine
 | Speed | Fast (GPU) | Fastest (ANE) | Fast |
 | Min macOS | 14+ | 14+ (Apple Silicon) | 26+ (Tahoe) |
 
-## Whisper — The Default Engine
+## Whisper — The Default
 
-Whisper is OpenAI's open-source speech recognition model, running locally on your Mac. No Python, no dependencies.
+OpenAI's open-source model, running locally. No Python, no dependencies.
 
-### How It Works
+### How it works
 
-Whisper processes your complete audio recording after you release the record button. It runs on Apple Silicon's Metal GPU, which provides fast inference without blocking the CPU or Neural Engine for other tasks.
+Processes audio after you release the record button. Runs on Apple Silicon's Metal GPU.
 
-### Model Sizes
+### Model sizes
 
 | Model | Size | Speed | Accuracy | Best For |
 |-------|------|-------|----------|----------|
@@ -40,63 +40,61 @@ Whisper processes your complete audio recording after you release the record but
 | Large V3 Turbo | ~1.5GB | Fast | Very high | Best balanced |
 
 <Callout type="tip">
-**Recommended starting point:** Large V3 Turbo (~1.5GB). It offers near-Large accuracy at significantly faster speeds. For most users, this is the "set and forget" model.
+**Start here:** Large V3 Turbo (~1.5GB). Near-Large accuracy, much faster. Good default.
 </Callout>
 
-### When to Use Whisper
+### When to use it
 
-- You need the **highest accuracy** available
-- You're dictating in **non-English languages** (99+ supported)
-- You want the **widest model selection** to trade speed for accuracy
-- You're doing **file transcription** (Whisper handles long audio well)
+- High accuracy matters
+- Non-English (99+ languages)
+- You want control over the speed/accuracy tradeoff
+- File transcription
 
-## NVIDIA — The Fastest Engine
+## NVIDIA — The fast one
 
-NVIDIA is a CTC-based speech recognition model, running on Apple Silicon's Neural Engine via CoreML. It's the fastest option available — and it has a unique feature: CTC vocabulary boosting.
+CTC-based speech recognition running on Apple Silicon's Neural Engine via CoreML. Fastest option, and has a feature the others don't: vocabulary boosting.
 
-### How It Works
+### How it works
 
-NVIDIA uses the dedicated Neural Engine (ANE), which is separate from the GPU. This means NVIDIA can run simultaneously with Whisper without resource contention. It's also used for Whisperer's live preview — the EOU (End-of-Utterance) engine that provides ~300ms preview latency.
+NVIDIA uses the Neural Engine, which is separate from the GPU. So it can run alongside GPU work with no contention. The same chip powers Whisperer's live preview (~300ms latency).
 
-### CTC Vocabulary Boosting
+### Vocabulary boosting
 
-This is NVIDIA's killer feature. Your [personal dictionary](/features/personal-dictionary) entries and prompt words directly bias the CTC decoder at the acoustic level. This means:
+This is why NVIDIA matters. Your [personal dictionary](/features/personal-dictionary) entries bias the CTC decoder at the acoustic level:
 
-- Project-specific terms are recognized more accurately
-- Names, acronyms, and jargon are decoded correctly
-- The boost happens during decoding, not as a post-processing step
+- Project terms recognized more accurately
+- Names, acronyms, jargon decoded correctly
+- Happens during decoding, not as post-processing cleanup
 
 <Callout type="info">
-Vocabulary boosting is unique to NVIDIA's CTC architecture. Whisper (attention-based) and Apple Speech don't support this kind of direct decoder biasing. If accurate recognition of custom terms is critical, NVIDIA with a well-configured dictionary is the best choice.
+Only NVIDIA supports this. Whisper and Apple Speech use attention-based architectures that can't do direct decoder biasing. If you have lots of custom terminology, NVIDIA with a configured dictionary is worth trying.
 </Callout>
 
-### When to Use NVIDIA
+### When to use NVIDIA
 
-- You want the **fastest possible transcription**
-- You have a **large personal dictionary** (vocabulary boosting)
-- You want to **leave the GPU free** for other tasks (video editing, ML training)
-- You primarily dictate in one of the **25 supported languages**
+- Speed is priority
+- You have a big personal dictionary
+- You want GPU free for video/ML work
+- You work in a top-25 language
 
-## Apple Speech — The Native Option
+## Apple Speech — The native option
 
-Apple Speech uses macOS's built-in SpeechAnalyzer framework, available on macOS 26 (Tahoe) and later. Zero setup — no model downloads required.
+macOS's built-in SpeechAnalyzer framework. Only on macOS 26 (Tahoe) and later. Zero setup.
 
-### How It Works
+### How it works
 
-Apple Speech leverages the system's built-in speech recognition pipeline. It's deeply integrated with macOS and uses Apple's own ML infrastructure. No additional models to download or manage.
+Uses the system speech recognition pipeline. No models to download. Apple handles everything.
 
-### When to Use Apple Speech
+### When to use it
 
-- You're on **macOS 26+** (Tahoe)
-- You want **zero setup** — no model downloads
-- You need **quick, lightweight dictation** without maximum accuracy
-- You're **low on disk space** and can't store Whisper models
+- You're on macOS 26+
+- You don't want to download models
+- You're low on disk space
+- Accuracy isn't critical
 
-## Head-to-Head Comparison
+## Actual benchmarks
 
-### Accuracy
-
-For English dictation:
+### Accuracy (English)
 
 | Engine | Short Phrases | Long Dictation | Technical Terms | Code Terms |
 |--------|---------------|----------------|-----------------|------------|
@@ -120,44 +118,44 @@ For English dictation:
 NVIDIA is 2–3x faster than Whisper Large V3 Turbo for typical dictation. If speed is your priority and you don't need 99+ languages, NVIDIA is the clear winner.
 </Callout>
 
-### Resource Usage
+### Resource usage
 
-| Engine | Hardware Used | GPU Free? | ANE Free? | Battery Impact |
+| Engine | Hardware | GPU Free? | ANE Free? | Battery |
 |--------|-------------|-----------|-----------|----------------|
 | Whisper | Metal GPU | No | Yes | Moderate |
 | NVIDIA | Neural Engine | Yes | No | Low |
 | Apple Speech | System ML | Varies | Varies | Low |
 
-NVIDIA's Neural Engine usage means your GPU stays free for video editing, 3D rendering, or ML workloads. This makes NVIDIA ideal for multitasking.
+NVIDIA leaves the GPU free, which matters if you're editing video or training models while dictating.
 
-## Choosing Your Engine
+## Which one?
 
 <FeatureGrid>
-<FeatureCard title="Best Overall" icon="star">
-**Whisper Large V3 Turbo** — the best balance of accuracy and speed. Works for 99+ languages. Start here.
+<FeatureCard title="Default choice" icon="star">
+**Whisper Large V3 Turbo**. Good accuracy, reasonable speed, 99+ languages. Start here.
 </FeatureCard>
-<FeatureCard title="Fastest" icon="zap">
-**NVIDIA** — 2–3x faster, leaves GPU free. Best for English-primary users with large dictionaries.
+<FeatureCard title="Speed priority" icon="zap">
+**NVIDIA**. 2-3x faster, GPU stays free. Good if you work in English with lots of custom terms.
 </FeatureCard>
-<FeatureCard title="Zero Setup" icon="sparkles">
-**Apple Speech** — no downloads, instant start. Good enough for casual dictation on macOS 26+.
+<FeatureCard title="No setup" icon="sparkles">
+**Apple Speech**. No downloads, works immediately. Fine for casual use on macOS 26+.
 </FeatureCard>
-<FeatureCard title="Maximum Accuracy" icon="target">
-**Whisper Large V3** (2.9GB) — the most accurate model available. Use for file transcription or accuracy-critical work.
+<FeatureCard title="Max accuracy" icon="target">
+**Whisper Large V3** (2.9GB). Most accurate. Use for file transcription or when errors cost you.
 </FeatureCard>
 </FeatureGrid>
 
-## Hot-Swapping Engines
+## Switching engines
 
-Whisperer lets you switch between engines without restarting. Open Settings → Engine and select your preferred backend. The switch is instant — no app restart, no re-configuration.
+Settings, Engine, pick one. No restart needed.
 
-You can even use different engines for different purposes:
-- **NVIDIA** for live dictation (fastest feedback)
-- **Whisper Large V3** for file transcription (maximum accuracy)
-- **Apple Speech** when you're low on battery
+You can use different engines for different work:
+- NVIDIA for live dictation (fastest)
+- Whisper Large V3 for file transcription (most accurate)
+- Apple Speech when battery is low
 
 ---
 
-*Related: [Offline Transcription Engines](/features/offline-transcription), [Best Whisper Model for Dictation](/blog/best-whisper-model-for-dictation), [Whisper vs NVIDIA Transcription](/blog/whisper-vs-nvidia-transcription). See [all features](/features) and [pricing](/pricing).*
+*More: [Offline Transcription](/features/offline-transcription), [Best Whisper Model](/blog/best-whisper-model-for-dictation), [Whisper vs NVIDIA](/blog/whisper-vs-nvidia-transcription). [Features](/features), [pricing](/pricing).*
 
 <CTA />

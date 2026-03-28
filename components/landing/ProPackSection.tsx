@@ -54,7 +54,7 @@ export const ProPackSection = () => {
             Pro Pack <span className="text-primary">(Lifetime)</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Power features for people who dictate all day: Code Mode, profiles, dictionary, and pro insertion.
+            For people who dictate all day. Code Mode, profiles, dictionary, and pro insertion.
           </p>
         </FadeIn>
 
@@ -69,7 +69,7 @@ export const ProPackSection = () => {
               <span className="text-base font-normal text-muted-foreground"> one-time</span>
             </div>
             <p className="text-muted-foreground mb-6">
-              Core dictation features for everyday use.
+              Core dictation for everyday use.
             </p>
             <ul className="space-y-3 mb-8">
               {["Hold-to-record dictation", "Live preview", "100+ languages", "Multiple Whisper models", "Offline processing", "File transcription", "Filler word removal"].map((item, i) => (
@@ -100,7 +100,7 @@ export const ProPackSection = () => {
               <span className="text-base font-normal text-muted-foreground"> lifetime</span>
             </div>
             <p className="text-muted-foreground mb-2">
-              Everything in Base, plus power features.
+              Everything in Base, plus the good stuff.
             </p>
             <p className="text-xs text-muted-foreground/70 mb-6">
               Superwhisper: $249 &middot; Voibe: $99 &middot; Wispr Flow: $10–15/mo

@@ -15,68 +15,64 @@ howToSteps:
     text: "Add proper nouns, technical terms, and frequently used words in your target language to prompt words for better recognition."
 ---
 
-If you work in multiple languages, standard dictation apps make you manually switch languages every time. Whisperer handles multilingual workflows natively — with per-app language profiles, AI-powered translation, and over 100 supported languages.
+If you work in multiple languages, most dictation apps make you manually switch every time. It's annoying. Whisperer lets you set up per-app language profiles, so your IDE uses English while your email uses French. No manual switching.
 
-## Setting Your Dictation Language
+## Pick your language explicitly
 
-The most important step for accuracy: **explicitly select your dictation language** rather than relying on auto-detection.
-
-Auto-detection works but can misidentify languages, especially for:
-- Short utterances (fewer words = less data for the model)
-- Languages with similar phonetics (e.g., Spanish and Portuguese)
-- Code-switching (mixing languages in one utterance)
+Auto-detection is convenient but it makes mistakes. Especially with:
+- Short phrases (not enough data to guess from)
+- Similar-sounding languages (Spanish vs Portuguese)
+- Mixing languages in one sentence
 
 <Callout type="info">
-**Tip:** Explicit language selection gives 10-15% better accuracy than auto-detection for most languages.
+Explicit language selection is about 10-15% more accurate than auto-detect. Worth setting up.
 </Callout>
 
-## Per-App Language Profiles
+## Different languages for different apps
 
-With Whisperer's Pro Pack, you can assign a different dictation language to each application:
+Pro Pack lets you assign languages per app:
 
-- **VS Code / Cursor:** English (for code and comments)
-- **Pages / Word:** French (for documents)
-- **Mail:** German (for correspondence)
-- **Slack:** English (for team chat)
+- **VS Code / Cursor:** English for code
+- **Pages / Word:** French for documents
+- **Mail:** German for correspondence
+- **Slack:** English for team chat
 
-When you switch between apps, Whisperer automatically switches the dictation language. No manual toggling needed.
+Switch apps, language switches automatically. No toggling.
 
-## AI Translation Mode
+## Translate as you dictate
 
-Whisperer's [AI post-processing](/features/ai-writing) includes a Translate mode that converts your dictation to a different language entirely offline:
+[AI post-processing](/features/ai-writing) has a Translate mode. Speak in one language, get text in another. All offline.
 
 1. Enable AI Post-Processing in Settings
 2. Select "Translate" mode
 3. Set your target language
-4. Dictate in your native language — the output appears in the target language
+4. Speak in your native language, get output in the target
 
-This is particularly useful for:
-- Writing emails in a language you can speak but type slowly in
-- Quick translations without opening a separate app
-- Maintaining consistent terminology with your [personal dictionary](/features/personal-dictionary)
+Good for:
+- Writing in a language you speak better than you type
+- Quick translations without switching apps
+- Using [personal dictionary](/features/personal-dictionary) terms for consistent translations
 
-## Language Support by Backend
+## Which backend for which language
 
-Not all backends support the same languages:
-
-| Backend | Languages | Best For |
+| Backend | Languages | Notes |
 |---|---|---|
-| **Whisper** | 99+ | Maximum language coverage |
-| **NVIDIA** | 25 | Fast inference for top languages |
-| **Apple Speech** | System languages | Native macOS integration |
+| **Whisper** | 99+ | Only option for less common languages |
+| **NVIDIA** | 25 | Fastest, but limited coverage |
+| **Apple Speech** | System languages | Whatever Apple supports |
 
-If you need a less common language, Whisper is the only backend with full coverage. For top-25 languages, NVIDIA offers the fastest inference.
+If you need Romanian or Icelandic or something uncommon, Whisper is your only choice. For English, Spanish, French, and other top languages, NVIDIA is faster.
 
-## Tips for Non-English Accuracy
+## Making non-English work better
 
-1. **Use the right model size.** Larger Whisper models (Medium, Large V3) perform significantly better on non-English languages than smaller models
-2. **Add prompt words** for proper nouns, place names, and technical terms in your language
-3. **Set up dictionary corrections** for words the model consistently gets wrong
-4. **Use explicit language selection** rather than auto-detection
+1. **Use bigger models.** Tiny and Small struggle with non-English. Medium or Large V3 are noticeably better.
+2. **Add prompt words** for names and technical terms in your language.
+3. **Fix recurring mistakes** with dictionary corrections.
+4. **Set language explicitly** instead of relying on auto-detect.
 
-## Getting Started
+## Getting started
 
 1. [Download Whisperer](https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671)
-2. Go to Settings and select your language
-3. Optionally set up [per-app profiles](/blog/dictation-for-per-app-profiles) for multilingual workflows
-4. Explore the full [multilingual features](/features/multilingual)
+2. Settings, select your language
+3. Set up [per-app profiles](/blog/dictation-for-per-app-profiles) if you use multiple languages
+4. Full details on [multilingual features](/features/multilingual)

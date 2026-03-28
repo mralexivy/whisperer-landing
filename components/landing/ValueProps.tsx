@@ -10,16 +10,16 @@ const cards = [
     color: "text-amber-400",
     bgColor: "bg-amber-400/10",
     hoverBg: "group-hover:bg-amber-400/20",
-    title: "Hold-to-talk. Release-to-insert.",
-    description: "No copy/paste steps. No switching apps. Just speak into the active cursor.",
+    title: "Hold, talk, release.",
+    description: "Text goes straight into whatever field you're in. No clipboard dance.",
   },
   {
     icon: Shield,
     color: "text-blue-400",
     bgColor: "bg-blue-400/10",
     hoverBg: "group-hover:bg-blue-400/20",
-    title: "Doesn't trigger by accident.",
-    description: "Smart Fn combo filtering prevents accidental recordings when using brightness/volume keys.",
+    title: "Won't trigger by accident.",
+    description: "Fn+brightness or Fn+volume? Ignored. Only real dictation requests start recording.",
   },
   {
     icon: Lock,
@@ -42,7 +42,7 @@ export const ValueProps = () => {
             Why <span className="text-primary">Whisperer</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Three on-device engines — Whisper, NVIDIA, Apple Speech — with Code Mode for camelCase and symbols. $2.99 base, $14.99 Pro lifetime. No subscription, no cloud.
+            Three local engines (Whisper, NVIDIA, Apple Speech). Code Mode for camelCase and symbols. $2.99 base, $14.99 Pro lifetime.
           </p>
         </FadeIn>
 

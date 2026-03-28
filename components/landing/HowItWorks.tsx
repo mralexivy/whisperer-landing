@@ -21,7 +21,7 @@ const steps = [
     icon: MousePointerClick,
     step: "03",
     title: "Release to insert",
-    description: "On release, Whisperer refines the final text and inserts it into the focused field.",
+    description: "Let go. Whisperer cleans up the text and drops it where your cursor is.",
   },
 ];
 
@@ -36,7 +36,7 @@ export const HowItWorks = () => {
             How <span className="text-primary">Whisperer</span> works
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Three simple steps to effortless dictation.
+            Here's how it works.
           </p>
         </FadeIn>
 

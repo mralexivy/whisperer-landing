@@ -6,23 +6,21 @@ keywords: ["MacWhisper alternative", "Whisperer vs MacWhisper", "dictation vs tr
 category: "comparison"
 ---
 
-Whisperer and MacWhisper both use Whisper on your Mac, but they solve fundamentally different problems. Understanding the difference will save you from buying the wrong tool.
+Both apps use Whisper. Both run on your Mac. But they're for different things entirely.
 
-## The Key Difference
+## Different Tools for Different Problems
 
 <Callout type="info">
-**Whisperer** is a **dictation** tool — you speak, and text is inserted live into whatever app you're using. It's for real-time voice input.
+**Whisperer** is for live dictation. You speak, text appears in whatever app you're using. Real-time.
 
-**MacWhisper** is a **transcription** tool — you feed it audio files (recordings, meetings, podcasts), and it produces a text transcript. It's for batch processing.
+**MacWhisper** is for transcribing files. You drag in a recording, it produces a transcript. Batch processing.
 
-These are different workflows:
-
-| | Whisperer (Dictation) | MacWhisper (Transcription) |
+| | Whisperer | MacWhisper |
 |---|----------------------|---------------------------|
-| Input | Live microphone | Audio/video files |
-| Output | Text inserted into active app | Transcript in MacWhisper's UI |
-| Timing | Real-time, as you speak | After-the-fact processing |
-| Use case | Writing emails, code, messages | Transcribing meetings, interviews |
+| Input | Your microphone, live | Audio/video files |
+| Output | Text in the active app | Transcript in MacWhisper |
+| When | As you speak | After the recording exists |
+| Use case | Writing emails, code, messages | Transcribing meetings, podcasts |
 </Callout>
 
 ## Feature Comparison
@@ -31,7 +29,7 @@ These are different workflows:
 |---------|-----------|-----------|
 | Live dictation | Yes | No |
 | Inserts into any app | Yes | No (copies to clipboard) |
-| File transcription | No | Yes |
+| File transcription | Yes | Yes |
 | Batch processing | No | Yes |
 | Code Mode | Yes | No |
 | Per-app profiles | Yes | No |
@@ -39,64 +37,59 @@ These are different workflows:
 | Export formats | N/A | SRT, VTT, TXT, etc. |
 | Price | Free / $14.99 Pro | ~$64 one-time |
 
-## When You Need Whisperer
+## When Whisperer Makes Sense
 
 <FeatureGrid>
 <FeatureCard title="Live Dictation" icon="mic">
-You want to **speak and have text appear** in VS Code, Slack, Gmail, Terminal, or any app.
+You speak, text appears in VS Code, Slack, Gmail, Terminal. Any app.
 </FeatureCard>
 
 <FeatureCard title="Code Mode" icon="code">
-You need **Code Mode** for dictating programming syntax.
+You want to dictate `camelCase` and programming symbols.
 </FeatureCard>
 
-<FeatureCard title="Real-Time Input" icon="zap">
-You want **real-time dictation** with a hold-to-talk shortcut.
+<FeatureCard title="Real-Time" icon="zap">
+Hold a key, speak, release. Text shows up immediately.
 </FeatureCard>
 
 <FeatureCard title="Per-App Profiles" icon="target">
-You want **per-app profiles** that switch behavior automatically.
+Different behavior in different apps, automatically.
 </FeatureCard>
 </FeatureGrid>
 
-## When You Need MacWhisper
+## When MacWhisper Makes Sense
 
 <FeatureGrid>
-<FeatureCard title="Audio File Transcription" icon="folder-open">
-You have **recorded audio files** (meetings, interviews, lectures) you need transcribed.
+<FeatureCard title="File Transcription" icon="folder-open">
+You have recordings (meetings, interviews, lectures) that need transcribing.
 </FeatureCard>
 
-<FeatureCard title="Subtitle Generation" icon="file-text">
-You need **subtitle generation** (SRT/VTT files).
+<FeatureCard title="Subtitles" icon="file-text">
+You need SRT or VTT files for video.
 </FeatureCard>
 
-<FeatureCard title="Podcast Transcription" icon="headphones">
-You want to **transcribe podcasts** or video content.
+<FeatureCard title="Podcasts" icon="headphones">
+You want transcripts of podcast episodes.
 </FeatureCard>
 
 <FeatureCard title="Batch Processing" icon="package">
-You need **batch processing** of multiple audio files.
+You have a pile of audio files to chew through.
 </FeatureCard>
 </FeatureGrid>
 
 ## Can You Use Both?
 
 <Callout type="tip">
-Yes — and many users do. They're complementary tools:
-
-- **Whisperer** for live dictation throughout the day (writing code, emails, messages)
-- **MacWhisper** for transcribing recorded meetings and generating subtitles
-
-Both use Whisper, both run offline, and they don't conflict with each other.
+Sure. They don't conflict. Plenty of people use Whisperer for daily dictation and MacWhisper for transcribing meeting recordings. Different tools, different jobs.
 </Callout>
 
-## The Verdict
+## The Short Version
 
-This isn't about which tool is "better" — they solve different problems.
+Not really a "which is better" question. They do different things.
 
-**Need live dictation?** Get Whisperer.
-**Need file transcription?** Get MacWhisper.
-**Need both?** Get both — they work great together.
+**Live dictation?** Whisperer.
+**Transcribe files?** MacWhisper.
+**Both?** Both.
 
 ## Price Comparison
 
@@ -108,47 +101,44 @@ This isn't about which tool is "better" — they solve different problems.
 | Live dictation | Primary feature | Not available |
 
 <Callout type="info">
-If you need file transcription *and* live dictation, Whisperer at $2.99 (base) already includes file transcription. MacWhisper at ~$64 only does file transcription. For many users, Whisperer alone covers both use cases at a fraction of the cost.
+Worth noting: Whisperer's $2.99 base includes file transcription. MacWhisper costs ~$64 and only does file transcription. If you need both live dictation and file transcription, Whisperer is cheaper and does more.
 </Callout>
 
-## What Whisperer Adds Beyond Transcription
-
-Even for file transcription, Whisperer offers advantages:
+## What Whisperer Has That MacWhisper Doesn't
 
 <FeatureGrid>
 <FeatureCard title="Live Dictation" icon="mic">
-MacWhisper can't insert text into other apps. Whisperer inserts into VS Code, Slack, Gmail, Terminal — any focused field.
+MacWhisper doesn't insert text into apps. Whisperer types into whatever's focused.
 </FeatureCard>
 <FeatureCard title="Code Mode" icon="code">
-[Dictate code by voice](/code-mode) with camelCase, snake_case, symbols. MacWhisper has no code features.
+Dictate [camelCase, snake_case, symbols](/code-mode). MacWhisper doesn't have code features.
 </FeatureCard>
 <FeatureCard title="AI Post-Processing" icon="sparkles">
-[10 offline AI modes](/features/ai-writing) — Rewrite, Translate, Format, Summarize, Grammar, and more. MacWhisper transcribes but doesn't transform.
+[Ten offline AI modes](/features/ai-writing): rewrite, translate, format, summarize, fix grammar. MacWhisper just transcribes.
 </FeatureCard>
 <FeatureCard title="Three Engines" icon="cpu">
-[Whisper, NVIDIA, and Apple Speech](/features/offline-transcription) with hot-swapping. MacWhisper uses Whisper only.
+[Whisper, NVIDIA, Apple Speech](/features/offline-transcription). Hot-swap without restarting. MacWhisper is Whisper only.
 </FeatureCard>
 </FeatureGrid>
 
-## Who Should Choose What
+## Which One
 
 <Callout type="tip">
-**Choose Whisperer if:**
-- You need live dictation into any app (MacWhisper can't do this)
-- You want both live dictation and file transcription in one app
-- You're a developer who needs [Code Mode](/code-mode)
-- You want AI post-processing for your transcriptions
-- Budget matters — $2.99–14.99 vs ~$64
+**Get Whisperer if:**
+- You need live dictation (MacWhisper can't do this at all)
+- You want live dictation and file transcription in one app
+- You write code and need [Code Mode](/code-mode)
+- Budget matters: $2.99-14.99 vs ~$64
 
-**Choose MacWhisper if:**
-- File transcription is your only need
-- You need subtitle generation (SRT/VTT export)
-- You need batch processing of many audio files
-- You don't need live dictation at all
+**Get MacWhisper if:**
+- File transcription is all you need
+- You need SRT/VTT subtitle export
+- You batch-process lots of recordings
+- You never need live dictation
 </Callout>
 
 ---
 
-*More comparisons: [vs Superwhisper](/compare/vs-superwhisper), [vs Voibe](/compare/vs-voibe), [vs Apple Dictation](/compare/vs-apple-dictation). See [all comparisons](/compare), [pricing](/pricing), and [all features](/features).*
+*More comparisons: [vs Superwhisper](/compare/vs-superwhisper), [vs Voibe](/compare/vs-voibe), [vs Apple Dictation](/compare/vs-apple-dictation). See [all comparisons](/compare) and [pricing](/pricing).*
 
 <CTA />

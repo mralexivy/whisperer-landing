@@ -1,94 +1,90 @@
 ---
 title: "Voice Dictation for Vibe Coding: Speak to Cursor, Claude Code & Windsurf"
 description: "How to use voice dictation for vibe coding with AI-powered IDEs like Cursor, Claude Code, and Windsurf. Dictate prompts, code, and instructions by voice with Whisperer's Code Mode."
-date: "2026-03-18"
+date: "2026-03-28"
 keywords: ["vibe coding voice dictation", "voice coding cursor", "dictation for claude code", "voice to text AI IDE", "vibe coding tools", "speak to cursor IDE", "voice prompts AI coding"]
 category: "guides"
 ---
 
-Vibe coding — using AI to write code by describing what you want in natural language — has exploded in 2026. Tools like Cursor, Claude Code, and Windsurf let you write entire applications by typing prompts. But what if you could speak those prompts instead?
+Vibe coding has taken off this year. Describe what you want, AI writes the code. Tools like Cursor, Claude Code, and Windsurf let you build entire features just by typing prompts.
 
-Voice dictation turns vibe coding into a hands-free experience. Instead of typing "create a React component that fetches user data and displays it in a table," you speak it. Faster. More natural. No typing fatigue.
+But typing prompts all day is still typing. Speaking them is faster and your hands get a break.
 
-## What Is Vibe Coding?
+## What's Vibe Coding?
 
-Vibe coding means describing what you want in natural language and letting AI write the code. Instead of manually coding every function, you provide high-level instructions and an AI agent generates the implementation.
+You describe what you want in plain English, AI writes the code. Instead of writing every function yourself, you give high-level instructions and an AI agent generates it.
 
 <FeatureGrid>
 <FeatureCard title="Cursor" icon="monitor">
-AI-first IDE with inline code generation, chat, and multi-file editing from natural language prompts.
+AI-first IDE. Chat, inline generation, multi-file edits from prompts.
 </FeatureCard>
 <FeatureCard title="Claude Code" icon="terminal">
-Anthropic's CLI agent that reads your codebase, writes code, runs tests, and iterates — all from text instructions.
+Anthropic's CLI agent. Reads your codebase, writes code, runs tests, iterates.
 </FeatureCard>
 <FeatureCard title="Windsurf" icon="code">
-AI coding environment with flow-based code generation and context-aware completions.
+AI coding environment with flow-based generation.
 </FeatureCard>
 <FeatureCard title="VS Code + Copilot" icon="keyboard">
-GitHub Copilot in VS Code with chat panel for natural language code generation.
+Copilot chat panel for natural language code generation.
 </FeatureCard>
 </FeatureGrid>
 
-## Why Voice + Vibe Coding Is Powerful
+## Why Voice Works Well Here
 
-The bottleneck in vibe coding isn't AI speed — it's your ability to articulate what you want. Typing long, detailed prompts is slow and tiring. Speaking is 3–4x faster than typing for most people.
+The bottleneck in vibe coding isn't AI speed. It's how fast you can explain what you want. Typing detailed prompts is slow and tiring.
 
 ### Speed
 
-Average typing speed: 40–60 WPM. Average speaking speed: 130–150 WPM. That's a 2.5–3x speed advantage for voice dictation. For vibe coding, where you're writing paragraphs of instructions rather than short variable names, the speed gap is massive.
+You type at maybe 40-60 words per minute. You speak at 130-150. That's 2.5-3x faster. When you're writing paragraphs of instructions instead of variable names, that gap adds up fast.
 
-### Expressiveness
+### You Actually Say More
 
-When you speak, you naturally provide more context. Instead of typing terse prompts like "add user auth," you'll naturally say "Add user authentication with email and password, use bcrypt for hashing, and add a rate limiter to prevent brute force attacks." More context = better AI output.
+When you speak, you tend to give more context. Typing: "add user auth." Speaking: "Add user authentication with email and password, use bcrypt for hashing, and add a rate limiter to prevent brute force attacks." More context, better AI output.
 
-### Reduced Fatigue
+### Less Hand Fatigue
 
-Vibe coding involves constant prompt writing. Over an 8-hour session, the typing volume is significant. Voice dictation reduces hand strain while maintaining — or increasing — your prompt output.
+Vibe coding is constant prompt writing. Over a full day, that's a lot of typing. Voice lets your hands rest while you keep working.
 
-## Setting Up Whisperer for Vibe Coding
+## Setup
 
 <StepList>
-<Step num="1" title="Download Whisperer">
-Get Whisperer from the [Mac App Store](https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671). The free trial includes all core dictation features.
+<Step num="1" title="Get Whisperer">
+[Mac App Store](https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671). Free to start.
 </Step>
 
-<Step num="2" title="Create a Per-App Profile for Your IDE">
-Open Whisperer Settings → Profiles. Add a profile for Cursor (or your preferred IDE). Enable Code Mode for technical terms, or keep it in natural language mode for prompt writing.
+<Step num="2" title="Create a Profile for Your IDE">
+Settings > Profiles. Add one for Cursor or whatever you use. Natural language mode is usually fine for prompts. Code Mode if you're mixing prompts and manual code.
 </Step>
 
-<Step num="3" title="Choose Your Workflow">
-For vibe coding prompts, natural language mode is usually best — you're writing instructions, not code. For mixed workflows (prompts + manual code), use Code Mode.
+<Step num="3" title="Pick Your Mode">
+For prompts, natural language works. For mixed work (prompts plus writing code yourself), Code Mode handles both.
 </Step>
 
-<Step num="4" title="Start Dictating">
-Hold Fn (or your shortcut), speak your prompt, release. The text appears in Cursor's chat panel, Claude Code's terminal, or wherever your cursor is focused.
+<Step num="4" title="Dictate">
+Hold Fn, talk, release. Text appears wherever your cursor is.
 </Step>
 </StepList>
 
-## Voice Dictation in Cursor
+## Using Cursor
 
-Cursor's AI chat panel is where you spend most of your time during vibe coding. With Whisperer:
-
-1. **Focus Cursor's chat input** — click in the prompt area
-2. **Hold Fn and speak** — describe what you want the AI to do
-3. **Release** — your prompt appears in the chat, ready to send
+Most of your time is in the chat panel. Click there, hold Fn, talk, release.
 
 <VoiceDemo voice="Create a React component called UserProfile that takes a user ID prop, fetches the user data from the API, shows a loading spinner while fetching, and displays the name, email, and avatar in a card layout" output="Create a React component called UserProfile that takes a user ID prop, fetches the user data from the API, shows a loading spinner while fetching, and displays the name, email, and avatar in a card layout" lang="Prompt" />
 
-That's a 40-word prompt delivered in about 15 seconds by voice. Typing the same prompt takes 45–60 seconds.
+That's 40 words in about 15 seconds. Typing it takes a minute.
 
-## Voice Dictation with Claude Code
+## Using Claude Code
 
-Claude Code runs in your terminal. Whisperer inserts into terminal fields just like any other app:
+Claude Code runs in your terminal. Whisperer works the same way:
 
 <VoiceDemo voice="Look at the authentication module and add rate limiting. Use a sliding window algorithm with a limit of 5 attempts per minute per IP address. Add tests for the rate limiter." output="Look at the authentication module and add rate limiting. Use a sliding window algorithm with a limit of 5 attempts per minute per IP address. Add tests for the rate limiter." lang="Terminal" />
 
-### Per-App Profiles for Terminal
+### Terminal Profile
 
-Set up a per-app profile for Terminal or iTerm2 with:
-- **Mode:** Natural language (for prompts) or Code Mode (for commands)
-- **AI Post-Processing:** Consider "Rewrite" mode to clean up spoken prompts into clearer instructions
-- **Language:** Your preferred language
+Set up a profile for Terminal or iTerm2:
+- **Mode:** Natural language for prompts, Code Mode for commands
+- **Rewrite mode:** Cleans up spoken prompts if you want tighter language
+- **Language:** Whatever you prefer
 
 ## When to Use Code Mode vs. Natural Language
 
@@ -100,32 +96,32 @@ Set up a per-app profile for Terminal or iTerm2 with:
 | Code review comments | Natural language | Prose, not code |
 | Mixed (prompt + code snippets) | Code Mode | Handles both; symbols available |
 
-## Tips for Effective Voice Vibe Coding
+## Tips
 
 <FeatureGrid>
 <FeatureCard title="Be Specific" icon="target">
-Voice naturally produces more verbose prompts — that's an advantage. Be specific about edge cases, error handling, and expected behavior. AI works better with detailed instructions.
+Voice makes you naturally say more. Use that. Mention edge cases, error handling, expected behavior. More detail, better output.
 </FeatureCard>
-<FeatureCard title="Use AI Rewrite" icon="sparkles">
-Enable Whisperer's Rewrite AI mode to clean up your spoken prompts before sending. It removes filler words and tightens the language while preserving meaning.
+<FeatureCard title="AI Rewrite" icon="sparkles">
+Whisperer can clean up your prompts before inserting. Removes filler, tightens language.
 </FeatureCard>
-<FeatureCard title="Add to Dictionary" icon="book-open">
-Add project-specific terms (framework names, API endpoints, library names) to your [personal dictionary](/features/personal-dictionary) so Whisperer recognizes them accurately.
+<FeatureCard title="Dictionary" icon="book-open">
+Add your project jargon. Framework names, API endpoints, weird library names.
 </FeatureCard>
 <FeatureCard title="Per-App Profiles" icon="layers">
-Set up different profiles: natural language for Cursor chat, Code Mode for VS Code editor, casual mode for Slack discussions about the code.
+Natural language for Cursor chat, Code Mode for VS Code, casual for Slack.
 </FeatureCard>
 </FeatureGrid>
 
-## The Vibe Coding Voice Stack
+## The Stack
 
-The most productive vibe coding setup combines:
+What works well together:
 
-1. **Whisperer** — voice-to-text with per-app profiles and Code Mode ($14.99 lifetime)
-2. **Cursor / Claude Code / Windsurf** — AI coding environment
-3. **A good microphone** — built-in MacBook mic works, but an external mic improves accuracy
+1. **Whisperer** — voice-to-text with per-app profiles and Code Mode ($14.99)
+2. **Cursor / Claude Code / Windsurf** — your AI coding tool
+3. **Decent mic** — built-in works, external is better
 
-This stack lets you describe features, debug issues, and iterate on code entirely by voice. The AI handles the implementation; you handle the direction.
+You describe features, debug issues, iterate on code by voice. The AI does the typing.
 
 ---
 

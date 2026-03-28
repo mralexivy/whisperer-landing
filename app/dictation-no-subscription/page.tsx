@@ -92,9 +92,9 @@ const whyOneTime = [
     icon: Server,
     color: "text-green-400",
     bgColor: "bg-green-400/10",
-    title: "No Servers to Pay For",
+    title: "No Servers",
     description:
-      "Whisperer runs 100% offline on your Mac. There are no cloud servers, no API endpoints, no infrastructure costs to pass on to you.",
+      "Whisperer runs offline on your Mac. No cloud servers, no API endpoints, no infrastructure costs.",
   },
   {
     icon: Ban,
@@ -102,7 +102,7 @@ const whyOneTime = [
     bgColor: "bg-red-400/10",
     title: "No API Charges",
     description:
-      "Cloud dictation services charge per minute of audio processed. Whisperer processes everything locally — no per-use costs, no metered billing.",
+      "Cloud services charge per minute of audio. Whisperer processes everything locally. No metered billing.",
   },
   {
     icon: Infinity,
@@ -110,15 +110,15 @@ const whyOneTime = [
     bgColor: "bg-blue-400/10",
     title: "Unlimited Usage",
     description:
-      "Dictate for hours every day without worrying about usage limits, quotas, or overage charges. Your Mac is the only infrastructure.",
+      "Dictate as much as you want. No quotas, no overage charges. Your Mac is the only infrastructure.",
   },
   {
     icon: ShieldCheck,
     color: "text-purple-400",
     bgColor: "bg-purple-400/10",
-    title: "Future Updates Included",
+    title: "Updates Included",
     description:
-      "Your one-time purchase includes all future updates. New models, new features, performance improvements — all included at no extra cost.",
+      "One-time purchase includes future updates. New models, new features, performance improvements.",
   },
 ];
 
@@ -171,32 +171,32 @@ const faqs = [
   {
     question: "Is Whisperer really a one-time purchase?",
     answer:
-      "Yes. The base app is $2.99 one-time and the Pro Pack is $14.99 one-time (lifetime). There are no subscriptions, no recurring charges, and no cloud fees. You own it forever.",
+      "Yes. Base app $2.99, Pro Pack $14.99. No subscriptions, no recurring charges, no cloud fees. You own it.",
   },
   {
     question: "Which dictation apps have no subscription?",
     answer:
-      "Whisperer ($14.99 lifetime), Superwhisper ($249 lifetime), Voibe ($99 lifetime), VoiceInk (one-time), and MacWhisper (~$64 one-time) all offer one-time purchase options. Whisperer is the most affordable at $14.99 with the most features including Code Mode and per-app profiles.",
+      "Whisperer ($14.99), Superwhisper ($249), Voibe ($99), VoiceInk, MacWhisper (~$64). Whisperer is cheapest with Code Mode and per-app profiles.",
   },
   {
     question: "Will Whisperer start charging a subscription later?",
     answer:
-      "No. Whisperer is 100% offline — there are no servers to maintain, no cloud APIs to pay for. The one-time pricing model is sustainable because there are no recurring infrastructure costs.",
+      "No. It runs offline. No servers, no cloud APIs. One-time pricing works because there are no infrastructure costs.",
   },
   {
     question: "Are future updates included?",
     answer:
-      "Yes. Your one-time purchase includes all future updates — new transcription models, new features, performance improvements, and macOS compatibility updates.",
+      "Yes. New models, features, performance improvements, macOS compatibility updates.",
   },
   {
     question: "How does $14.99 compare to other dictation apps?",
     answer:
-      "Whisperer Pro Pack ($14.99) is 17x cheaper than Superwhisper ($249), 7x cheaper than Voibe ($99), and infinitely cheaper than Wispr Flow ($10-15/month subscription). Over 3 years, Wispr Flow costs $360-540 — that's 24-36x more than Whisperer.",
+      "Superwhisper $249, Voibe $99, Wispr Flow $10-15/month. Over 3 years, Wispr Flow costs $360-540.",
   },
   {
     question: "Is there a free trial?",
     answer:
-      "Yes. Download Whisperer free from the Mac App Store. The free trial includes all core dictation features. Base App is $2.99, Pro Pack is $14.99 lifetime.",
+      "Yes. Download free from Mac App Store. Core features included. Base $2.99, Pro $14.99.",
   },
 ];
 
@@ -226,12 +226,10 @@ export default function DictationNoSubscriptionPage() {
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 No Subscription.{" "}
-                <span className="text-primary">$14.99 Lifetime.</span>
+                <span className="text-primary">$14.99.</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Whisperer is a one-time purchase dictation app for Mac. No
-                monthly fees, no cloud charges, no recurring billing. Pay once,
-                own forever.
+                Whisperer is a one-time purchase. No monthly fees, no cloud charges. Pay once, own it.
               </p>
               <a
                 href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671"
@@ -266,7 +264,7 @@ export default function DictationNoSubscriptionPage() {
                     </span>
                   </div>
                   <p className="text-muted-foreground mb-6">
-                    Core dictation with free trial included.
+                    Core dictation. Free trial included.
                   </p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {[
@@ -314,7 +312,7 @@ export default function DictationNoSubscriptionPage() {
                     </span>
                   </div>
                   <p className="text-muted-foreground mb-6">
-                    Everything in Base, plus power features.
+                    Everything in Base, plus developer and AI features.
                   </p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {[
@@ -358,12 +356,11 @@ export default function DictationNoSubscriptionPage() {
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Total Cost of{" "}
-                <span className="text-primary">Ownership</span>
+                Total Cost Over{" "}
+                <span className="text-primary">Time</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                See the real cost over time. Subscriptions add up — Whisperer
-                doesn&apos;t.
+                Subscriptions add up. Whisperer does not.
               </p>
             </div>
           </FadeIn>
@@ -447,8 +444,7 @@ export default function DictationNoSubscriptionPage() {
                 <span className="text-primary">Pricing</span>?
               </h2>
               <p className="text-lg text-muted-foreground">
-                No cloud means no recurring costs. Your Mac is the only
-                infrastructure Whisperer needs.
+                No cloud means no recurring costs.
               </p>
             </div>
           </FadeIn>
@@ -484,12 +480,11 @@ export default function DictationNoSubscriptionPage() {
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                What&apos;s in the{" "}
+                What&apos;s in{" "}
                 <span className="text-primary">Pro Pack</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                Everything you need for professional dictation — for a one-time
-                $14.99.
+                $14.99 one-time gets you:
               </p>
             </div>
           </FadeIn>

@@ -13,19 +13,19 @@ import { DotGrid } from "@/components/ui/decorations";
 const performancePoints = [
   {
     icon: Zap,
-    text: "Model preloading reduces 'first dictation lag'",
+    text: "Model preloading cuts first-dictation lag",
   },
   {
     icon: Cpu,
-    text: "Apple Silicon optimized via Metal acceleration",
+    text: "Metal acceleration on Apple Silicon",
   },
   {
     icon: Layers,
-    text: "Streaming architecture with chunk overlap + dedupe",
+    text: "Streaming with chunk overlap and deduplication",
   },
   {
     icon: HardDrive,
-    text: "Memory-bounded recordings (5 min cap) for stability",
+    text: "5 minute cap per recording keeps things stable",
   },
 ];
 

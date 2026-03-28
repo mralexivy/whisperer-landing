@@ -1,16 +1,16 @@
 ---
 title: "Dictation for Slack, Gmail & Notion on Mac — Per-App Profiles"
 description: "Use Whisperer to dictate into Slack, Gmail, and Notion on Mac with automatic per-app profiles. Different formatting rules for each app. 100% offline."
-date: "2026-03-16"
+date: "2026-03-28"
 keywords: ["dictation for slack mac", "dictation for gmail mac", "dictation for notion mac", "per-app dictation profiles", "voice to text slack", "dictation app for email"]
 category: "guides"
 ---
 
-Most dictation apps treat every app the same. But how you write in Slack is different from how you write in Gmail, which is different from how you write in VS Code. Whisperer's per-app profiles solve this by automatically switching dictation modes based on which app is in the foreground.
+Dictation apps usually treat every app the same. But the way you write in Slack is different from Gmail, which is different from VS Code. Whisperer switches modes automatically based on which app you're in.
 
-## The Problem with One-Size-Fits-All Dictation
+## Why One Mode Doesn't Work
 
-Standard dictation apps insert the same style of text everywhere. This creates friction:
+The same text style doesn't work everywhere:
 
 - **Slack:** You want casual, conversational text. No formal punctuation overkill.
 - **Gmail:** You want professional email formatting with proper sentences and sign-offs.
@@ -18,7 +18,7 @@ Standard dictation apps insert the same style of text everywhere. This creates f
 - **VS Code:** You want [Code Mode](/code-mode) with camelCase, snake_case, and symbols.
 - **Terminal:** You want literal commands with dashes, dots, and paths.
 
-Switching modes manually is tedious and breaks your flow. Per-app profiles make this automatic.
+Switching modes manually gets old fast. Per-app profiles handle it for you.
 
 ## Setting Up Per-App Profiles
 
@@ -40,9 +40,9 @@ Add profiles for Gmail (or your email client), Notion, VS Code, Terminal, and an
 </Step>
 </StepList>
 
-## Recommended Profile Configurations
+## Recommended Profiles
 
-### Slack Profile
+### Slack
 
 | Setting | Value |
 |---------|-------|
@@ -51,11 +51,11 @@ Add profiles for Gmail (or your email client), Notion, VS Code, Terminal, and an
 | Filler removal | On |
 | Language | Your default |
 
-Slack messages should sound natural and conversational. Voice dictation produces exactly this kind of text — spoken language is naturally casual. With filler word removal enabled, "um" and "uh" are stripped automatically.
+Slack messages should sound like you're talking to someone. Voice dictation already produces casual text. Just turn on filler word removal so you don't get "um" and "uh" everywhere.
 
 <VoiceDemo voice="hey just pushed the fix for the auth bug can you review the PR when you get a chance" output="Hey, just pushed the fix for the auth bug. Can you review the PR when you get a chance?" lang="Slack" />
 
-### Gmail Profile
+### Gmail
 
 | Setting | Value |
 |---------|-------|
@@ -64,7 +64,7 @@ Slack messages should sound natural and conversational. Voice dictation produces
 | Filler removal | On |
 | Language | Your default |
 
-With the Email AI mode, Whisperer automatically formats your dictation as a professional email — adding greetings, proper punctuation, and sign-offs.
+The Email AI mode adds greetings, proper punctuation, and sign-offs. You speak the content, it comes out formatted like a real email.
 
 <VoiceDemo voice="hi Sarah wanted to follow up on our discussion about the API redesign I think we should go with option B the REST approach because it's simpler and the team is more familiar with it let me know if you want to schedule a call to discuss" output="Hi Sarah,
 
@@ -74,7 +74,7 @@ Let me know if you'd like to schedule a call to discuss.
 
 Best regards" lang="Email" />
 
-### Notion Profile
+### Notion
 
 | Setting | Value |
 |---------|-------|
@@ -83,20 +83,9 @@ Best regards" lang="Email" />
 | Filler removal | On |
 | Language | Your default |
 
-The Format AI mode converts spoken text into structured Markdown — perfect for Notion, which renders Markdown natively.
+Format mode outputs Markdown. Notion renders it natively.
 
-### VS Code / Cursor Profile
-
-| Setting | Value |
-|---------|-------|
-| Mode | Code Mode |
-| AI Mode | Off |
-| Filler removal | On |
-| Language | English |
-
-Code Mode activates automatically when you switch to your IDE. camelCase, snake_case, symbols, and literal mode — all ready without manual switching.
-
-### Terminal Profile
+### VS Code / Cursor
 
 | Setting | Value |
 |---------|-------|
@@ -105,27 +94,38 @@ Code Mode activates automatically when you switch to your IDE. camelCase, snake_
 | Filler removal | On |
 | Language | English |
 
-Terminal commands need precise syntax. Code Mode handles dashes, dots, slashes, and paths correctly.
+Code Mode handles camelCase, snake_case, symbols. Switches on automatically when your IDE is focused.
 
-## The Workflow
+### Terminal
 
-Here's what an average work session looks like with per-app profiles:
+| Setting | Value |
+|---------|-------|
+| Mode | Code Mode |
+| AI Mode | Off |
+| Filler removal | On |
+| Language | English |
 
-1. **You're coding in VS Code** → Code Mode is active. You dictate `camelCase fetchUserData` and get `fetchUserData`.
-2. **You Cmd+Tab to Slack** → Natural language mode activates. You dictate a casual reply.
-3. **You click into Gmail** → Email AI mode activates. You dictate a professional email.
-4. **You switch to Notion** → Format mode produces structured Markdown.
-5. **You Alt+Tab back to VS Code** → Code Mode is back.
+Terminal commands need exact syntax. Code Mode handles dashes, dots, slashes, and paths.
 
-All automatic. Zero manual switching.
+## How It Works in Practice
+
+A typical session:
+
+1. **Coding in VS Code** — Code Mode. You say `camelCase fetchUserData` and get `fetchUserData`.
+2. **Switch to Slack** — Natural language mode. Casual reply.
+3. **Open Gmail** — Email mode. Polished, professional.
+4. **Jump to Notion** — Format mode. Structured Markdown.
+5. **Back to VS Code** — Code Mode again.
+
+No manual switching. It just works.
 
 <Callout type="tip">
-Per-app profiles are included in the [Pro Pack ($14.99 lifetime)](/pricing). They're one of Whisperer's unique features — no other Mac dictation app offers automatic mode switching by app.
+Per-app profiles are part of the [Pro Pack ($14.99 lifetime)](/pricing). I haven't seen another Mac dictation app that does this.
 </Callout>
 
-## Apps That Work with Whisperer
+## Supported Apps
 
-Whisperer inserts into any focused text field on your Mac. Here are the most popular apps:
+Whisperer works with any text field on Mac. Common ones:
 
 <FeatureGrid>
 <FeatureCard title="Communication" icon="message-square">

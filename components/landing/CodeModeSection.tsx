@@ -12,10 +12,10 @@ import gmailIcon from "../../public/assets/icons/gmail.png";
 import vscodeIcon from "../../public/assets/icons/vscode.png";
 
 const codeFeatures = [
-  "Speak punctuation and symbols: parentheses, brackets, braces, quotes, commas, semicolons",
+  "Say punctuation and symbols: parentheses, brackets, braces, quotes, commas, semicolons",
   "Casing commands: camelCase, snake_case, CONSTANT_CASE",
-  "Literal mode for identifiers (stop 'helpful' autocorrections)",
-  "Cleaner spacing around operators and punctuation",
+  "Literal mode turns off autocorrect for identifiers",
+  "Better spacing around operators and punctuation",
 ];
 
 export const CodeModeSection = () => {
@@ -29,10 +29,10 @@ export const CodeModeSection = () => {
             Pro Pack Feature
           </Badge>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Built for <span className="text-primary">heavy typing</span> and fast switching
+            For people who <span className="text-primary">type a lot</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Power features for developers and professionals who dictate all day.
+            Features for developers and anyone who dictates throughout the day.
           </p>
         </FadeIn>
 
@@ -47,7 +47,7 @@ export const CodeModeSection = () => {
               <Badge className="bg-primary text-primary-foreground">Pro</Badge>
             </div>
             <p className="text-muted-foreground text-lg mb-6">
-              Speak symbols, casing, and structure correctly in IDEs and terminals.
+              Say symbols, casing, and structure the way you mean them in IDEs and terminals.
             </p>
             <ul className="space-y-3 mb-6">
               {codeFeatures.map((feature, index) => (
@@ -84,11 +84,11 @@ export const CodeModeSection = () => {
               Per-App Profiles.
             </h3>
             <h3 className="text-3xl sm:text-4xl font-bold text-primary mb-6">
-              Context-aware dictation.
+              Dictation that knows where you are.
             </h3>
             <p className="text-muted-foreground text-lg mb-8">
               Slack gets chat style. Gmail gets email format.<br />
-              IDEs get code mode. Automatically.
+              IDEs get code mode. It just switches.
             </p>
             
             {/* Style pills with real icons */}

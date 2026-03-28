@@ -28,12 +28,12 @@ const categories: FaqCategory[] = [
       {
         question: "Is it fully offline?",
         answer:
-          "Yes. Transcription runs locally using Whisper and local models. After the initial model download, no internet connection is required.",
+          "Yes. Once you download the models, you don't need internet. Everything runs on your Mac.",
       },
       {
         question: "Does it work in Slack/Gmail/VS Code?",
         answer:
-          "Yes. Whisperer inserts text into any focused field on your Mac, including VS Code, Cursor, JetBrains IDEs, Xcode, Terminal, Slack, Gmail, and Notion. With per-app profiles, Code Mode activates automatically in your IDE while switching to natural language mode in other apps.",
+          "Yes. It works anywhere you can type. VS Code, Cursor, JetBrains, Terminal, Slack, Gmail, Notion. Set up per-app profiles so Code Mode kicks in for your IDE and regular mode for everything else.",
       },
       {
         question: "Will it trigger accidentally when I use Fn for brightness/volume?",
@@ -48,7 +48,7 @@ const categories: FaqCategory[] = [
       {
         question: "Which model should I use?",
         answer:
-          "Start with the recommended 'balanced' model. Use larger models for accuracy, smaller for speed.",
+          "Start with the balanced model. Go bigger if you need better accuracy, smaller if you want faster results.",
       },
       {
         question: "Do you support Intel Macs?",
@@ -63,37 +63,37 @@ const categories: FaqCategory[] = [
       {
         question: "Can you dictate code with voice on Mac?",
         answer:
-          "Yes. Whisperer's Code Mode is the only Mac dictation feature built specifically for developers. It supports camelCase, snake_case, PascalCase, CONSTANT_CASE, and 20+ symbol commands (parentheses, brackets, arrows, semicolons) — all by voice. Works in VS Code, Cursor, JetBrains, Terminal, and any text field.",
+          "Yes. Code Mode handles camelCase, snake_case, PascalCase, CONSTANT_CASE, and 20+ symbol commands like parentheses, brackets, and semicolons. Works in VS Code, Cursor, JetBrains, Terminal, anywhere.",
       },
       {
         question: "Can Whisperer rewrite or format my dictation?",
         answer:
-          "Yes. Whisperer includes an on-device AI with 10 built-in modes: Rewrite, Translate, Format, Summarize, Grammar, List Format, Coding, Email, Creative, and Custom. All processing is 100% offline.",
+          "Yes. There's an on-device AI with 10 modes: Rewrite, Translate, Format, Summarize, Grammar, List Format, Coding, Email, Creative, and Custom. Runs locally.",
       },
       {
         question: "Can I use different transcription engines?",
         answer:
-          "Yes. Whisperer supports three backends: Whisper (Metal GPU, 99+ languages), NVIDIA (Neural Engine, fastest), and Apple Speech (macOS Tahoe+). Hot-swap between them without restarting.",
+          "Yes. Three options: Whisper (Metal GPU, 99+ languages), NVIDIA (Neural Engine, fastest), and Apple Speech (macOS Tahoe+). Switch between them without restarting.",
       },
       {
         question: "How many languages does it support?",
         answer:
-          "Over 100 languages with the Whisper backend. NVIDIA supports 25 languages. You can set per-app language profiles and use AI translation between languages — all offline.",
+          "100+ languages with Whisper, 25 with NVIDIA. You can set different languages per app and translate between them offline.",
       },
       {
         question: "Can I transcribe audio or video files?",
         answer:
-          "Yes. Drag an audio or video file into Whisperer to transcribe it offline using the same engine as live dictation. No upload, no cloud, no per-minute charges.",
+          "Yes. Drag a file in and it transcribes locally. Same engine as live dictation. No uploads, no per-minute fees.",
       },
       {
         question: "Does it track my dictation history?",
         answer:
-          "Yes. Every transcription is saved with full-text search, audio playback, re-transcribe, and usage statistics including words per minute, peak hours, and app usage charts.",
+          "Yes. Everything gets saved. You can search, replay audio, re-transcribe, and see stats like WPM and peak hours.",
       },
       {
         question: "Can it remove filler words like 'um' and 'uh'?",
         answer:
-          "Yes. Enable filler word removal in Settings to automatically strip um, uh, erm, er, ah, and hmm from your dictation. Smart matching ensures words like 'umbrella' are not affected.",
+          "Yes. Turn it on in Settings. It strips um, uh, erm, er, ah, and hmm. Smart enough not to touch words like umbrella.",
       },
     ],
   },
@@ -103,22 +103,22 @@ const categories: FaqCategory[] = [
       {
         question: "What's the difference between Base and Pro Pack?",
         answer:
-          "Base is core dictation. Pro adds Code Mode, per-app profiles, personal dictionary, and pro insertion.",
+          "Base gets you dictation. Pro adds Code Mode, per-app profiles, personal dictionary, and the pro insertion engine.",
       },
       {
         question: "What is the cheapest offline dictation app for Mac?",
         answer:
-          "Whisperer is the most affordable offline dictation app for Mac at $2.99 for the base app and $14.99 lifetime for the Pro Pack. Competitors charge $99–$249 for lifetime licenses or $5–$15/month for subscriptions. Whisperer includes three transcription engines, Code Mode, and per-app profiles — all for a one-time $14.99.",
+          "Whisperer. $2.99 base, $14.99 Pro lifetime. Others charge $99-$249 one-time or $5-$15/month. You get three engines, Code Mode, and per-app profiles for that $14.99.",
       },
       {
         question: "How does Whisperer compare to Superwhisper?",
         answer:
-          "Whisperer Pro Pack costs $14.99 one-time vs. Superwhisper's $249 lifetime or $8/month. Whisperer includes Code Mode (camelCase, symbols by voice), per-app profiles, personal dictionary, and three transcription engines — features Superwhisper does not offer. Both are offline-capable Mac apps.",
+          "$14.99 vs $249 (or $8/month). Whisperer has Code Mode for camelCase and symbols, per-app profiles, personal dictionary, three engines. Superwhisper doesn't. Both work offline.",
       },
       {
         question: "Does Whisperer work in VS Code and Cursor?",
         answer:
-          "Yes. Whisperer inserts text into any focused field on your Mac, including VS Code, Cursor, JetBrains IDEs, Xcode, Terminal, Slack, Gmail, and Notion. With per-app profiles, Code Mode activates automatically in your IDE while switching to natural language mode in other apps.",
+          "Yes. Works in any text field: VS Code, Cursor, JetBrains, Terminal, Slack, Gmail. Set up profiles so Code Mode turns on in your IDE and off elsewhere.",
       },
       {
         question: "Refunds?",
@@ -152,7 +152,7 @@ export const FAQ = () => {
             <span className="text-primary">questions</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Everything you need to know about Whisperer.
+            Common questions about Whisperer.
           </p>
         </FadeIn>
 

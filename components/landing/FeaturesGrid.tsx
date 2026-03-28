@@ -416,7 +416,7 @@ const features = [
     icon: Mic,
     title: "Hold-to-Record",
     description:
-      "Hold Fn or any custom shortcut to record. Release to transcribe and insert. Toggle mode and hands-free mode also available.",
+      "Hold Fn (or your shortcut). Let go to transcribe and insert. Toggle and hands-free modes also work.",
     graphic: HoldToRecordGraphic,
      href: "/features",
   },
@@ -424,7 +424,7 @@ const features = [
     icon: Eye,
     title: "Live Preview",
     description:
-      "See words appear in real-time as you speak. Dual-engine streaming with ~300ms latency and typewriter animation.",
+      "Words show up as you speak. ~300ms latency with dual-engine streaming.",
     graphic: LivePreviewGraphic,
      href: "/features/live-preview",
   },
@@ -432,7 +432,7 @@ const features = [
     icon: Sparkles,
     title: "AI Post-Processing",
     description:
-      "Rewrite, translate, format, summarize, fix grammar — 10 built-in AI modes plus custom prompts. All offline with on-device LLM.",
+      "Rewrite, translate, format, summarize, fix grammar. 10 built-in modes plus custom prompts. Local LLM, no cloud.",
     graphic: AIProcessingGraphic,
      href: "/features/ai-writing",
   },
@@ -440,7 +440,7 @@ const features = [
     icon: Cpu,
     title: "Three Engines",
     description:
-      "Whisper (Metal GPU), NVIDIA (Neural Engine), or Apple Speech. 10+ model sizes. Hot-swap without restarting.",
+      "Whisper (Metal GPU), NVIDIA (Neural Engine), Apple Speech. 10+ model sizes. Switch without restarting.",
     graphic: EnginesGraphic,
      href: "/features/offline-transcription",
   },
@@ -448,7 +448,7 @@ const features = [
     icon: Globe,
     title: "100+ Languages",
     description:
-      "Dictate in over 100 languages with per-app language profiles and AI-powered offline translation between languages.",
+      "Dictate in 100+ languages. Set different languages per app. Translate between them offline.",
     graphic: LanguagesGraphic,
      href: "/features/multilingual",
   },
@@ -456,7 +456,7 @@ const features = [
     icon: BookOpen,
     title: "Personal Dictionary",
     description:
-      "Three-tier correction with fuzzy SymSpell, phonetic matching, and prompt words for vocabulary boosting at the decoder level.",
+      "Add your own terms. Three-tier correction: fuzzy, phonetic, and prompt words that boost recognition.",
     graphic: DictionaryGraphic,
      href: "/features/personal-dictionary",
   },
@@ -464,7 +464,7 @@ const features = [
     icon: FileAudio,
     title: "File Transcription",
     description:
-      "Transcribe audio and video files offline. Drag-and-drop interface using the same engine. No upload, no per-minute charges.",
+      "Drop an audio or video file to transcribe it. Same engine, local processing. No upload fees.",
     graphic: FileTranscriptionGraphic,
      href: "/features/file-transcription",
   },
@@ -472,7 +472,7 @@ const features = [
     icon: Clock,
     title: "History & Statistics",
     description:
-      "Every transcription saved with search, pin, flag, and audio playback. Usage stats: WPM, peak hours, app usage charts.",
+      "All transcriptions saved. Search, pin, flag, replay audio. See your WPM, peak hours, and which apps you use most.",
     graphic: HistoryGraphic,
      href: "/features/transcription-history",
   },
@@ -480,7 +480,7 @@ const features = [
     icon: Filter,
     title: "Text Processing",
     description:
-      "Automatic filler word removal, spoken list detection, spell correction pipeline, and trailing space insertion.",
+      "Auto filler word removal, spoken list detection, spell correction, trailing space handling.",
     graphic: TextProcessingGraphic,
      href: "/features",
   },
@@ -542,10 +542,10 @@ export const FeaturesGrid = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            All the <span className="text-primary">features</span> you need
+            What&apos;s <span className="text-primary">inside</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Comprehensive dictation tools built for professionals — every feature runs 100% offline on your Mac.
+            Everything runs locally on your Mac. No servers, no per-minute charges.
           </p>
         </FadeIn>
 

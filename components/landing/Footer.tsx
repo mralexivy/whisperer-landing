@@ -59,11 +59,10 @@ const CTASection = () => (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <FadeIn className="text-center max-w-2xl mx-auto">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-          Ready to <span className="text-primary">ditch typing</span>?
+          <span className="text-primary">Try it.</span>
         </h2>
         <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-          Join developers and power users who dictate faster than they type.
-          One-time purchase. No subscription. No cloud.
+          Pay once. Keep it forever. Nothing goes to the cloud.
         </p>
         <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
           <Button variant="hero" size="xl" className="gap-3">
@@ -94,7 +93,7 @@ export const Footer = () => {
               <span className="text-xl font-semibold text-foreground">Whisperer</span>
             </div>
             <p className="text-muted-foreground max-w-sm mb-6">
-              Offline dictation for Mac. Hold Fn, speak, release. Text inserts anywhere.
+              Offline dictation for Mac. Hold Fn, talk, let go. Text goes where you need it.
             </p>
             <div className="text-sm text-muted-foreground">
               <p>Powered by Whisper</p>

@@ -46,19 +46,19 @@ const steps = [
 const benefits = [
   {
     title: "Same Engine as Live Dictation",
-    description: "File transcription uses the exact same pre-loaded model and backend as real-time dictation. No separate setup or download.",
+    description: "Uses the model already loaded in memory. No separate download, no waiting for a different engine to spin up.",
   },
   {
     title: "No Per-Minute Charges",
-    description: "Transcribe unlimited files. No cloud API fees, no per-minute pricing, no usage limits. Pay once for the app.",
+    description: "Transcribe as many files as you want. One price for the app, not a meter running in the background.",
   },
   {
-    title: "100% Offline",
-    description: "Your audio files never leave your Mac. No uploading to servers, no cloud processing. Complete privacy.",
+    title: "Files Stay on Your Mac",
+    description: "Nothing uploads anywhere. Your audio never leaves the machine.",
   },
   {
     title: "Saved to History",
-    description: "File transcription results are saved to your workspace with full search, copy, and export support.",
+    description: "Results land in your workspace. Search them, copy them, export them later.",
   },
 ];
 
@@ -82,12 +82,11 @@ export default function FileTranscriptionPage() {
           <FadeIn>
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Transcribe files <span className="text-primary">without the cloud</span>
+                Transcribe files <span className="text-primary">locally</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Drop an audio or video file into Whisperer and get a full transcription — offline,
-                private, with no per-minute charges. Uses the same high-quality Whisper or NVIDIA
-                engine as live dictation.
+                Drop an audio or video file in. Get a transcription. No upload, no per-minute charges.
+                Same Whisper or NVIDIA engine that handles live dictation.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="xl" className="gap-3">
@@ -169,13 +168,13 @@ export default function FileTranscriptionPage() {
               <div className="bg-card border border-border rounded-xl p-6">
                 <ul className="space-y-3">
                   {[
-                    "Transcribe meeting recordings for searchable notes",
-                    "Convert voice memos to text",
-                    "Create subtitles from video files",
+                    "Turn meeting recordings into searchable notes",
+                    "Convert voice memos to text you can actually read",
+                    "Pull subtitles from video files",
                     "Transcribe podcast episodes for show notes",
-                    "Convert lecture recordings to study notes",
-                    "Process interview recordings into written form",
-                    "Transcribe confidential audio without cloud upload",
+                    "Get lecture recordings into study notes",
+                    "Process interview audio into written transcripts",
+                    "Handle confidential audio without sending it anywhere",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
@@ -200,10 +199,10 @@ export default function FileTranscriptionPage() {
             </FadeIn>
             <FadeInStagger className="grid gap-4">
               {[
-                { question: "What audio formats does Whisperer support?", answer: "MP3, WAV, M4A, FLAC, OGG, and video formats like MP4, MOV, and MKV. Whisperer extracts the audio track automatically from video files." },
-                { question: "Is file transcription included in the free trial?", answer: "Yes. File transcription is included in the base app ($2.99). No Pro Pack required. Drag any audio or video file into Whisperer to transcribe it offline." },
-                { question: "How long does transcription take?", answer: "Depends on the model and file length. A 10-minute recording typically takes 20-60 seconds with Whisper Large V3 Turbo on Apple Silicon. Smaller models are faster." },
-                { question: "Are there per-minute charges?", answer: "No. Whisperer is a one-time purchase. Transcribe unlimited files with no per-minute fees, no cloud charges, and no usage limits." },
+                { question: "What formats work?", answer: "MP3, WAV, M4A, FLAC, OGG. Video formats too: MP4, MOV, MKV. Whisperer strips the audio track automatically." },
+                { question: "Is file transcription included in the free trial?", answer: "Yes. It's part of the base app ($2.99). No Pro Pack needed. Just drag a file in." },
+                { question: "How long does it take?", answer: "A 10-minute recording typically finishes in 20-60 seconds with Whisper Large V3 Turbo on Apple Silicon. Smaller models go faster." },
+                { question: "Any per-minute charges?", answer: "No. Buy the app once, transcribe unlimited files. No metering, no cloud fees." },
               ].map((faq, i) => (
                 <StaggerItem key={i}>
                   <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
@@ -262,10 +261,10 @@ export default function FileTranscriptionPage() {
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4">
-                Transcribe any file, <span className="text-primary">privately</span>
+                Transcribe files <span className="text-primary">on your Mac</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Download Whisperer and transcribe audio and video files without uploading anything.
+                No uploads. No waiting on servers. Just local transcription.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="xl" className="gap-3">

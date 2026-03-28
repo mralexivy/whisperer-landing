@@ -94,7 +94,7 @@ const uniqueFeatures = [
     bgColor: "bg-blue-400/10",
     title: "Code Mode",
     description:
-      "The only Mac dictation app that can handle camelCase, snake_case, PascalCase, CONSTANT_CASE, and 20+ programming symbols by voice. No competitor has this at any price.",
+      "camelCase, snake_case, PascalCase, CONSTANT_CASE, 20+ symbols by voice. No competitor has this.",
   },
   {
     icon: Layers,
@@ -102,7 +102,7 @@ const uniqueFeatures = [
     bgColor: "bg-purple-400/10",
     title: "Per-App Profiles",
     description:
-      "Automatic mode switching: Code Mode in VS Code, natural language in Slack, email formatting in Gmail. No competitor offers per-app dictation profiles.",
+      "Code Mode in VS Code, natural language in Slack, email style in Gmail. Switches automatically.",
   },
   {
     icon: Cpu,
@@ -110,7 +110,7 @@ const uniqueFeatures = [
     bgColor: "bg-amber-400/10",
     title: "Three Engines",
     description:
-      "Whisper (Metal GPU), NVIDIA (Neural Engine), and Apple Speech. Hot-swap between engines without restarting. Most competitors offer only one engine.",
+      "Whisper (Metal GPU), NVIDIA (Neural Engine), Apple Speech. Switch without restarting.",
   },
 ];
 
@@ -133,27 +133,27 @@ const faqs = [
   {
     question: "What is the cheapest dictation app for Mac?",
     answer:
-      "Whisperer is the cheapest full-featured dictation app for Mac at $2.99 for the base app and $14.99 lifetime for the Pro Pack. Apple Dictation is free but lacks Code Mode, per-app profiles, personal dictionary, and file transcription.",
+      "Whisperer: $2.99 base, $14.99 Pro. Apple Dictation is free but lacks Code Mode, per-app profiles, personal dictionary, file transcription.",
   },
   {
     question: "Is there a free dictation app for Mac in 2026?",
     answer:
-      "Apple Dictation is free and runs on-device on Apple Silicon. However, it has aggressive autocorrection, no developer features, and limited customization. Whisperer at $2.99 is essentially free compared to $99–$249 alternatives, and includes three transcription engines, file transcription, and more.",
+      "Apple Dictation is free on Apple Silicon. Aggressive autocorrection, no developer features, limited customization. Whisperer at $2.99 is cheap compared to $99-$249 alternatives.",
   },
   {
     question: "Why is Whisperer so cheap?",
     answer:
-      "Whisperer runs 100% offline — there are no cloud servers, no API costs, and no recurring infrastructure expenses to pass on to you. The one-time pricing model is sustainable because your Mac does all the processing.",
+      "No servers. Runs offline on your Mac. No cloud costs, no API costs, no recurring expenses. One-time pricing works because your Mac does the processing.",
   },
   {
     question: "Is Whisperer cheaper because it has fewer features?",
     answer:
-      "No — Whisperer has more features than most competitors. Code Mode (unique), per-app profiles (unique), personal dictionary, three transcription engines, AI post-processing (10 modes), file transcription, and transcription history. It's cheaper because there are no cloud costs.",
+      "No. Code Mode (unique), per-app profiles (unique), personal dictionary, three engines, AI post-processing, file transcription, history. Cheaper because no cloud costs.",
   },
   {
     question: "How much can I save vs Superwhisper?",
     answer:
-      "Whisperer Pro Pack ($14.99) vs Superwhisper ($249 lifetime or $8/month) saves you $234.01 — that's 94% cheaper. Over 3 years, the savings grow even larger if using Superwhisper's monthly plan ($288 total).",
+      "Whisperer Pro ($14.99) vs Superwhisper ($249 or $8/month) saves $234. Over 3 years with monthly Superwhisper, you save $273.",
   },
 ];
 
@@ -222,13 +222,11 @@ export default function CheapestDictationMacPage() {
                 <span className="text-primary">Not a typo.</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-4 leading-relaxed">
-                Whisperer is the most affordable offline dictation app for Mac
-                — with more features than competitors charging 17x more. Code
-                Mode, three engines, per-app profiles. All for $14.99 lifetime.
+                Whisperer costs less than competitors but has more features.
+                Code Mode, three engines, per-app profiles. $14.99 one-time.
               </p>
               <p className="text-sm text-muted-foreground mb-8">
-                $2.99 base app. $14.99 Pro Pack lifetime. No subscription. No
-                cloud fees. 100% offline on your Mac.
+                $2.99 base. $14.99 Pro Pack. No subscription. Runs offline.
               </p>
               <a
                 href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671"
@@ -251,11 +249,11 @@ export default function CheapestDictationMacPage() {
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                How Much Do Dictation Apps{" "}
-                <span className="text-primary">Cost</span>?
+                Dictation App{" "}
+                <span className="text-primary">Prices</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                Every major Mac dictation app and its price, side by side.
+                Every major Mac dictation app, side by side.
               </p>
             </div>
           </FadeIn>
@@ -340,8 +338,7 @@ export default function CheapestDictationMacPage() {
                 Your <span className="text-primary">Savings</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                How much you save choosing Whisperer Pro ($14.99) over each
-                competitor.
+                What Whisperer Pro ($14.99) saves you vs each competitor.
               </p>
             </div>
           </FadeIn>
@@ -462,9 +459,8 @@ export default function CheapestDictationMacPage() {
                 <span className="text-primary">Good</span>?
               </h2>
               <p className="text-lg text-muted-foreground">
-                Whisperer isn&apos;t cheap because it&apos;s missing features
-                — it has three unique capabilities no competitor offers at any
-                price.
+                It is cheap because there are no servers, not because features are missing.
+                Here is what you get that competitors do not offer.
               </p>
             </div>
           </FadeIn>

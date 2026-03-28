@@ -720,7 +720,7 @@ const advantages = [
     color: "text-green-400",
     bgColor: "bg-green-400/10",
     title: "Offline & Private",
-    description: "Runs entirely on your Mac. No internet, no cloud, no accounts. Your voice data never leaves your device.",
+    description: "Runs on your Mac. No internet, no cloud, no accounts. Voice data stays on device.",
     graphic: OfflineGraphic,
   },
   {
@@ -728,7 +728,7 @@ const advantages = [
     color: "text-blue-400",
     bgColor: "bg-blue-400/10",
     title: "AI Post-Processing",
-    description: "Rewrite, translate, format, summarize, fix grammar with an on-device LLM. 10 built-in modes plus custom prompts.",
+    description: "Rewrite, translate, format, summarize, fix grammar. On-device LLM. 10 modes plus custom prompts.",
     graphic: AIWritingGraphic,
   },
   {
@@ -736,15 +736,15 @@ const advantages = [
     color: "text-cyan-400",
     bgColor: "bg-cyan-400/10",
     title: "Live Preview",
-    description: "See words appear in real-time as you speak. Dual-engine streaming with ~300ms latency and typewriter animation.",
+    description: "Words appear as you speak. ~300ms latency.",
     graphic: LivePreviewGraphic,
   },
   {
     icon: Cpu,
     color: "text-purple-400",
     bgColor: "bg-purple-400/10",
-    title: "Three Transcription Engines",
-    description: "Whisper (Metal GPU), NVIDIA (Neural Engine), or Apple Speech. 10+ model sizes. Hot-swap without restarting.",
+    title: "Three Engines",
+    description: "Whisper (Metal GPU), NVIDIA (Neural Engine), Apple Speech. 10+ model sizes. Switch without restarting.",
     graphic: ThreeEnginesGraphic,
   },
   {
@@ -752,15 +752,15 @@ const advantages = [
     color: "text-orange-400",
     bgColor: "bg-orange-400/10",
     title: "Per-App Profiles",
-    description: "Slack gets chat style. Gmail gets email format. VS Code gets Code Mode. Switches automatically based on the active app.",
+    description: "Slack: chat style. Gmail: email format. VS Code: Code Mode. Switches based on the active app.",
     graphic: PerAppProfilesGraphic,
   },
   {
     icon: DollarSign,
     color: "text-amber-400",
     bgColor: "bg-amber-400/10",
-    title: "$14.99 Lifetime",
-    description: "One-time purchase for all Pro features. Superwhisper charges $249, Wispr Flow charges $15/month. No subscription needed.",
+    title: "$14.99 One-Time",
+    description: "All Pro features. Superwhisper is $249, Wispr Flow is $15/month. No subscription.",
     graphic: PricingGraphic,
   },
 ];
@@ -878,8 +878,8 @@ export function WhyWhispererContent() {
                 Why <span className="text-primary">Whisperer</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Other voice tools lock you into one app, need an internet connection, or only support English.
-                Whisperer works across every app on your Mac, runs offline, supports 100+ languages, and costs $14.99 for life.
+                Other voice tools lock you into one app, need internet, or only support English.
+                Whisperer works in any app, runs offline, supports 100+ languages. $14.99 one-time.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
@@ -908,11 +908,10 @@ export function WhyWhispererContent() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Works across <span className="text-primary">every app</span>
+              Works in <span className="text-primary">any app</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              ChatGPT voice only works in ChatGPT. VS Code voice only works in VS Code.
-              Whisperer works wherever your cursor is.
+              ChatGPT voice only works in ChatGPT. Whisperer works wherever your cursor is.
             </p>
           </FadeIn>
 
@@ -944,15 +943,15 @@ export function WhyWhispererContent() {
 
             <SlideIn direction="right" className="order-1 lg:order-2">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                Speak once, <span className="text-primary">paste everywhere</span>
+                Speak once, <span className="text-primary">paste anywhere</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Every transcription is saved automatically. Press Alt+V to cycle through your recent transcriptions
-                and paste any of them into the current app. No need to dictate the same thing twice.
+                Every transcription is saved. Press Alt+V to cycle through recent ones
+                and paste into the current app. No need to say the same thing twice.
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Dictate a message once, then paste it into Slack, then email, then your notes.
-                Your transcription history is searchable, pinnable, and always available.
+                Dictate a message, paste it into Slack, then email, then notes.
+                History is searchable and always available.
               </p>
 
               {/* Workflow steps */}
@@ -992,11 +991,10 @@ export function WhyWhispererContent() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              What others <span className="text-primary">can&apos;t do</span>
+              What others <span className="text-primary">lack</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Every competitor makes trade-offs. Here is what you get with Whisperer that you
-              won&apos;t find anywhere else.
+              Every competitor makes trade-offs. Here is what Whisperer does that they do not.
             </p>
           </FadeIn>
 
@@ -1065,10 +1063,10 @@ export function WhyWhispererContent() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <FadeIn className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Built different
+              How it works
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Six things that set Whisperer apart from every other voice tool on the market.
+              Six things that set Whisperer apart.
             </p>
           </FadeIn>
 
@@ -1130,9 +1128,9 @@ export function WhyWhispererContent() {
               >
                 <Mic className="w-8 h-8 text-primary" />
               </motion.div>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Try Whisperer Today</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Try it</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Download free from the Mac App Store. $2.99 base, $14.99 Pro lifetime. No subscription.
+                Free download from the Mac App Store. $2.99 base, $14.99 Pro. No subscription.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">

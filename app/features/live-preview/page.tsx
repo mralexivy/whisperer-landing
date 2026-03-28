@@ -28,28 +28,28 @@ const features = [
     color: "text-amber-400",
     bgColor: "bg-amber-400/10",
     title: "~300ms Latency",
-    description: "The EOU engine processes 320ms audio windows on the Neural Engine, producing word-level partial transcripts with near-instant feedback.",
+    description: "The EOU engine chews through 320ms audio windows on the Neural Engine and spits out word-level partials almost immediately.",
   },
   {
     icon: Cpu,
     color: "text-blue-400",
     bgColor: "bg-blue-400/10",
     title: "Dual-Engine Architecture",
-    description: "EOU runs on the Neural Engine while the main transcription engine uses Metal GPU — no resource contention between preview and final transcription.",
+    description: "Preview runs on the Neural Engine. Main transcription runs on Metal GPU. They don't fight over resources.",
   },
   {
     icon: Type,
     color: "text-green-400",
     bgColor: "bg-green-400/10",
     title: "Typewriter Animation",
-    description: "Text appears progressively in the UI with a natural typewriter effect, creating a fluid 'words appearing' experience as you speak.",
+    description: "Words appear progressively with a subtle typewriter effect. Feels natural, not jarring.",
   },
   {
     icon: Palette,
     color: "text-purple-400",
     bgColor: "bg-purple-400/10",
     title: "Keyword Highlighting",
-    description: "Dictionary corrections are shown with color gradient highlighting in the live preview. Click any highlighted word to see the original.",
+    description: "Dictionary corrections show up with colored highlights. Click one to see what the original transcription was.",
   },
 ];
 
@@ -73,12 +73,12 @@ export default function LivePreviewPage() {
           <FadeIn>
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                See your words <span className="text-primary">as you speak</span>
+                Watch words appear <span className="text-primary">as you talk</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Whisperer&apos;s live preview shows transcribed text in real-time during recording.
-                A dedicated streaming engine runs on the Neural Engine with ~300ms latency, while
-                the main transcription engine delivers the final refined result on release.
+                Text shows up while you're still speaking. A dedicated streaming engine on the
+                Neural Engine handles preview with ~300ms latency. When you release the record
+                button, the main engine delivers the final polished result.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="xl" className="gap-3">
@@ -98,9 +98,8 @@ export default function LivePreviewPage() {
             <FadeIn>
               <h2 className="text-3xl font-bold mb-6">Two-Tier Streaming Architecture</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Live preview uses a dedicated lightweight model that runs independently from the
-                main transcription engine. This means you get instant visual feedback without
-                sacrificing final accuracy.
+                The preview model is separate from the main engine. You get instant visual feedback
+                without any hit to final accuracy.
               </p>
             </FadeIn>
 
@@ -109,8 +108,8 @@ export default function LivePreviewPage() {
                 <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
                   <div className="text-sm font-semibold text-primary mb-2">Primary: EOU Engine</div>
                   <p className="text-sm text-muted-foreground mb-3">
-                    A dedicated NVIDIA End-of-Utterance model runs on the Apple Neural Engine,
-                    processing 320ms audio windows. Produces word-level partial transcripts with ~300ms latency.
+                    An NVIDIA End-of-Utterance model on the Neural Engine processes 320ms audio
+                    windows and produces word-level partials with ~300ms latency.
                   </p>
                   <div className="text-xs text-muted-foreground bg-secondary/50 rounded-lg px-3 py-2">
                     Neural Engine | 320ms windows | ~300ms latency
@@ -119,8 +118,8 @@ export default function LivePreviewPage() {
                 <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
                   <div className="text-sm font-semibold text-muted-foreground mb-2">Fallback: StreamingTranscriber</div>
                   <p className="text-sm text-muted-foreground mb-3">
-                    When the EOU model is not available, live preview falls back to the main
-                    transcription backend processing 2-second chunks during recording.
+                    If the EOU model isn't available, preview falls back to the main engine
+                    processing 2-second chunks during recording.
                   </p>
                   <div className="text-xs text-muted-foreground bg-secondary/50 rounded-lg px-3 py-2">
                     Metal GPU | 2s chunks | Used as fallback
@@ -206,10 +205,10 @@ export default function LivePreviewPage() {
             </FadeIn>
             <FadeInStagger className="grid gap-4">
               {[
-                { question: "How fast is the live preview?", answer: "The EOU engine processes 320ms audio windows on the Neural Engine, producing word-level partial transcripts with approximately 300ms latency — faster than any cloud service." },
-                { question: "Does live preview affect final accuracy?", answer: "No. Live preview uses a separate lightweight model. The main transcription engine runs independently and delivers the final refined result when you release the record button." },
-                { question: "Can I disable live preview to save battery?", answer: "Yes. Live preview is toggleable in Settings. Disabling it reduces CPU/Neural Engine usage during recording while keeping the main transcription engine active." },
-                { question: "Does live preview work with all engines?", answer: "The primary EOU preview runs on the Neural Engine (Apple Silicon). When unavailable, Whisperer falls back to the StreamingTranscriber using the main engine with 2-second chunks." },
+                { question: "How fast is the live preview?", answer: "About 300ms latency. The EOU engine processes 320ms audio windows on the Neural Engine, faster than any cloud service." },
+                { question: "Does live preview affect final accuracy?", answer: "No. It's a separate lightweight model. The main engine runs independently and produces the final result when you release the button." },
+                { question: "Can I disable live preview to save battery?", answer: "Yes. Toggle it off in Settings. The main transcription engine still works; you just won't see words appearing in real-time." },
+                { question: "Does live preview work with all engines?", answer: "The primary EOU preview needs the Neural Engine (Apple Silicon). If unavailable, it falls back to the main engine with 2-second chunks." },
               ].map((faq, i) => (
                 <StaggerItem key={i}>
                   <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
@@ -268,10 +267,10 @@ export default function LivePreviewPage() {
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4">
-                Real-time feedback, <span className="text-primary">zero lag</span>
+                Words appear <span className="text-primary">instantly</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Download Whisperer and see your words appear as you speak.
+                See what you're saying while you're still saying it.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="xl" className="gap-3">

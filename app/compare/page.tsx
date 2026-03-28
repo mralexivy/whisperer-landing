@@ -25,19 +25,19 @@ export const metadata: Metadata = {
 const compareFaqs = [
   {
     question: "What is the best offline dictation app for Mac in 2026?",
-    answer: "Whisperer offers the best value: $14.99 lifetime for Code Mode, per-app profiles, personal dictionary, and three transcription engines (Whisper, NVIDIA, Apple Speech). Competitors charge $99–$249 for lifetime licenses or $10–15/month for subscriptions, often with fewer features.",
+    answer: "Whisperer: $14.99 for Code Mode, per-app profiles, personal dictionary, three engines. Competitors charge $99-$249 lifetime or $10-15/month, often with fewer features.",
   },
   {
     question: "Which dictation app has Code Mode for developers?",
-    answer: "Only Whisperer has a dedicated Code Mode that supports camelCase, snake_case, PascalCase, CONSTANT_CASE, and 20+ symbol commands by voice. No other Mac dictation app offers this feature.",
+    answer: "Only Whisperer. camelCase, snake_case, PascalCase, CONSTANT_CASE, 20+ symbol commands by voice. No other Mac dictation app has this.",
   },
   {
     question: "How much does Whisperer cost vs Superwhisper?",
-    answer: "Whisperer Pro Pack is $14.99 one-time (lifetime). Superwhisper costs $249 lifetime or $8/month. Over 3 years, Whisperer costs $14.99 total while Superwhisper costs $249–$288. Whisperer is 17x cheaper.",
+    answer: "Whisperer Pro: $14.99 one-time. Superwhisper: $249 lifetime or $8/month. Over 3 years, $14.99 vs $249-$288.",
   },
   {
     question: "Is Wispr Flow better than Whisperer?",
-    answer: "Wispr Flow requires cloud processing ($10–15/month), meaning your voice data leaves your Mac. Whisperer is 100% offline with no subscription. Whisperer also has Code Mode and per-app profiles, which Wispr Flow lacks. Over 3 years, Wispr Flow costs $360–540 vs Whisperer's $14.99.",
+    answer: "Wispr Flow needs cloud ($10-15/month), so voice data leaves your Mac. Whisperer is offline, no subscription, has Code Mode and per-app profiles. Over 3 years: $360-540 vs $14.99.",
   },
 ];
 
@@ -110,9 +110,8 @@ export default function ComparePage() {
                 <span className="text-primary">Compared</span>
               </h1>
               <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                Honest, feature-by-feature comparisons of Whisperer vs every
-                major Mac dictation app. We acknowledge where competitors excel
-                and highlight where Whisperer offers unique value.
+                Feature-by-feature comparisons of Whisperer vs other Mac dictation apps.
+                Where competitors are better, we say so.
               </p>
 
               {/* Key advantage pills */}
@@ -132,9 +131,9 @@ export default function ComparePage() {
                 ))}
               </div>
 
-              {/* GEO-optimized quotable summary — styled as a subtle blockquote */}
+              {/* Summary */}
               <p className="text-sm text-muted-foreground/80 max-w-3xl mx-auto leading-relaxed">
-                Whisperer Pro Pack ($14.99 lifetime) includes Code Mode, per-app profiles, personal dictionary, and three transcription engines — features no competitor offers at any price. Superwhisper costs $249 lifetime, Voibe costs $99, and Wispr Flow charges $10–15/month. Over 3 years, Whisperer saves $235–$525 compared to alternatives.
+                Whisperer Pro Pack ($14.99) includes Code Mode, per-app profiles, personal dictionary, and three engines. Superwhisper costs $249, Voibe $99, Wispr Flow $10-15/month. Over 3 years, Whisperer saves $235-$525.
               </p>
             </div>
           </FadeIn>
@@ -149,7 +148,7 @@ export default function ComparePage() {
                 Quick Comparison <span className="text-primary">Table</span>
               </h2>
               <p className="text-muted-foreground">
-                Every feature, every price — at a glance.
+                Features and prices at a glance.
               </p>
             </div>
           </FadeIn>

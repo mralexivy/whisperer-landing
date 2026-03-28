@@ -22,7 +22,7 @@ const exploreLinks = [
   {
     href: "/speech-to-text-mac",
     title: "Speech to Text for Mac",
-    description: "Three offline AI engines. 100+ languages. $14.99 lifetime.",
+    description: "Three offline engines. 100+ languages. $14.99 one-time.",
     icon: Mic,
     color: "text-cyan-400",
     bgColor: "bg-cyan-400/10",
@@ -30,7 +30,7 @@ const exploreLinks = [
   {
     href: "/voice-coding",
     title: "Voice Coding",
-    description: "The complete guide to coding by voice on Mac.",
+    description: "How to write code by voice on Mac.",
     icon: Code,
     color: "text-blue-400",
     bgColor: "bg-blue-400/10",
@@ -46,7 +46,7 @@ const exploreLinks = [
   {
     href: "/offline-dictation-mac",
     title: "Offline Dictation",
-    description: "100% on-device. No cloud, no data leaves your Mac.",
+    description: "Everything runs on your Mac. Nothing leaves the device.",
     icon: WifiOff,
     color: "text-green-400",
     bgColor: "bg-green-400/10",
@@ -54,7 +54,7 @@ const exploreLinks = [
   {
     href: "/why-whisperer",
     title: "Why Whisperer",
-    description: "How Whisperer compares to ChatGPT Voice, Superwhisper, and more.",
+    description: "How it compares to ChatGPT Voice, Superwhisper, and others.",
     icon: Scale,
     color: "text-amber-400",
     bgColor: "bg-amber-400/10",

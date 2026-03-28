@@ -29,7 +29,7 @@ const correctionTiers = [
     bgColor: "bg-blue-400/10",
     step: "1",
     title: "Exact & Phrase Lookup",
-    description: "O(1) HashMap lookup for single-word corrections and multi-word phrase matching. Fastest tier — handles known misspellings and abbreviation expansions instantly.",
+    description: "HashMap lookup for single words and multi-word phrases. Handles known misspellings and abbreviation expansions in O(1) time.",
     example: { from: "k8s", to: "Kubernetes" },
   },
   {
@@ -38,7 +38,7 @@ const correctionTiers = [
     bgColor: "bg-amber-400/10",
     step: "2",
     title: "SymSpell Fuzzy Matching",
-    description: "Edit distance-based matching (configurable 0-3 distance, default 2) using prefix-based indexing. Catches typos and mishearings while a spell validator gate prevents correcting valid English words.",
+    description: "Edit-distance matching with prefix indexing (configurable 0-3 distance). A spell validator gate keeps valid English words from being \"corrected.\"",
     example: { from: "tenserflow", to: "TensorFlow" },
   },
   {
@@ -47,7 +47,7 @@ const correctionTiers = [
     bgColor: "bg-green-400/10",
     step: "3",
     title: "Phonetic Matching",
-    description: "Catches homophones and similar-sounding words that edit distance alone would miss. Essential for voice dictation where words are heard, not typed.",
+    description: "Catches homophones that edit distance misses. When you say \"their\" but mean \"there,\" this tier handles it.",
     example: { from: "their/there/they're", to: "Correct form based on context" },
   },
 ];
@@ -56,22 +56,22 @@ const dictionaryFeatures = [
   {
     icon: Tag,
     title: "Categories",
-    description: "Organize corrections by category (medical, legal, programming, names) for easy management.",
+    description: "Group corrections by domain: medical, legal, programming, names. Makes large dictionaries manageable.",
   },
   {
     icon: Target,
     title: "Usage Tracking",
-    description: "See how often each correction is applied. Identify which entries are most valuable.",
+    description: "See which corrections fire most often. Helps you spot what matters and prune what doesn't.",
   },
   {
     icon: FileJson,
     title: "Import & Export",
-    description: "Import and export your dictionary as JSON. Share word lists across devices or teams.",
+    description: "JSON import/export for sharing word lists across devices or with teammates.",
   },
   {
     icon: BookOpen,
     title: "Dictionary Packs",
-    description: "Premium bundled correction databases with per-pack enable/disable and automatic version updates.",
+    description: "Pre-built correction databases you can toggle on or off. Auto-updated when new versions ship.",
   },
 ];
 
@@ -115,12 +115,12 @@ export default function PersonalDictionaryPage() {
           <FadeIn>
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Your words, <span className="text-primary">recognized correctly</span>
+                Teach it <span className="text-primary">your vocabulary</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Whisperer&apos;s three-tier correction engine fixes technical terms, names, and jargon
-                that generic dictation gets wrong. Add custom entries, use fuzzy and phonetic matching,
-                and boost vocabulary at the acoustic decoder level with prompt words.
+                Generic dictation mangles technical terms. Whisperer fixes this with a three-tier
+                correction engine: exact lookup, fuzzy SymSpell matching, and phonetic fallback.
+                Add your own entries or use prompt words to bias recognition at the acoustic level.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="xl" className="gap-3">
@@ -140,8 +140,8 @@ export default function PersonalDictionaryPage() {
             <FadeIn>
               <h2 className="text-3xl font-bold mb-4">Three-Tier Correction Engine</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Every transcription passes through three matching tiers. Only word-boundary matches
-                are applied — partial-word replacements are prevented.
+                Every transcription runs through three matching stages. Corrections only apply at
+                word boundaries, so you won't get mangled partial replacements.
               </p>
             </FadeIn>
 
@@ -188,15 +188,15 @@ export default function PersonalDictionaryPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-3xl mx-auto">
             <FadeIn>
-              <h2 className="text-3xl font-bold mb-6">Prompt Words — Vocabulary Boosting</h2>
+              <h2 className="text-3xl font-bold mb-6">Prompt Words</h2>
               <p className="text-lg text-muted-foreground mb-4">
-                Prompt words go deeper than post-processing — they bias the transcription engine itself
-                toward specific vocabulary before any text is produced.
+                Unlike dictionary corrections, prompt words influence recognition before text is produced.
+                The engine expects these terms and is more likely to hear them correctly.
               </p>
               <p className="text-lg text-muted-foreground mb-8">
-                For the Whisper backend, prompt words are passed as &quot;previous context&quot; so the model
-                expects these terms. For NVIDIA, they&apos;re compiled into CTC vocabulary models that
-                boost probability at the acoustic decoder level.
+                Whisper treats prompt words as prior context. NVIDIA compiles them into CTC vocabulary
+                models that boost acoustic decoder probability. Same result: better recognition for
+                your specific vocabulary.
               </p>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -310,10 +310,10 @@ export default function PersonalDictionaryPage() {
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4">
-                Your vocabulary, <span className="text-primary">perfectly recognized</span>
+                Your terms, <span className="text-primary">recognized right</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Download Whisperer and set up your personal dictionary in minutes.
+                Set up your personal dictionary in a few minutes. No more correcting the same mistakes.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="xl" className="gap-3">

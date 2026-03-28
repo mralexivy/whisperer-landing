@@ -29,7 +29,7 @@ const backends = [
     hardware: "Metal GPU",
     languages: "99+ languages",
     description:
-      "The default backend. Best accuracy and broadest language coverage. Uses Apple Silicon Metal GPU acceleration for fast inference. Supports 10+ model sizes from Tiny (75MB) to Large V3 (2.9GB).",
+      "The default. Best accuracy, widest language support. Runs on Metal GPU with 10+ model sizes from 75MB to 2.9GB.",
     badge: "Default",
     badgeColor: "bg-blue-500/20 text-blue-400",
   },
@@ -39,7 +39,7 @@ const backends = [
     hardware: "Apple Neural Engine",
     languages: "25 languages",
     description:
-      "Fastest backend on Apple Silicon. Runs on the dedicated Neural Engine, leaving GPU free for other tasks. Features CTC vocabulary boosting — your dictionary entries and prompt words bias the decoder at the acoustic level.",
+      "Fastest option. Runs on the Neural Engine so your GPU stays free. Supports CTC vocabulary boosting where your dictionary entries bias the acoustic decoder directly.",
     badge: "Fastest",
     badgeColor: "bg-green-500/20 text-green-400",
   },
@@ -49,7 +49,7 @@ const backends = [
     hardware: "System ML",
     languages: "System languages",
     description:
-      "Native Apple framework available on macOS Tahoe and later. Uses Apple's built-in speech recognition models with system-level optimization.",
+      "Apple's native framework. Available on macOS Tahoe and later with system-level optimization.",
     badge: "Native",
     badgeColor: "bg-purple-500/20 text-purple-400",
   },
@@ -69,30 +69,30 @@ const whisperModels = [
 ];
 
 const engineeringHighlights = [
-  { icon: Zap, text: "Model stays pre-loaded in memory for instant recording start with zero loading delay" },
-  { icon: Cpu, text: "P-core thread pinning on Apple Silicon — only performance cores used, E-cores excluded to prevent straggler effects" },
-  { icon: Shield, text: "GPU warm-up on model load — silent transcription compiles Metal shaders so first real recording has no stall" },
-  { icon: Brain, text: "Deterministic greedy decoding (temperature=0.0) makes per-chunk latency predictable" },
-  { icon: HardDrive, text: "Memory safety check before model load — warns if insufficient system memory" },
-  { icon: Zap, text: "Hot-swap models without restarting the app" },
+  { icon: Zap, text: "Model stays loaded in memory. Recording starts instantly with no delay." },
+  { icon: Cpu, text: "P-core pinning on Apple Silicon. Only performance cores run inference; E-cores stay out of the way." },
+  { icon: Shield, text: "GPU warm-up on load. A silent transcription compiles Metal shaders so your first real recording doesn't stall." },
+  { icon: Brain, text: "Greedy decoding at temperature 0.0. Per-chunk latency becomes predictable." },
+  { icon: HardDrive, text: "Memory check before loading. You get a warning if there's not enough RAM." },
+  { icon: Zap, text: "Hot-swap models without restarting." },
 ];
 
 const faqs = [
   {
-    question: "Which transcription backend should I choose?",
-    answer: "Start with Whisper (the default). It offers the best accuracy and language coverage. If you want maximum speed and primarily dictate in English, try NVIDIA. Apple Speech requires macOS Tahoe or later.",
+    question: "Which backend should I pick?",
+    answer: "Start with Whisper. It's the default for a reason: best accuracy and language coverage. Want raw speed and mostly dictate in English? Try NVIDIA. Apple Speech needs macOS Tahoe or later.",
   },
   {
     question: "Which Whisper model is best?",
-    answer: "The default Large V3 Turbo Q5 (547 MB) offers the best balance of speed, accuracy, and file size. Use smaller models (Tiny, Base) for speed on older hardware. Use Large V3 (2.9 GB) for maximum accuracy in challenging audio.",
+    answer: "Large V3 Turbo Q5 (547 MB) hits the sweet spot for most people. Smaller models (Tiny, Base) run faster on older hardware. Large V3 (2.9 GB) gives you maximum accuracy when audio quality is rough.",
   },
   {
-    question: "Can I switch between backends without restarting?",
-    answer: "Yes. Whisperer supports hot-swapping — change your transcription backend or model size, and the new engine loads while the old one is released. No app restart needed.",
+    question: "Can I switch backends without restarting?",
+    answer: "Yes. Change the backend or model size and the new one loads while the old one unloads. No restart.",
   },
   {
-    question: "How much RAM do the models need?",
-    answer: "Models range from ~100MB (Tiny) to ~3GB (Large V3) of memory. Whisperer checks available system memory before loading and warns if insufficient. The default model (Large V3 Turbo Q5) uses about 600MB.",
+    question: "How much RAM do models need?",
+    answer: "Tiny uses ~100MB. Large V3 uses ~3GB. The default (Large V3 Turbo Q5) sits around 600MB. Whisperer checks memory before loading and warns you if there's not enough.",
   },
 ];
 
@@ -117,11 +117,11 @@ export default function OfflineTranscriptionPage() {
           <FadeIn>
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Three transcription engines, <span className="text-primary">zero cloud</span>
+                Three engines, <span className="text-primary">no cloud</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Whisper on Metal GPU, NVIDIA on Neural Engine, or Apple Speech. Choose from 10+
-                model sizes to match your hardware and accuracy needs. Everything runs locally on your Mac.
+                Whisper on Metal GPU. NVIDIA on Neural Engine. Apple Speech. Pick from 10+ model
+                sizes based on how much speed vs accuracy you need. All local.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="xl" className="gap-3">
@@ -186,7 +186,7 @@ export default function OfflineTranscriptionPage() {
             <FadeIn>
               <h2 className="text-3xl font-bold mb-4">Whisper Model Comparison</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                All models are downloaded once and cached locally. Switch between them at any time.
+                Download once, cached locally. Switch between models whenever you want.
               </p>
             </FadeIn>
 
@@ -317,10 +317,10 @@ export default function OfflineTranscriptionPage() {
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4">
-                On-device transcription, <span className="text-primary">your choice of engine</span>
+                Pick your engine, <span className="text-primary">run it locally</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Download Whisperer free. All transcription engines run locally on your Mac.
+                All three backends run on your Mac. No server, no subscription.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="xl" className="gap-3">

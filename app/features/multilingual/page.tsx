@@ -33,25 +33,25 @@ const backendLanguages = [
   {
     backend: "Whisper",
     count: "99+",
-    description: "Broadest language coverage. Supports virtually every major and many minor languages worldwide.",
+    description: "Widest language coverage. Handles major languages plus many regional ones.",
     hardware: "Metal GPU",
   },
   {
     backend: "NVIDIA",
     count: "25",
-    description: "Top 25 languages with optimized Neural Engine models. Fastest inference for supported languages.",
+    description: "Top 25 languages, optimized for Neural Engine. Fastest option if your language is supported.",
     hardware: "Neural Engine",
   },
   {
     backend: "NVIDIA (English)",
     count: "1",
-    description: "English-only optimized model. Maximum speed for English dictation.",
+    description: "English-only model tuned for speed. Best latency for English dictation.",
     hardware: "Neural Engine",
   },
   {
     backend: "Apple Speech",
     count: "System",
-    description: "Languages available through macOS system speech recognition (macOS Tahoe+).",
+    description: "Uses macOS system speech recognition. Requires macOS Tahoe or later.",
     hardware: "System ML",
   },
 ];
@@ -99,8 +99,9 @@ export default function MultilingualPage() {
                 Dictate in <span className="text-primary">100+ languages</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Whisperer supports over 100 languages for offline dictation. Set per-app language profiles,
-                use AI-powered translation between languages, and auto-detect the language you&apos;re speaking — all on-device.
+                Not just English. Whisperer handles over 100 languages offline. Set different languages
+                per app, translate between languages with the on-device LLM, or let it auto-detect
+                what you're speaking.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="xl" className="gap-3">
@@ -120,7 +121,7 @@ export default function MultilingualPage() {
             <FadeIn>
               <h2 className="text-3xl font-bold mb-4">Supported Languages</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                A sample of the 100+ languages available with the Whisper backend. All processed offline on your Mac.
+                Here's a sample. The Whisper backend covers 100+ languages, all processed locally.
               </p>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -188,22 +189,22 @@ export default function MultilingualPage() {
                 {
                   icon: Globe,
                   title: "Explicit Language Selection",
-                  description: "Choose your dictation language explicitly for best accuracy. Recommended over auto-detection for consistent results.",
+                  description: "Pick your language upfront for best accuracy. Auto-detect works, but explicit selection is more reliable.",
                 },
                 {
                   icon: Cpu,
                   title: "Auto-Detection",
-                  description: "Let Whisper automatically detect the language you're speaking. Useful when switching between languages frequently.",
+                  description: "Whisper figures out what language you're speaking. Handy when you switch languages mid-workflow.",
                 },
                 {
                   icon: Layers,
                   title: "Per-App Language Profiles",
-                  description: "Set a different dictation language for each application. English in VS Code, French in Pages, German in Mail — automatic switching.",
+                  description: "Different language for each app. English in VS Code, French in Pages, German in Mail. Switches automatically.",
                 },
                 {
                   icon: Languages,
                   title: "AI Translation Mode",
-                  description: "Dictate in one language and have Whisperer's on-device LLM translate to another. Speak in Spanish, get English text — entirely offline.",
+                  description: "Speak in one language, get text in another. The on-device LLM handles translation without touching the internet.",
                 },
               ].map((feature, i) => (
                 <StaggerItem key={i}>
@@ -287,10 +288,10 @@ export default function MultilingualPage() {
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4">
-                Your language, <span className="text-primary">your Mac</span>
+                Your language, <span className="text-primary">offline</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Download Whisperer and dictate in any of 100+ languages, completely offline.
+                100+ languages. No internet required.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="xl" className="gap-3">

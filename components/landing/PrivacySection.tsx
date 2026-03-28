@@ -6,19 +6,19 @@ import { FadeIn, FadeInStagger, StaggerItem } from "@/components/ui/animated";
 const privacyPoints = [
   {
     icon: Shield,
-    text: "Offline transcription on your Mac",
+    text: "Transcription happens on your Mac",
   },
   {
     icon: Cloud,
-    text: "No accounts, no telemetry required for core features",
+    text: "No account needed. No telemetry for core features",
   },
   {
     icon: HardDrive,
-    text: "Models stored locally in your Application Support folder",
+    text: "Models live in your Application Support folder",
   },
   {
     icon: FileText,
-    text: "Optional diagnostics logs stored locally",
+    text: "Diagnostic logs stay local (optional)",
   },
 ];
 
@@ -50,7 +50,7 @@ export const PrivacySection = () => {
           {/* Additional trust note */}
           <div className="text-center">
             <p className="text-muted-foreground max-w-xl mx-auto">
-              If you contact support, you can choose to attach logs. Nothing is sent automatically.
+              Contact support? You choose whether to attach logs. Nothing gets sent unless you send it.
             </p>
           </div>
         </div>

@@ -52,7 +52,7 @@ export default function PrivacyPage() {
           {/* Overview */}
           <section>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Whisperer is a voice-to-text transcription app for macOS that processes audio entirely on your device. We are committed to protecting your privacy.
+              Whisperer is a voice-to-text app for macOS. All audio processing happens on your device. This page explains what data we collect (none) and why.
             </p>
           </section>
 
@@ -342,7 +342,7 @@ export default function PrivacyPage() {
           <section className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-2xl p-8 text-center">
             <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
             <p className="text-lg font-medium">
-              Whisperer is a privacy-first app. Everything happens on your device, nothing is sent to the cloud, and we don't collect any personal information.
+              Everything happens on your Mac. Nothing goes to the cloud. We collect no personal information.
             </p>
           </section>
 

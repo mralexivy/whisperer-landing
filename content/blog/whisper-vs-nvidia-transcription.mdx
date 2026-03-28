@@ -6,70 +6,66 @@ keywords: ["whisper vs nvidia", "transcription backend comparison", "neural engi
 category: "technical"
 ---
 
-Whisperer is unique among Mac dictation apps: it supports three independent transcription backends, each optimized for different hardware and use cases. Here's how to choose between them.
+Whisperer supports three transcription backends. Each runs on different hardware and has different tradeoffs. Here's the quick comparison.
 
-## The Three Backends at a Glance
+## At a glance
 
 | | **Whisper** | **NVIDIA** | **Apple Speech** |
 |---|---|---|---|
-| Engine | Local Whisper | CoreML | SpeechAnalyzer |
-| Hardware | Metal GPU | Apple Neural Engine | System ML |
-| Languages | 99+ | 25 | System languages |
-| Speed | Fast (with Turbo models) | Fastest | Varies |
-| Best For | Accuracy & language coverage | Maximum speed | Native integration |
+| Runs on | Metal GPU | Neural Engine | System ML |
+| Languages | 99+ | 25 | Whatever Apple supports |
+| Speed | Fast | Fastest | Depends |
+| Best for | Accuracy, language coverage | Raw speed | Zero setup |
 
 ## Whisper — The Default
 
-Whisper is the default backend and the most versatile. It uses Apple Silicon's Metal GPU for fast inference.
+The default. Runs on Apple Silicon's Metal GPU.
 
-**Strengths:**
-- 99+ language support — the broadest coverage of any backend
-- 10+ model sizes from Tiny (75 MB) to Large V3 (2.9 GB)
-- The default Large V3 Turbo Q5 model (547 MB) offers the best balance of speed, size, and accuracy
-- Quantized models (Q5) reduce file size by ~60% with minimal accuracy loss
+**What's good:**
+- 99+ languages
+- 10+ model sizes (75 MB to 2.9 GB)
+- Large V3 Turbo Q5 (547 MB) is a solid default: fast, accurate, reasonable size
+- Quantized models (Q5) cut file size by ~60% without much accuracy loss
 
-**When to use:** Most users should stick with Whisper. It's the most accurate across languages and has the widest range of model sizes.
+**When to use:** Start here. Works well for most people.
 
-**Recommended model:** Large V3 Turbo Q5 (547 MB) — 8x faster than Large V3 with similar accuracy, and only 547 MB on disk.
+**Recommended model:** Large V3 Turbo Q5 (547 MB). Fast, accurate, not huge.
 
-## NVIDIA — The Speed King
+## NVIDIA — The Fast One
 
-NVIDIA uses CoreML models running on the Apple Neural Engine (ANE). Since it runs on a dedicated chip separate from the GPU, it leaves Metal free for other tasks.
+NVIDIA runs on the Neural Engine (ANE) via CoreML. Separate chip from the GPU, so Metal stays free for other work.
 
-**Strengths:**
-- Fastest inference on Apple Silicon
-- CTC vocabulary boosting — your [dictionary entries](/features/personal-dictionary) and prompt words bias the decoder at the acoustic level
-- Dedicated hardware means no GPU contention
+**What's good:**
+- Fastest option
+- CTC vocabulary boosting: your [dictionary entries](/features/personal-dictionary) bias the decoder directly
+- Leaves GPU available for video editing, ML, etc.
 
 **Limitations:**
-- Supports 25 languages
-- Fewer model size options compared to Whisper
+- 25 languages (not 99+)
+- Fewer model options
 
-**When to use:** If you primarily dictate in a supported language and want absolute maximum speed. The CTC vocabulary boosting feature is also unique to NVIDIA — if you have lots of specialized terminology, NVIDIA may recognize it better.
+**When to use:** You want speed, you work in a supported language, and you have specialized terminology that benefits from vocabulary boosting.
 
-## Apple Speech — Native Framework
+## Apple Speech — The Native Option
 
-Available on macOS Tahoe (macOS 26) and later, Apple Speech uses the native SpeechAnalyzer framework. This is Apple's own speech recognition running through system-level optimization.
+macOS 26+ only. Uses Apple's built-in SpeechAnalyzer framework. No models to download.
 
-**When to use:** When you want to use Apple's native speech models or when the other backends aren't available for your use case.
+**When to use:** You're on macOS 26, want zero setup, or need a lightweight option.
 
-## How Whisperer Uses Each Backend
+## How they work together
 
-Whisperer abstracts all three backends behind a unified `TranscriptionBackend` protocol. This means:
+All three share the same interface:
 
-- **Hot-swapping**: Switch between backends without restarting the app
-- **Same features**: Dictionary correction, filler word removal, AI post-processing, and history work identically across all backends
-- **Same audio pipeline**: All backends receive the same 16kHz mono Float32 audio
+- Switch engines without restarting
+- Dictionary, filler removal, AI post-processing work identically
+- Same 16kHz mono Float32 audio input
 
-## The Live Preview Connection
+## Live Preview
 
-Whisperer's [live preview](/features/live-preview) uses a dedicated lightweight EOU model on the Neural Engine, regardless of which main backend you choose. This means:
-
-- If your main backend is **Whisper** (Metal GPU) — live preview runs on Neural Engine, zero contention
-- If your main backend is **NVIDIA** (Neural Engine) — the EOU model shares the ANE but is optimized for minimal interference
+The [live preview](/features/live-preview) uses a separate lightweight model on the Neural Engine. So if you're using Whisper (GPU), preview runs on ANE with no contention. If you're using NVIDIA (ANE), the EOU model shares the chip but it's optimized to stay out of the way.
 
 ## Recommendation
 
-Start with **Whisper** using the default Large V3 Turbo Q5 model. It's the safest choice with excellent accuracy across all languages. If you find you need more speed and primarily work in English or a top-25 language, switch to **NVIDIA** and see if the speed difference matters for your workflow.
+Start with Whisper (Large V3 Turbo Q5). If you need more speed and work in a top-25 language, try NVIDIA. You can always switch back.
 
-Read the [best Whisper model for dictation](/blog/best-whisper-model-for-dictation) guide for detailed model comparisons, or explore the [offline transcription engines](/features/offline-transcription) feature page.
+More details: [best Whisper model for dictation](/blog/best-whisper-model-for-dictation), [offline transcription engines](/features/offline-transcription).

@@ -1,100 +1,98 @@
 ---
 title: "Voice Coding with Cursor: Dictate Prompts & Code Hands-Free"
 description: "How to use voice dictation with Cursor IDE for AI-assisted coding. Speak prompts, refactors, and code naturally with Whisperer's Code Mode."
-date: "2026-03-12"
+date: "2026-03-28"
 keywords: ["voice to text Cursor IDE", "voice coding Cursor", "dictation Cursor AI", "hands-free coding"]
 category: "voice-coding"
 ---
 
-Cursor has become the go-to IDE for AI-assisted development. But there's an irony: you're using AI to write code faster, yet you're still typing every prompt by hand.
-
-What if you could speak your prompts, describe refactors out loud, and dictate code — all without touching the keyboard?
+Cursor is everywhere now for AI-assisted development. But here's the thing: you're using AI to write code faster, and you're still typing every prompt.
 
 <Callout type="info">
-You speak at ~150 words per minute. You type at ~60. That's a 2.5x speed boost on every prompt you send to Cursor's AI.
+You speak at roughly 150 words per minute. You type at maybe 60. That's 2.5x faster on every prompt.
 </Callout>
 
-## Why Voice Input + Cursor Is a Perfect Match
+## Voice + Cursor Makes Sense
 
-Cursor's AI features are prompt-driven. You describe what you want in natural language, and Cursor generates or modifies code. This is fundamentally a *conversation* — and conversations are faster spoken than typed.
+Cursor is prompt-driven. You describe what you want, Cursor generates code. It's a conversation. Conversations are faster out loud.
 
 <FeatureGrid>
 <FeatureCard title="Cmd+K Prompts" icon="keyboard">
-Spoken requests: "Refactor this function to use async await and add error handling"
+"Refactor this function to use async await and add error handling"
 </FeatureCard>
 <FeatureCard title="Chat Panel" icon="message-square">
-Natural flow: "Why is this test failing? The mock should return a promise"
+"Why is this test failing? The mock should return a promise"
 </FeatureCard>
 <FeatureCard title="Inline Edits" icon="pencil">
-Verbal descriptions: "Change this to use a switch statement instead of if-else"
+"Change this to a switch statement instead of if-else"
 </FeatureCard>
 <FeatureCard title="Code Generation" icon="bot">
-Full instructions: "Create a REST API for user management with CRUD endpoints"
+"Create a REST API for user management with CRUD endpoints"
 </FeatureCard>
 </FeatureGrid>
 
-## Setting Up Whisperer with Cursor
+## Setup
 
 <StepList>
 <Step num="1" title="Install Whisperer">
-Download from the Mac App Store (free, Pro Pack $14.99 for Code Mode).
+Mac App Store. Free to start, Pro Pack is $14.99 for Code Mode.
 </Step>
-<Step num="2" title="Create a Cursor Profile">
-Open Settings → Profiles in Whisperer and create a profile for Cursor with Code Mode enabled.
+<Step num="2" title="Add a Cursor Profile">
+Settings > Profiles, create one for Cursor with Code Mode on.
 </Step>
 <Step num="3" title="Set Your Shortcut">
-Default is hold Fn. You can customize this in settings.
+Default is hold Fn. Change it if you want.
 </Step>
-<Step num="4" title="Start Speaking">
-When Cursor is active, Whisperer auto-switches to Code Mode. Hold Fn, speak, release.
+<Step num="4" title="Talk">
+When Cursor is active, Whisperer switches to Code Mode automatically. Hold Fn, speak, release.
 </Step>
 </StepList>
 
-## Workflow: Speaking AI Prompts
+## Speaking Prompts
 
-Hold Fn and describe what you want:
+Hold Fn, describe what you want:
 
 <VoiceDemo voice="Add input validation to the submit handler. Check that email is a valid format and name is at least two characters. Show inline error messages below each field." output="[Text appears in Cursor's Cmd+K prompt field, ready to submit]" lang="Natural Language" />
 
-Release Fn. The text appears in Cursor's prompt field, ready to submit. No typing, no copy-pasting from a notes app.
+Release. Text appears in the prompt field. Hit enter.
 
-## Workflow: Dictating Code Directly
+## Dictating Code
 
-When you need to write code yourself (not via AI), Code Mode handles the syntax:
+When you're writing code yourself (not asking AI to do it), Code Mode handles syntax:
 
 <VoiceDemo voice='"const snake case api endpoint equals quote slash api slash users quote semicolon"' output='const api_endpoint = "/api/users";' lang="TypeScript" />
 
-Switch between speaking prompts (natural language) and speaking code (Code Mode) seamlessly — Whisperer handles both.
+You can go back and forth between prompts and code. Whisperer handles both.
 
-## Tips for Cursor + Voice
+## Tips
 
 <FeatureGrid>
-<FeatureCard title="Be Specific" icon="target">
-Voice lets you add more detail without the friction of typing long descriptions. More context = better AI output.
+<FeatureCard title="More Detail, Less Effort" icon="target">
+Typing long descriptions is tedious. Speaking them isn't. More context means better AI output.
 </FeatureCard>
-<FeatureCard title="Voice Code Review" icon="eye">
-Describe issues you see: "This function has a race condition because..." — faster than typing detailed feedback.
+<FeatureCard title="Speak Code Reviews" icon="eye">
+"This function has a race condition because..." Faster than typing feedback.
 </FeatureCard>
-<FeatureCard title="Dictate Commits" icon="file-text">
-After Cursor generates code, speak your commit message without switching context.
+<FeatureCard title="Commit Messages" icon="file-text">
+After Cursor generates code, speak your commit. No context switch.
 </FeatureCard>
 <FeatureCard title="Per-App Profiles" icon="refresh-cw">
-Code Mode for Cursor, chat style for Slack. Whisperer switches automatically based on the active app.
+Code Mode for Cursor, casual for Slack. Switches automatically.
 </FeatureCard>
 </FeatureGrid>
 
-## Voice Coding for Agentic Workflows
+## Agentic Workflows
 
-As Cursor and similar tools move toward agentic coding — where AI autonomously plans and executes multi-step tasks — the human's role becomes more about *directing* and *reviewing*. Voice input is ideal for this supervisory role:
+Cursor is moving toward agentic coding where AI plans and executes multi-step tasks. Your job becomes directing and reviewing. Voice is good for that:
 
 <VoiceDemo voice="Create a REST API for user management with CRUD endpoints, validation, and tests" output="[Cursor Agent begins planning and executing the multi-step task]" lang="Agentic Prompt" />
 
 <VoiceDemo voice="The authentication middleware should use JWT, not session cookies" output="[Cursor Agent redirects its approach based on your feedback]" lang="Course Correction" />
 
-## The Ergonomic Benefit
+## Ergonomics
 
 <Callout type="tip">
-Cursor already reduces the amount of code you type manually. Adding voice reduces it further. For developers dealing with RSI or carpal tunnel, this combination can be the difference between being able to code comfortably and not.
+Cursor already means less typing. Voice means even less. If you have RSI or carpal tunnel, this combination might let you keep coding comfortably.
 </Callout>
 
 

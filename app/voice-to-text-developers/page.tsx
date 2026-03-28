@@ -125,7 +125,7 @@ const devFeatures = [
     bgColor: "bg-blue-400/10",
     title: "Code Mode",
     description:
-      "Speak symbols, casing conventions, and programming syntax. camelCase, snake_case, CONSTANT_CASE, parentheses, brackets — all by voice.",
+      "Say casing conventions and symbols. camelCase, snake_case, CONSTANT_CASE, parentheses, brackets by voice.",
   },
   {
     icon: Layers,
@@ -133,7 +133,7 @@ const devFeatures = [
     bgColor: "bg-purple-400/10",
     title: "Per-App Profiles",
     description:
-      "Code Mode activates automatically in your IDE. Switch to Slack and it goes back to natural language. Zero manual switching.",
+      "Code Mode activates in your IDE. Switch to Slack and it goes back to normal. No manual switching.",
   },
   {
     icon: BookOpen,
@@ -141,7 +141,7 @@ const devFeatures = [
     bgColor: "bg-orange-400/10",
     title: "Personal Dictionary",
     description:
-      "Add project-specific terms, library names, API names, and acronyms so they're recognized correctly every time.",
+      "Add project terms, library names, API names, acronyms. They get recognized correctly.",
   },
   {
     icon: Keyboard,
@@ -149,47 +149,47 @@ const devFeatures = [
     bgColor: "bg-cyan-400/10",
     title: "Pro Insertion",
     description:
-      "Clipboard-safe paste that won't overwrite your clipboard. Falls back to typing when paste isn't supported.",
+      "Clipboard-safe paste. Does not overwrite what you copied. Falls back to typing when needed.",
   },
 ];
 
 const rsiPoints = [
-  "Reduce repetitive key presses by 80%+ during routine coding",
-  "Dictate boilerplate, comments, and documentation hands-free",
-  "Switch between voice and keyboard naturally — use what feels right",
-  "Continue coding during RSI flare-ups without losing productivity",
+  "Cut repetitive key presses during routine coding",
+  "Dictate boilerplate, comments, and docs hands-free",
+  "Switch between voice and keyboard as needed",
+  "Keep coding during RSI flare-ups",
 ];
 
 const faqs = [
   {
     question: "Can I dictate code on Mac by voice?",
     answer:
-      "Yes. Whisperer's Code Mode lets you dictate code by voice with support for camelCase, snake_case, PascalCase, CONSTANT_CASE, and 20+ symbol commands. It works in VS Code, Cursor, JetBrains IDEs, Xcode, Terminal, and any text field on your Mac.",
+      "Yes. Whisperer Code Mode: camelCase, snake_case, PascalCase, CONSTANT_CASE, 20+ symbol commands. Works in VS Code, Cursor, JetBrains, Xcode, Terminal, any text field.",
   },
   {
     question: "Does voice coding work in Cursor IDE?",
     answer:
-      "Yes. Whisperer inserts into any focused text field, including Cursor. With per-app profiles, Code Mode activates automatically when Cursor is in the foreground. You can dictate both code and AI prompts.",
+      "Yes. Whisperer inserts into any focused field. Per-app profiles activate Code Mode in Cursor automatically. Dictate code and AI prompts.",
   },
   {
     question: "Is Whisperer good for developers with RSI?",
     answer:
-      "Yes. Many developers with RSI, carpal tunnel, or tendinitis use Whisperer to continue coding comfortably. It reduces repetitive key presses by 80%+ for routine code. 100% offline means no latency.",
+      "Yes. Reduces typing for routine code. Many developers with RSI, carpal tunnel, tendinitis use it. Runs offline so no latency.",
   },
   {
     question: "How is this different from Apple Dictation for coding?",
     answer:
-      "Apple Dictation produces prose, not code — it autocorrects aggressively, adds unwanted spaces, and has no concept of programming syntax. Whisperer's Code Mode understands camelCase, snake_case, parentheses, semicolons, and other code constructs.",
+      "Apple Dictation produces prose. Autocorrects aggressively, adds spaces, no programming syntax. Whisperer Code Mode handles camelCase, snake_case, parentheses, semicolons.",
   },
   {
     question: "What transcription engines does Whisperer use?",
     answer:
-      "Three engines: Whisper (Metal GPU, 99+ languages, 10+ models), NVIDIA (Neural Engine, fastest), and Apple Speech (macOS 26+). Hot-swap between them without restarting.",
+      "Whisper (Metal GPU, 99+ languages, 10+ models), NVIDIA (Neural Engine, fastest), Apple Speech (macOS 26+). Switch without restarting.",
   },
   {
     question: "How much does voice coding cost?",
     answer:
-      "Code Mode is included in the Pro Pack at $14.99 one-time (lifetime). The base app is $2.99. No subscription, no cloud fees. Superwhisper costs $249 and doesn't have Code Mode.",
+      "Code Mode in Pro Pack: $14.99 one-time. Base app $2.99. No subscription. Superwhisper is $249 and has no Code Mode.",
   },
 ];
 
@@ -227,9 +227,8 @@ export default function VoiceToTextDevelopersPage() {
                 <span className="text-primary">Developers</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                The only Mac dictation app with a dedicated Code Mode. Dictate
-                camelCase, snake_case, symbols, and punctuation by voice —
-                directly into VS Code, Cursor, or Terminal. 100% offline.
+                Whisperer has a Code Mode. Dictate camelCase, snake_case, symbols,
+                punctuation by voice. Works in VS Code, Cursor, Terminal. Runs offline.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -396,8 +395,7 @@ export default function VoiceToTextDevelopersPage() {
                 <span className="text-primary">Developers</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                Features no other dictation app offers — designed specifically
-                for coding workflows.
+                Features you will not find in other dictation apps.
               </p>
             </div>
           </FadeIn>
@@ -452,9 +450,8 @@ export default function VoiceToTextDevelopersPage() {
                     Protect Your Hands
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6">
-                    RSI, carpal tunnel, and tendinitis affect thousands of
-                    developers. Voice coding lets you stay productive without
-                    the physical strain of constant typing.
+                    RSI, carpal tunnel, tendinitis. A lot of developers deal with this.
+                    Voice coding lets you keep working without constant typing.
                   </p>
                   <ul className="space-y-3">
                     {rsiPoints.map((point, i) => (

@@ -168,32 +168,32 @@ const faqs = [
   {
     question: "What is the best speech to text app for Mac?",
     answer:
-      "Whisperer is the most feature-rich speech-to-text app for Mac at $14.99 lifetime. It includes three offline transcription engines (Whisper, NVIDIA, Apple Speech), Code Mode for developers, per-app profiles, personal dictionary, and AI post-processing. No competitor offers this combination of features.",
+      "Whisperer has three offline engines, Code Mode, per-app profiles, personal dictionary, and AI post-processing. $14.99 one-time. No competitor has this combination.",
   },
   {
     question: "Is speech to text available offline on Mac?",
     answer:
-      "Yes. Whisperer runs 100% offline using local AI models. After downloading a model (75MB–2.9GB), no internet connection is needed. Apple Dictation also works offline on Apple Silicon Macs but with fewer features.",
+      "Yes. Whisperer runs offline using local AI. Download a model (75MB-2.9GB), no internet needed after that. Apple Dictation also works offline but has fewer features.",
   },
   {
     question: "How accurate is speech to text on Mac?",
     answer:
-      "Modern Whisper models achieve near-human accuracy for major languages. Whisperer's Large V3 Turbo model (~1.5GB) delivers excellent accuracy. You can also add a personal dictionary for project-specific terms to improve recognition of names, jargon, and technical vocabulary.",
+      "Whisper models are very accurate for major languages. Large V3 Turbo (~1.5GB) works well. Add terms to the personal dictionary to improve recognition of names and jargon.",
   },
   {
     question: "Can I use speech to text in VS Code?",
     answer:
-      "Yes. Whisperer inserts text into any focused field on your Mac, including VS Code, Cursor, JetBrains IDEs, Terminal, Slack, Gmail, and Notion. With Code Mode, you can dictate camelCase, snake_case, and programming symbols.",
+      "Yes. Whisperer inserts text into any focused field: VS Code, Cursor, JetBrains, Terminal, Slack, Gmail, Notion. Code Mode handles camelCase, snake_case, symbols.",
   },
   {
     question: "How much does speech to text cost on Mac?",
     answer:
-      "Whisperer starts at $2.99 one-time for the base app. The Pro Pack ($14.99 lifetime) adds Code Mode, per-app profiles, personal dictionary, and AI post-processing. Competitors charge $99–$249 for lifetime licenses or $10–15/month for subscriptions.",
+      "Whisperer base app is $2.99. Pro Pack is $14.99 one-time. Competitors charge $99-$249 lifetime or $10-15/month.",
   },
   {
     question: "Does speech to text work with multiple languages?",
     answer:
-      "Yes. Whisperer supports 100+ languages with the Whisper engine and 25 languages with NVIDIA. You can set different languages per app using per-app profiles, and use offline AI translation between languages.",
+      "Yes. Whisper supports 100+ languages, NVIDIA supports 25. Set different languages per app. Offline AI translation available.",
   },
 ];
 
@@ -265,13 +265,12 @@ export default function SpeechToTextMacPage() {
                 <span className="text-primary">Mac</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-4 leading-relaxed">
-                Hold Fn, speak, release — your words appear in any app.
-                Whisperer converts speech to text using three on-device AI
-                engines with no internet required.
+                Hold Fn, speak, release. Text appears in whatever app you are using.
+                Three on-device AI engines. No internet needed.
               </p>
               <p className="text-sm text-muted-foreground mb-8">
                 100+ languages. Code Mode for developers. AI post-processing.
-                $2.99 base, $14.99 Pro Pack lifetime. No subscription, no cloud.
+                $2.99 base, $14.99 Pro Pack one-time. No subscription.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -304,7 +303,7 @@ export default function SpeechToTextMacPage() {
                 How It <span className="text-primary">Works</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                Three steps. No setup. No accounts.
+                Three steps. No accounts.
               </p>
             </div>
           </FadeIn>
@@ -349,12 +348,11 @@ export default function SpeechToTextMacPage() {
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Every Feature,{" "}
-                <span className="text-primary">100% Offline</span>
+                All Features{" "}
+                <span className="text-primary">Run Offline</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                A full-featured speech-to-text suite in a lightweight menu bar
-                app. All powered by local AI on your Mac.
+                Speech-to-text in a menu bar app. Runs on local AI.
               </p>
             </div>
           </FadeIn>
@@ -396,8 +394,7 @@ export default function SpeechToTextMacPage() {
                 <span className="text-primary">Compares</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                The best speech-to-text value on Mac — more features, lower
-                price.
+                More features. Lower price.
               </p>
             </div>
           </FadeIn>
@@ -479,8 +476,7 @@ export default function SpeechToTextMacPage() {
                 <span className="text-primary">Engines</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                Choose the best engine for your workflow. Hot-swap without
-                restarting.
+                Pick the one that works for you. Switch without restarting.
               </p>
             </div>
           </FadeIn>

@@ -32,8 +32,8 @@ export const Hero = () => {
             </h1>
 
             <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed">
-              Hold <span className="text-foreground font-medium">Fn</span> (or your shortcut), speak, release.
-              Text appears in the focused field. <span className="text-primary font-medium">100% offline.</span>
+              Hold <span className="text-foreground font-medium">Fn</span>, talk, let go.
+              Your words land in whatever app you&apos;re using. <span className="text-primary font-medium">Nothing leaves your Mac.</span>
             </p>
 
             {/* CTA Buttons */}

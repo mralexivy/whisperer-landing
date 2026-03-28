@@ -1,35 +1,35 @@
 ---
 title: "Voice Dictation for VS Code — Setup, Workflow & Productivity Tips"
 description: "How to set up voice-to-text dictation in VS Code on Mac. Use Whisperer's Code Mode to dictate code, comments, and Git messages directly in your editor."
-date: "2026-03-10"
+date: "2026-03-28"
 keywords: ["speech to text VS Code", "voice dictation VS Code", "dictation for VS Code mac", "voice coding VS Code"]
 category: "voice-coding"
 ---
 
-VS Code is the most popular code editor in the world. But it has no built-in voice dictation — and Apple's Dictation butchers code syntax. Here's how to set up proper voice-to-text for VS Code on Mac.
+VS Code has no built-in voice dictation. Try Apple's Dictation and you'll hit the problem fast: `getUserName` becomes "Get user name," symbols turn into gibberish, and everything gets uploaded to Apple's servers.
 
-## The Problem with Built-In Dictation
+## Built-In Dictation Doesn't Work for Code
 
 <Callout type="warning">
-If you try using macOS Dictation in VS Code, you'll hit these issues immediately: autocorrection ruins code (`getUserName` becomes "Get user name"), no symbol support, no casing commands, and your code gets sent to Apple's servers.
+macOS Dictation in VS Code mangles code syntax in seconds: autocorrection "fixes" your camelCase, symbols get spelled out or ignored, and there's no way to say "open paren" and get `(`. Plus, your code snippets end up on Apple's servers.
 </Callout>
 
-Whisperer solves all of these with offline, Code Mode-aware dictation.
+Whisperer fixes this with offline dictation that actually understands code.
 
-## Setting Up Whisperer for VS Code
+## Setup
 
 <StepList>
 <Step num="1" title="Install Whisperer">
-Download from the Mac App Store. The base app is free.
+Download from the Mac App Store. Free to start.
 </Step>
 <Step num="2" title="Grant Permissions">
-Whisperer needs Microphone (to record), Accessibility (to insert text), and Input Monitoring (for the Fn key shortcut).
+Whisperer asks for Microphone, Accessibility (to insert text), and Input Monitoring (for the Fn shortcut). Standard macOS permission stuff.
 </Step>
 <Step num="3" title="Create a VS Code Profile">
-Open settings and create a per-app profile for VS Code with Code Mode enabled.
+In settings, create a per-app profile for VS Code with Code Mode on.
 </Step>
-<Step num="4" title="Choose Your Model">
-The balanced model offers good accuracy for technical terms without significant latency.
+<Step num="4" title="Pick a Model">
+The balanced model works well for most people. Good accuracy on technical terms, fast enough that you don't notice the delay.
 </Step>
 </StepList>
 
@@ -53,32 +53,32 @@ Open the VS Code Source Control panel, focus the commit message input, and speak
 
 <VoiceDemo voice='"git checkout dash b feature slash snake case add user auth"' output="git checkout -b feature/add_user_auth" lang="Terminal" />
 
-## Productivity Tips
+## Tips
 
 <FeatureGrid>
-<FeatureCard title="Streaming Preview" icon="eye">
-Whisperer shows a live preview of your transcription as you speak. If something looks wrong, you can stop and re-record.
+<FeatureCard title="Watch the Preview" icon="eye">
+Whisperer shows what it's transcribing in real-time. If it misheard something, just stop and try again.
 </FeatureCard>
-<FeatureCard title="Personal Dictionary" icon="book-open">
-Add project-specific names, libraries, and acronyms for better recognition.
+<FeatureCard title="Add Your Jargon" icon="book-open">
+Project-specific names, weird library names, acronyms your team uses. Add them to the personal dictionary.
 </FeatureCard>
 <FeatureCard title="Start with Comments" icon="message-square">
-New to voice coding? Start by dictating comments — they're natural language with a minimal learning curve.
+If voice coding feels awkward, start with comments. They're just plain English. No syntax to worry about.
 </FeatureCard>
-<FeatureCard title="Toggle Mode" icon="refresh-cw">
-For longer blocks, press once to start, press again to stop. Better than holding Fn for multi-line dictation.
+<FeatureCard title="Toggle Mode for Long Stuff" icon="refresh-cw">
+Press once to start, press again to stop. Easier than holding Fn for multi-line dictation.
 </FeatureCard>
 </FeatureGrid>
 
-## Whisperer vs. Other VS Code Voice Tools
+## What About VS Code Extensions?
 
 <Callout type="info">
-Some VS Code extensions offer voice input, but they typically require an internet connection, only work within VS Code, don't handle code syntax, and send your code to third-party servers. Whisperer is system-wide, fully offline, and has Code Mode specifically designed for programming syntax.
+There are VS Code extensions that do voice input. They mostly require internet, only work inside VS Code, don't understand code syntax, and send your dictation to some server. Whisperer runs offline, works everywhere on your Mac, and Code Mode actually handles programming syntax.
 </Callout>
 
-## Performance
+## Speed
 
-On Apple Silicon Macs, Whisperer transcribes with near-zero latency. The balanced model processes speech in real-time with streaming output — you see text appearing as you speak, with a final refinement pass when you release the shortcut.
+On Apple Silicon, transcription is basically instant. The balanced model shows text as you speak, then does a quick cleanup pass when you stop. You're not waiting around.
 
 
 ---

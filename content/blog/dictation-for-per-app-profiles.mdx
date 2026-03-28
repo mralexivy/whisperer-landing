@@ -1,22 +1,22 @@
 ---
 title: "Per-App Dictation Profiles: Context-Aware Voice Input on Mac"
 description: "How to set up per-app dictation profiles in Whisperer for Mac. Automatically switch between Code Mode for VS Code, chat style for Slack, and email format for Gmail."
-date: "2026-01-20"
+date: "2026-03-28"
 keywords: ["dictation per-app profiles mac", "per-app dictation", "context-aware dictation", "hold to talk dictation mac"]
 category: "guides"
 ---
 
-One of the biggest problems with dictation tools is that code and conversation require completely different handling. Saying "open paren" should produce `(` in your IDE but "(open paren)" in your email.
+The annoying thing about dictation is that code and conversation need completely different handling. Saying "open paren" should give you `(` in your IDE, but "(open paren)" in your email. Most tools just pick one behavior and stick with it.
 
-Whisperer's per-app profiles solve this by automatically switching dictation modes based on which app you're using.
+Whisperer switches automatically based on which app you're in.
 
-## How Per-App Profiles Work
+## How It Works
 
-When you create a profile in Whisperer, you assign it to one or more apps. Whisperer detects which app is in the foreground and activates the corresponding profile — automatically, with no manual switching.
+You create a profile and assign it to apps. Whisperer checks which app is in front and switches to the right profile. No manual toggling.
 
-### Default Profiles
+### Defaults
 
-Out of the box, Whisperer uses a natural language profile for all apps. When you upgrade to Pro Pack, you can create custom profiles:
+Out of the box, everything uses natural language mode. With Pro Pack, you can set up custom profiles:
 
 | App | Suggested Mode | Behavior |
 |-----|---------------|----------|
@@ -57,82 +57,76 @@ Click **Add App** and select from your Applications
 </Step>
 </StepList>
 
-## Profile-Specific Settings
+## What You Can Customize
 
 <FeatureGrid>
-<FeatureCard title="Dictation mode" icon="settings">
-Choose Code Mode or Natural Language for each profile
+<FeatureCard title="Mode" icon="settings">
+Code Mode or Natural Language. Pick per profile.
 </FeatureCard>
 
 <FeatureCard title="Language" icon="globe">
-Different languages per profile (e.g., English for code, Spanish for personal email)
+English for code, Spanish for personal stuff, whatever you need.
 </FeatureCard>
 
-<FeatureCard title="Personal dictionary entries" icon="library">
-Different terms for different contexts
+<FeatureCard title="Dictionary" icon="library">
+Different terms for different contexts. Work jargon in one profile, not everywhere.
 </FeatureCard>
 </FeatureGrid>
 
-## Example Workflows
+## Real Examples
 
 ### Morning Standup (Slack)
 
-You open Slack to post your standup update. Whisperer detects Slack and switches to chat style:
+Open Slack, dictate your update:
 
 <VoiceDemo voice="Good morning. Yesterday I finished the API migration and opened a PR. Today I'm working on the onboarding flow redesign. No blockers." output="Good morning. Yesterday I finished the API migration and opened a PR. Today I'm working on the onboarding flow redesign. No blockers." lang="Slack" />
 
-Result: Clean, casual text perfect for Slack.
+Clean, casual. Good for Slack.
 
-### Coding Session (VS Code)
+### Coding (VS Code)
 
-You switch to VS Code. Whisperer automatically activates Code Mode:
+Switch to VS Code, Code Mode kicks in:
 
 <VoiceDemo voice="async function camel case fetch user data open paren user id colon string close paren colon promise" output="async function fetchUserData(userId: string): Promise" lang="TypeScript" />
 
-Result: `async function fetchUserData(userId: string): Promise`
+### Client Email (Gmail)
 
-### Email Break (Gmail)
-
-You open Gmail to reply to a client. Whisperer switches to email style:
+Open Gmail, get proper sentences:
 
 <VoiceDemo voice="Hi Michael. Thanks for the feedback on the prototype. I've incorporated your suggestions and the updated version is attached. Let me know if you'd like to schedule a walkthrough." output="Hi Michael. Thanks for the feedback on the prototype. I've incorporated your suggestions and the updated version is attached. Let me know if you'd like to schedule a walkthrough." lang="Email" />
 
-Result: Professional, properly punctuated email text.
+### Terminal
 
-### Terminal Work
-
-You switch to Terminal. Code Mode activates:
+Code Mode handles commands too:
 
 <VoiceDemo voice="kubectl get pods dash n production dash o wide" output="kubectl get pods -n production -o wide" lang="Bash" />
 
-Result: `kubectl get pods -n production -o wide`
+None of this requires any manual switching. It just happens.
 
-All of this happens without any manual intervention. The profile switch is instant.
-
-## Advanced Tips
+## Tips
 
 <FeatureGrid>
-<FeatureCard title="Create separate profiles for different IDEs" icon="wrench">
-If you use different languages (e.g., Python snake_case in PyCharm vs. JavaScript camelCase in VS Code)
+<FeatureCard title="Separate Profiles for Different Languages" icon="wrench">
+Python (snake_case in PyCharm) vs JavaScript (camelCase in VS Code). Different profiles if you want.
 </FeatureCard>
 
-<FeatureCard title="Use the personal dictionary per profile" icon="book-open">
-Add project-specific terms only where they're needed
+<FeatureCard title="Profile-Specific Dictionaries" icon="book-open">
+Project jargon only where you need it.
 </FeatureCard>
 
-<FeatureCard title="Set a smart default profile" icon="star">
-The default profile catches any app without a specific profile, so set it to natural language mode
+<FeatureCard title="Set a Good Default" icon="star">
+The default catches anything without a profile. Natural language is probably what you want there.
 </FeatureCard>
 
-<FeatureCard title="Group apps together" icon="package">
-You can assign multiple apps to one profile — group all your IDEs together, all communication apps together, etc.
+<FeatureCard title="Group Similar Apps" icon="package">
+Multiple apps can share one profile. All your IDEs together, all chat apps together.
 </FeatureCard>
 </FeatureGrid>
 
-## Why This Matters
+## Why Bother?
 
 <Callout type="tip">
-Without per-app profiles, you'd have to manually switch modes every time you alt-tab between apps. That friction kills the voice dictation workflow. With profiles, the switch is invisible — you just speak naturally and the right behavior happens.
+Without this, you'd manually switch modes every time you alt-tab. That friction kills the whole workflow. With profiles, you just talk and it works.
 </Callout>
 
 

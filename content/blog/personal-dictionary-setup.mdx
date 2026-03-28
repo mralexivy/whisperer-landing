@@ -1,7 +1,7 @@
 ---
 title: "Personal Dictionary Setup — Fix Dictation Accuracy for Technical Terms"
 description: "How to add technical terms, project names, and custom vocabulary to Whisperer's personal dictionary. Improve recognition accuracy for domain-specific words."
-date: "2026-02-03"
+date: "2026-03-28"
 keywords: ["dictation personal dictionary mac", "custom words dictation", "dictation accuracy", "speech recognition custom vocabulary"]
 category: "productivity"
 howToSteps:
@@ -15,9 +15,9 @@ howToSteps:
     text: "Hold Fn and speak a sentence using your custom terms. Verify they're recognized correctly and appear as entered in the dictionary."
 ---
 
-Every speech recognition model has blind spots. Technical terms, library names, acronyms, and project-specific vocabulary are rarely in the training data. The result: your dictation tool produces gibberish when you say the words you use most.
+Speech recognition models don't know your tech stack. They've never heard of your internal tools. Say "Kubernetes" and you get "Cooper Netties." Say your project name and you get... something else entirely.
 
-Whisperer's personal dictionary fixes this. Add a term once, and it's recognized correctly every time.
+A personal dictionary fixes this. Add the word once, and it gets recognized correctly from then on.
 
 
 ---
@@ -28,7 +28,7 @@ Whisperer's personal dictionary fixes this. Add a term once, and it's recognized
 
 ## The Problem
 
-Standard Whisper models are trained on general speech data. They handle everyday English well but struggle with:
+Whisper models are trained on general speech. Everyday English works fine. Tech vocabulary does not:
 
 <Callout type="warning">
 Common misrecognitions without a personal dictionary:
@@ -41,7 +41,7 @@ Common misrecognitions without a personal dictionary:
 - "Supabase" becomes "super base" or "soup a base"
 </Callout>
 
-These errors compound fast. If you're dictating code or technical documentation, you'll spend more time correcting misrecognitions than you saved by dictating. A personal dictionary eliminates this problem at the source.
+These errors add up. You'll spend more time fixing misrecognitions than you saved by dictating. A dictionary entry takes five seconds and solves the problem permanently.
 
 ## Setting Up Your Dictionary
 
@@ -64,12 +64,12 @@ Hold Fn, speak a sentence using the term, and verify it's recognized correctly. 
 </StepList>
 
 <Callout type="tip">
-Add terms as you encounter misrecognitions. Don't try to build a complete dictionary upfront — let real usage guide what needs to be added. Over a few days of use, you'll build a dictionary that covers your entire working vocabulary.
+Don't try to add everything upfront. Just add terms when you notice they're being misrecognized. After a few days of use, you'll have covered most of your working vocabulary.
 </Callout>
 
 ## What to Add
 
-Here are the categories of terms that benefit most from dictionary entries:
+These categories cause the most problems:
 
 <FeatureGrid>
 <FeatureCard title="Library & Framework Names" icon="package">
@@ -99,7 +99,7 @@ Industry-specific terms: medical terminology if you're in healthtech, financial 
 
 ## Before and After
 
-Here's the difference a personal dictionary makes:
+The difference is obvious:
 
 <VoiceDemo voice="Deploy the next JS app to Vercel with Supabase" output="Deploy the next JS app to versaille with super base" lang="Without Dictionary" />
 
@@ -109,7 +109,7 @@ Here's the difference a personal dictionary makes:
 
 <VoiceDemo voice="Set up Kubernetes with Terraform on Hetzner" output="Set up Kubernetes with Terraform on Hetzner" lang="With Dictionary" />
 
-The difference is stark. With dictionary entries, technical terms are recognized as accurately as common English words.
+With dictionary entries, technical terms work like regular words.
 
 ## Pro Tips
 
@@ -150,15 +150,15 @@ Storybook
 
 Add these as a starting point and expand as you encounter new misrecognitions in your daily workflow.
 
-## The Compound Effect
+## How Many Terms Do You Need?
 
-A personal dictionary gets more valuable over time. Each term you add eliminates a recurring correction, and the time savings compound:
+Not many:
 
-- **10 custom terms** — catches the most common misrecognitions
-- **25 custom terms** — covers your primary tech stack and project vocabulary
-- **50+ custom terms** — near-perfect accuracy for your entire working vocabulary
+- **10 terms** catches the worst offenders
+- **25 terms** covers your main tech stack and project names
+- **50+ terms** handles pretty much everything
 
-Most users find that 25-30 terms cover 95% of their misrecognition issues. It takes about 10 minutes to build and saves hours over weeks of dictation.
+Most people hit 95% accuracy with 25-30 entries. That's maybe 10 minutes of work total, spread over your first few days of use.
 
 
 ---

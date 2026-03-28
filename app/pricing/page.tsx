@@ -53,10 +53,10 @@ export default function PricingPage() {
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-                Simple, <span className="text-primary">honest</span> pricing
+                <span className="text-primary">$14.99</span> and you own it
               </h1>
               <p className="text-xl text-muted-foreground">
-                No subscriptions. No cloud fees. Pay once, use forever.
+                No subscription. No cloud fees. That is the whole deal.
               </p>
             </div>
           </FadeIn>
@@ -77,7 +77,7 @@ export default function PricingPage() {
                     <span className="text-base font-normal text-muted-foreground"> one-time</span>
                   </div>
                   <p className="text-muted-foreground mb-6">
-                    Core dictation with free trial included.
+                    Core dictation. Free trial included.
                   </p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {[
@@ -120,7 +120,7 @@ export default function PricingPage() {
                     <span className="text-base font-normal text-muted-foreground"> lifetime</span>
                   </div>
                   <p className="text-muted-foreground mb-6">
-                    Everything in Base, plus power features for developers and professionals.
+                    Everything in Base, plus developer tools and AI features.
                   </p>
                   <ul className="space-y-3 mb-8 flex-1">
                     {[
@@ -202,7 +202,7 @@ export default function PricingPage() {
                 </table>
               </div>
               <p className="text-sm text-muted-foreground mt-4 text-center">
-                More features at a fraction of the price. Whisperer is the only dictation app with Code Mode, per-app profiles, and personal dictionary — for a one-time $14.99.
+                Whisperer is the only dictation app with Code Mode, per-app profiles, and personal dictionary. $14.99 one-time.
               </p>
               <div className="mt-6 text-center">
                 <span className="inline-block bg-primary/10 text-primary text-sm font-semibold px-4 py-2 rounded-full border border-primary/20">

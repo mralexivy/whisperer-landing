@@ -41,7 +41,7 @@ const aiModes = [
     color: "text-blue-400",
     bgColor: "bg-blue-400/10",
     title: "Rewrite",
-    description: "Clean up transcribed speech into professional written text",
+    description: "Turns rambling speech into clean written text",
     before: "so basically what I was thinking is that we should probably go ahead and implement the new caching layer because it would make things faster",
     after: "We should implement the new caching layer to improve performance.",
   },
@@ -50,7 +50,7 @@ const aiModes = [
     color: "text-green-400",
     bgColor: "bg-green-400/10",
     title: "Translate",
-    description: "Translate dictation to any target language, entirely offline",
+    description: "Translate to any language, offline",
     before: "Please send me the quarterly report by Friday afternoon.",
     after: "Bitte senden Sie mir den Quartalsbericht bis Freitagnachmittag.",
   },
@@ -59,7 +59,7 @@ const aiModes = [
     color: "text-purple-400",
     bgColor: "bg-purple-400/10",
     title: "Format",
-    description: "Apply Markdown formatting with headers, bullets, and structure",
+    description: "Adds Markdown structure: headers, bullets, emphasis",
     before: "the project has three phases first research second development third deployment each phase takes about two weeks",
     after: "# Project Phases\n\n1. **Research** — 2 weeks\n2. **Development** — 2 weeks\n3. **Deployment** — 2 weeks",
   },
@@ -68,7 +68,7 @@ const aiModes = [
     color: "text-orange-400",
     bgColor: "bg-orange-400/10",
     title: "Summarize",
-    description: "Condense long dictation into concise key points",
+    description: "Condenses long dictation to key points",
     before: "We had a long meeting today where we discussed the roadmap for Q3. The main topics were the mobile app launch which is scheduled for August, the API redesign which needs to start in July, and the hiring plan for two new engineers.",
     after: "Q3 roadmap: Mobile app launch (Aug), API redesign (start Jul), hire 2 engineers.",
   },
@@ -77,7 +77,7 @@ const aiModes = [
     color: "text-cyan-400",
     bgColor: "bg-cyan-400/10",
     title: "Grammar",
-    description: "Fix grammar and punctuation without changing meaning",
+    description: "Fixes grammar and punctuation, keeps meaning intact",
     before: "the team have been working on there new feature and its going good so far",
     after: "The team has been working on their new feature and it's going well so far.",
   },
@@ -86,7 +86,7 @@ const aiModes = [
     color: "text-yellow-400",
     bgColor: "bg-yellow-400/10",
     title: "List Format",
-    description: "Detect and format spoken lists into structured bullet points",
+    description: "Pulls items out of speech and formats them as bullets",
     before: "we need to buy milk eggs bread and also get some cheese oh and don't forget the butter",
     after: "- Milk\n- Eggs\n- Bread\n- Cheese\n- Butter",
   },
@@ -95,7 +95,7 @@ const aiModes = [
     color: "text-red-400",
     bgColor: "bg-red-400/10",
     title: "Coding",
-    description: "Rewrite as technical documentation or code comments",
+    description: "Outputs technical documentation or code comments",
     before: "this function takes a user ID and returns their profile data from the cache or falls back to the database if not cached",
     after: "/// Retrieves user profile by ID. Returns cached data if available; otherwise queries the database.",
   },
@@ -104,7 +104,7 @@ const aiModes = [
     color: "text-pink-400",
     bgColor: "bg-pink-400/10",
     title: "Email",
-    description: "Format as a professional email with greeting and sign-off",
+    description: "Formats as a professional email with greeting and sign-off",
     before: "hey can you send me the updated wireframes by end of day also the client wants to schedule a call for Thursday",
     after: "Hi,\n\nCould you please send me the updated wireframes by end of day?\n\nAlso, the client would like to schedule a call for Thursday.\n\nBest regards",
   },
@@ -113,7 +113,7 @@ const aiModes = [
     color: "text-amber-400",
     bgColor: "bg-amber-400/10",
     title: "Creative",
-    description: "Enhance with vivid, engaging language",
+    description: "Adds vivid language and descriptive flair",
     before: "the sunset was nice and the beach was quiet",
     after: "The sunset painted the horizon in brilliant shades of amber and rose, while the beach lay serene beneath the fading light.",
   },
@@ -122,7 +122,7 @@ const aiModes = [
     color: "text-emerald-400",
     bgColor: "bg-emerald-400/10",
     title: "Custom",
-    description: "Write your own system prompt for any transformation you need",
+    description: "Your own system prompt for any transformation",
     before: "Your dictated text goes here...",
     after: "Transformed according to your custom instructions.",
   },
@@ -130,20 +130,20 @@ const aiModes = [
 
 const faqs = [
   {
-    question: "Does the AI require an internet connection?",
-    answer: "No. Whisperer runs a local LLM entirely on your Mac. No data leaves your device. No API keys, no cloud, no subscription fees.",
+    question: "Does this need the internet?",
+    answer: "No. The LLM runs locally on your Mac. Nothing leaves your machine. No API keys, no cloud calls, no subscription.",
   },
   {
-    question: "Which AI modes are available?",
-    answer: "Ten built-in modes: Rewrite, Translate, Format, Summarize, Grammar, List Format, Coding, Email, Creative, and Custom. Each has an optimized temperature setting for its task.",
+    question: "What modes are there?",
+    answer: "Ten built-in: Rewrite, Translate, Format, Summarize, Grammar, List Format, Coding, Email, Creative, and Custom. Each uses a tuned temperature setting.",
   },
   {
-    question: "Can I create my own AI mode?",
-    answer: "Yes. The Custom mode lets you write your own system prompt, so the LLM can perform any text transformation you define.",
+    question: "Can I make my own mode?",
+    answer: "Yes. Custom mode takes any system prompt you write. The LLM follows your instructions.",
   },
   {
-    question: "What happens if the AI processing fails?",
-    answer: "Whisperer gracefully falls back to your original transcription text. You never lose your dictation.",
+    question: "What if AI processing fails?",
+    answer: "You get the original transcription. Your dictation is never lost.",
   },
 ];
 
@@ -180,12 +180,12 @@ export default function AIWritingPage() {
           <FadeIn>
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                AI Writing & Post-Processing — <span className="text-primary">100% Offline</span>
+                AI post-processing, <span className="text-primary">offline</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Speak naturally, then let Whisperer&apos;s on-device LLM rewrite, translate, format,
-                summarize, or fix grammar — all without an internet connection. Ten built-in AI modes
-                plus fully custom prompts.
+                Talk like you normally do. The on-device LLM cleans it up: rewrites, translates,
+                formats, summarizes, fixes grammar. Ten built-in modes plus custom prompts. No
+                internet needed.
               </p>
               <a
                 href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671"
@@ -207,15 +207,13 @@ export default function AIWritingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <FadeIn>
-              <h2 className="text-3xl font-bold mb-6">How AI Post-Processing Works</h2>
+              <h2 className="text-3xl font-bold mb-6">How It Works</h2>
               <p className="text-lg text-muted-foreground mb-4">
-                After Whisperer transcribes your speech, the text passes through an optional AI
-                processing step before being inserted into your app. The on-device LLM transforms
-                your raw dictation into polished, professional text.
+                After transcription, text runs through an optional AI step before landing in your
+                app. The local LLM turns raw speech into clean, usable text.
               </p>
               <p className="text-lg text-muted-foreground mb-8">
-                The entire pipeline is offline — your voice data and text never leave your Mac.
-                No API keys to manage, no per-word charges, no cloud latency.
+                Everything stays on your Mac. No API keys, no per-word pricing, no cloud round-trips.
               </p>
             </FadeIn>
 
@@ -254,9 +252,9 @@ export default function AIWritingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-4xl mx-auto">
             <FadeIn>
-              <h2 className="text-3xl font-bold mb-4">10 Built-In AI Modes</h2>
+              <h2 className="text-3xl font-bold mb-4">10 Built-In Modes</h2>
               <p className="text-lg text-muted-foreground mb-12">
-                Each mode uses an optimized temperature setting for its task. See real before/after examples below.
+                Each mode uses a tuned temperature for its task. Before/after examples below.
               </p>
             </FadeIn>
 
@@ -309,21 +307,21 @@ export default function AIWritingPage() {
             <FadeIn>
               <h2 className="text-3xl font-bold mb-6">Rewrite Mode</h2>
               <p className="text-lg text-muted-foreground mb-4">
-                Rewrite Mode goes beyond dictation. Press your rewrite shortcut (Option+Shift+Tab)
-                to rewrite any text on your clipboard through the active AI mode — no recording needed.
+                Works on any text, not just dictation. Press Option+Shift+Tab to run your
+                clipboard through the active AI mode.
               </p>
               <p className="text-lg text-muted-foreground mb-8">
-                Select text in any app, copy it, trigger rewrite, and the polished version replaces
-                your clipboard content. Perfect for cleaning up quick notes, reformatting existing text,
-                or translating passages.
+                Select text anywhere, copy it, hit the shortcut. The cleaned-up version replaces
+                your clipboard. Quick way to polish notes, reformat existing text, or translate
+                something.
               </p>
             </FadeIn>
             <FadeIn delay={0.1}>
               <div className="bg-card border border-border rounded-xl p-6">
                 <h3 className="text-lg font-semibold mb-4">AI Enhancement History</h3>
                 <p className="text-muted-foreground">
-                  Every AI transformation is stored with before/after text in your transcription history.
-                  Made a mistake? Undo any AI enhancement and revert to the original transcription with one click.
+                  Every transformation saves before/after text in your history. Changed your mind?
+                  Revert to the original with one click.
                 </p>
               </div>
             </FadeIn>
@@ -414,10 +412,10 @@ export default function AIWritingPage() {
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4">
-                AI writing, <span className="text-primary">no cloud required</span>
+                AI cleanup, <span className="text-primary">local only</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Download Whisperer free. All AI post-processing runs locally on your Mac.
+                All AI processing happens on your Mac. No server calls, no data leaving your machine.
               </p>
               <a
                 href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671"

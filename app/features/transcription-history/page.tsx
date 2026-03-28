@@ -35,12 +35,12 @@ export const metadata: Metadata = {
 };
 
 const workspaceFeatures = [
-  { icon: Search, title: "Full-Text Search", description: "Search across all transcription text and notes instantly." },
-  { icon: Pin, title: "Pin & Flag", description: "Mark important transcriptions for quick access. Filter by All, Pinned, or Flagged." },
-  { icon: Play, title: "Audio Playback", description: "Listen to original recordings with variable speed playback." },
-  { icon: RotateCcw, title: "Re-Transcribe", description: "Re-process any recording with different settings, model, or language." },
-  { icon: FileText, title: "Edit & Notes", description: "Modify transcription text inline and add context annotations." },
-  { icon: AudioLines, title: "Waveform Visualization", description: "Generated from saved audio data for visual reference." },
+  { icon: Search, title: "Full-Text Search", description: "Find any word or phrase across all your transcriptions." },
+  { icon: Pin, title: "Pin & Flag", description: "Mark the important ones. Filter by All, Pinned, or Flagged." },
+  { icon: Play, title: "Audio Playback", description: "Replay original recordings at variable speed." },
+  { icon: RotateCcw, title: "Re-Transcribe", description: "Run any recording through a different model or language." },
+  { icon: FileText, title: "Edit & Notes", description: "Fix text inline, add annotations." },
+  { icon: AudioLines, title: "Waveform Visualization", description: "Visual reference generated from the saved audio." },
 ];
 
 const statsCards = [
@@ -51,10 +51,10 @@ const statsCards = [
 ];
 
 const statsCharts = [
-  { title: "Daily Activity Chart", description: "Bar chart with Words, Time, or Sessions metric selector." },
-  { title: "App Usage", description: "Which apps received your transcribed text and how often." },
-  { title: "Language Distribution", description: "Breakdown of which languages you dictate in." },
-  { title: "Peak Hours Heatmap", description: "Heatmap of recording activity by hour of day." },
+  { title: "Daily Activity Chart", description: "Bar chart showing words, time, or sessions." },
+  { title: "App Usage", description: "Which apps got your text and how often." },
+  { title: "Language Distribution", description: "What languages you've been dictating in." },
+  { title: "Peak Hours Heatmap", description: "When you record, by hour of day." },
 ];
 
 const metadata_pills = [
@@ -86,12 +86,12 @@ export default function TranscriptionHistoryPage() {
           <FadeIn>
             <div className="max-w-3xl">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Every dictation, <span className="text-primary">searchable & replayable</span>
+                Every dictation, <span className="text-primary">saved and searchable</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Whisperer saves every transcription with full metadata. Search, pin, flag, replay audio,
-                re-transcribe with different settings, and track your dictation productivity with
-                built-in statistics.
+                Nothing disappears. Every transcription lands in your workspace with full metadata.
+                Search it, pin it, replay the audio, re-run it through a different model. Built-in
+                stats track how much you dictate.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="xl" className="gap-3">
@@ -138,10 +138,10 @@ export default function TranscriptionHistoryPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-3xl mx-auto">
             <FadeIn>
-              <h2 className="text-3xl font-bold mb-4">Rich Metadata Per Recording</h2>
+              <h2 className="text-3xl font-bold mb-4">Metadata for Each Recording</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Every transcription stores duration, word count, words per minute, language, model used,
-                target app, and dictionary corrections applied. Displayed as colorful metadata pills.
+                Duration, word count, WPM, language, model, target app, dictionary corrections.
+                Shown as colored pills on each entry.
               </p>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -160,12 +160,11 @@ export default function TranscriptionHistoryPage() {
               <div className="bg-card border border-border rounded-xl p-6">
                 <h3 className="text-lg font-semibold mb-3">Date Grouping</h3>
                 <p className="text-muted-foreground mb-4">
-                  Transcriptions are automatically grouped by date: Today, Yesterday, Last 7 Days, Last 30 Days, and Older.
+                  Auto-grouped: Today, Yesterday, Last 7 Days, Last 30 Days, Older.
                 </p>
                 <h3 className="text-lg font-semibold mb-3">AI Enhancement History</h3>
                 <p className="text-muted-foreground">
-                  When AI post-processing is used, the before/after text is stored. Undo any AI enhancement
-                  and revert to the original transcription.
+                  AI post-processing saves before/after text. One click to undo and get the original back.
                 </p>
               </div>
             </FadeIn>
@@ -180,10 +179,9 @@ export default function TranscriptionHistoryPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <FadeIn>
-              <h2 className="text-3xl font-bold mb-4">Usage Statistics Dashboard</h2>
+              <h2 className="text-3xl font-bold mb-4">Usage Statistics</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Track your dictation productivity over time with built-in charts and visualizations.
-                View data by week, month, or year.
+                See how much you dictate over time. Charts show weekly, monthly, or yearly data.
               </p>
             </FadeIn>
 
@@ -224,12 +222,11 @@ export default function TranscriptionHistoryPage() {
             <FadeIn>
               <h2 className="text-3xl font-bold mb-6">Transcription Picker (Option+V)</h2>
               <p className="text-lg text-muted-foreground mb-4">
-                Quick-access overlay showing recent transcriptions for instant clipboard copy.
-                Press Option+V to summon the picker, cycle through recent items, and confirm
-                to copy — no need to open the full workspace.
+                Press Option+V for a quick overlay of recent transcriptions. Cycle through,
+                hit enter, and it copies to clipboard. No need to open the full workspace.
               </p>
               <p className="text-lg text-muted-foreground">
-                Perfect for re-using a previous dictation or referencing something you said earlier.
+                Handy when you need to reuse something you said earlier.
               </p>
             </FadeIn>
           </div>
@@ -247,10 +244,10 @@ export default function TranscriptionHistoryPage() {
             </FadeIn>
             <FadeInStagger className="grid gap-4">
               {[
-                { question: "Does Whisperer save all my transcriptions?", answer: "Yes. Every live dictation and file transcription is saved to your local workspace with full-text search, audio playback, pin, flag, and re-transcribe capabilities. All data stays on your Mac." },
-                { question: "Can I search my transcription history?", answer: "Yes. Full-text search across all transcriptions. Find any word or phrase from any past dictation session instantly." },
-                { question: "What usage statistics does Whisperer track?", answer: "Words per minute (WPM), total words dictated, peak usage hours, per-app usage breakdown, and session history. All computed locally — no data is sent anywhere." },
-                { question: "Can I re-transcribe old recordings?", answer: "Yes. Every recording is saved with its audio. You can re-transcribe with a different model or engine to improve accuracy on past recordings." },
+                { question: "Does it save everything?", answer: "Yes. Live dictation and file transcriptions all land in your local workspace. Search, playback, pin, flag, re-transcribe. Stays on your Mac." },
+                { question: "Can I search old transcriptions?", answer: "Full-text search across everything. Find any word from any session." },
+                { question: "What stats does it track?", answer: "WPM, total words, peak hours, per-app breakdown, session history. All computed locally, nothing sent anywhere." },
+                { question: "Can I re-run old recordings?", answer: "Yes. Audio is saved with each transcription. Re-transcribe with a different model anytime." },
               ].map((faq, i) => (
                 <StaggerItem key={i}>
                   <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
@@ -309,10 +306,10 @@ export default function TranscriptionHistoryPage() {
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4">
-                Never lose a <span className="text-primary">dictation</span>
+                Nothing gets <span className="text-primary">lost</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Download Whisperer and keep a searchable archive of everything you dictate.
+                Every dictation archived and searchable. Find what you said last week or last year.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="xl" className="gap-3">

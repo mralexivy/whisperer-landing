@@ -61,17 +61,17 @@ const benefits = [
     icon: Shield,
     color: "text-green-400",
     bgColor: "bg-green-400/10",
-    title: "Complete Privacy",
+    title: "Privacy",
     description:
-      "Your voice data never leaves your Mac. No cloud servers, no third-party processing, no data collection. What you say stays on your device.",
+      "Voice data stays on your Mac. No cloud servers, no third-party processing, no data collection.",
   },
   {
     icon: Zap,
     color: "text-amber-400",
     bgColor: "bg-amber-400/10",
-    title: "Zero Latency",
+    title: "No Latency",
     description:
-      "No network round-trip means instant results. Whisperer processes speech locally with ~300ms live preview — faster than any cloud service.",
+      "No network round-trip. Whisperer processes speech locally with ~300ms live preview.",
   },
   {
     icon: WifiOff,
@@ -79,15 +79,15 @@ const benefits = [
     bgColor: "bg-blue-400/10",
     title: "Works Anywhere",
     description:
-      "Airplane mode, coffee shop without WiFi, secure network — Whisperer works everywhere because it never needs the internet after the initial model download.",
+      "Airplane mode, coffee shop without WiFi, secure network. Works after the initial model download.",
   },
   {
     icon: Lock,
     color: "text-purple-400",
     bgColor: "bg-purple-400/10",
-    title: "No API Keys or Accounts",
+    title: "No Accounts",
     description:
-      "No sign-up required. No API keys to manage. No cloud quotas or rate limits. Download, install, and start dictating immediately.",
+      "No sign-up. No API keys. No quotas. Download and start dictating.",
   },
   {
     icon: HardDrive,
@@ -95,7 +95,7 @@ const benefits = [
     bgColor: "bg-cyan-400/10",
     title: "No Per-Minute Charges",
     description:
-      "Cloud dictation services charge per minute of audio. Whisperer is $14.99 once — dictate unlimited hours without worrying about costs.",
+      "Cloud services charge per minute. Whisperer is $14.99 once. Dictate as much as you want.",
   },
   {
     icon: Gauge,
@@ -103,7 +103,7 @@ const benefits = [
     bgColor: "bg-rose-400/10",
     title: "Apple Silicon Optimized",
     description:
-      "Metal GPU acceleration for Whisper, Neural Engine for NVIDIA. Whisperer is built specifically for Apple Silicon to maximize speed and efficiency.",
+      "Metal GPU for Whisper, Neural Engine for NVIDIA. Built for Apple Silicon.",
   },
 ];
 
@@ -155,42 +155,42 @@ const faqs = [
   {
     question: "Is Whisperer really 100% offline?",
     answer:
-      "Yes. After the initial model download (75MB–2.9GB depending on model), Whisperer never contacts any server. All transcription, AI post-processing, and text insertion happen entirely on your Mac.",
+      "Yes. After the model download (75MB-2.9GB), it never contacts any server. Transcription, AI post-processing, text insertion all happen on your Mac.",
   },
   {
     question: "What is the best offline dictation app for Mac?",
     answer:
-      "Whisperer is the most feature-rich offline dictation app for Mac, with three transcription engines (Whisper, NVIDIA, Apple Speech), Code Mode for developers, per-app profiles, and personal dictionary — all for $14.99 lifetime. No competitor offers this combination at any price.",
+      "Whisperer has three engines, Code Mode, per-app profiles, personal dictionary. $14.99 one-time. No competitor offers this combination.",
   },
   {
     question: "How does offline dictation compare to cloud-based?",
     answer:
-      "Offline dictation is faster (no network latency), more private (no data leaves your device), and cheaper (no per-minute charges). Cloud-based services may have slightly higher accuracy for niche languages, but for English and major languages, local Whisper models match or exceed cloud quality.",
+      "Offline is faster (no network latency), more private, and cheaper (no per-minute charges). For English and major languages, Whisper matches cloud quality.",
   },
   {
     question: "Does offline dictation work on Intel Macs?",
     answer:
-      "Yes, but Apple Silicon is recommended. Whisper runs on CPU for Intel Macs (slower). NVIDIA and Apple Speech require Apple Silicon. Most models work well on M1 and later.",
+      "Yes, but Apple Silicon is better. Whisper runs on CPU for Intel (slower). NVIDIA and Apple Speech need Apple Silicon. M1 and later work well.",
   },
   {
     question: "How much storage do the models require?",
     answer:
-      "Whisper models range from 75MB (Tiny) to 2.9GB (Large V3). The recommended balanced model is about 500MB. NVIDIA models are 100–200MB. You choose which models to download.",
+      "75MB (Tiny) to 2.9GB (Large V3). Recommended model is about 500MB. NVIDIA is 100-200MB. You choose what to download.",
   },
   {
     question: "Can I use offline dictation in any app?",
     answer:
-      "Yes. Whisperer inserts text into any focused field on your Mac — VS Code, Cursor, Slack, Gmail, Notion, Terminal, and any other app. It uses Accessibility insertion with a paste fallback.",
+      "Yes. Whisperer inserts into any focused field: VS Code, Cursor, Slack, Gmail, Notion, Terminal, anything else.",
   },
   {
     question: "Is there a free offline dictation app for Mac?",
     answer:
-      "Apple Dictation is free and runs on-device on Apple Silicon Macs. However, it lacks Code Mode, per-app profiles, personal dictionary, and file transcription. Whisperer's base app is $2.99 — essentially free compared to $99–$249 competitors.",
+      "Apple Dictation is free on Apple Silicon. But it lacks Code Mode, per-app profiles, personal dictionary, file transcription. Whisperer base is $2.99.",
   },
   {
     question: "Does Whisperer support multiple languages offline?",
     answer:
-      "Yes. Whisper supports 99+ languages offline. NVIDIA supports 25 languages. You can set different languages per app with per-app profiles and use AI translation between languages — all offline.",
+      "Yes. Whisper: 99+ languages. NVIDIA: 25. Set different languages per app. AI translation available offline.",
   },
 ];
 
@@ -273,15 +273,12 @@ export default function OfflineDictationMacPage() {
                 <span className="text-primary">Mac</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-4 leading-relaxed">
-                Three on-device transcription engines. No internet required. No
-                data leaves your Mac. Whisperer is the most private dictation
-                app available — and at $14.99 lifetime, the most affordable.
+                Three on-device transcription engines. No internet. Nothing leaves your Mac.
+                $14.99 one-time.
               </p>
               <p className="text-sm text-muted-foreground mb-8">
-                100% offline voice-to-text for macOS with Whisper (Metal GPU),
-                NVIDIA (Neural Engine), and Apple Speech. Code Mode for
-                developers. Per-app profiles. Personal dictionary. No
-                subscription.
+                Whisper (Metal GPU), NVIDIA (Neural Engine), Apple Speech.
+                Code Mode for developers. Per-app profiles. Personal dictionary.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -318,8 +315,7 @@ export default function OfflineDictationMacPage() {
               </h2>
               <p className="text-lg text-muted-foreground">
                 Cloud dictation sends your voice to remote servers. Whisperer
-                keeps everything on your Mac — faster, cheaper, and completely
-                private.
+                keeps everything on your Mac.
               </p>
             </div>
           </FadeIn>
@@ -370,8 +366,7 @@ export default function OfflineDictationMacPage() {
                 <span className="text-primary">Engines</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                Hot-swap between engines without restarting. Each optimized for
-                different hardware and use cases.
+                Switch between engines without restarting. Each uses different hardware.
               </p>
             </div>
           </FadeIn>
@@ -432,8 +427,7 @@ export default function OfflineDictationMacPage() {
                 <span className="text-primary">Dictation</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                See how Whisperer compares to cloud-based and other offline
-                alternatives.
+                How Whisperer compares to cloud-based and other offline options.
               </p>
             </div>
           </FadeIn>

@@ -6,75 +6,67 @@ keywords: ["remove filler words dictation", "um uh removal voice to text", "clea
 category: "features"
 ---
 
-Natural speech is full of filler words — "um", "uh", "erm", "er", "ah", "hmm." When you're dictating a document or email, these fillers clutter the output. Whisperer removes them automatically.
+Everyone says "um" and "uh" when they talk. That's fine in conversation. It's annoying in transcribed text. Whisperer can strip these out automatically.
 
-## Enabling Filler Word Removal
+## How to enable it
 
-Filler word removal is off by default (to preserve exact transcription when needed). To enable it:
+It's off by default (sometimes you want exact transcription). To turn it on:
 
-1. Open Whisperer Settings
+1. Open Settings
 2. Find "Filler Word Removal" under Text Processing
 3. Toggle it on
 
-That's it. From now on, all filler words are stripped from your dictation output.
+Done. Filler words get stripped from all future dictation.
 
-## What Gets Removed
+## What gets removed
 
-Whisperer removes these filler words using word-boundary matching:
-
-- **um**
-- **uh**
-- **erm**
-- **er**
-- **ah**
-- **hmm**
+These words: um, uh, erm, er, ah, hmm.
 
 <Callout type="info">
-**Smart matching:** Only standalone filler words are removed. Words containing fillers as substrings are preserved — "umbrella" stays "umbrella", "ermine" stays "ermine", "ahoy" stays "ahoy."
+Only standalone words. "Umbrella" stays "umbrella." "Ermine" stays "ermine." The matching is smart enough not to mangle actual words.
 </Callout>
 
-## The Text Processing Pipeline
+## The processing pipeline
 
-Filler word removal is one step in Whisperer's full text processing pipeline. Every transcription passes through these stages in order:
+Filler removal is one step in a longer chain. Every transcription goes through these stages:
 
 1. **Transcription** — Whisper/NVIDIA/Apple Speech produces raw text
-2. **Dictionary corrections** — [SymSpell + phonetic + exact matching](/features/personal-dictionary) fixes technical terms
-3. **Filler word removal** — Strips um, uh, erm, er, ah, hmm (optional)
-4. **List formatting** — Converts spoken lists to formatted bullet points (optional)
-5. **AI post-processing** — [Rewrite, translate, format, summarize](/features/ai-writing) (optional)
-6. **Trailing space** — Appends a space so the cursor is ready for the next word (optional)
-7. **Text injection** — Final text inserted into the focused field
+2. **Dictionary corrections** — fixes your custom terms ([details](/features/personal-dictionary))
+3. **Filler word removal** — strips um, uh, etc. (optional)
+4. **List formatting** — converts spoken lists to bullets (optional)
+5. **AI post-processing** — rewrite, translate, format ([details](/features/ai-writing)) (optional)
+6. **Trailing space** — adds a space so you're ready to keep typing (optional)
+7. **Injection** — text goes into the focused field
 
-Each step is independently toggleable. You can use any combination that suits your workflow.
+Each step can be toggled independently. Mix and match.
 
-## List Formatting
+## List formatting
 
-Whisperer includes a deterministic list detection engine that converts spoken enumerations to formatted lists — no AI required.
+Whisperer can turn spoken lists into formatted bullet points. No AI needed for this one.
 
-It detects multiple marker types:
-- Spoken ordinals: "first", "second", "third"
+It recognizes:
+- Ordinals: "first", "second", "third"
 - Cardinals: "one", "two", "three"
 - Digits: "1", "2", "3"
-- "Number X" phrases: "number one", "number two"
-- Bullet triggers: "bullet point", "dash"
+- Phrases: "number one", "bullet point", "dash"
 
-The engine uses 5 detection strategies and includes extensive false-positive prevention with 60+ blocked preceding words — phrases like "have two coffees" or "about three hours" are correctly identified as regular speech, not list markers.
+There's false-positive prevention built in. "I had two coffees" doesn't become a list. "About three hours" stays as prose. It checks 60+ preceding words to avoid mistakes.
 
-**Optional AI fallback:** When the deterministic engine doesn't find a list, an optional LLM fallback can analyze the text for implicit list structure.
+If the rule-based engine misses something, there's an optional AI fallback that looks for implicit list structure.
 
-## When to Use What
+## When to use what
 
-| Scenario | Recommended Settings |
+| Scenario | Settings |
 |---|---|
 | Professional emails | Filler removal ON, List formatting OFF |
 | Meeting notes | Filler removal ON, List formatting ON |
 | Code documentation | Filler removal ON, AI Coding mode ON |
-| Exact transcription | Filler removal OFF, everything OFF |
+| Exact transcription | Everything OFF |
 | Creative writing | Filler removal OFF, AI Creative mode ON |
 
-## Getting Started
+## Getting started
 
 1. [Download Whisperer](https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671)
-2. Enable Filler Word Removal in Settings
-3. Optionally enable List Formatting for structured dictation
-4. Explore [AI post-processing](/features/ai-writing) for even more text cleanup
+2. Turn on Filler Word Removal in Settings
+3. Optionally enable List Formatting
+4. Try [AI post-processing](/features/ai-writing) for more cleanup options

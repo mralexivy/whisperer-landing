@@ -42,15 +42,15 @@ const whoUsesIt = [
     bgColor: "bg-rose-400/10",
     title: "Developers with RSI",
     description:
-      "Carpal tunnel, tendinitis, and repetitive strain injuries affect thousands of developers. Voice coding lets you continue working without the physical strain of constant typing.",
+      "Carpal tunnel, tendinitis, repetitive strain. Voice coding lets you keep working without the constant typing.",
   },
   {
     icon: Zap,
     color: "text-amber-400",
     bgColor: "bg-amber-400/10",
-    title: "Productivity-Focused Developers",
+    title: "Developers who hate boilerplate",
     description:
-      "Experienced developers who find that speaking boilerplate, comments, and documentation is faster than typing it. Voice coding complements keyboard use rather than replacing it entirely.",
+      "Speaking boilerplate, comments, and docs is often faster than typing. Voice coding works alongside your keyboard, not instead of it.",
   },
   {
     icon: Pen,
@@ -58,7 +58,7 @@ const whoUsesIt = [
     bgColor: "bg-blue-400/10",
     title: "Technical Writers",
     description:
-      "Developers who write documentation, blog posts, or README files alongside code. Switch between code dictation and prose dictation without changing tools.",
+      "Write docs, blog posts, or READMEs alongside code. Switch between code and prose dictation without changing tools.",
   },
   {
     icon: Users,
@@ -66,7 +66,7 @@ const whoUsesIt = [
     bgColor: "bg-green-400/10",
     title: "Multitaskers",
     description:
-      "Write Slack messages while reviewing code, respond to emails while keeping your hands on the keyboard for navigation, or dictate notes during a call.",
+      "Send Slack messages while reviewing code. Answer emails with your hands on the keyboard. Dictate notes during calls.",
   },
 ];
 
@@ -129,27 +129,27 @@ const voiceCodingFaqs = [
   {
     question: "What is voice coding?",
     answer:
-      "Voice coding means writing code by speaking instead of typing. A dedicated tool like Whisperer converts your speech into properly formatted code — including symbols, casing conventions like camelCase and snake_case, and punctuation. It's different from regular dictation because standard tools produce prose, not code.",
+      "Writing code by speaking instead of typing. A tool like Whisperer converts speech into code with symbols, camelCase, snake_case, punctuation. Standard dictation tools produce prose, not code.",
   },
   {
     question: "Is voice coding faster than typing?",
     answer:
-      "For some tasks, yes. Voice coding is typically faster for boilerplate, comments, documentation, and chat messages. For complex logic and precise editing, keyboard is usually faster. Most voice coders use a hybrid approach — voice for dictation-heavy tasks, keyboard for precise manipulation.",
+      "Depends on what you are doing. Voice is faster for boilerplate, comments, docs, chat messages. Keyboard is faster for complex logic and precise edits. Most people use both.",
   },
   {
     question: "What is the best voice coding tool for Mac?",
     answer:
-      "Whisperer is the only Mac dictation app with a dedicated Code Mode that supports camelCase, snake_case, PascalCase, CONSTANT_CASE, and 20+ symbol commands by voice. At $14.99 lifetime (Pro Pack), it's also the most affordable option compared to Superwhisper ($249) or Wispr Flow ($10-15/mo).",
+      "Whisperer is the only Mac dictation app with Code Mode for camelCase, snake_case, PascalCase, CONSTANT_CASE, and 20+ symbol commands. $14.99 one-time. Superwhisper is $249, Wispr Flow is $10-15/month.",
   },
   {
     question: "Can voice coding help with RSI?",
     answer:
-      "Yes. Voice coding reduces repetitive strain by eliminating keyboard typing for routine code. Many developers with RSI, carpal tunnel, or tendinitis use voice coding tools to continue working comfortably. Even partial adoption — dictating comments and documentation — significantly reduces hand strain.",
+      "Yes. It reduces typing for routine code. Many developers with RSI, carpal tunnel, or tendinitis use it. Even just dictating comments and docs helps.",
   },
   {
     question: "Does voice coding work offline?",
     answer:
-      "With Whisperer, yes. Transcription runs on-device using local AI models (Whisper, NVIDIA, or Apple Speech). No internet connection needed, no data leaves your Mac, no cloud API charges.",
+      "With Whisperer, yes. Runs on-device using local AI. No internet needed, nothing leaves your Mac.",
   },
 ];
 
@@ -187,12 +187,10 @@ export default function VoiceCodingPage() {
                 Voice Coding on <span className="text-primary">Mac</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-4 leading-relaxed">
-                The complete guide to writing code by voice. Learn what voice coding is,
-                who uses it, how it compares to typing, and how to get started on Mac.
+                Writing code by voice. What it is, who uses it, and how to get started on Mac.
               </p>
               <p className="text-sm text-muted-foreground mb-8">
-                Voice coding is not about replacing your keyboard — it&apos;s about having another tool
-                in your workflow for the tasks where speaking is faster or more comfortable.
+                Voice coding does not replace your keyboard. It is another tool for tasks where speaking is faster or easier on your hands.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
@@ -253,8 +251,7 @@ export default function VoiceCodingPage() {
                 Who Uses <span className="text-primary">Voice Coding</span>?
               </h2>
               <p className="text-lg text-muted-foreground">
-                Voice coding isn&apos;t just for accessibility — it&apos;s a productivity tool for any developer
-                who types more than they need to.
+                Not just for accessibility. Useful for anyone who types more than they need to.
               </p>
             </div>
           </FadeIn>
@@ -287,7 +284,7 @@ export default function VoiceCodingPage() {
                 Voice Coding vs. <span className="text-primary">Typing</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                Voice coding works best as a complement to typing, not a replacement. Here&apos;s where each shines.
+                Use voice for some things, keyboard for others. Here is where each works better.
               </p>
             </div>
           </FadeIn>
@@ -341,7 +338,7 @@ export default function VoiceCodingPage() {
                 Getting <span className="text-primary">Started</span>
               </h2>
               <p className="text-lg text-muted-foreground">
-                From download to dictating code in under 5 minutes.
+                Download to dictating code in about 5 minutes.
               </p>
             </div>
           </FadeIn>
@@ -437,9 +434,9 @@ export default function VoiceCodingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-4">Start Voice Coding Today</h2>
+              <h2 className="text-3xl font-bold mb-4">Try it</h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Download Whisperer free from the Mac App Store. Upgrade to Pro Pack ($14.99) for Code Mode.
+                Download Whisperer free from the Mac App Store. Pro Pack ($14.99) adds Code Mode.
               </p>
               <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="xl" className="gap-3">
