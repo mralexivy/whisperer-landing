@@ -16,8 +16,9 @@
   force = true
 
 # Strip trailing slashes to avoid duplicate URLs (canonical mismatch)
+# Use :splat instead of * to require at least one path segment (avoids root / loop)
 [[redirects]]
-  from = "/*/"
+  from = "/:splat/"
   to = "/:splat"
   status = 301
   force = true
