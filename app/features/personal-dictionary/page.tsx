@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     images: [{ url: "/assets/og/og-feature-personal-dictionary.png", width: 1200, height: 630, alt: "Personal Dictionary" }],
   },
   twitter: { card: "summary_large_image", images: ["/assets/og/og-feature-personal-dictionary.png"] },
-  alternates: { canonical: "/features/personal-dictionary" },
+  alternates: { canonical: "https://whispererapp.com/features/personal-dictionary" },
 };
 
 const correctionTiers = [

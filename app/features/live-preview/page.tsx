@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     images: [{ url: "/assets/og/og-feature-live-preview.png", width: 1200, height: 630, alt: "Live Preview" }],
   },
   twitter: { card: "summary_large_image", images: ["/assets/og/og-feature-live-preview.png"] },
-  alternates: { canonical: "/features/live-preview" },
+  alternates: { canonical: "https://whispererapp.com/features/live-preview" },
 };
 
 const features = [

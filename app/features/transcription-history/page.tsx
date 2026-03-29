@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     images: [{ url: "/assets/og/og-feature-transcription-history.png", width: 1200, height: 630, alt: "Transcription History" }],
   },
   twitter: { card: "summary_large_image", images: ["/assets/og/og-feature-transcription-history.png"] },
-  alternates: { canonical: "/features/transcription-history" },
+  alternates: { canonical: "https://whispererapp.com/features/transcription-history" },
 };
 
 const workspaceFeatures = [

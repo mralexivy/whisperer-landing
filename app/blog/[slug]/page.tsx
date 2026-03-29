@@ -48,7 +48,7 @@ export async function generateMetadata({
       description: post.meta.description,
       images: [`/assets/og/og-blog-${slug}.png`],
     },
-    alternates: { canonical: `/blog/${slug}` },
+    alternates: { canonical: `https://whispererapp.com/blog/${slug}` },
   };
 }
 

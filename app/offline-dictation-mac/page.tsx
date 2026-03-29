@@ -55,7 +55,7 @@ export const metadata: Metadata = {
       "Three local transcription engines. No internet required. $14.99 lifetime.",
     images: ["/assets/og/og-offline-dictation-mac.png"],
   },
-  alternates: { canonical: "/offline-dictation-mac" },
+  alternates: { canonical: "https://whispererapp.com/offline-dictation-mac" },
 };
 
 const benefits = [

@@ -55,7 +55,7 @@ export const metadata: Metadata = {
       "$14.99 one-time. No subscription, no cloud fees. Code Mode for developers.",
     images: ["/assets/og/og-dictation-no-subscription.png"],
   },
-  alternates: { canonical: "/dictation-no-subscription" },
+  alternates: { canonical: "https://whispererapp.com/dictation-no-subscription" },
 };
 
 const costData = [

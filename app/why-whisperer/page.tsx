@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     images: ["/assets/og/og-why-whisperer.png"],
   },
   alternates: {
-    canonical: "/why-whisperer",
+    canonical: "https://whispererapp.com/why-whisperer",
   },
 };
 

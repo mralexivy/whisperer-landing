@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     images: [{ url: "/assets/og/og-feature-ai-writing.png", width: 1200, height: 630, alt: "AI Writing Modes" }],
   },
   twitter: { card: "summary_large_image", images: ["/assets/og/og-feature-ai-writing.png"] },
-  alternates: { canonical: "/features/ai-writing" },
+  alternates: { canonical: "https://whispererapp.com/features/ai-writing" },
 };
 
 const aiModes = [

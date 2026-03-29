@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/assets/og/og-pricing.png"],
   },
-  alternates: { canonical: "/pricing" },
+  alternates: { canonical: "https://whispererapp.com/pricing" },
 };
 
 export default function PricingPage() {

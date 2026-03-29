@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/assets/og/og-code-mode.png"],
   },
-  alternates: { canonical: "/code-mode" },
+  alternates: { canonical: "https://whispererapp.com/code-mode" },
 };
 
 const examples = [

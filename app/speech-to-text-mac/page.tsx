@@ -56,7 +56,7 @@ export const metadata: Metadata = {
       "Three offline AI engines. Code Mode. 100+ languages. No subscription.",
     images: ["/assets/og/og-speech-to-text-mac.png"],
   },
-  alternates: { canonical: "/speech-to-text-mac" },
+  alternates: { canonical: "https://whispererapp.com/speech-to-text-mac" },
 };
 
 const howItWorks = [

@@ -52,7 +52,7 @@ export const metadata: Metadata = {
       "Dictate code by voice. camelCase, snake_case, symbols. VS Code, Cursor, Terminal.",
     images: ["/assets/og/og-voice-to-text-developers.png"],
   },
-  alternates: { canonical: "/voice-to-text-developers" },
+  alternates: { canonical: "https://whispererapp.com/voice-to-text-developers" },
 };
 
 const casingCommands = [

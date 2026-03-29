@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/assets/og/og-voice-coding.png"],
   },
-  alternates: { canonical: "/voice-coding" },
+  alternates: { canonical: "https://whispererapp.com/voice-coding" },
 };
 
 const whoUsesIt = [

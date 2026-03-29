@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/assets/og/og-blog.png"],
   },
-  alternates: { canonical: "/blog" },
+  alternates: { canonical: "https://whispererapp.com/blog" },
 };
 
 export default function BlogIndex() {

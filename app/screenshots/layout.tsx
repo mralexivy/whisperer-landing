@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Screenshots | Offline Dictation App for Mac",
   description:
     "Screenshots and visual showcase of Whisperer's dictation interface, Code Mode, live preview, transcription history, and per-app profiles.",
-  alternates: { canonical: "/screenshots" },
+  alternates: { canonical: "https://whispererapp.com/screenshots" },
 };
 
 export default function ScreenshotsLayout({

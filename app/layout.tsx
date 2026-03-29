@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     images: ["/assets/og/og-home.png"],
   },
   alternates: {
-    canonical: '/',
+    canonical: 'https://whispererapp.com/',
   },
   icons: {
     icon: "/favicon.ico",

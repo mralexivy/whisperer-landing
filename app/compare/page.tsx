@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/assets/og/og-compare.png"],
   },
-  alternates: { canonical: "/compare" },
+  alternates: { canonical: "https://whispererapp.com/compare" },
 };
 
 const compareFaqs = [
