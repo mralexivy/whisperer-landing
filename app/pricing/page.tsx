@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, productSchema, faqSchema, JsonLd } from "@/lib/structured-data";
+import { breadcrumbSchema, softwareAppSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { Button } from "@/components/ui/button";
 import { Check, Apple, ArrowRight } from "lucide-react";
 import { FadeIn, FadeInStagger, StaggerItem, ScaleIn, GlowCard } from "@/components/ui/animated";
@@ -34,7 +34,7 @@ export default function PricingPage() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <JsonLd data={productSchema()} />
+      <JsonLd data={softwareAppSchema()} />
       <JsonLd data={breadcrumbSchema([
         { name: "Home", url: "/" },
         { name: "Pricing", url: "/pricing" },

@@ -178,20 +178,3 @@ export function comparisonPageSchema(competitor: {
   };
 }
 
-export function productSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "Whisperer Pro Pack",
-    description:
-      "Code Mode, per-app profiles, personal dictionary, and pro insertion for Whisperer dictation app.",
-    brand: { "@type": "Brand", name: "Whisperer" },
-    offers: {
-      "@type": "Offer",
-      price: "14.99",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: "https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671",
-    },
-  };
-}
