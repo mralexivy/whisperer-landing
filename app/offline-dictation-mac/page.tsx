@@ -46,12 +46,14 @@ export const metadata: Metadata = {
     description:
       "Three local transcription engines. No internet required. No data leaves your Mac. $14.99 lifetime.",
     type: "website",
+    images: [{ url: "/assets/og/og-offline-dictation-mac.png", width: 1200, height: 630, alt: "Offline Dictation for Mac" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Offline Dictation for Mac — 100% On-Device",
     description:
       "Three local transcription engines. No internet required. $14.99 lifetime.",
+    images: ["/assets/og/og-offline-dictation-mac.png"],
   },
   alternates: { canonical: "/offline-dictation-mac" },
 };

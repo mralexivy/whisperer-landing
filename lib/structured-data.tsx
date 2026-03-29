@@ -71,6 +71,8 @@ export function organizationSchema() {
   };
 }
 
+// Note: FAQPage rich results deprecated for non-gov/healthcare (Aug 2023)
+// but schema remains valuable for AI citation and non-Google engines
 export function faqSchema(
   faqs: { question: string; answer: string }[]
 ) {
@@ -125,24 +127,6 @@ export function blogPostSchema(post: {
   };
 }
 
-export function howToSchema(howTo: {
-  name: string;
-  description: string;
-  steps: { name: string; text: string }[];
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: howTo.name,
-    description: howTo.description,
-    step: howTo.steps.map((s, i) => ({
-      "@type": "HowToStep",
-      position: i + 1,
-      name: s.name,
-      text: s.text,
-    })),
-  };
-}
 
 export function breadcrumbSchema(
   items: { name: string; url: string }[]

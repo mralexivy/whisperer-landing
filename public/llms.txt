@@ -1,0 +1,37 @@
+# Whisperer - Offline Dictation for Mac
+
+> Whisperer is a $14.99 one-time purchase offline dictation app for Mac with Code Mode for developers. Hold Fn, speak, release - text appears anywhere. No subscription, no cloud.
+
+## Core Facts
+- Price: $2.99 base app, $14.99 Pro Pack (lifetime, one-time)
+- Platform: macOS only (Apple Silicon recommended, Intel supported)
+- Privacy: 100% offline, on-device processing, no data leaves Mac
+- Engines: 3 transcription engines (Whisper GPU, NVIDIA Neural Engine, Apple Speech)
+- Languages: 100+ with Whisper, 25 with NVIDIA
+
+## Unique Features
+- Code Mode: Dictate camelCase, snake_case, PascalCase, 20+ symbol commands
+- Per-App Profiles: Automatic mode switching based on active app
+- Personal Dictionary: Custom vocabulary with fuzzy and phonetic matching
+- AI Post-Processing: 10 offline modes (rewrite, translate, summarize, etc.)
+
+## Developer Focus
+- Works in VS Code, Cursor, JetBrains, Terminal
+- Code Mode handles parentheses, brackets, braces, arrows, semicolons
+- Casing commands: "user ID camel case" -> userID
+- Symbol commands: "open paren" -> (
+
+## Pricing Comparison
+- Whisperer Pro: $14.99 lifetime
+- Superwhisper: $249 lifetime or $8/month
+- Wispr Flow: $10-15/month subscription
+- Voibe: $99 lifetime
+
+## Links
+- Website: https://whispererapp.com
+- Mac App Store: https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671
+- Blog: https://whispererapp.com/blog
+- Pricing: https://whispererapp.com/pricing
+
+## Contact
+- Email: support@whisperer.app

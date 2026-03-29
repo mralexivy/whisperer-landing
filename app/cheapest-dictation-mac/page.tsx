@@ -45,12 +45,14 @@ export const metadata: Metadata = {
     description:
       "$2.99 base. $14.99 Pro lifetime. 17x cheaper than competitors. Code Mode, 3 engines, offline.",
     type: "website",
+    images: [{ url: "/assets/og/og-cheapest-dictation-mac.png", width: 1200, height: 630, alt: "Cheapest Dictation App for Mac" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Cheapest Dictation App for Mac — $2.99 / $14.99",
     description:
       "17x cheaper than Superwhisper. Code Mode for developers. 100% offline.",
+    images: ["/assets/og/og-cheapest-dictation-mac.png"],
   },
   alternates: { canonical: "/cheapest-dictation-mac" },
 };

@@ -46,12 +46,14 @@ export const metadata: Metadata = {
     description:
       "$14.99 one-time. No subscription, no cloud fees. Code Mode, per-app profiles, 3 engines.",
     type: "website",
+    images: [{ url: "/assets/og/og-dictation-no-subscription.png", width: 1200, height: 630, alt: "Dictation App No Subscription" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dictation App — No Subscription | $14.99 Lifetime",
     description:
       "$14.99 one-time. No subscription, no cloud fees. Code Mode for developers.",
+    images: ["/assets/og/og-dictation-no-subscription.png"],
   },
   alternates: { canonical: "/dictation-no-subscription" },
 };

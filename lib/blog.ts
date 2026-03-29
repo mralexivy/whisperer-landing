@@ -12,7 +12,6 @@ export interface PostMeta {
   keywords: string[];
   category: string;
   image?: string;
-  howToSteps?: { name: string; text: string }[];
   slug: string;
   readingTime: string;
 }
@@ -44,7 +43,6 @@ function getContentFromDir(dir: string): Post[] {
           keywords: data.keywords ?? [],
           category: data.category ?? "",
           image: data.image,
-          howToSteps: data.howToSteps,
           slug,
           readingTime: stats.text,
         },

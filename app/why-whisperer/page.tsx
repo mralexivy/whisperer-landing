@@ -39,21 +39,14 @@ export const metadata: Metadata = {
     description:
       "Works across every app, runs offline, supports 100+ languages. $14.99 lifetime. See how Whisperer compares to ChatGPT Voice, Superwhisper, Wispr Flow, and Apple Dictation.",
     type: "website",
-    images: [
-      {
-        url: "/assets/hero-demo.png?v=2",
-        width: 1200,
-        height: 630,
-        alt: "Whisperer - Why Whisperer is the best offline dictation app for Mac",
-      },
-    ],
+    images: [{ url: "/assets/og/og-why-whisperer.png", width: 1200, height: 630, alt: "Why Whisperer" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Why Whisperer — Best Offline Dictation App for Mac",
     description:
       "Works across every app, runs offline, 100+ languages. $14.99 lifetime vs $249 Superwhisper or $15/mo Wispr Flow.",
-    images: ["/assets/hero-demo.png?v=2"],
+    images: ["/assets/og/og-why-whisperer.png"],
   },
   alternates: {
     canonical: "/why-whisperer",

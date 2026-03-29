@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/assets/hero-demo.png",
+        url: "/assets/og/og-home.png",
         width: 1200,
         height: 630,
         alt: "Whisperer - Offline Dictation for Mac",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@whispererapp",
-    images: ["/assets/hero-demo.png"],
+    images: ["/assets/og/og-home.png"],
   },
   alternates: {
     canonical: '/',

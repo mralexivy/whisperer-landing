@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { mdxComponents } from "@/components/mdx/MDXComponents";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { blogPostSchema, breadcrumbSchema, howToSchema, JsonLd } from "@/lib/structured-data";
+import { blogPostSchema, breadcrumbSchema, JsonLd } from "@/lib/structured-data";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
@@ -35,7 +35,7 @@ export async function generateMetadata({
       publishedTime: post.meta.date,
       images: [
         {
-          url: post.meta.image ?? "/assets/hero-demo.png",
+          url: `/assets/og/og-blog-${slug}.png`,
           width: 1200,
           height: 630,
           alt: post.meta.title,
@@ -46,6 +46,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: post.meta.title,
       description: post.meta.description,
+      images: [`/assets/og/og-blog-${slug}.png`],
     },
     alternates: { canonical: `/blog/${slug}` },
   };
@@ -80,13 +81,6 @@ export default async function BlogPost({
           url: `/blog/${post.meta.slug}`,
         },
       ])} />
-      {post.meta.howToSteps && (
-        <JsonLd data={howToSchema({
-          name: post.meta.title,
-          description: post.meta.description,
-          steps: post.meta.howToSteps,
-        })} />
-      )}
 
       <main className="pt-32 pb-24 relative">
         {/* Background atmosphere */}

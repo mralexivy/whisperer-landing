@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     description:
       "Feature-by-feature comparison of the top Mac dictation apps. Find the best voice-to-text tool for your workflow.",
     type: "website",
+    images: [{ url: "/assets/og/og-compare.png", width: 1200, height: 630, alt: "Mac Dictation Apps Compared" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/og-compare.png"],
   },
   alternates: { canonical: "/compare" },
 };

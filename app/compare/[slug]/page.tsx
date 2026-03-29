@@ -34,7 +34,7 @@ export async function generateMetadata({
       type: "article",
       images: [
         {
-          url: "/assets/hero-demo.png",
+          url: `/assets/og/og-compare-${slug}.png`,
           width: 1200,
           height: 630,
           alt: post.meta.title,
@@ -45,6 +45,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: post.meta.title,
       description: post.meta.description,
+      images: [`/assets/og/og-compare-${slug}.png`],
     },
     alternates: { canonical: `/compare/${slug}` },
   };

@@ -31,6 +31,11 @@ export const metadata: Metadata = {
     description:
       "What is voice coding, who uses it, and how to get started on Mac. The definitive guide.",
     type: "website",
+    images: [{ url: "/assets/og/og-voice-coding.png", width: 1200, height: 630, alt: "Voice Coding on Mac" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/og-voice-coding.png"],
   },
   alternates: { canonical: "/voice-coding" },
 };

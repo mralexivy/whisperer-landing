@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     description:
       "Guides and tutorials on voice coding, offline dictation, and developer productivity for Mac.",
     type: "website",
+    images: [{ url: "/assets/og/og-blog.png", width: 1200, height: 630, alt: "Whisperer Blog" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/og-blog.png"],
   },
   alternates: { canonical: "/blog" },
 };

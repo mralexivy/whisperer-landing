@@ -30,7 +30,9 @@ export const metadata: Metadata = {
     description:
       "Search, pin, flag, and replay your transcriptions. Track WPM, peak hours, and app usage with built-in statistics.",
     type: "website",
+    images: [{ url: "/assets/og/og-feature-transcription-history.png", width: 1200, height: 630, alt: "Transcription History" }],
   },
+  twitter: { card: "summary_large_image", images: ["/assets/og/og-feature-transcription-history.png"] },
   alternates: { canonical: "/features/transcription-history" },
 };
 

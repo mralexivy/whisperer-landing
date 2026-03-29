@@ -43,12 +43,14 @@ export const metadata: Metadata = {
     description:
       "Dictate camelCase, snake_case, symbols by voice. Works in VS Code, Cursor, Terminal. 100% offline. $14.99.",
     type: "website",
+    images: [{ url: "/assets/og/og-voice-to-text-developers.png", width: 1200, height: 630, alt: "Voice to Text for Developers" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Voice to Text for Developers — Code Mode for Mac",
     description:
       "Dictate code by voice. camelCase, snake_case, symbols. VS Code, Cursor, Terminal.",
+    images: ["/assets/og/og-voice-to-text-developers.png"],
   },
   alternates: { canonical: "/voice-to-text-developers" },
 };

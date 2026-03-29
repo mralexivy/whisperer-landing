@@ -18,7 +18,9 @@ export const metadata: Metadata = {
     description:
       "Three offline backends, 10+ models, Metal GPU acceleration. Compare speed vs accuracy for on-device dictation.",
     type: "website",
+    images: [{ url: "/assets/og/og-feature-offline-transcription.png", width: 1200, height: 630, alt: "Offline Transcription" }],
   },
+  twitter: { card: "summary_large_image", images: ["/assets/og/og-feature-offline-transcription.png"] },
   alternates: { canonical: "/features/offline-transcription" },
 };
 

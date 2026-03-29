@@ -22,6 +22,11 @@ export const metadata: Metadata = {
     description:
       "Speak camelCase, snake_case, symbols, and punctuation. Built for developers.",
     type: "website",
+    images: [{ url: "/assets/og/og-code-mode.png", width: 1200, height: 630, alt: "Whisperer Code Mode" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/assets/og/og-code-mode.png"],
   },
   alternates: { canonical: "/code-mode" },
 };

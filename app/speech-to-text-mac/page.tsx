@@ -47,12 +47,14 @@ export const metadata: Metadata = {
     description:
       "Three offline AI engines. Code Mode for developers. 100+ languages. $14.99 lifetime. No subscription.",
     type: "website",
+    images: [{ url: "/assets/og/og-speech-to-text-mac.png", width: 1200, height: 630, alt: "Speech to Text for Mac" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Speech to Text for Mac — Offline, $14.99 Lifetime",
     description:
       "Three offline AI engines. Code Mode. 100+ languages. No subscription.",
+    images: ["/assets/og/og-speech-to-text-mac.png"],
   },
   alternates: { canonical: "/speech-to-text-mac" },
 };

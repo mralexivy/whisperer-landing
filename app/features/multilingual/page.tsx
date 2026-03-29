@@ -18,7 +18,9 @@ export const metadata: Metadata = {
     description:
       "Dictate in 100+ languages with per-app language profiles and AI-powered offline translation.",
     type: "website",
+    images: [{ url: "/assets/og/og-feature-multilingual.png", width: 1200, height: 630, alt: "Multilingual Dictation" }],
   },
+  twitter: { card: "summary_large_image", images: ["/assets/og/og-feature-multilingual.png"] },
   alternates: { canonical: "/features/multilingual" },
 };
 

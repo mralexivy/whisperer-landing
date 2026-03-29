@@ -31,7 +31,9 @@ export const metadata: Metadata = {
     description:
       "Rewrite, translate, format, and summarize your dictation with an on-device LLM. 10 built-in modes. 100% offline.",
     type: "website",
+    images: [{ url: "/assets/og/og-feature-ai-writing.png", width: 1200, height: 630, alt: "AI Writing Modes" }],
   },
+  twitter: { card: "summary_large_image", images: ["/assets/og/og-feature-ai-writing.png"] },
   alternates: { canonical: "/features/ai-writing" },
 };
 
