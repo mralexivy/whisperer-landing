@@ -21,6 +21,12 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/screenshots"
+  to = "/"
+  status = 301
+  force = true
+
 # Trailing slash redirect removed - was causing redirect loops
 # Next.js handles this with trailingSlash: false in next.config.mjs
 
