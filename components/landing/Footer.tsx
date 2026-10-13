@@ -46,7 +46,8 @@ const footerLinks = [
     title: "Legal",
     links: [
       { label: "Privacy Policy", href: "/privacy" },
-      { label: "Contact", href: "mailto:support@whisperer.app" },
+      { label: "Terms of Use", href: "/terms" },
+      { label: "Contact", href: "mailto:support@whispererapp.com" },
     ],
   },
 ];
@@ -135,7 +136,7 @@ export const Footer = () => {
             <a href="#" className="hover:text-foreground transition-colors">
               GitHub
             </a>
-            <a href="mailto:support@whisperer.app" className="hover:text-foreground transition-colors">
+            <a href="mailto:support@whispererapp.com" className="hover:text-foreground transition-colors">
               Email
             </a>
           </div>

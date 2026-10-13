@@ -67,7 +67,7 @@ export function organizationSchema() {
     name: "Whisperer",
     url: "https://whispererapp.com",
     logo: "https://whispererapp.com/assets/app-icon.png",
-    email: "support@whisperer.app",
+    email: "support@whispererapp.com",
   };
 }
 

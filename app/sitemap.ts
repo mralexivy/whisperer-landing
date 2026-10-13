@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/speech-to-text-mac`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
     { url: `${baseUrl}/why-whisperer`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
     { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.3 },
+    { url: `${baseUrl}/terms`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.3 },
   ];
 
   const blogPosts = getAllPosts().map((post) => ({

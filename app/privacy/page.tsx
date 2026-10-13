@@ -4,21 +4,22 @@ import { Footer } from "@/components/landing/Footer";
 import {
   Shield,
   Mic,
-  Accessibility,
-  Keyboard,
+  Video,
   HardDrive,
   CreditCard,
   Users,
   FileEdit,
   Scale,
   Mail,
-  Globe
+  Globe,
+  Server,
+  Clock
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | 100% Offline Dictation for Mac",
   description:
-    "Whisperer privacy policy. All transcription happens on-device. No accounts, no audio uploads, no telemetry required. Your voice data never leaves your Mac.",
+    "Whisperer privacy policy. All transcription happens on-device. No accounts, no audio uploads, no telemetry, no analytics. Your voice data never leaves your Mac.",
   alternates: { canonical: "https://whispererapp.com/privacy" },
 };
 
@@ -40,7 +41,7 @@ export default function PrivacyPage() {
               Privacy Policy
             </h1>
             <p className="text-muted-foreground text-lg">
-              Last Updated: February 1, 2026
+              Last Updated: October 13, 2026
             </p>
           </div>
         </div>
@@ -52,7 +53,7 @@ export default function PrivacyPage() {
           {/* Overview */}
           <section>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Whisperer is a voice-to-text app for macOS. All audio processing happens on your device. This page explains what data we collect (none) and why.
+              Whisperer is a voice-to-text productivity app for macOS. All speech processing happens on your Mac. This page explains what data the app collects (none) and how it handles the data you create.
             </p>
           </section>
 
@@ -73,13 +74,14 @@ export default function PrivacyPage() {
 
           {/* Audio Data */}
           <section>
-            <h2 className="text-2xl font-semibold mb-6">Audio Data</h2>
+            <h2 className="text-2xl font-semibold mb-6">Audio and Transcripts</h2>
             <div className="space-y-4">
               {[
-                { text: "All audio recording and transcription happens 100% locally on your Mac", highlight: "100% locally" },
+                { text: "All audio recording and transcription happens 100% on your Mac", highlight: "100% on your Mac" },
                 { text: "Audio is never uploaded to any server or cloud service", highlight: "never uploaded" },
-                { text: "Audio recordings are optionally saved to your local disk only", highlight: "optionally saved" },
-                { text: "You have full control over saved recordings and can delete them at any time" },
+                { text: "Transcripts are stored locally and belong to you", highlight: "stored locally" },
+                { text: "There are no accounts and no sign-in, so nothing is tied to an identity" },
+                { text: "You can delete any recording or transcript at any time" },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 shrink-0" />
@@ -95,33 +97,54 @@ export default function PrivacyPage() {
                 </div>
               ))}
             </div>
-            <div className="mt-4 p-4 bg-muted/50 rounded-xl">
-              <code className="text-sm text-muted-foreground">
-                ~/Library/Application Support/Whisperer/Recordings/
-              </code>
+          </section>
+
+          {/* Audio Retention */}
+          <section>
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <Clock className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-semibold">Audio Retention</h2>
+                <p className="text-muted-foreground">You choose how long audio stays on disk</p>
+              </div>
+            </div>
+            <p className="text-muted-foreground mb-4">
+              Whisperer lets you set an audio retention period. The app deletes audio files automatically once they pass the period you pick. The available settings are:
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {["Never keep audio", "7 days", "30 days", "90 days", "365 days"].map((item, i) => (
+                <span
+                  key={i}
+                  className="px-4 py-2 rounded-full bg-muted/50 border border-border text-sm text-foreground"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
           </section>
 
           {/* Network Usage */}
           <section>
             <h2 className="text-2xl font-semibold mb-6">Network Usage</h2>
-            <p className="text-muted-foreground mb-4">The app uses network connectivity only for:</p>
+            <p className="text-muted-foreground mb-4">The app uses the network for one purpose only:</p>
             <div className="grid gap-4">
               <div className="bg-card border border-border rounded-xl p-5">
                 <h3 className="font-semibold mb-2">Model Downloads</h3>
                 <p className="text-muted-foreground text-sm">
-                  On first launch, the app downloads AI models from Hugging Face. These downloads are one-time and contain no personal information.
+                  Whisperer downloads AI model weights from Hugging Face. The speech model is about 2.5 GB. The language model is about 3.2 GB. These files are data files, not executable code. The download sends no personal information.
                 </p>
               </div>
               <div className="bg-card border border-border rounded-xl p-5">
                 <h3 className="font-semibold mb-2">No Telemetry</h3>
                 <p className="text-muted-foreground text-sm">
-                  We do not use analytics, tracking, or crash reporting services that transmit data.
+                  The app sends no analytics, no tracking events, and no crash reports. There are no ads and no ad networks.
                 </p>
               </div>
             </div>
             <p className="text-muted-foreground mt-6">
-              After the initial model download, <span className="text-foreground font-medium">the app works completely offline</span>. No internet connection is required for transcription.
+              After the models are downloaded, <span className="text-foreground font-medium">the app works completely offline</span>. No internet connection is required for transcription.
             </p>
           </section>
 
@@ -130,8 +153,9 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-semibold mb-6">Third-Party Services</h2>
             <div className="space-y-3">
               {[
-                { label: "Hugging Face", desc: "Used solely to download open-source Whisper AI models. No personal data is transmitted." },
-                { label: "No Analytics", desc: "We do not use Google Analytics, Mixpanel, Segment, or any other analytics platform." },
+                { label: "Hugging Face", desc: "Used solely to download open-source AI model weights. No personal data is transmitted." },
+                { label: "Apple App Store", desc: "Handles the Pro Pack purchase. Apple processes all payment information under its own privacy policy." },
+                { label: "No Analytics", desc: "The app does not use Google Analytics, Mixpanel, Segment, or any other analytics platform." },
                 { label: "No Ads", desc: "The app contains no advertising or ad networks." },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
@@ -148,27 +172,21 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-2xl font-semibold mb-6">Permissions Explained</h2>
             <p className="text-muted-foreground mb-6">
-              Whisperer requires the following macOS permissions to function:
+              Whisperer asks for the following macOS permissions:
             </p>
             <div className="grid gap-4">
               {[
                 {
                   icon: Mic,
-                  title: "Microphone Access",
+                  title: "Microphone",
                   purpose: "Record your voice for transcription",
-                  desc: "The microphone permission allows the app to capture audio when you hold the recording shortcut. This audio is processed entirely on your device and is never transmitted over the network."
+                  desc: "The microphone permission lets the app capture audio while you hold the recording shortcut. The app processes that audio on your device and never transmits it over the network."
                 },
                 {
-                  icon: Accessibility,
-                  title: "Accessibility Permission",
-                  purpose: "Insert transcribed text into applications",
-                  desc: "The Accessibility permission allows Whisperer to automatically paste the transcribed text into any text field you're focused on. This is a macOS system permission required for cross-application text insertion."
-                },
-                {
-                  icon: Keyboard,
-                  title: "Input Monitoring Permission",
-                  purpose: "Detect keyboard shortcuts globally",
-                  desc: "Input Monitoring allows the app to detect when you press and release your recording shortcut (e.g., the Fn key) while using other applications."
+                  icon: Video,
+                  title: "Camera (optional, off by default)",
+                  purpose: "Tell a video call apart from an audio-only app",
+                  desc: "This permission is opt-in. If you turn it on, Whisperer only checks whether the camera is currently in use by another app. It never captures, records, or views camera video. You can leave this permission off and the app works normally."
                 },
               ].map((item, i) => (
                 <div key={i} className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
@@ -187,6 +205,98 @@ export default function PrivacyPage() {
             </div>
           </section>
 
+          {/* Meeting Notes */}
+          <section>
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <Users className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-semibold">Meeting Notes</h2>
+                <p className="text-muted-foreground">Your microphone only, stored on your Mac</p>
+              </div>
+            </div>
+            <div className="space-y-3 mb-6">
+              {[
+                { text: "Meeting Notes records your microphone only", highlight: "your microphone only" },
+                { text: "The app never records system audio and never records other participants' audio streams", highlight: "never records system audio" },
+                { text: "Recordings and notes stay on your Mac and are never uploaded" },
+                { text: "Whisperer shows a consent screen before your first meeting recording" },
+                { text: "Your audio retention setting also applies to meeting audio" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 shrink-0" />
+                  <p className="text-muted-foreground">
+                    {item.highlight ? (
+                      <>
+                        {item.text.split(item.highlight)[0]}
+                        <span className="text-foreground font-medium">{item.highlight}</span>
+                        {item.text.split(item.highlight)[1]}
+                      </>
+                    ) : item.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="p-4 bg-muted/50 rounded-xl mb-6">
+              <code className="text-sm text-muted-foreground break-all">
+                ~/Library/Application Support/Whisperer/Sessions/
+              </code>
+            </div>
+            <div className="bg-card border border-border rounded-xl p-6">
+              <h3 className="font-semibold mb-2">Your responsibility for consent</h3>
+              <p className="text-muted-foreground text-sm">
+                Recording law differs by country and by state. You are responsible for obtaining consent from the other participants where local law requires it. Whisperer cannot determine which law applies to your meeting.
+              </p>
+            </div>
+          </section>
+
+          {/* MCP Server */}
+          <section>
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <Server className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-semibold">MCP Server</h2>
+                <p className="text-muted-foreground">Off by default, loopback-only, token protected</p>
+              </div>
+            </div>
+            <p className="text-muted-foreground mb-4">
+              Whisperer includes a local HTTP server that can expose your own transcript history to AI tools you already use, such as Claude, Cursor, and ChatGPT. The server is designed to stay closed unless you open it:
+            </p>
+            <div className="space-y-3">
+              {[
+                { text: "The server is off by default", highlight: "off by default" },
+                { text: "When enabled, it listens on the loopback interface only, so only your Mac can reach it", highlight: "loopback interface only" },
+                { text: "Every request requires a bearer token", highlight: "bearer token" },
+                { text: "Access from your local network is a separate, explicit opt-in" },
+                { text: "The server sends nothing to us and nothing to the internet; your AI tool reads the data you allow" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 shrink-0" />
+                  <p className="text-muted-foreground">
+                    {item.highlight ? (
+                      <>
+                        {item.text.split(item.highlight)[0]}
+                        <span className="text-foreground font-medium">{item.highlight}</span>
+                        {item.text.split(item.highlight)[1]}
+                      </>
+                    ) : item.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Open at Login */}
+          <section>
+            <h2 className="text-2xl font-semibold mb-4">Open at Login</h2>
+            <p className="text-muted-foreground">
+              Whisperer can start when you log in. It uses the system <code className="text-sm text-foreground bg-muted px-2 py-1 rounded">SMAppService</code> API and installs no helper app. You can turn it on or off inside Whisperer, or in System Settings under Login Items.
+            </p>
+          </section>
+
           {/* Data Storage */}
           <section>
             <div className="flex items-start gap-4 mb-6">
@@ -202,26 +312,27 @@ export default function PrivacyPage() {
               <table className="w-full">
                 <tbody className="divide-y divide-border">
                   {[
-                    { label: "AI Models", path: "~/Library/Application Support/Whisperer/", note: "~500MB to 3GB" },
-                    { label: "Optional Recordings", path: "~/Library/Application Support/Whisperer/Recordings/", note: "if enabled" },
+                    { label: "AI Models", path: "~/Library/Application Support/Whisperer/", note: "~2.5 GB speech, ~3.2 GB language" },
+                    { label: "Meeting Sessions", path: "~/Library/Application Support/Whisperer/Sessions/", note: "audio honours your retention setting" },
+                    { label: "Transcript History", path: "~/Library/Application Support/Whisperer/", note: "local database" },
                     { label: "Settings", path: "macOS UserDefaults", note: "local storage" },
                     { label: "Logs", path: "~/Library/Logs/Whisperer/", note: "for troubleshooting" },
                   ].map((item, i) => (
                     <tr key={i}>
-                      <td className="px-5 py-4 font-medium">{item.label}</td>
-                      <td className="px-5 py-4">
-                        <code className="text-sm text-muted-foreground bg-muted px-2 py-1 rounded">
+                      <td className="px-5 py-4 font-medium align-top">{item.label}</td>
+                      <td className="px-5 py-4 align-top">
+                        <code className="text-sm text-muted-foreground bg-muted px-2 py-1 rounded break-all">
                           {item.path}
                         </code>
                       </td>
-                      <td className="px-5 py-4 text-sm text-muted-foreground">{item.note}</td>
+                      <td className="px-5 py-4 text-sm text-muted-foreground align-top">{item.note}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
             <p className="text-muted-foreground mt-4 font-medium">
-              No data is stored in iCloud or any cloud service.
+              No data is stored in iCloud or any other cloud service.
             </p>
           </section>
 
@@ -233,12 +344,13 @@ export default function PrivacyPage() {
               </div>
               <h2 className="text-2xl font-semibold">In-App Purchases</h2>
             </div>
-            <p className="text-muted-foreground mb-4">If you purchase the Pro Pack upgrade:</p>
+            <p className="text-muted-foreground mb-4">If you buy the Pro Pack:</p>
             <div className="space-y-3">
               {[
-                "The purchase is processed through Apple's App Store",
-                "Apple handles all payment information according to their privacy policy",
-                "We receive only a notification that the purchase was completed",
+                "The Pro Pack is a one-time purchase, not a subscription",
+                "Apple's App Store processes the purchase",
+                "Apple handles all payment information under its own privacy policy",
+                "We receive only a confirmation that the purchase completed",
                 "No payment information is accessible to us",
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
@@ -258,7 +370,7 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-semibold">Children's Privacy</h2>
             </div>
             <p className="text-muted-foreground">
-              Whisperer does not knowingly collect any information from children under 13. The app does not collect any personal information from users of any age.
+              Whisperer does not knowingly collect any information from children under 13. The app collects no personal information from users of any age.
             </p>
           </section>
 
@@ -271,19 +383,20 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-semibold">Changes to This Policy</h2>
             </div>
             <p className="text-muted-foreground">
-              We may update this privacy policy from time to time. Any changes will be posted at this URL with an updated "Last Updated" date. Continued use of the app after changes indicates acceptance of the updated policy.
+              We may update this privacy policy from time to time. We post any change at this URL with a new "Last Updated" date. If you continue to use the app after a change, you accept the updated policy.
             </p>
           </section>
 
           {/* Your Rights */}
           <section>
             <h2 className="text-2xl font-semibold mb-4">Your Rights</h2>
-            <p className="text-muted-foreground mb-4">Since we don't collect or store any personal data:</p>
+            <p className="text-muted-foreground mb-4">We do not collect or store any personal data. As a result:</p>
             <div className="space-y-3">
               {[
-                "There is no personal data to access, modify, or delete",
-                "All app data is stored locally on your device",
-                "You can delete all app data by uninstalling the app or manually deleting the folders listed above",
+                "There is no personal data held by us to access, correct, or delete",
+                "All app data stays on your device and remains under your control",
+                "You can delete your transcripts and recordings inside the app at any time",
+                "You can remove all app data by deleting the folders listed above and uninstalling the app",
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 shrink-0" />
@@ -299,18 +412,18 @@ export default function PrivacyPage() {
             <p className="text-muted-foreground mb-6">For privacy questions or concerns:</p>
             <div className="grid sm:grid-cols-2 gap-4">
               <a
-                href="mailto:support@whisperer.app"
+                href="mailto:support@whispererapp.com"
                 className="flex items-center gap-3 p-4 bg-muted/50 rounded-xl hover:bg-muted transition-colors"
               >
                 <Mail className="w-5 h-5 text-primary" />
-                <span className="text-foreground">support@whisperer.app</span>
+                <span className="text-foreground">support@whispererapp.com</span>
               </a>
               <a
-                href="https://whisperer.app"
+                href="https://whispererapp.com"
                 className="flex items-center gap-3 p-4 bg-muted/50 rounded-xl hover:bg-muted transition-colors"
               >
                 <Globe className="w-5 h-5 text-primary" />
-                <span className="text-foreground">whisperer.app</span>
+                <span className="text-foreground">whispererapp.com</span>
               </a>
             </div>
           </section>
@@ -327,8 +440,8 @@ export default function PrivacyPage() {
             <div className="space-y-3">
               {[
                 "Apple's App Store Review Guidelines",
-                "California Consumer Privacy Act (CCPA) — N/A as we collect no personal data",
-                "General Data Protection Regulation (GDPR) — N/A as we collect no personal data",
+                "California Consumer Privacy Act (CCPA) — not applicable, as we collect no personal data",
+                "General Data Protection Regulation (GDPR) — not applicable, as we collect no personal data",
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 shrink-0" />
