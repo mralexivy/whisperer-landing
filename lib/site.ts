@@ -13,6 +13,12 @@ export const SUPPORT_EMAIL = "support@whispererapp.com";
 export const DEMO_VIDEO = "/videos/whisperer-tour.mp4";
 export const DEMO_POSTER = "/videos/whisperer-tour.jpg";
 
+// The two jobs the app does, each with its own demo film.
+export const MODE_VIDEOS = {
+  meetings: { src: "/videos/meeting-demo.mp4", poster: "/videos/meeting-demo.jpg", length: "0:36" },
+  dictation: { src: "/demo.mp4", poster: "/videos/dictation-demo.jpg", length: "0:15" },
+} as const;
+
 // Facts the copy quotes. Each lives here once.
 export const FACTS = {
   languages: "97",

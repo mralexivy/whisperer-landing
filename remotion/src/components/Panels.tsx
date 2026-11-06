@@ -5,6 +5,7 @@ import { AppWindow, AppLabel, BrandIcon, Caret, Reveal, StatusPill, type Brand }
 import { WorkspaceSidebar } from "./MeetingStudio";
 import { CLAMP, cn, rise } from "../lib/anim";
 import { MCP_CHAT, SPEAKERS, UPCOMING } from "../lib/demo-data";
+import { spokenWords, voiceFrames, type VoiceId } from "../lib/voice";
 
 /* ───────────────────────── LLM provider list ───────────────────────── */
 
@@ -264,23 +265,30 @@ export function CalendarPanel({ f, recAt }: { f: number; recAt: number }) {
 export const DICT_LINES = [
   { lang: "English", text: "Quick update: the build is green and I'm sending it to beta testers this afternoon." },
   { lang: "Español", text: "Perfecto, mañana reviso los comentarios y te escribo antes de la reunión." },
-  { lang: "Deutsch", text: "Ich schicke dir die Zusammenfassung heute Abend, bevor wir morgen starten." },
+  { lang: "Italiano", text: "Ti mando il riassunto stasera, prima di cominciare domani." },
 ];
 
-export type DictBeat = { hold: number; every: number; release: number; paste: number };
+export type DictBeat = { hold: number; every: number; release: number; paste: number; voice?: VoiceId; speak?: number; dur?: number };
 
-/** Beats for each line: Fn down at `hold`, words every `every`, release, ⌘V paste. */
-export function dictBeats(start: number, gap = 18, every = 2): DictBeat[] {
+export const DICT_VOICE: VoiceId[] = ["d1", "d2", "d3"];
+
+/**
+ * Beats for each line: Fn down at `hold`, words every `every`, release, ⌘V paste.
+ * With `voiced`, each line is timed to its spoken WAV: speech starts at `speak`, words stream while
+ * it plays, Fn is released just after the last word.
+ */
+export function dictBeats(start: number, gap = 18, every = 2, voiced = false, pasteAfter = 22): DictBeat[] {
   const out: DictBeat[] = [];
   let x = start;
-  for (const l of DICT_LINES) {
+  DICT_LINES.forEach((l, i) => {
     const n = l.text.split(" ").length;
     const hold = x;
-    const release = hold + 8 + n * every + 6;
-    const paste = release + 22;
-    out.push({ hold, every, release, paste });
+    const dur = voiced ? voiceFrames(DICT_VOICE[i]) : n * every;
+    const release = hold + 8 + dur + 6;
+    const paste = release + pasteAfter;
+    out.push(voiced ? { hold, every, release, paste, voice: DICT_VOICE[i], speak: hold + 8, dur } : { hold, every, release, paste });
     x = paste + gap;
-  }
+  });
   return out;
 }
 
@@ -292,7 +300,9 @@ export function DictationSlack({ f, beats }: { f: number; beats: DictBeat[] }) {
   const line = DICT_LINES[idx];
   const words = line.text.split(" ");
   const holding = f >= b.hold && f < b.release;
-  const shown = Math.max(0, Math.min(words.length, Math.floor((f - b.hold - 8) / b.every) + 1));
+  const shown = b.dur !== undefined && b.speak !== undefined
+    ? spokenWords(line.text, f - b.speak, b.dur)
+    : Math.max(0, Math.min(words.length, Math.floor((f - b.hold - 8) / b.every) + 1));
   const hudOn = f >= b.hold && f < b.release + 4;
   const hudP = rise(f, b.hold, 200, 12);
   const hudOut = interpolate(f, [b.release, b.release + 5], [1, 0], CLAMP);

@@ -37,3 +37,4 @@ remotion/out
 .agents/*
 # local App Store screenshot exports
 scratch-appstore/
+.tts-venv/

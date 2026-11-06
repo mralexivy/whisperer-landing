@@ -7,6 +7,7 @@ import {
 import { AppWindow, AppLabel, Avatar, BrandIcon, Caret, Reveal, pulse } from "./primitives";
 import { CLAMP, cn, wordCount } from "../lib/anim";
 import { SPEAKERS, MEETING, SEGMENTS, OVERVIEW, DECISIONS, ACTION_ITEMS, OPEN_QUESTION, ASK } from "../lib/demo-data";
+import { TURN_GAPS, spokenWords, voiceFrames, type VoiceId } from "../lib/voice";
 
 const SIDEBAR = [
   { icon: AudioLines, label: "Transcriptions", color: "text-sky-400" },
@@ -65,6 +66,17 @@ function Waveform({ f, live }: { f: number; live: boolean }) {
   );
 }
 
+/** Small live level meter shown next to whoever is talking. */
+function SpeakingBars({ f, color }: { f: number; color: string }) {
+  return (
+    <span className="inline-flex items-end gap-[2px] h-3">
+      {[0, 1, 2].map((i) => (
+        <span key={i} className="w-[2px] rounded-full" style={{ background: color, height: 3 + 9 * Math.abs(Math.sin(f * 0.35 + i * 1.7)) }} />
+      ))}
+    </span>
+  );
+}
+
 export type StudioTiming = {
   /** frames per streamed word */
   every: number;
@@ -77,22 +89,32 @@ export type StudioTiming = {
   noteGap: number;
   askAt?: number;
   askEvery?: number;
+  /** drive the transcript from the voiced lines (all five segments, audio-timed) */
+  voiced?: boolean;
 };
 
 export const SEGS = SEGMENTS.slice(0, 4);
 const SPEAKER_NO: Record<string, number> = { maya: 1, dan: 2, priya: 3 };
 
+/** Voice file for each transcript segment, in order. */
+export const SEG_VOICE: VoiceId[] = ["m1", "m2", "m3", "m4", "m5"];
+
 export function studioTimeline(t: StudioTiming) {
+  const segs = t.voiced ? SEGMENTS : SEGS;
   const starts: number[] = [];
+  const durs: number[] = [];
   let x = t.start;
-  for (const s of SEGS) {
+  segs.forEach((s, i) => {
     starts.push(x);
-    x += wordCount(s.text) * t.every + 8;
-  }
+    const d = t.voiced ? voiceFrames(SEG_VOICE[i]) : wordCount(s.text) * t.every;
+    durs.push(d);
+    x += d + (t.voiced ? TURN_GAPS[i] : 8);
+  });
+  if (t.voiced) x -= TURN_GAPS[segs.length - 1];
   const notesAt = t.stopAt + t.writing;
   const qEvery = t.askEvery ?? 3;
   const answerAt = t.askAt !== undefined ? t.askAt + wordCount(ASK.question) * qEvery + 14 : 99999;
-  return { starts, liveEnd: x, notesAt, answerAt, qEvery };
+  return { segs, starts, durs, liveEnd: x, notesAt, answerAt, qEvery };
 }
 
 /** Meeting Studio, frame-driven: live transcript → writing → notes → Ask AI. Fixed 1180 × 640 body. */
@@ -105,7 +127,15 @@ export function MeetingStudio({ f, t }: { f: number; t: StudioTiming }) {
   const tab = phase === "live" ? "Transcript" : "Overview";
   const askOn = t.askAt !== undefined && f >= t.askAt - 20;
 
-  const secs = 3 * 60 + 2 + Math.floor(Math.min(f, t.stopAt) / 30);
+  const secs = 2 * 60 + 14 + Math.floor((Math.min(f, t.stopAt) - t.start) / 30);
+  // Who is talking now: the voiced segment under the playhead (or the one still streaming).
+  let speaking: string | null = null;
+  if (phase === "live") {
+    for (let i = 0; i < tl.segs.length; i++) {
+      if (f >= tl.starts[i] && f < tl.starts[i] + tl.durs[i] + (t.voiced ? 2 : 0)) speaking = tl.segs[i].speaker;
+    }
+  }
+  const talk = (id: string) => (speaking === id ? 1 : 0);
   const elapsed = `${String(Math.floor(secs / 60)).padStart(2, "0")}:${String(secs % 60).padStart(2, "0")}`;
 
   const qWords = ASK.question.split(" ");
@@ -174,7 +204,7 @@ export function MeetingStudio({ f, t }: { f: number; t: StudioTiming }) {
                 </span>
               )}
               <div className="flex -space-x-1">
-                {(["me", "maya", "dan", "priya"] as const).map((id) => <Avatar key={id} id={id} size={26} label={id === "me" || named ? undefined : String(SPEAKER_NO[id])} />)}
+                {(["me", "maya", "dan", "priya"] as const).map((id) => <Avatar key={id} id={id} size={26} ring={talk(id)} label={id === "me" || named ? undefined : String(SPEAKER_NO[id])} />)}
               </div>
             </div>
           </div>
@@ -190,9 +220,11 @@ export function MeetingStudio({ f, t }: { f: number; t: StudioTiming }) {
         <div className="relative flex-1 min-h-0 overflow-hidden px-5 py-4">
           {tab === "Transcript" ? (
             <div className="space-y-3">
-              {SEGS.map((s, i) => {
+              {tl.segs.map((s, i) => {
                 const words = s.text.split(" ");
-                const n = Math.max(0, Math.min(words.length, Math.floor((f - tl.starts[i]) / t.every) + 1));
+                const n = t.voiced
+                  ? Math.max(1, spokenWords(s.text, f - tl.starts[i], tl.durs[i]))
+                  : Math.max(0, Math.min(words.length, Math.floor((f - tl.starts[i]) / t.every) + 1));
                 if (f < tl.starts[i]) return null;
                 return (
                   <Reveal key={i} f={f} at={tl.starts[i]}>
@@ -202,8 +234,10 @@ export function MeetingStudio({ f, t }: { f: number; t: StudioTiming }) {
                         {label(s.speaker)}
                       </span>
                       <span className="text-[10px] text-white/30 tabular-nums">{s.t}</span>
+                      {talk(s.speaker) > 0 && f < tl.starts[i] + tl.durs[i] + 2 && <SpeakingBars f={f} color={SPEAKERS[s.speaker].color} />}
                     </div>
-                    <div className="rounded-[12px] bg-[#14142B] ring-1 ring-white/[0.06] px-3.5 py-2.5 text-[12.5px] leading-[1.55] text-white/90">
+                    <div className="rounded-[12px] bg-[#14142B] ring-1 ring-white/[0.06] px-3.5 py-2.5 text-[12.5px] leading-[1.55] text-white/90"
+                      style={talk(s.speaker) > 0 && f < tl.starts[i] + tl.durs[i] + 2 ? { boxShadow: `inset 0 0 0 1px ${SPEAKERS[s.speaker].color}55` } : undefined}>
                       {words.slice(0, n).join(" ")}
                       {n < words.length && <Caret f={f} />}
                     </div>
@@ -305,9 +339,13 @@ export function MeetingStudio({ f, t }: { f: number; t: StudioTiming }) {
             <div className="space-y-1.5">
               {(["me", "maya", "dan", "priya"] as const).map((id) => (
                 <div key={id} className="flex items-center gap-2 rounded-[9px] px-2 py-1.5"
-                  style={{ background: id !== "me" ? `rgba(91,108,247,${0.03 + nameFlash * 0.18})` : "rgba(255,255,255,0.03)" }}>
-                  <Avatar id={id} size={20} label={id === "me" || named ? undefined : String(SPEAKER_NO[id])} />
+                  style={{
+                    background: talk(id) ? `color-mix(in srgb, ${SPEAKERS[id].color} 14%, transparent)` : id !== "me" ? `rgba(91,108,247,${0.03 + nameFlash * 0.18})` : "rgba(255,255,255,0.03)",
+                    boxShadow: talk(id) ? `inset 0 0 0 1px ${SPEAKERS[id].color}66` : undefined,
+                  }}>
+                  <Avatar id={id} size={20} ring={talk(id)} label={id === "me" || named ? undefined : String(SPEAKER_NO[id])} />
                   <span className="text-[11.5px] text-white/85 flex-1">{label(id)}</span>
+                  {talk(id) > 0 && <SpeakingBars f={f} color={SPEAKERS[id].color} />}
                   {id !== "me" && named && <CalendarDays className="h-3 w-3 text-white/40" />}
                 </div>
               ))}

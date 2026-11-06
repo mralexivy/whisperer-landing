@@ -49,14 +49,14 @@ export function Desktop({ children, app = "zoom.us", clock = "Tue 11 Nov  10:02"
 }
 
 /** A Zoom meeting window with four tiles, frame-driven active speaker. */
-export function ZoomCall({ f, left = 150, top = 70 }: { f: number; left?: number; top?: number }) {
+export function ZoomCall({ f, left = 150, top = 70, speaking }: { f: number; left?: number; top?: number; /** index of who is talking, -1 for nobody; omit to cycle */ speaking?: number }) {
   const people = [
     { id: "maya" as const },
     { id: "dan" as const },
     { id: "priya" as const },
     { id: "me" as const },
   ];
-  const active = Math.floor(f / 45) % 3;
+  const active = speaking ?? Math.floor(f / 45) % 3;
   return (
     <div className="absolute overflow-hidden rounded-[12px] bg-[#1C1C1E]" style={{ left, top, width: 1000, height: 640, boxShadow: "0 40px 100px -20px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.1)" }}>
       <div className="flex h-8 items-center gap-2 px-3 bg-[#2A2A2C]">

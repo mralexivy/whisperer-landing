@@ -22,24 +22,24 @@ export type Segment = { speaker: keyof typeof SPEAKERS; t: string; text: string 
 
 export const SEGMENTS: Segment[] = [
   { speaker: "maya", t: "02:14", text: "Beta feedback is in. Onboarding is the only thing people keep tripping on, the rest is solid." },
-  { speaker: "dan", t: "02:41", text: "Then we fix onboarding first. If we cut the account step we can still ship on the 24th." },
-  { speaker: "me", t: "03:05", text: "Agreed. Let's move launch to the 24th and keep the press embargo where it is." },
-  { speaker: "priya", t: "03:22", text: "I'll rewrite the first three screens and have a build for Thursday." },
-  { speaker: "maya", t: "03:48", text: "One open question: do we still need the waitlist page once the app is public?" },
+  { speaker: "dan", t: "02:20", text: "Then we fix onboarding first. If we cut the account step we can still ship on the 24th." },
+  { speaker: "me", t: "02:26", text: "Agreed. Let's move launch to the 24th and keep the press embargo where it is." },
+  { speaker: "priya", t: "02:31", text: "I'll rewrite the first three screens and have a build for Thursday." },
+  { speaker: "maya", t: "02:35", text: "One open question: do we still need the waitlist page once the app is public?" },
 ];
 
 export const OVERVIEW =
   "The team reviewed beta feedback for the mobile app. Onboarding was the main problem, so the account step will be removed and launch moves to 24 November. The press embargo stays unchanged.";
 
 export const DECISIONS = [
-  { text: "Launch moves to 24 November", t: "03:05" },
-  { text: "Remove the account step from onboarding", t: "02:41" },
+  { text: "Launch moves to 24 November", t: "02:26" },
+  { text: "Cut the account step from onboarding", t: "02:20" },
 ];
 
 export const ACTION_ITEMS = [
   { owner: "priya", text: "Rewrite the first three onboarding screens", due: "Thu" },
-  { owner: "dan", text: "Update the release checklist for the 24th", due: "Fri" },
-  { owner: "me", text: "Tell the press contacts the embargo is unchanged", due: "Mon" },
+  { owner: "dan", text: "Cut the account step from onboarding", due: "24 Nov" },
+  { owner: "me", text: "Keep the press embargo where it is", due: "Ongoing" },
 ] as const;
 
 export const OPEN_QUESTION = "Do we still need the waitlist page after launch?";
@@ -48,7 +48,7 @@ export const ASK = {
   question: "When is launch now, and why did it move?",
   answer:
     "Launch moved to 24 November. Beta users kept getting stuck in onboarding, so the team is removing the account step first.",
-  sources: ["02:41", "03:05"],
+  sources: ["02:20", "02:26"],
 };
 
 export const UPCOMING = [
@@ -67,10 +67,9 @@ export const MCP_CHAT = {
     lead: "From your Whisperer notes for Mobile launch review (Tue 11 Nov):",
     items: [
       "Launch moved to 24 November",
-      "Account step comes out of onboarding",
-      "Priya rewrites three onboarding screens by Thursday",
-      "Dan updates the release checklist by Friday",
-      "You confirm the press embargo with contacts on Monday",
+      "Priya rewrites the first three onboarding screens by Thursday",
+      "Dan cuts the account step from onboarding before the 24th",
+      "The press embargo stays where it is",
     ],
   },
 };

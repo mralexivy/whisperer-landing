@@ -2,12 +2,13 @@ import React from "react";
 import { AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { Backdrop, Camera, Clicks, Cursor, Titles } from "../components/stage";
 import { CallDetectedCard, Desktop, IslandBar, ReminderCard, ZoomCall } from "../components/Desktop";
-import { MeetingStudio, type StudioTiming } from "../components/MeetingStudio";
+import { MeetingStudio, SEG_VOICE, studioTimeline, type StudioTiming } from "../components/MeetingStudio";
 import { CalendarPanel, DictationSlack, KeyCap, MCPChat, ProviderList, chatDefaults, dictBeats } from "../components/Panels";
 import { CLAMP, EASE_OUT, rise } from "../lib/anim";
+import { RoomTone, VoiceLine, voiceFrames } from "../lib/voice";
 
 /* 1 ─ A Zoom call starts, Whisperer notices, Take notes, the Island appears. */
-export const S1_CALL = 240;
+export const S1_CALL = 228;
 export function SceneCall() {
   const f = useCurrentFrame();
   const cardIn = rise(f, 28, 18, 24);
@@ -31,7 +32,7 @@ export function SceneCall() {
         ]}
       >
         <Desktop recording={f >= 100}>
-          <ZoomCall f={f} left={220} top={92} />
+          <ZoomCall f={f} left={220} top={92} speaking={f >= 22 && f < 22 + voiceFrames("m0") ? 0 : -1} />
           {f < 108 && (
             <div style={{ position: "absolute", left: 1040, top: 44, transformOrigin: "0 0", scale: "1.2", translate: `${(1 - cardIn) * 420}px ${-cardOut * 40}px`, opacity: 1 - cardOut }}>
               <CallDetectedCard press={press} />
@@ -45,17 +46,38 @@ export function SceneCall() {
           <Cursor f={f} appear={44} hide={112} clicks={[90]} keys={[{ f: 44, x: 820, y: 560 }, { f: 84, x: 1318, y: 142 }]} />
         </Desktop>
       </Camera>
-      <Titles f={f} items={[{ from: 6, to: 96, text: "A Zoom call starts." }, { from: 102, to: 236, text: "Whisperer takes notes.", sub: "No bot joins the call. It records your Mac." }]} />
-      <Clicks at={[90]} />
+      <Titles f={f} items={[{ from: 6, to: 96, text: "A Zoom call starts." }, { from: 102, to: S1_CALL - 4, text: "Whisperer takes notes.", sub: "No bot joins the call. It records your Mac." }]} />
+      <Clicks at={[90]} volume={0.22} />
+      <RoomTone from={8} to={S1_CALL} />
+      <VoiceLine id="m0" from={22} />
     </Backdrop>
   );
 }
 
-/* 2–4 ─ Meeting Studio: live transcript, speakers named, notes, Ask AI. */
-export const S2_STUDIO = 480;
-export const TOUR_STUDIO: StudioTiming = { every: 2, start: 12, nameAt: 116, stopAt: 190, writing: 45, noteGap: 14, askAt: 330, askEvery: 3 };
-export function SceneStudio() {
+/* 2–4 ─ Meeting Studio: the call plays out loud, the live transcript follows the voices, speakers are named, notes. */
+const STUDIO_BASE: StudioTiming = { voiced: true, every: 2, start: 14, nameAt: 116, stopAt: 0, writing: 45, noteGap: 14 };
+const STUDIO_TL = studioTimeline(STUDIO_BASE);
+export const TOUR_STUDIO: StudioTiming = { ...STUDIO_BASE, stopAt: STUDIO_TL.liveEnd + 20 };
+export const studioLength = (hold = 84) => TOUR_STUDIO.stopAt + TOUR_STUDIO.writing + TOUR_STUDIO.noteGap * 3 + hold;
+export const S2_STUDIO = studioLength();
+
+/** The voiced meeting: every transcript line with its WAV, plus room tone while the call is live. */
+export function MeetingVoices({ t, toneFrom = 0 }: { t: StudioTiming; toneFrom?: number }) {
+  const tl = studioTimeline(t);
+  return (
+    <>
+      <RoomTone from={toneFrom} to={t.stopAt + 4} />
+      {SEG_VOICE.map((id, i) => <VoiceLine key={id} id={id} from={tl.starts[i]} />)}
+    </>
+  );
+}
+
+export function SceneStudio({ hold = 84 }: { hold?: number }) {
   const f = useCurrentFrame();
+  const len = studioLength(hold);
+  const t = TOUR_STUDIO;
+  const tl = STUDIO_TL;
+  const stop = t.stopAt;
   return (
     <Backdrop>
       <Camera
@@ -67,44 +89,45 @@ export function SceneStudio() {
           { f: 92, x: 760, y: 280, s: 1.55 },
           { f: 118, x: 780, y: 260, s: 1.65 },
           { f: 150, x: 790, y: 260, s: 1.65 },
-          { f: 182, x: 700, y: 290, s: 1.4 },
-          { f: 210, x: 640, y: 310, s: 1.5 },
-          { f: 300, x: 640, y: 328, s: 1.5 },
-          { f: 334, x: 700, y: 310, s: 1.68 },
-          { f: 410, x: 716, y: 320, s: 1.76 },
-          { f: 480, x: 722, y: 326, s: 1.8 },
+          { f: 196, x: 700, y: 300, s: 1.5 },
+          { f: tl.starts[2], x: 700, y: 318, s: 1.5 },
+          { f: tl.starts[4], x: 700, y: 352, s: 1.5 },
+          { f: stop - 34, x: 700, y: 340, s: 1.45 },
+          { f: stop - 6, x: 700, y: 290, s: 1.4 },
+          { f: stop + 20, x: 640, y: 310, s: 1.5 },
+          { f: len, x: 650, y: 330, s: 1.56 },
         ]}
       >
-        <MeetingStudio f={f} t={TOUR_STUDIO} />
+        <MeetingStudio f={f} t={t} />
         <Cursor
           f={f}
           appear={72}
-          hide={204}
-          clicks={[115, 189]}
+          hide={150}
+          clicks={[115]}
           keys={[
             { f: 72, x: 860, y: 470 },
             { f: 108, x: 1062, y: 352 },
-            { f: 128, x: 1062, y: 352 },
-            { f: 182, x: 785, y: 67 },
+            { f: 140, x: 1062, y: 352 },
           ]}
         />
-        <Cursor f={f} appear={292} hide={336} clicks={[326]} keys={[{ f: 292, x: 880, y: 600 }, { f: 322, x: 1040, y: 648 }]} />
+        <Cursor f={f} appear={stop - 50} hide={stop + 14} clicks={[stop - 1]} keys={[{ f: stop - 50, x: 900, y: 300 }, { f: stop - 8, x: 785, y: 67 }]} />
       </Camera>
       <Titles
         f={f}
         items={[
-          { from: 8, to: 186, text: "Every speaker, named.", sub: "Names come from the calendar invite." },
-          { from: 192, to: 324, text: "Notes the moment it ends.", sub: "Decisions, action items, open questions." },
-          { from: 330, to: 478, text: "Ask anything.", sub: "Answers point to the moment it was said." },
+          { from: 8, to: 240, text: "Every speaker, named.", sub: "Names come from the calendar invite." },
+          { from: 246, to: stop - 4, text: "A live transcript as they talk.", sub: "The call audio and your mic, on your Mac." },
+          { from: stop + 2, to: len - 2, text: "Notes the moment it ends.", sub: "Decisions, action items, open questions." },
         ]}
       />
-      <Clicks at={[115, 189, 326]} />
+      <MeetingVoices t={t} />
+      <Clicks at={[115, stop - 1]} volume={0.22} />
     </Backdrop>
   );
 }
 
 /* 5 ─ Bring your own AI. */
-export const S3_LLM = 210;
+export const S3_LLM = 176;
 export function SceneLLM() {
   const f = useCurrentFrame();
   const clicks = [52, 102, 152];
@@ -117,7 +140,7 @@ export function SceneLLM() {
           { f: 30, x: 470, y: 318, s: 1.42 },
           { f: 70, x: 560, y: 300, s: 1.55 },
           { f: 160, x: 560, y: 380, s: 1.6 },
-          { f: 210, x: 560, y: 380, s: 1.62 },
+          { f: S3_LLM, x: 560, y: 380, s: 1.62 },
         ]}
       >
         <ProviderList f={f} order={[["mac", 0], ["claude", clicks[0]], ["chatgpt", clicks[1]], ["gemini", clicks[2]]]} />
@@ -135,14 +158,14 @@ export function SceneLLM() {
           ]}
         />
       </Camera>
-      <Titles f={f} items={[{ from: 6, to: 208, text: "Written by your own AI.", sub: "Your Claude, ChatGPT or Gemini plan. Or this Mac, offline." }]} />
-      <Clicks at={clicks} />
+      <Titles f={f} items={[{ from: 6, to: S3_LLM - 2, text: "Written by your own AI.", sub: "Your Claude, ChatGPT or Gemini plan. Or this Mac, offline." }]} />
+      <Clicks at={clicks} volume={0.22} />
     </Backdrop>
   );
 }
 
 /* 6 ─ Claude reads Whisperer through MCP. */
-export const S4_MCP = 240;
+export const S4_MCP = 204;
 export function SceneMCP() {
   const f = useCurrentFrame();
   return (
@@ -154,18 +177,18 @@ export function SceneMCP() {
           { f: 0, x: 450, y: 298, s: 1.22, rx: 7 },
           { f: 30, x: 450, y: 298, s: 1.32 },
           { f: 130, x: 450, y: 292, s: 1.4 },
-          { f: 240, x: 450, y: 290, s: 1.45 },
+          { f: S4_MCP, x: 450, y: 290, s: 1.45 },
         ]}
       >
         <MCPChat f={f} t={chatDefaults(14)} />
       </Camera>
-      <Titles f={f} items={[{ from: 6, to: 238, text: "Claude can read them too.", sub: "Whisperer's MCP server. Only apps on this Mac can reach it." }]} />
+      <Titles f={f} items={[{ from: 6, to: S4_MCP - 2, text: "Claude can read them too.", sub: "Whisperer's MCP server. Only apps on this Mac can reach it." }]} />
     </Backdrop>
   );
 }
 
 /* 7 ─ Calendar reminder, Join & Record. */
-export const S5_CAL = 165;
+export const S5_CAL = 152;
 export function SceneCalendar() {
   const f = useCurrentFrame();
   const cardIn = rise(f, 24, 18, 24);
@@ -178,7 +201,7 @@ export function SceneCalendar() {
           { f: 0, x: 470, y: 308, s: 1.3, ry: 8 },
           { f: 30, x: 470, y: 308, s: 1.38 },
           { f: 80, x: 600, y: 240, s: 1.55 },
-          { f: 165, x: 600, y: 290, s: 1.55 },
+          { f: S5_CAL, x: 600, y: 290, s: 1.55 },
         ]}
       >
         <CalendarPanel f={f} recAt={96} />
@@ -189,15 +212,15 @@ export function SceneCalendar() {
         )}
         <Cursor f={f} appear={40} hide={128} clicks={[93]} keys={[{ f: 40, x: 700, y: 430 }, { f: 84, x: 607, y: 143 }]} />
       </Camera>
-      <Titles f={f} items={[{ from: 6, to: 163, text: "It reminds you a minute before.", sub: "Join and record from Google Calendar or Outlook." }]} />
-      <Clicks at={[93]} />
+      <Titles f={f} items={[{ from: 6, to: S5_CAL - 2, text: "It reminds you a minute before.", sub: "Join and record from Google Calendar or Outlook." }]} />
+      <Clicks at={[93]} volume={0.22} />
     </Backdrop>
   );
 }
 
 /* 8 ─ Dictation in Slack. */
-export const S6_DICT = 300;
-const BEATS = dictBeats(22, 16, 2);
+const BEATS = dictBeats(20, 10, 2, true, 16);
+export const S6_DICT = BEATS[BEATS.length - 1].paste + 40;
 export function SceneDictation() {
   const f = useCurrentFrame();
   let down = 0;
@@ -213,7 +236,7 @@ export function SceneDictation() {
         keys={[
           { f: 0, x: 500, y: 298, s: 1.3, ry: -7 },
           { f: 30, x: 500, y: 298, s: 1.38 },
-          { f: 300, x: 500, y: 300, s: 1.46 },
+          { f: S6_DICT, x: 500, y: 300, s: 1.46 },
         ]}
       >
         <DictationSlack f={f} beats={BEATS} />
@@ -224,14 +247,15 @@ export function SceneDictation() {
       <Titles
         f={f}
         items={[
-          { from: 6, to: 100, text: "Hold Fn to dictate.", sub: "Let go, and paste with ⌘V." },
-          { from: 104, to: 296, text: "In your own language.", sub: "97 languages, detected as you speak. Offline." },
+          { from: 6, to: BEATS[1].hold - 6, text: "Hold Fn to dictate.", sub: "Let go, and paste with ⌘V." },
+          { from: BEATS[1].hold - 2, to: S6_DICT - 4, text: "In your own language.", sub: "97 languages, detected as you speak. Offline." },
         ]}
       />
       {BEATS.map((b) => (
         <React.Fragment key={b.hold}>
-          <Sequence from={b.hold - 1} durationInFrames={14} layout="none"><Audio src={staticFile("audio/key-press.wav")} volume={0.35} /></Sequence>
-          <Sequence from={b.release} durationInFrames={14} layout="none"><Audio src={staticFile("audio/key-release.wav")} volume={0.3} /></Sequence>
+          <Sequence from={b.hold - 1} durationInFrames={14} layout="none"><Audio src={staticFile("audio/key-press.wav")} volume={0.25} /></Sequence>
+          {b.voice && b.speak !== undefined && <VoiceLine id={b.voice} from={b.speak} />}
+          <Sequence from={b.release} durationInFrames={14} layout="none"><Audio src={staticFile("audio/key-release.wav")} volume={0.22} /></Sequence>
         </React.Fragment>
       ))}
     </Backdrop>
@@ -239,7 +263,7 @@ export function SceneDictation() {
 }
 
 /* 9a ─ Price. */
-export const S7_PRICE = 110;
+export const S7_PRICE = 100;
 export function ScenePrice() {
   const f = useCurrentFrame();
   const parts = ["$2.99.", "Pro $14.99.", "Once."];
@@ -266,7 +290,7 @@ export function ScenePrice() {
 }
 
 /* 9b ─ End card. */
-export const S8_END = 150;
+export const S8_END = 132;
 export function SceneEnd() {
   const f = useCurrentFrame();
   const icon = rise(f, 4, 12, 30);

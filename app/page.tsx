@@ -6,9 +6,10 @@ import {
   PrivacyBand, PricingSection, TeamsBand, CloseSection, CostFootnote,
 } from "@/components/home/Sections";
 import { FAQSection } from "@/components/home/HomeFAQ";
+import { TwoModesSection } from "@/components/home/TwoModes";
 
 export const metadata: Metadata = {
-  title: { absolute: "Whisperer: AI Meeting Notes & Dictation for Mac, No Subscription" },
+  title: { absolute: "Whisperer: AI Meeting Notes and Dictation for Mac, No Subscription" },
   description:
     "AI meeting notes for Mac that run on your Mac. Detects Zoom, Teams and Meet calls, names every speaker, and writes notes with Claude, ChatGPT, Gemini or a built-in offline model. MCP server and dictation included. One-time purchase.",
   alternates: { canonical: "https://whispererapp.com/" },
@@ -26,6 +27,7 @@ export default function Home() {
       <SiteHeader />
       <main>
         <HomeHero />
+        <TwoModesSection />
         <DetectionSection />
         <NotesSection />
         <CalendarSection />

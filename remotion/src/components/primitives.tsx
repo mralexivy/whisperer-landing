@@ -77,7 +77,7 @@ export function AppLabel({ children, className, style }: { children: ReactNode; 
   );
 }
 
-export function Avatar({ id, size = 22, label }: { id: keyof typeof SPEAKERS; size?: number; label?: string }) {
+export function Avatar({ id, size = 22, label, ring = 0 }: { id: keyof typeof SPEAKERS; size?: number; label?: string; ring?: number }) {
   const s = SPEAKERS[id];
   return (
     <span
@@ -87,7 +87,11 @@ export function Avatar({ id, size = 22, label }: { id: keyof typeof SPEAKERS; si
         height: size,
         fontSize: Math.round(size * 0.36),
         background: `color-mix(in srgb, ${s.color} 22%, #0C0C1A)`,
-        boxShadow: `inset 0 0 0 1px ${s.color}66, 0 0 0 2px #0C0C1A`,
+        boxShadow: ring > 0
+          ? `inset 0 0 0 1px ${s.color}AA, 0 0 0 2px #0C0C1A, 0 0 0 ${2 + 2 * ring}px ${s.color}, 0 0 ${10 * ring}px ${s.color}88`
+          : `inset 0 0 0 1px ${s.color}66, 0 0 0 2px #0C0C1A`,
+        position: "relative",
+        zIndex: ring > 0 ? 2 : undefined,
         color: s.color,
       }}
     >
