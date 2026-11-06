@@ -53,7 +53,7 @@ const FAQ = [
   {
     question: "Is there a free offline dictation app for Mac?",
     answer:
-      "Apple Dictation is free and built into macOS. Whisperer is $2.99 once and adds a live preview in 97 languages, a choice of five engines, a dictionary that learns your words, file transcription and a searchable history.",
+      "Apple Dictation is free and built into macOS. Whisperer is $2.99 once and adds a live preview in 97 languages, a choice of four engines, a dictionary that learns your words, file transcription and a searchable history.",
   },
 ];
 
@@ -86,8 +86,8 @@ export default function OfflineDictationMacPage() {
       />
 
       <Split
-        title="Five engines on your Mac"
-        lede={`Whisper is the default: the Whisperer V3 model on the Metal GPU, ${FACTS.languages} languages. Parakeet, Qwen3 ASR, WhisperKit and Apple Speech are there if you want to try another.`}
+        title="Four engines on your Mac"
+        lede={`Whisper is the default: the Whisperer V3 model on the Metal GPU, ${FACTS.languages} languages. Parakeet, Qwen3 ASR and WhisperKit are there if you want to try another.`}
         visual={<EnginesMock />}
       >
         <TextLink href="/features/offline-transcription">Compare the engines</TextLink>

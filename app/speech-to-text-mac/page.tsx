@@ -34,7 +34,7 @@ const FAQ = [
   {
     question: "Is speech to text available offline on Mac?",
     answer:
-      "Yes. Whisperer's five engines (Whisper, Parakeet, Qwen3 ASR, WhisperKit and Apple Speech) all run on your Mac. Once the model is downloaded, speech to text works without a connection.",
+      "Yes. Whisperer's four engines (Whisper, Parakeet, Qwen3 ASR and WhisperKit) all run on your Mac. Once the model is downloaded, speech to text works without a connection.",
   },
   {
     question: "How accurate is speech to text on Mac?",
@@ -125,7 +125,7 @@ export default function SpeechToTextMacPage() {
       <Related
         links={[
           { title: "Offline dictation for Mac", body: "Why on-device matters.", href: "/offline-dictation-mac" },
-          { title: "Offline engines", body: "Five engines compared.", href: "/features/offline-transcription" },
+          { title: "Offline engines", body: "Four engines compared.", href: "/features/offline-transcription" },
           { title: `${FACTS.languages} languages`, body: "Detected as you speak.", href: "/features/multilingual" },
           { title: "Pricing", body: `${PRICE_BASE} and ${PRICE_PRO}, both once.`, href: "/pricing" },
         ]}

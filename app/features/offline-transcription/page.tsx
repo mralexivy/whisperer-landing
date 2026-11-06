@@ -7,14 +7,14 @@ import { FAQSection } from "@/components/home/HomeFAQ";
 import { FACTS } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Offline Transcription Engines: Whisper, Parakeet, Qwen3 ASR, WhisperKit, Apple Speech",
+  title: "Offline Transcription Engines: Whisper, Parakeet, Qwen3 ASR, WhisperKit",
   description:
-    "Five speech engines that run on your Mac: Whisper on the Metal GPU (97 languages), Parakeet on the Neural Engine, Qwen3 ASR, WhisperKit and Apple Speech. No internet, no per-minute fees.",
+    "Four speech engines that run on your Mac: Whisper on the Metal GPU (97 languages), Parakeet on the Neural Engine, Qwen3 ASR and WhisperKit. No internet, no per-minute fees.",
   keywords:
     "offline transcription mac, whisper.cpp mac, parakeet mac, offline speech recognition mac, local speech to text mac, whisperkit, apple speech",
   openGraph: {
     title: "Five offline speech engines on your Mac",
-    description: "Whisper, Parakeet, Qwen3 ASR, WhisperKit and Apple Speech. All local.",
+    description: "Whisper, Parakeet, Qwen3 ASR and WhisperKit. All local.",
     type: "website",
     url: "https://whispererapp.com/features/offline-transcription",
     images: [{ url: "/assets/og/og-feature-offline-transcription.png", width: 1200, height: 630, alt: "Whisperer offline engines" }],
@@ -27,7 +27,7 @@ const FAQ = [
   {
     question: "Which engine should I pick?",
     answer:
-      "Start with the default, Whisper with the Whisperer V3 model. It covers 97 languages and is the most accurate all-rounder. Try Parakeet if you want the GPU left free, Qwen3 ASR for a second opinion on a tricky language, and Apple Speech if you do not want to download a model.",
+      "Start with the default, Whisper with the Whisperer V3 model. It covers 97 languages and is the most accurate all-rounder. Try Parakeet if you want the GPU left free, Qwen3 ASR for a second opinion on a tricky language, and WhisperKit if you prefer Core ML on the Neural Engine.",
   },
   {
     question: "How big is the default model?",
@@ -68,8 +68,8 @@ export default function OfflineTranscriptionPage() {
 
       <PageHero
         crumbs={[{ label: "Dictation", href: "/features" }, { label: "Offline engines" }]}
-        title="Five speech engines, all on your Mac"
-        lede={`Whisperer ships with Whisper, Parakeet, Qwen3 ASR, WhisperKit and Apple Speech. The default writes ${FACTS.languages} languages on the GPU, and none of them needs the internet.`}
+        title="Four speech engines, all on your Mac"
+        lede={`Whisperer ships with Whisper, Parakeet, Qwen3 ASR and WhisperKit. The default writes ${FACTS.languages} languages on the GPU, and none of them needs the internet.`}
         visual={<EnginesMock />}
       />
 

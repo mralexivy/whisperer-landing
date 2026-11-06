@@ -11,7 +11,7 @@ faqs:
   - question: "Is Apple Dictation offline on a Mac?"
     answer: "On Apple Silicon Macs, Apple Dictation can run on the device for supported languages. It's free and needs no setup, but it has no history, no file transcription and no choice of model."
   - question: "Which Mac dictation apps are not offline?"
-    answer: "Wispr Flow and Willow process speech in the cloud. Spokenly's Pro tier and Superwhisper's cloud models also use servers, while their local models stay on the Mac."
+    answer: "Wispr Flow processes speech in the cloud, and Willow does too apart from its offline mode. Spokenly's Pro tier, Superwhisper's cloud models and Voibe on Windows also use servers, while their local models stay on the computer."
 ---
 
 The best offline dictation apps for Mac in 2026 are Whisperer, VoiceInk, Superwhisper (with its local models), Spokenly's free tier, JesType and Voibe, with Apple Dictation as the free built-in option. They all turn speech into text on your Mac. The real differences are price, which platforms they run on, and what they do beyond dictation. Whisperer is $2.99 for dictation, and a $14.99 one-time Pro purchase adds meeting notes, calendar recording, speaker names, your own AI and an MCP server.
@@ -33,13 +33,13 @@ Prices are public pricing, November 2026, for one person.
 | | Price | Where speech is processed | Platforms |
 |---|---|---|---|
 | Whisperer | $2.99, Pro $14.99 once | On your Mac | Mac |
-| Superwhisper | Free tier; Pro $8.49/mo, $84.99/yr or $249.99 lifetime | Local models, or cloud models you choose | Mac, iPhone |
-| VoiceInk | $25 once (one Mac) | On your Mac | Mac |
+| Superwhisper | Free tier; Pro $8.49/mo, $84.99/yr or $249.99 lifetime | Local models, or cloud models you choose | Mac, Windows, iPhone, Android |
+| VoiceInk | $25 once (one Mac) | On your Mac | Mac, iPhone |
 | MacWhisper | Free; Pro €64 once | On your Mac | Mac |
 | JesType | €14.95 once (one device) | On your device | Mac, Windows |
-| Spokenly | Free; Local+ $29 once; Pro $144/yr | Local on Free, cloud on Pro | Mac, iPhone |
-| Voibe | $9.90/mo, $99/yr or $199 once | On your device | Mac, Windows |
-| Willow | Free Basic; Pro $15/mo or $12/mo yearly | Cloud | Several |
+| Spokenly | Free; Local+ $29 once; Pro $144/yr | Local on Free, cloud on Pro | Mac, Windows, Linux, iPhone |
+| Voibe | Free; $9.90/mo, $99/yr or $199 once | On Apple Silicon Macs, cloud on Windows | Mac, Windows |
+| Willow | Free Basic; Pro $15/mo or $12/mo yearly | Cloud, with an offline mode | Mac, Windows, iPhone |
 | Apple Dictation | Free | On device for supported languages | Apple devices |
 
 ## 1. Whisperer
@@ -64,18 +64,18 @@ What Pro adds for $14.99 once: [meeting notes](/meetings) for Zoom, Teams, Meet,
 
 **Price:** free tier; Pro $8.49/month, $84.99/year or $249.99 lifetime | **Engines:** local Whisper models and cloud models
 
-The best-known app in this group. A polished interface, lots of custom modes and good documentation. It offers local models, but some of its AI features use cloud models, so pick deliberately if privacy matters.
+The best-known app in this group. A polished interface, lots of custom modes and good documentation. It runs on Mac, Windows, iPhone and Android, and Pro adds meeting recording on the Mac. It offers local models, but some of its AI features use cloud models, so pick deliberately if privacy matters.
 
-**Good:** polish, custom modes, an active community.
+**Good:** polish, custom modes, every platform on one license.
 **Less good:** the lifetime price is high.
 
 [Whisperer vs Superwhisper](/compare/vs-superwhisper)
 
 ## 3. VoiceInk
 
-**Price:** $25 one-time for one Mac ($39 for two, $49 for three) | **Engine:** local Whisper
+**Price:** $25 one-time for one Mac ($39 for two, $49 for three) | **Engines:** local Whisper, Parakeet and others
 
-A clean, open-source (GPL v3) dictation app that does the basics well and stays out of the way. If you want simple, cheap, local dictation and you like open source, it's a strong pick.
+A clean, open-source (GPL v3) dictation app that does the basics well and stays out of the way. It now has an iPhone app too. If you want simple, cheap, local dictation and you like open source, it's a strong pick.
 
 **Less good:** it focuses on dictation, with no meeting notes or calendar features.
 
@@ -85,10 +85,10 @@ A clean, open-source (GPL v3) dictation app that does the basics well and stays 
 
 **Price:** free version, Pro €64 one-time | **Engine:** Whisper
 
-MacWhisper is best known for **file transcription**: drop in interviews, podcasts or recordings and get text, subtitles and exports in many formats. It has added recording features over time, so check its site for what the current version does.
+MacWhisper is best known for **file transcription**: drop in interviews, podcasts or recordings and get text, subtitles and exports in many formats. It has since added meeting recording with automatic call detection and system-wide dictation.
 
 **Good:** batch file work, subtitle export, many formats.
-**Less good:** it's a transcription workbench first and a hold-to-talk dictation tool second.
+**Less good:** it's a transcription workbench first, with dictation added later.
 
 [Whisperer vs MacWhisper](/compare/vs-macwhisper)
 
@@ -96,10 +96,10 @@ MacWhisper is best known for **file transcription**: drop in interviews, podcast
 
 **Price:** €14.95 one-time for one device | **Engines:** Parakeet V3 (25 languages) and Moonshine (English streaming)
 
-A small, local dictation app for Mac and Windows with a 48-hour trial. Optional AI cleanup is off by default. Paid licenses check in online every 30 days.
+A small, local dictation app for Mac and Windows with a 48-hour trial. Optional AI cleanup is off by default. Paid licenses check in online from time to time.
 
 **Good:** low price, Windows support, quick Parakeet models.
-**Less good:** fewer languages than Whisper's 97, and no file transcription.
+**Less good:** fewer languages than Whisper's 97.
 
 [Whisperer vs JesType](/compare/vs-jestype)
 
@@ -107,20 +107,20 @@ A small, local dictation app for Mac and Windows with a 48-hour trial. Optional 
 
 **Price:** free; Local+ $29 once; Pro $144/year | **Engines:** local Whisper and Parakeet, plus cloud models on Pro
 
-Spokenly's free tier is a real local dictation app with no word cap. You can bring your own API keys for cloud models, or pay for Pro to get Spokenly's hosted ones.
+Spokenly's free tier is a real local dictation app with no word cap, on Mac, Windows, Linux and iPhone. You can bring your own API keys for cloud models, or pay for Pro to get Spokenly's hosted ones. On the Mac it can also record meetings without a bot.
 
 **Good:** the free tier is generous.
-**Less good:** its most accurate models sit in the cloud tier.
+**Less good:** its own high-accuracy cloud models are on the paid Pro tier.
 
 [Whisperer vs Spokenly](/compare/vs-spokenly)
 
 ## 7. Voibe
 
-**Price:** Dictation plan $9.90/month, $99/year or $199 one-time | **Engine:** local Whisper
+**Price:** free plan; Dictation plan $9.90/month, $99/year or $199 one-time | **Engine:** Whisper
 
-An on-device dictation app for Mac and Windows. A higher Work plan adds more features.
+A dictation app for Mac and Windows. It runs on the device on Apple Silicon Macs and uses a zero-retention cloud mode on Windows. The Work plan ($149/year) adds meeting notes without a bot and a meeting MCP server.
 
-**Good:** offline, available on Windows, one-time option.
+**Good:** offline on Apple Silicon, available on Windows, one-time option, meeting notes on Work.
 **Less good:** expensive next to the other one-time apps here.
 
 [Whisperer vs Voibe](/compare/vs-voibe)
@@ -129,10 +129,10 @@ An on-device dictation app for Mac and Windows. A higher Work plan adds more fea
 
 **Price:** free Basic; Pro $15/month or $12/month billed yearly | **Engine:** cloud
 
-Willow isn't offline: speech is processed on its servers. It's here because people often ask about it. It runs on more than one platform and offers business plans with compliance features.
+Willow is mostly cloud: speech is normally processed on its servers, though it lists an offline mode. It runs on Mac, Windows and iPhone and offers business plans with compliance features.
 
 **Good:** works across platforms, team and compliance options.
-**Less good:** a subscription, and your audio leaves the Mac.
+**Less good:** a subscription, and your audio usually leaves the Mac.
 
 [Whisperer vs Willow](/compare/vs-willow)
 
@@ -153,7 +153,7 @@ Built into macOS. Press the dictation key and talk. It's on-device on Apple Sili
 |---|---|
 | Dictation plus meeting notes in one app | Whisperer with Pro ($2.99 + $14.99 once) |
 | Cheap, simple local dictation | Whisperer ($2.99), VoiceInk ($25) or Spokenly's free tier |
-| Mac and Windows | JesType or Voibe |
+| Mac and Windows | JesType, Voibe, Superwhisper or Spokenly |
 | Mostly file transcription | MacWhisper, or Whisperer's file transcription |
 | Nothing to install | Apple Dictation |
 
@@ -169,7 +169,7 @@ On Apple Silicon Macs, Apple Dictation can run on the device for supported langu
 
 ### Which Mac dictation apps are not offline?
 
-Wispr Flow and Willow process speech in the cloud. Spokenly's Pro tier and Superwhisper's cloud models also use servers, while their local models stay on the Mac.
+Wispr Flow processes speech in the cloud, and Willow does too apart from its offline mode. Spokenly's Pro tier, Superwhisper's cloud models and Voibe on Windows also use servers, while their local models stay on the computer.
 
 ---
 

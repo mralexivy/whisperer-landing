@@ -123,7 +123,7 @@ export default function WhyWhispererPage() {
       <Split
         flip
         title="Dictation in any app"
-        lede={`Hold Fn, speak, paste with ⌘V. Live preview in ${FACTS.languages} languages, five offline engines, and a dictionary that learns your words from your corrections.`}
+        lede={`Hold Fn, speak, paste with ⌘V. Live preview in ${FACTS.languages} languages, four offline engines, and a dictionary that learns your words from your corrections.`}
         visual={<DictationDemo />}
       >
         <TextLink href="/features">See dictation features</TextLink>

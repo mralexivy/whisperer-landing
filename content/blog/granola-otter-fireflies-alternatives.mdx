@@ -8,7 +8,7 @@ faqs:
   - question: "What is the best alternative to Granola, Otter and Fireflies on a Mac?"
     answer: "It depends on who reads the notes. For a team that shares notes in one workspace, Granola, Otter and Fireflies are all built for that. For one person on a Mac who wants recordings on their own computer and no subscription, Whisperer fits better: it records calls without a bot, transcribes on the Mac, and costs $2.99 plus a $14.99 one-time Pro purchase."
   - question: "Which meeting note takers do not join the call as a bot?"
-    answer: "Granola and Whisperer both record from your own computer, so nothing joins the call. Otter and Fireflies are known for an assistant that joins the meeting as a participant."
+    answer: "Granola and Whisperer both record from your own computer, so nothing joins the call. Otter and Fireflies are known for an assistant that joins the meeting as a participant, though both now also have desktop apps that record without a bot and send the audio to their cloud."
   - question: "How much do Granola, Otter and Fireflies cost?"
     answer: "Public pricing, November 2026, one seat: Granola has a free Basic plan and Business at $14 per user per month. Otter Pro is $16.99 a month or $8.33 a month billed yearly. Fireflies Pro is $18 a month or $10 a month billed yearly. Whisperer is $2.99 plus $14.99 once."
   - question: "Can I keep meeting audio off the cloud?"
@@ -30,8 +30,8 @@ Public pricing, November 2026, one seat.
 
 | App | Free plan | Paid plan | Billed yearly | Teams |
 |---|---|---|---|---|
-| Granola | Yes, Basic | Business $14/user/month | Monthly only | Enterprise $35/user/month |
-| Otter | Yes | Pro $16.99/month | $8.33/month | Business $30/month or $19.99/month yearly |
+| Granola | Yes, Basic (30 days of notes) | Business $14/user/month | No yearly price listed | Enterprise $35/user/month |
+| Otter | Yes (300 minutes a month) | Pro $16.99/month | $8.33/month | Business $30/month or $19.99/month yearly |
 | Fireflies | Yes | Pro $18/month | $10/month | Business $29/month or $19/month yearly |
 | Whisperer | No | $2.99 + $14.99 one-time | No subscription | $14.99 per Mac |
 
@@ -46,39 +46,42 @@ Granola is a notes app that listens. You open a note before the call, type the f
 - **The editor.** Mixing your own shorthand with the AI draft is Granola's best idea. If you think by typing, it feels natural.
 - **Templates** for common meetings, such as a one-on-one or a customer call.
 - **Sharing.** Send a note by link, or keep notes in a shared team space.
-- **More than the Mac.** Granola has apps beyond macOS, so you can pick up notes elsewhere.
+- **More than the Mac.** Granola has apps for Windows, iPhone and Android.
+- **MCP.** Business includes an MCP server, so Claude or ChatGPT can read your Granola notes.
 
 ### What to weigh
 
-Audio and transcripts are processed in Granola's cloud. Business is a per-seat monthly fee with no yearly discount. The AI that writes your notes is Granola's choice, not yours.
+Audio is sent to cloud transcription providers and deleted after transcription, and transcripts and notes are stored in Granola's cloud. Granola keeps no recording, so there is no playback. Business is a per-seat monthly fee, and the free plan only shows the last 30 days of notes. The AI that writes your notes is Granola's choice, not yours.
 
 ## Otter
 
-Otter is one of the oldest names in meeting transcription. Its assistant, OtterPilot, can join your Zoom, Teams or Google Meet call and transcribe it live, so other people in the meeting can follow along.
+Otter is one of the oldest names in meeting transcription. Its assistant can join your Zoom, Teams or Google Meet call and transcribe it live, so other people in the meeting can follow along. A desktop app for Mac and Windows can also record without a bot.
 
 ### Where Otter is strong
 
 - **Live, shared transcripts.** Colleagues can watch the transcript as it happens and highlight lines.
-- **Phone and web apps.** Record an in-person conversation on your iPhone or Android phone.
+- **Phone, desktop and web apps.** Record an in-person conversation on your iPhone or Android phone, or use the Mac and Windows apps.
+- **An MCP server** on every plan, so Claude or ChatGPT can read your Otter meetings.
 - **A team workspace** where transcripts are searchable across people.
 
 ### What to weigh
 
-A bot in the participant list changes some meetings. Clients notice it, and some companies block it. Paid plans come with monthly transcription minute limits. Processing happens in the cloud.
+A bot in the participant list changes some meetings. Clients notice it, and some companies block it. Every plan below Business has monthly transcription minute limits (Free is 300 minutes a month, with a 30-minute cap per conversation). Transcription supports six languages. Processing happens in the cloud.
 
 ## Fireflies
 
-Fireflies sends its assistant, Fred, into calls on most major platforms and turns them into transcripts, summaries and searchable records for a team.
+Fireflies sends its assistant, Fred, into calls on most major platforms and turns them into transcripts, summaries and searchable records for a team. On paid plans a Mac and Windows desktop app records without the bot.
 
 ### Where Fireflies is strong
 
 - **Integrations.** Fireflies connects to CRMs, project tools and chat apps, so call notes land where a sales or support team already works.
 - **Conversation analytics**, such as talk time and topic tracking, which managers use for coaching.
-- **Wide platform support**, since a bot can join almost any web meeting.
+- **Wide platform support**, since a bot can join almost any web meeting, plus web, desktop and phone apps.
+- **An MCP server** so AI tools such as Claude and ChatGPT can query your meetings.
 
 ### What to weigh
 
-Like Otter, the bot is visible to everyone on the call. It's a team product at heart, priced per seat each month, and your audio is processed in the cloud.
+Like Otter, the bot is visible to everyone on the call unless you use the desktop app. It's a team product at heart, priced per seat each month, and your audio is processed in the cloud.
 
 ## Whisperer, the bot-free Mac option
 
@@ -113,14 +116,15 @@ Be clear about this before you switch:
 
 | | Whisperer | Granola | Otter | Fireflies |
 |---|---|---|---|---|
-| Joins the call as a bot | No | No | Yes | Yes |
+| Joins the call as a bot | No | No | Yes, or desktop app without | Yes, or desktop app without |
 | Audio processed on your computer | Yes | No | No | No |
 | AI summary and action items | Yes | Yes | Yes | Yes |
 | Choose your own AI or a local model | Yes | No | No | No |
-| Records from your calendar | Yes | Yes | Yes | Yes |
+| Records from your calendar | Yes | Calendar sync | Yes | Yes |
 | Team workspace and sharing | No | Yes | Yes | Yes |
 | Phone apps | No | Yes | Yes | Yes |
-| CRM integrations | No | Partial | Partial | Yes |
+| MCP server | Yes, on your Mac | Yes, hosted | Yes, hosted | Yes, hosted |
+| CRM integrations | No | Partial (HubSpot) | Partial (Salesforce) | Yes |
 | Dictation into any app | Yes | No | No | No |
 | Subscription | No | Yes | Yes | Yes |
 
@@ -140,7 +144,7 @@ It depends on who reads the notes. For a team that shares notes in one workspace
 
 ### Which meeting note takers do not join the call as a bot?
 
-Granola and Whisperer both record from your own computer, so nothing joins the call. Otter and Fireflies are known for an assistant that joins the meeting as a participant.
+Granola and Whisperer both record from your own computer, so nothing joins the call. Otter and Fireflies are known for an assistant that joins the meeting as a participant, though both now also have desktop apps that record without a bot and send the audio to their cloud.
 
 ### How much do Granola, Otter and Fireflies cost?
 

@@ -59,7 +59,7 @@ const DICTATION_COMPETITORS: Competitor[] = [
   {
     slug: "vs-superwhisper",
     name: "Superwhisper",
-    summary: "A close peer for offline dictation. Whisperer adds meetings, calendar recording and MCP.",
+    summary: "A close peer for offline dictation, with meeting recording on Pro. Whisperer adds calendar recording, your own AI plan and MCP.",
     price: "Pro $8.49/month or $249.99 lifetime",
     theyWin: "Custom modes, iPhone app",
     color: "#F59E0B",
@@ -113,7 +113,7 @@ const DICTATION_COMPETITORS: Competitor[] = [
   {
     slug: "vs-voibe",
     name: "Voibe",
-    summary: "On-device dictation for Mac and Windows. Whisperer adds meeting notes and your own AI.",
+    summary: "Dictation for Mac and Windows, with meeting notes on its Work plan. Whisperer adds calendar recording and your own AI for a one-time price.",
     price: "$9.90/month, $99/year or $199 one-time",
     theyWin: "Windows app",
     color: "#10B981",

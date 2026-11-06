@@ -27,7 +27,7 @@ const FAQ = [
   {
     question: "What is the cheapest dictation app for Mac?",
     answer:
-      "Apple Dictation is free and built in. Among paid apps, Whisperer is $2.99 once on the Mac App Store, with live preview in 97 languages, five offline engines, a dictionary that learns your words, file transcription and history.",
+      "Apple Dictation is free and built in. Among paid apps, Whisperer is $2.99 once on the Mac App Store, with live preview in 97 languages, four offline engines, a dictionary that learns your words, file transcription and history.",
   },
   {
     question: "Is there a free dictation app for Mac in 2026?",
@@ -54,7 +54,7 @@ const FAQ = [
 const WHAT = [
   { title: "Dictation in any app", body: "Hold Fn, speak, paste with ⌘V." },
   { title: "Live preview", body: `Words as you speak, in ${FACTS.languages} languages.` },
-  { title: "Five offline engines", body: "Whisper, Parakeet, Qwen3 ASR, WhisperKit, Apple Speech." },
+  { title: "Four offline engines", body: "Whisper, Parakeet, Qwen3 ASR, WhisperKit." },
   { title: "Fast Polish", body: "Fillers out, punctuation and paragraphs in." },
   { title: "A dictionary that learns", body: "Fix a word once and it sticks." },
   { title: "Files and history", body: "Transcribe recordings. Search everything you said." },

@@ -1,15 +1,20 @@
 {
-  "name": "whisperer-showcase-video",
+  "name": "whisperer-videos",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "npx remotion studio",
-    "render": "npx remotion render ShowcaseVideo out/showcase.mp4",
-    "render:mp4": "npx remotion render ShowcaseVideo out/showcase.mp4 --codec h264"
+    "render:tour": "npx remotion render Tour ../public/videos/whisperer-tour.mp4 --codec=h264 --crf=25 --x264-preset=slow --pixel-format=yuv420p --audio-codec=aac --audio-bitrate=96k --overwrite && npx remotion still Tour ../public/videos/whisperer-tour.jpg --frame=508 --image-format=jpeg --jpeg-quality=85 --overwrite",
+    "render:meeting-loop": "npx remotion render MeetingLoop ../public/videos/meeting-loop.mp4 --codec=h264 --crf=19 --x264-preset=slow --pixel-format=yuv420p --muted --overwrite && npx remotion render MeetingLoop ../public/videos/meeting-loop.webm --codec=vp9 --crf=28 --muted --overwrite && npx remotion still MeetingLoop ../public/videos/meeting-loop.jpg --frame=250 --image-format=jpeg --jpeg-quality=85 --overwrite",
+    "render:mcp-loop": "npx remotion render McpLoop ../public/videos/mcp-loop.mp4 --codec=h264 --crf=19 --x264-preset=slow --pixel-format=yuv420p --muted --overwrite && npx remotion render McpLoop ../public/videos/mcp-loop.webm --codec=vp9 --crf=28 --muted --overwrite && npx remotion still McpLoop ../public/videos/mcp-loop.jpg --frame=200 --image-format=jpeg --jpeg-quality=85 --overwrite",
+    "stills": "node stills.mjs"
   },
   "dependencies": {
     "@remotion/cli": "4.0.242",
+    "@remotion/google-fonts": "^4.0.242",
     "@remotion/tailwind": "4.0.242",
+    "@remotion/transitions": "^4.0.242",
+    "lucide-react": "^0.462.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "remotion": "4.0.242"

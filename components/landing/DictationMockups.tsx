@@ -1,7 +1,7 @@
 // Still recreations of the dictation side of the app: History, Dictionary, File Transcription,
 // the engine picker and Fast Polish. Copy matches the real app's labels.
 import {
-  Search, Play, Pin, Sparkles, Check, FileAudio, Globe, Cpu, Zap, BookOpen, Wand2,
+  Search, Play, Pin, Check, FileAudio, Globe, Cpu, Zap, BookOpen, Wand2,
 } from "lucide-react";
 import { AppWindow, AppLabel, StatusPill } from "@/components/product/primitives";
 import { WorkspaceSidebar } from "@/components/product/MeetingStudio";
@@ -122,8 +122,7 @@ export const ENGINES = [
   { name: "Parakeet", model: "NVIDIA Parakeet", langs: "25 languages", hw: "Neural Engine", note: "Runs on the Neural Engine, leaving the GPU free.", icon: Zap },
   { name: "Qwen3 ASR", model: "Qwen3 ASR", langs: "31 languages", hw: "On device", note: "A second open model to try when Whisper stumbles.", icon: Globe },
   { name: "WhisperKit", model: "Whisper on Core ML", langs: "Whisper languages", hw: "Neural Engine", note: "Whisper models through Core ML.", icon: Cpu },
-  { name: "Apple Speech", model: "Built into macOS 26", langs: "Apple's languages", hw: "On device", note: "No download needed.", icon: Sparkles },
-];
+  ];
 
 export function EnginesMock({ className }: { className?: string }) {
   return (

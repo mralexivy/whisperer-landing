@@ -52,7 +52,7 @@ const meetingTable: { row: string; cells: [Cell, Cell, Cell, Cell] }[] = [
   { row: "Records without a bot joining", cells: ["Yes", "Yes", "Partial", "Partial"] },
   { row: "Transcribes on your own computer", cells: ["Yes", "No", "No", "No"] },
   { row: "Uses the AI plan you already pay for", cells: ["Yes", "No", "No", "No"] },
-  { row: "Records meetings from your calendar", cells: ["Yes", "Yes", "Yes", "Yes"] },
+  { row: "Records meetings from your calendar", cells: ["Yes", "Calendar sync", "Yes", "Yes"] },
   { row: "Dictation into any app", cells: ["Yes", "No", "No", "No"] },
   { row: "Team workspace and sharing", cells: ["No", "Yes", "Yes", "Yes"] },
   { row: "Windows or phone apps", cells: ["No", "Yes", "Yes", "Yes"] },

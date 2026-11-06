@@ -53,7 +53,7 @@ type Feature = { icon: LucideIcon; title: string; body: string; href: string };
 const DICTATION: Feature[] = [
   { icon: Eye, title: "Live preview", body: "Words appear as you speak, in the language you are speaking.", href: "/features/live-preview" },
   { icon: Globe, title: `${FACTS.languages} languages`, body: "Detected as you talk, so there is nothing to switch.", href: "/features/multilingual" },
-  { icon: Cpu, title: "Offline speech engines", body: "Whisper, Parakeet, Qwen3 ASR, WhisperKit and Apple Speech, all on your Mac.", href: "/features/offline-transcription" },
+  { icon: Cpu, title: "Offline speech engines", body: "Whisper, Parakeet, Qwen3 ASR and WhisperKit, all on your Mac.", href: "/features/offline-transcription" },
   { icon: Wand2, title: "Fast Polish and AI cleanup", body: "Fillers out, punctuation in. Meeting notes go through the AI you pick.", href: "/features/ai-writing" },
   { icon: BookOpen, title: "Personal dictionary", body: "Fix a name once and Whisperer learns it from your correction.", href: "/features/personal-dictionary" },
   { icon: FileAudio, title: "File transcription", body: "Drop in an interview, a lecture or a voice memo and get the text.", href: "/features/file-transcription" },

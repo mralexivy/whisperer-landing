@@ -27,7 +27,7 @@ const FAQ = [
   {
     question: "How many languages does Whisperer support?",
     answer:
-      "97 languages with the default Whisper engine. Parakeet covers 25 languages and Qwen3 ASR covers 31, and Apple Speech adds the languages macOS 26 supports.",
+      "97 languages with the default Whisper engine. Parakeet covers 25 languages and Qwen3 ASR covers 31. The live preview uses Apple Speech where macOS 26 supports your language.",
   },
   {
     question: "Do I have to pick a language before I speak?",
@@ -87,7 +87,7 @@ export default function MultilingualPage() {
               ["Parakeet", "25 languages"],
               ["Qwen3 ASR", "31 languages"],
               ["WhisperKit", "Whisper models on Core ML"],
-              ["Apple Speech", "Languages built into macOS 26"],
+              ["Apple Speech (live preview)", "Languages built into macOS 26"],
             ]}
           />
         }
@@ -97,7 +97,7 @@ export default function MultilingualPage() {
       <Related
         links={[
           { title: "Live preview", body: "Words in your language as you speak.", href: "/features/live-preview" },
-          { title: "Offline engines", body: "How the five engines differ.", href: "/features/offline-transcription" },
+          { title: "Offline engines", body: "How the four engines differ.", href: "/features/offline-transcription" },
           { title: "Meeting notes", body: "Notes in the language of the call.", href: "/meetings" },
           { title: "All dictation features", href: "/features" },
         ]}

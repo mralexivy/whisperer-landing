@@ -38,7 +38,7 @@ const FAQ = [
   {
     question: "Does dictation work offline?",
     answer:
-      "Yes. Every speech engine runs on your Mac: Whisper on the Metal GPU, Parakeet on the Neural Engine, Qwen3 ASR, WhisperKit and Apple Speech. Once a model is downloaded you can dictate with Wi-Fi off.",
+      "Yes. Every speech engine runs on your Mac: Whisper on the Metal GPU, Parakeet on the Neural Engine, Qwen3 ASR and WhisperKit, with Apple Speech for the live preview. Once a model is downloaded you can dictate with Wi-Fi off.",
   },
   {
     question: "What is the difference between Whisperer and Whisperer Pro?",
