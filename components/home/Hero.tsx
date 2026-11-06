@@ -7,7 +7,7 @@ import { ModeTabs, ModeStage, WatchButton, CallAppsLine, type Mode } from "./Mod
 import { MODE_VIDEOS, PRICE_BASE, PRICE_PRO, FACTS } from "@/lib/site";
 
 export function HomeHero() {
-  const [mode, setMode] = useState<Mode>("meetings");
+  const [mode, setMode] = useState<Mode>("dictation");
   const [video, setVideo] = useState(false);
   return (
     <section className="relative overflow-hidden pt-32 sm:pt-36 pb-20">
@@ -22,14 +22,14 @@ export function HomeHero() {
         <div className="mx-auto max-w-[900px] text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/[0.04] ring-1 ring-white/10 px-3 py-1.5 text-[13px] text-white/70">
             <CallAppsLine />
-            Works with Zoom, Teams, Meet and Slack calls
+            For everything you type and every call you take
           </div>
           <h1 className="text-[42px] sm:text-[62px] lg:text-[74px] font-semibold leading-[0.98] tracking-[-0.045em] text-white text-balance">
-            Meeting notes and dictation for Mac, without the subscription
+            Dictation and meeting notes for Mac, in one app
           </h1>
           <p className="mx-auto mt-6 max-w-[700px] text-[18px] sm:text-[20px] leading-[1.5] text-white/60 text-pretty">
-            Whisperer takes the notes for every call, with each speaker named and the summary written by your own AI.
-            And it turns what you say into text for any app: hold Fn, talk, paste. All on your Mac.
+            Hold Fn and talk, and your words are ready to paste into any app. Join a call, and Whisperer writes the notes,
+            with every speaker named. Both run on your Mac, with no subscription.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <AppStoreButton className="w-full sm:w-auto" />

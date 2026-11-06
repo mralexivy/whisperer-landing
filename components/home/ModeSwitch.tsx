@@ -13,8 +13,8 @@ import { MODE_VIDEOS } from "@/lib/site";
 export type Mode = "meetings" | "dictation";
 
 const MODES: { id: Mode; icon: typeof Mic; label: string; sub: string }[] = [
-  { id: "meetings", icon: NotebookPen, label: "Meeting notes", sub: "Records the call, writes the notes" },
-  { id: "dictation", icon: Mic, label: "Dictation", sub: "Hold Fn, talk, paste anywhere" },
+  { id: "dictation", icon: Mic, label: "Dictation", sub: "Your voice, as text, in any app" },
+  { id: "meetings", icon: NotebookPen, label: "Meeting notes", sub: "Every call, written up for you" },
 ];
 
 const EASE = [0.16, 1, 0.3, 1] as const;

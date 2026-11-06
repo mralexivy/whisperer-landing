@@ -9,13 +9,13 @@ import { FAQSection } from "@/components/home/HomeFAQ";
 import { TwoModesSection } from "@/components/home/TwoModes";
 
 export const metadata: Metadata = {
-  title: { absolute: "Whisperer: AI Meeting Notes and Dictation for Mac, No Subscription" },
+  title: { absolute: "Whisperer: Dictation and AI Meeting Notes for Mac, No Subscription" },
   description:
-    "AI meeting notes for Mac that run on your Mac. Detects Zoom, Teams and Meet calls, names every speaker, and writes notes with Claude, ChatGPT, Gemini or a built-in offline model. MCP server and dictation included. One-time purchase.",
+    "Dictation and AI meeting notes for Mac in one app. Hold Fn to turn speech into text in any app, in 97 languages. Record Zoom, Teams and Meet calls with every speaker named and notes by your own AI. Runs on your Mac, paid once.",
   alternates: { canonical: "https://whispererapp.com/" },
   openGraph: {
-    title: "Whisperer: AI meeting notes for Mac, without the subscription",
-    description: "Notes for every call, written by the AI you already pay for or by one that runs on your Mac. Pay once.",
+    title: "Whisperer: dictation and meeting notes for Mac, in one app",
+    description: "Your voice as text in any app, and notes from every call. Runs on your Mac. Pay once.",
     url: "https://whispererapp.com/",
     images: [{ url: "/assets/og/og-home.png", width: 1200, height: 630, alt: "Whisperer meeting notes on a Mac" }],
   },
@@ -28,12 +28,12 @@ export default function Home() {
       <main>
         <HomeHero />
         <TwoModesSection />
+        <DictationSection />
         <DetectionSection />
         <NotesSection />
         <CalendarSection />
         <OwnAISection />
         <MCPSection />
-        <DictationSection />
         <PrivacyBand />
         <PricingSection />
         <TeamsBand />

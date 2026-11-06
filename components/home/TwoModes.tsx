@@ -10,15 +10,6 @@ import type { Mode } from "./ModeSwitch";
 
 const CARDS: { mode: Mode; icon: typeof Mic; title: string; body: string; points: string[]; href: string; cta: string }[] = [
   {
-    mode: "meetings",
-    icon: NotebookPen,
-    title: "Meeting notes",
-    body: "Starts when your call starts. Both sides recorded, every speaker named, notes ready when you hang up.",
-    points: ["Zoom, Teams, Meet, Slack and Webex", "Summary, decisions, action items", "Written by your own AI or the built-in one"],
-    href: "/meetings",
-    cta: "See meeting notes",
-  },
-  {
     mode: "dictation",
     icon: Mic,
     title: "Dictation",
@@ -26,6 +17,15 @@ const CARDS: { mode: Mode; icon: typeof Mic; title: string; body: string; points
     points: ["Live preview in 97 languages", "Learns names and words you fix", "Offline, on the Mac's GPU"],
     href: "/features",
     cta: "See dictation",
+  },
+  {
+    mode: "meetings",
+    icon: NotebookPen,
+    title: "Meeting notes",
+    body: "Starts when your call starts. Both sides recorded, every speaker named, notes ready when you hang up.",
+    points: ["Zoom, Teams, Meet, Slack and Webex", "Summary, decisions, action items", "Written by your own AI or the built-in one"],
+    href: "/meetings",
+    cta: "See meeting notes",
   },
 ];
 
@@ -35,8 +35,8 @@ export function TwoModesSection() {
   return (
     <Section id="two-jobs" tall>
       <div className="max-w-[760px]">
-        <H2>One app for your calls and everything you type</H2>
-        <Lede>Use either on its own or both together. Hold Fn during a meeting to dictate a message, and the recording pauses until you let go.</Lede>
+        <H2>Your voice in every app, your notes from every call</H2>
+        <Lede>Most people start with dictation and keep Whisperer for their meetings. The two work together: hold Fn mid-call to send a quick message, and the recording pauses until you let go.</Lede>
         <button type="button" onClick={() => setTour(true)} className="group mt-6 inline-flex items-center gap-2 text-[15px] font-medium text-[#B9C1FF] hover:text-white">
           <Play className="h-4 w-4 fill-current" /> Watch the full tour <span className="tabular-nums text-white/40">1:21</span>
         </button>

@@ -28,10 +28,10 @@ export const FACTS = {
 } as const;
 
 export const NAV_LINKS = [
+  { label: "Dictation", href: "/features" },
   { label: "Meetings", href: "/meetings" },
   { label: "Your AI", href: "/ai" },
   { label: "MCP", href: "/mcp" },
-  { label: "Dictation", href: "/features" },
   { label: "For teams", href: "/enterprise" },
   { label: "Pricing", href: "/pricing" },
   { label: "Compare", href: "/compare" },

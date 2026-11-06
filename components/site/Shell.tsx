@@ -116,11 +116,11 @@ const FOOTER_GROUPS = [
   {
     title: "Product",
     links: [
+      ["Dictation", "/features"],
       ["Meeting notes", "/meetings"],
       ["Calendar", "/calendar"],
       ["Your own AI", "/ai"],
       ["MCP server", "/mcp"],
-      ["Dictation", "/features"],
       ["For teams", "/enterprise"],
       ["Pricing", "/pricing"],
     ],
@@ -171,7 +171,7 @@ export function SiteFooter() {
               <span className="text-[17px] font-semibold text-white">Whisperer</span>
             </Link>
             <p className="mt-4 max-w-[260px] text-[13.5px] leading-relaxed text-white/50">
-              Meeting notes and dictation for Mac. Runs on your Mac, works with the AI you already have. {PRICE_PRO} once.
+              Dictation and meeting notes for Mac. Runs on your Mac, works with the AI you already have. {PRICE_PRO} once.
             </p>
             <AppStoreButton size="sm" className="mt-5" label="Get Whisperer" />
           </div>

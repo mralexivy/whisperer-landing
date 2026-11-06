@@ -10,7 +10,7 @@ import { CallDetectedCard, IslandBar } from "@/components/product/Island";
 import { CalendarPanel } from "@/components/product/CalendarPanel";
 import { ProviderList } from "@/components/product/ProviderList";
 import { MCPChat } from "@/components/product/MCPChat";
-import { DictationDemo } from "@/components/product/DictationDemo";
+import { PolishMock, DictionaryMock } from "@/components/landing/DictationMockups";
 import { ACTION_ITEMS, ASK, SPEAKERS, SEGMENTS } from "@/components/product/demo-data";
 import { PRICE_BASE, PRICE_PRO, FACTS } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -232,8 +232,8 @@ export function DictationSection() {
     <Section id="dictation" tall>
       <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.2fr]">
         <div>
-          <H2>Hold Fn, talk, paste anywhere</H2>
-          <Lede>Speak into Slack, Mail, Notion or any text box. Your words are ready to paste the moment you let go, typed by the most accurate model your Mac can run.</Lede>
+          <H2>Dictation that writes like you type</H2>
+          <Lede>Speak into Slack, Mail, Notion or any text box. Whisperer adds the punctuation, drops the ums and spells names the way you taught it, so the text is ready to paste when you let go.</Lede>
           <div className="mt-9 space-y-5">
             {points.map((p) => (
               <div key={p.title} className="flex gap-4">
@@ -247,7 +247,10 @@ export function DictationSection() {
           </div>
           <TextLink href="/features" className="mt-8">See dictation features</TextLink>
         </div>
-        <DictationDemo />
+        <div className="grid gap-4">
+          <PolishMock />
+          <DictionaryMock />
+        </div>
       </div>
     </Section>
   );

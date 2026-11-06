@@ -14,7 +14,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://whispererapp.com"),
   title: {
-    default: "Whisperer: AI Meeting Notes & Dictation for Mac, No Subscription",
+    default: "Whisperer: Dictation and AI Meeting Notes for Mac, No Subscription",
     template: "%s | Whisperer",
   },
   description:
