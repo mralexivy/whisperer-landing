@@ -1,67 +1,61 @@
-import { Metadata } from "next";
-import Link from "next/link";
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
-import { Button } from "@/components/ui/button";
-import { Apple, FileAudio, Upload, Cpu, Copy, ArrowRight } from "lucide-react";
-import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
-import { SectionGlow, DotGrid, GradientDivider } from "@/components/ui/decorations";
+import type { Metadata } from "next";
+import { breadcrumbSchema, JsonLd } from "@/lib/structured-data";
+import { FileMock } from "@/components/landing/DictationMockups";
+import { PageHero, PointGrid, Split, FactTable, Related, Close } from "@/components/landing/PageKit";
+import { TextLink } from "@/components/site/Shell";
+import { FAQSection } from "@/components/home/HomeFAQ";
+import { FACTS, PRICE_BASE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "File Transcription — Transcribe Audio & Video Files Offline",
+  title: "File Transcription: Transcribe Audio and Video Files Offline on Mac",
   description:
-    "Transcribe audio and video files offline on your Mac with Whisperer. Drag-and-drop interface, same high-quality Whisper/NVIDIA engine used for live dictation. No upload, no cloud, no per-minute charges.",
+    "Drop an MP3, M4A, WAV, MP4 or MOV into Whisperer and get the transcript, offline on your Mac. 97 languages, no per-minute fees, no upload. Part of the $2.99 app.",
   keywords:
-    "transcribe audio files offline mac, offline audio transcription, transcribe video mac, offline file transcription, transcribe mp3 offline, transcribe wav mac, local audio transcription, batch transcription mac, whisper file transcription",
+    "transcribe audio file mac, transcribe video offline mac, mp3 to text mac, m4a transcription mac, offline audio transcription, transcribe interview mac",
   openGraph: {
-    title: "File Transcription — Transcribe Audio & Video Files Offline",
-    description:
-      "Drag-and-drop audio/video files for offline transcription. Same engine as live dictation. No cloud, no per-minute charges.",
+    title: "Transcribe audio and video files offline",
+    description: "Drop in a file, get the text. Nothing uploaded, nothing metered.",
     type: "website",
-    images: [{ url: "/assets/og/og-feature-file-transcription.png", width: 1200, height: 630, alt: "File Transcription" }],
+    url: "https://whispererapp.com/features/file-transcription",
+    images: [{ url: "/assets/og/og-feature-file-transcription.png", width: 1200, height: 630, alt: "Whisperer file transcription" }],
   },
   twitter: { card: "summary_large_image", images: ["/assets/og/og-feature-file-transcription.png"] },
   alternates: { canonical: "https://whispererapp.com/features/file-transcription" },
 };
 
-const steps = [
+const FAQ = [
   {
-    icon: Upload,
-    step: "01",
-    title: "Drop your file",
-    description: "Drag an audio or video file into Whisperer, or use the file picker.",
+    question: "Which file formats work?",
+    answer:
+      "Audio: WAV, MP3, M4A, AAC, AIFF, FLAC, Opus, OGG and CAF. Video: MP4, MOV and M4V. Whisperer reads the audio track of a video.",
   },
   {
-    icon: Cpu,
-    step: "02",
-    title: "Transcribe offline",
-    description: "The same Whisper/NVIDIA engine processes the file entirely on your Mac.",
+    question: "Are there per-minute charges?",
+    answer: "No. File transcription is part of the $2.99 app and runs on your Mac, so a ten-hour lecture costs the same as a ten-second clip.",
   },
   {
-    icon: Copy,
-    step: "03",
-    title: "Copy the result",
-    description: "View the transcription in your workspace and copy it with one click.",
+    question: "How long does it take?",
+    answer:
+      "It depends on the length of the file, the engine and your chip. On Apple Silicon a long recording usually finishes well before it would take to play it back. You can keep working while it runs.",
+  },
+  {
+    question: "Is the file uploaded anywhere?",
+    answer: "No. The file is read and transcribed on your Mac and the transcript stays on your Mac.",
+  },
+  {
+    question: "Should I use this for meetings?",
+    answer:
+      "For a call you are about to have, use meeting notes in Pro instead: it records both sides, names the speakers and writes the summary. File transcription is for recordings you already have.",
   },
 ];
 
-const benefits = [
-  {
-    title: "Same Engine as Live Dictation",
-    description: "Uses the model already loaded in memory. No separate download, no waiting for a different engine to spin up.",
-  },
-  {
-    title: "No Per-Minute Charges",
-    description: "Transcribe as many files as you want. One price for the app, not a meter running in the background.",
-  },
-  {
-    title: "Files Stay on Your Mac",
-    description: "Nothing uploads anywhere. Your audio never leaves the machine.",
-  },
-  {
-    title: "Saved to History",
-    description: "Results land in your workspace. Search them, copy them, export them later.",
-  },
+const POINTS = [
+  { title: "Drag and drop", body: "Drop a file on the window or pick one from Finder." },
+  { title: "Copy or export", body: "Copy the text, or export it as TXT or JSON." },
+  { title: `${FACTS.languages} languages`, body: "Detected from the recording, or set it yourself." },
+  { title: "Same engines as dictation", body: "Whisper by default. Try another engine on a hard recording." },
+  { title: "Your dictionary applies", body: "Names and terms you taught Whisperer are spelled right here too." },
+  { title: "No upload, no meter", body: "The file never leaves your Mac and there is no minute limit." },
 ];
 
 export default function FileTranscriptionPage() {
@@ -69,215 +63,48 @@ export default function FileTranscriptionPage() {
     <>
       <JsonLd data={breadcrumbSchema([
         { name: "Home", url: "/" },
-        { name: "Features", url: "/features" },
+        { name: "Dictation", url: "/features" },
         { name: "File Transcription", url: "/features/file-transcription" },
       ])} />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <SectionGlow position="top-center" size="xl" intensity={0.1} />
-          <DotGrid />
-        </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <Breadcrumbs items={[{ label: "Features", href: "/features" }, { label: "File Transcription" }]} />
-          <FadeIn>
-            <div className="max-w-3xl">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Transcribe files <span className="text-primary">locally</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Drop an audio or video file in. Get a transcription. No upload, no per-minute charges.
-                Same Whisper or NVIDIA engine that handles live dictation.
-              </p>
-              <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
-                <Button variant="hero" size="xl" className="gap-3">
-                  <Apple className="w-5 h-5" />
-                  Download on Mac App Store
-                </Button>
-              </a>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: "Dictation", href: "/features" }, { label: "File transcription" }]}
+        title="Turn recordings into text, on your Mac"
+        lede="An interview, a lecture, a voice memo from your phone. Drop the file into Whisperer and get the transcript without uploading it anywhere or paying by the minute."
+        visual={<FileMock />}
+      />
 
-      {/* How It Works */}
-      <section className="py-16 relative">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <DotGrid />
-        </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="max-w-3xl mx-auto">
-            <FadeIn>
-              <h2 className="text-3xl font-bold mb-8">How File Transcription Works</h2>
-            </FadeIn>
-            <FadeInStagger className="grid md:grid-cols-3 gap-8">
-              {steps.map((step, i) => (
-                <StaggerItem key={i} className="text-center">
-                  <div className="relative inline-flex mb-6">
-                    <div className="w-20 h-20 rounded-2xl bg-card border border-border flex items-center justify-center shadow-lg">
-                      <step.icon className="w-8 h-8 text-primary" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-7 h-7 rounded-lg bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">
-                      {step.step}
-                    </div>
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground">{step.description}</p>
-                </StaggerItem>
-              ))}
-            </FadeInStagger>
-          </div>
-        </div>
-      </section>
+      <PointGrid title="Built for the recordings you already have" items={POINTS} />
 
-      <GradientDivider />
+      <Split
+        title="What it reads"
+        lede={`Most audio and video files from a phone, a recorder or a video call export. Included in the ${PRICE_BASE} app.`}
+        visual={
+          <FactTable
+            rows={[
+              ["Audio", "WAV, MP3, M4A, AAC, AIFF, FLAC, Opus, OGG, CAF"],
+              ["Video", "MP4, MOV, M4V"],
+              ["Languages", `${FACTS.languages}, detected automatically`],
+              ["Output", "Copy, or export as TXT or JSON"],
+              ["Length limit", "None"],
+              ["Internet", "Not needed"],
+            ]}
+          />
+        }
+      >
+        <TextLink href="/meetings">Recording a live call? See meeting notes</TextLink>
+      </Split>
 
-      {/* Benefits */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <FadeIn>
-              <h2 className="text-3xl font-bold mb-8">Why Transcribe Locally?</h2>
-            </FadeIn>
-            <FadeInStagger className="grid sm:grid-cols-2 gap-6">
-              {benefits.map((benefit, i) => (
-                <StaggerItem key={i}>
-                  <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors h-full">
-                    <h3 className="font-semibold text-foreground mb-2">{benefit.title}</h3>
-                    <p className="text-sm text-muted-foreground">{benefit.description}</p>
-                  </GlowCard>
-                </StaggerItem>
-              ))}
-            </FadeInStagger>
-          </div>
-        </div>
-      </section>
-
-      <GradientDivider />
-
-      {/* Use Cases */}
-      <section className="py-16 relative">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <DotGrid />
-        </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="max-w-3xl mx-auto">
-            <FadeIn>
-              <h2 className="text-3xl font-bold mb-6">Use Cases</h2>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <div className="bg-card border border-border rounded-xl p-6">
-                <ul className="space-y-3">
-                  {[
-                    "Turn meeting recordings into searchable notes",
-                    "Convert voice memos to text you can actually read",
-                    "Pull subtitles from video files",
-                    "Transcribe podcast episodes for show notes",
-                    "Get lecture recordings into study notes",
-                    "Process interview audio into written transcripts",
-                    "Handle confidential audio without sending it anywhere",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                      <span className="text-muted-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      <GradientDivider />
-
-      {/* FAQ */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <FadeIn>
-              <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
-            </FadeIn>
-            <FadeInStagger className="grid gap-4">
-              {[
-                { question: "What formats work?", answer: "MP3, WAV, M4A, FLAC, OGG. Video formats too: MP4, MOV, MKV. Whisperer strips the audio track automatically." },
-                { question: "Is file transcription included in the free trial?", answer: "Yes. It's part of the base app ($2.99). No Pro Pack needed. Just drag a file in." },
-                { question: "How long does it take?", answer: "A 10-minute recording typically finishes in 20-60 seconds with Whisper Large V3 Turbo on Apple Silicon. Smaller models go faster." },
-                { question: "Any per-minute charges?", answer: "No. Buy the app once, transcribe unlimited files. No metering, no cloud fees." },
-              ].map((faq, i) => (
-                <StaggerItem key={i}>
-                  <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
-                    <h3 className="font-semibold text-foreground mb-2">{faq.question}</h3>
-                    <p className="text-muted-foreground">{faq.answer}</p>
-                  </GlowCard>
-                </StaggerItem>
-              ))}
-            </FadeInStagger>
-          </div>
-        </div>
-      </section>
-      <JsonLd data={faqSchema([
-        { question: "What audio formats does Whisperer support?", answer: "MP3, WAV, M4A, FLAC, OGG, and video formats like MP4, MOV, and MKV. Whisperer extracts the audio track automatically from video files." },
-        { question: "Is file transcription included in the free trial?", answer: "Yes. File transcription is included in the base app ($2.99). No Pro Pack required." },
-        { question: "How long does transcription take?", answer: "Depends on the model and file length. A 10-minute recording typically takes 20-60 seconds with Whisper Large V3 Turbo on Apple Silicon." },
-        { question: "Are there per-minute charges?", answer: "No. Whisperer is a one-time purchase. Transcribe unlimited files with no per-minute fees, no cloud charges, and no usage limits." },
-      ])} />
-
-      <GradientDivider />
-
-      {/* Related */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <FadeIn>
-              <h3 className="text-xl font-bold mb-4">Related</h3>
-            </FadeIn>
-            <FadeInStagger className="grid sm:grid-cols-2 gap-3">
-              {[
-                { title: "Transcribe Audio Files Offline (Guide)", href: "/blog/transcribe-audio-files-offline-mac" },
-                { title: "Offline Transcription Engines", href: "/features/offline-transcription" },
-                { title: "Transcription History", href: "/features/transcription-history" },
-                { title: "100+ Languages", href: "/features/multilingual" },
-              ].map((link, i) => (
-                <StaggerItem key={i}>
-                  <Link href={link.href} className="group block">
-                    <div className="flex items-center justify-between bg-card border border-border rounded-lg p-4 hover:border-primary/50 transition-colors">
-                      <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                        {link.title}
-                      </span>
-                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1" />
-                    </div>
-                  </Link>
-                </StaggerItem>
-              ))}
-            </FadeInStagger>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 relative overflow-hidden">
-        <SectionGlow position="center" size="lg" intensity={0.12} />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <FadeIn>
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-4">
-                Transcribe files <span className="text-primary">on your Mac</span>
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                No uploads. No waiting on servers. Just local transcription.
-              </p>
-              <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
-                <Button variant="hero" size="xl" className="gap-3">
-                  <Apple className="w-5 h-5" />
-                  Download on Mac App Store
-                </Button>
-              </a>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <FAQSection items={FAQ} title="File transcription questions" />
+      <Related
+        links={[
+          { title: "Offline engines", body: "Pick the engine for a hard recording.", href: "/features/offline-transcription" },
+          { title: "History", body: "Every transcript in one place.", href: "/features/transcription-history" },
+          { title: "Meeting notes", body: "Live calls with named speakers.", href: "/meetings" },
+          { title: "All dictation features", href: "/features" },
+        ]}
+      />
+      <Close title="Drop in a file, get the text" />
     </>
   );
 }

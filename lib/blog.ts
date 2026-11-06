@@ -9,9 +9,15 @@ export interface PostMeta {
   title: string;
   description: string;
   date: string;
+  /** Last material edit (ISO date). Falls back to `date`. */
+  updated?: string;
   keywords: string[];
   category: string;
   image?: string;
+  /** Optional steps for HowTo structured data. */
+  howToSteps?: { name: string; text: string }[];
+  /** Optional FAQ pairs for FAQPage structured data; mirror the post's FAQ section. */
+  faqs?: { question: string; answer: string }[];
   slug: string;
   readingTime: string;
 }
@@ -40,9 +46,12 @@ function getContentFromDir(dir: string): Post[] {
           title: data.title ?? "",
           description: data.description ?? "",
           date: data.date ?? "",
+          updated: data.updated,
           keywords: data.keywords ?? [],
           category: data.category ?? "",
           image: data.image,
+          howToSteps: Array.isArray(data.howToSteps) ? data.howToSteps : undefined,
+          faqs: Array.isArray(data.faqs) ? data.faqs : undefined,
           slug,
           readingTime: stats.text,
         },

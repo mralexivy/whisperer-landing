@@ -1,0 +1,133 @@
+---
+title: "Connect ChatGPT to Your Meeting Notes with a Developer-Mode Connector"
+description: "ChatGPT can read your Whisperer meetings through a custom MCP connector, but it needs a public https tunnel. Setup, risks and an easier option."
+date: "2026-11-06"
+keywords: ["chatgpt mcp connector", "chatgpt developer mode connector", "chatgpt meeting notes", "mcp tunnel chatgpt", "chatgpt custom connector mac", "whisperer chatgpt"]
+category: "mcp"
+howToSteps:
+  - name: "Set up a tunnel to your Mac"
+    text: "Run a tunnel such as Cloudflare Tunnel, Tailscale Funnel or ngrok that gives a public https address forwarding to Whisperer's MCP port."
+  - name: "Turn on a token in Whisperer"
+    text: "In Workspace → MCP, turn on the bearer token so only clients that send it can read your meetings."
+  - name: "Paste the tunnel URL in Whisperer"
+    text: "Open MCP → Advanced and paste the public https URL. Whisperer builds the connector URL from it."
+  - name: "Create the connector in ChatGPT"
+    text: "In ChatGPT, open Settings → Apps & Connectors, turn on Developer mode, and choose Create. Paste the connector URL from Whisperer."
+  - name: "Ask about a meeting"
+    text: "Start a chat with the connector enabled and ask, for example, 'What did we decide in my last meeting?'"
+faqs:
+  - question: "Why can't ChatGPT use localhost like Claude Code does?"
+    answer: "ChatGPT's connectors run on OpenAI's servers, not on your Mac. They can only reach addresses on the public internet, so Whisperer's local server needs a public https tunnel in front of it."
+  - question: "Which ChatGPT plans have developer mode?"
+    answer: "OpenAI decides that and has changed it over time. Check OpenAI's help pages for which plans currently offer developer mode and custom connectors."
+  - question: "Is a tunnel safe?"
+    answer: "A tunnel makes your meeting tools reachable from the internet at that URL. Turn on Whisperer's bearer token, keep the URL private, and stop the tunnel when you're not using it."
+  - question: "I just want ChatGPT to write my meeting notes. Do I need any of this?"
+    answer: "No. On Whisperer's LLM page, sign in with your ChatGPT plan and Whisperer uses it for meeting notes, Ask AI and polish. No tunnel or connector needed."
+---
+
+ChatGPT can read your Whisperer meetings through a custom connector made in developer mode, but it needs one thing Claude and Cursor don't: a public https address. ChatGPT's connectors run on OpenAI's servers, so they can't reach `localhost` on your Mac. You put a tunnel in front of Whisperer's MCP server, paste the tunnel URL into Whisperer, then create the connector in ChatGPT.
+
+If all you want is for ChatGPT to write your meeting notes, skip this guide. Sign in with your ChatGPT plan on Whisperer's [LLM page](/ai) and you're done. The connector is for when you want to chat with ChatGPT about your meetings and have it look things up.
+
+## How the pieces fit
+
+Whisperer records your calls on the Mac, transcribes them and writes notes. Its built-in [MCP server](/mcp) exposes those meetings as tools: list meetings, open one, read the transcript, search across all of them, and add notes.
+
+Claude Code, Cursor and VS Code run on your Mac, so they talk to the server directly at `http://localhost:8080/mcp`. ChatGPT doesn't. When you use a connector, the request comes from OpenAI's cloud. It needs a URL anyone on the internet could reach, and it needs https.
+
+So the chain looks like this:
+
+ChatGPT (cloud) → your tunnel's public https URL → the tunnel client on your Mac → Whisperer's MCP server.
+
+## The trade-off, before you start
+
+A tunnel turns a server only your Mac could reach into one that anyone with the URL could try. That is the whole point, and it is also the risk. Your transcripts, summaries and action items become reachable through that address while the tunnel runs.
+
+Do these three things:
+
+1. **Turn on Whisperer's bearer token.** Without it, the URL alone is enough to read your meetings.
+2. **Keep the URL private.** Don't paste it in shared docs or screenshots.
+3. **Stop the tunnel when you're done.** A tunnel you only run while you need it is much less exposed than one that runs all week.
+
+Also remember that text ChatGPT reads becomes part of your ChatGPT conversation and follows OpenAI's terms for your plan. Audio never leaves your Mac.
+
+<Callout type="warning">
+If you aren't comfortable running a tunnel, use Claude Code, Codex or Cursor instead. They connect locally and nothing is exposed. See [Claude](/blog/claude-mcp-meeting-notes) or [Cursor, Codex and VS Code](/blog/cursor-mcp-meetings).
+</Callout>
+
+## Step by step
+
+<StepList>
+<Step num="1" title="Pick a tunnel">
+Cloudflare Tunnel, Tailscale Funnel and ngrok all work. Each one gives you a public https address that forwards to a port on your Mac. Point it at Whisperer's MCP port (8080 unless you changed it in the MCP page).
+</Step>
+<Step num="2" title="Turn on the token">
+In Whisperer, open Workspace → MCP and turn on the access token.
+</Step>
+<Step num="3" title="Paste the public URL">
+Open **Advanced** in the MCP page and paste the tunnel's https address. Choose ChatGPT in the list of apps, then press **Copy connector URL**.
+</Step>
+<Step num="4" title="Create the connector">
+In ChatGPT, open **Settings → Apps & Connectors**, turn on **Developer mode**, and press **Create**. Give it a name, paste the connector URL, and add the token if ChatGPT asks for authentication.
+</Step>
+<Step num="5" title="Use it in a chat">
+Start a new chat, enable the Whisperer connector, and ask a question about a meeting.
+</Step>
+</StepList>
+
+Developer mode and custom connectors depend on your ChatGPT plan, and OpenAI changes the details from time to time. Check OpenAI's help pages for which plans offer them right now.
+
+## Prompts to try
+
+- "What did we decide in my last meeting?"
+- "List the open questions from the mobile launch review and who raised each one."
+- "Search my meetings from this month for 'contract renewal' and summarise where it stands."
+- "Quote what Maya said about the beta date, with the timestamp."
+- "Add a note to Tuesday's call: send the revised timeline to Dan."
+
+Notes ChatGPT adds are labelled with its name. It can't change notes you wrote. Turn off **Let AI apps add notes** if you want the connector to be read-only.
+
+## What ChatGPT can call
+
+| Tool | What it does |
+|---|---|
+| list_meetings | Lists recent meetings |
+| get_meeting | Summary, decisions, action items, open questions, notes, topic outline |
+| get_meeting_transcript | Paged transcript as `[mm:ss] Speaker: text` |
+| search_meetings | Snippets with timestamps across all meetings |
+| list_meeting_notes, add_meeting_note, update_meeting_note, delete_meeting_note | Read notes, add new ones, manage its own |
+| search_transcriptions, get_transcription | Your dictation history |
+
+## The simpler option: ChatGPT as your note writer
+
+Most people asking "can I use ChatGPT with my meetings?" mean "can ChatGPT write my meeting notes?" For that you don't need MCP at all.
+
+On the [LLM page](/ai), pick ChatGPT under "Your AI subscriptions" and sign in with your Plus or Pro plan. Whisperer then uses it for each meeting's overview, decisions, action items and open questions, for Ask AI, and for transcript polish. Usage counts against the plan you already pay for. If ChatGPT is unavailable, the Qwen3.5 4B model on your Mac takes over. Only the transcript text goes to OpenAI, and you can keep any single meeting local. More on the cost side in [bring your own AI for meeting notes](/blog/bring-your-own-ai-meeting-notes).
+
+## Troubleshooting
+
+- **ChatGPT says it can't reach the server.** The tunnel isn't running, or it points at the wrong port.
+- **401 Unauthorized.** The token in ChatGPT doesn't match the one in Whisperer. Copy it again.
+- **The connector exists but doesn't show in chat.** Enable it for the conversation. Developer-mode connectors are not on by default.
+- **It worked yesterday.** Free tunnel URLs often change on restart. Paste the new one in Whisperer and update the connector.
+
+## FAQ
+
+### Why can't ChatGPT use localhost like Claude Code does?
+
+ChatGPT's connectors run on OpenAI's servers, not on your Mac. They can only reach addresses on the public internet, so Whisperer's local server needs a public https tunnel in front of it.
+
+### Which ChatGPT plans have developer mode?
+
+OpenAI decides that and has changed it over time. Check OpenAI's help pages for which plans currently offer developer mode and custom connectors.
+
+### Is a tunnel safe?
+
+A tunnel makes your meeting tools reachable from the internet at that URL. Turn on Whisperer's bearer token, keep the URL private, and stop the tunnel when you're not using it.
+
+### I just want ChatGPT to write my meeting notes. Do I need any of this?
+
+No. On Whisperer's LLM page, sign in with your ChatGPT plan and Whisperer uses it for meeting notes, Ask AI and polish. No tunnel or connector needed.
+
+MCP and meetings come with Whisperer Pro, a $14.99 one-time purchase on top of the $2.99 app. [See pricing](/pricing).

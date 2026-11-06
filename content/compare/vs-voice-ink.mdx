@@ -1,102 +1,99 @@
 ---
-title: "Whisperer vs. VoiceInk — Feature Comparison for Mac Dictation"
-description: "Compare Whisperer and VoiceInk for Mac dictation. Both are one-time purchase apps, but Whisperer adds Code Mode, per-app profiles, and developer features."
+title: "Whisperer vs VoiceInk: Mac Dictation, and What Comes After It"
+description: "VoiceInk is open-source offline dictation for a one-time $25. Whisperer dictates offline for $2.99 and adds bot-free meeting notes for $14.99 once."
 date: "2026-03-28"
-keywords: ["VoiceInk alternative", "Whisperer vs VoiceInk", "mac dictation app comparison"]
+updated: "2026-11-06"
+keywords: ["VoiceInk alternative", "Whisperer vs VoiceInk", "VoiceInk review", "offline dictation mac", "open source dictation mac", "dictation and meeting notes mac"]
 category: "comparison"
+faqs:
+  - question: "Is Whisperer a good VoiceInk alternative?"
+    answer: "For dictation alone the two are close peers: both run speech recognition on your Mac and both are one-time purchases. Pick Whisperer if you also want meeting notes, speaker names from your calendar, your own AI and an MCP server. Pick VoiceInk if you want open-source code or text placed straight into the app you're using."
+  - question: "How much does VoiceInk cost?"
+    answer: "VoiceInk is a one-time purchase: Solo $25 for one Mac, Personal $39 for two, Extended $49 for three (public pricing, November 2026). Whisperer is $2.99 one-time, plus $14.99 one-time for Pro."
+  - question: "Do both apps work offline?"
+    answer: "Yes. Both transcribe on your Mac with local models, so dictation works with no internet connection."
+  - question: "Does Whisperer type into my apps like VoiceInk?"
+    answer: "No. In the Mac App Store version, Whisperer copies your text and shows a 'Copied ⌘V' toast, and you paste with ⌘V. VoiceInk puts the text into the field for you."
 ---
 
-Both apps run Whisper locally. Both cost a one-time fee. VoiceInk is simpler. Whisperer has developer features and costs less.
+Pick **VoiceInk** if you want an open-source dictation app that runs on your Mac, puts text into the field you're in, and costs $25 once. Pick **Whisperer** if you want the same kind of offline dictation for $2.99, and also want [meeting notes without a bot](/meetings), your own AI and an [MCP server](/mcp) for a one-time $14.99 Pro purchase.
 
-## Price
+## The short version
 
-| | Whisperer | VoiceInk |
-|---|-----------|---------|
-| Base app | Free | One-time purchase |
-| Pro features | $14.99 one-time | Included |
+VoiceInk and Whisperer start from the same place. Both run Whisper-family models on Apple Silicon, both work with no internet, and neither charges a subscription. For dictation alone, they are close.
 
-No subscriptions on either. Both one-time purchases.
+The difference is scope. VoiceInk is a dictation app. Whisperer is a dictation app plus a meeting recorder: it notices when a Zoom, Teams, Meet, Slack huddle, Webex or FaceTime call starts, records both sides, names speakers from your calendar, and writes notes with decisions and action items. If you never sit in meetings, that difference may not matter to you.
 
-## Feature Comparison
-
-| Feature | Whisperer | VoiceInk |
-|---------|-----------|---------|
-| Live dictation | Yes | Yes |
-| Inserts into any app | Yes | Yes |
-| 100% offline | Yes | Yes |
-| Code Mode | Yes (Pro) | No |
-| Per-app profiles | Yes (Pro) | No |
-| Casing commands | Yes | No |
-| Symbol dictation | Yes | No |
-| Personal dictionary | Yes (Pro) | No |
-| Streaming preview | Yes | Yes |
-| Multiple Whisper models | Yes | Yes |
-| Languages | 100+ | 100+ |
-| Hold-to-talk | Yes | Yes |
-
-## Where Whisperer Wins
-
-<FeatureGrid>
-<FeatureCard title="Code Mode" icon="code">
-Dictate `camelCase`, `snake_case`, parentheses, brackets, semicolons. VoiceInk can't do this.
-</FeatureCard>
-
-<FeatureCard title="Per-App Profiles" icon="target">
-Code Mode in your IDE, normal text in Slack. Automatic switching. VoiceInk is the same everywhere.
-</FeatureCard>
-
-<FeatureCard title="Personal Dictionary" icon="book-open">
-Add project names, colleague names, technical terms. VoiceInk uses Whisper's built-in vocabulary only.
-</FeatureCard>
-</FeatureGrid>
-
-## Where VoiceInk Wins
-
-### Simplicity
-VoiceInk is simpler. No modes, no profiles. If you don't need developer features, that simplicity might be what you want.
-
-### No Pro Upgrade
-All features included in the base price. No second purchase.
-
-## What Whisperer Adds
-
-<FeatureGrid>
-<FeatureCard title="AI Post-Processing" icon="sparkles">
-[Ten AI modes](/features/ai-writing) that run offline: rewrite, translate, format, summarize, fix grammar. VoiceInk just transcribes.
-</FeatureCard>
-<FeatureCard title="Three Engines" icon="cpu">
-[Whisper (GPU), NVIDIA (Neural Engine), Apple Speech](/features/offline-transcription). Switch without restarting. VoiceInk has Whisper only.
-</FeatureCard>
-<FeatureCard title="File Transcription" icon="folder-open">
-Drag audio or video files to [transcribe them](/features/file-transcription). VoiceInk doesn't do file transcription.
-</FeatureCard>
-<FeatureCard title="History" icon="clock">
-Every transcription saved. Search, playback, stats. VoiceInk doesn't keep history.
-</FeatureCard>
-</FeatureGrid>
-
-## Price Again
+## Feature comparison
 
 | | Whisperer | VoiceInk |
-|---|-----------|---------|
-| Base app | $2.99 | N/A |
-| Full version | $14.99 (Pro Pack) | ~$25 |
-| Features included | Code Mode, AI, profiles, dictionary, 3 engines | Dictation |
+|---|---|---|
+| Speech recognition on your Mac | Yes | Yes |
+| Works with no internet | Yes | Yes |
+| Live words while you speak | Yes | Yes |
+| Puts text into the current app | No (copies, you press ⌘V) | Yes |
+| Open source | No | Yes (GPL v3) |
+| Choice of speech engines | Yes (Whisper, Parakeet, Qwen3 ASR, WhisperKit, Apple Speech) | Yes |
+| Personal dictionary | Yes, learns from your corrections | Yes |
+| Filler and punctuation cleanup | Yes (Fast Polish, on device) | Yes (AI enhancement) |
+| History with search and audio replay | Yes | Partial |
+| Meeting detection and recording | Yes (Pro) | No |
+| Speaker identification | Yes (Pro) | No |
+| AI meeting notes and Ask AI | Yes (Pro) | No |
+| MCP server for Claude, Cursor and others | Yes (Pro) | No |
+| Needs | Apple Silicon, macOS 26 | Apple Silicon, macOS 14.4 or later |
 
-Whisperer is cheaper and has more features.
+## Pricing
 
-## Bottom Line
+Public pricing, November 2026.
 
-<Callout type="tip">
-**Developers:** Whisperer. [Code Mode](/code-mode), per-app profiles, personal dictionary.
+| | Whisperer | VoiceInk |
+|---|---|---|
+| Dictation | $2.99 one-time | Solo $25 one-time (1 Mac) |
+| More Macs | Same Apple ID | Personal $39 (2 Macs), Extended $49 (3 Macs) |
+| Meetings, calendar, AI notes, MCP | $14.99 one-time Pro | Not offered |
+| Subscription | No | No |
+| Free option | No | Build it yourself from the open-source code |
 
-**General users:** Both work. Whisperer has more features (AI, file transcription, history, three engines) and costs less ($14.99 vs ~$25).
+Both are straightforward prices. VoiceInk also offers a 14-day money-back guarantee. Whisperer is sold through the Mac App Store, so Apple's refund process applies. See [pricing](/pricing).
 
-**Budget:** Whisperer is cheaper. Free trial lets you test first.
-</Callout>
+## Where VoiceInk wins
 
----
+- **Text goes into the field.** VoiceInk pastes for you. Whisperer's App Store build copies the text, and you press ⌘V. That is one extra key on every dictation.
+- **Open source.** You can read the code, build it yourself for free, and check exactly what it does with your audio.
+- **Older macOS.** VoiceInk runs on macOS 14.4 and later. Whisperer needs macOS 26 Tahoe.
+- **Per-app behaviour.** VoiceInk can change its settings depending on the app you're in. Whisperer uses one setup everywhere.
+- **Focus.** If all you want is dictation, VoiceInk has fewer screens and nothing about meetings to ignore.
 
-*More: [vs Superwhisper](/compare/vs-superwhisper), [vs Voibe](/compare/vs-voibe), [vs Apple Dictation](/compare/vs-apple-dictation). See [all comparisons](/compare) and [pricing](/pricing).*
+## Where Whisperer wins
 
-<CTA />
+- **Meeting notes in the same app.** Whisperer sees which app opened the microphone, asks "Zoom call started. Take notes?", or records on its own for meetings on your [calendar](/calendar). It records the call audio and your microphone, so both sides are captured with speakers or headphones. Nothing joins the call.
+- **Who said what.** Speakers are identified on your Mac and named from the calendar invite in one click.
+- **Notes you can use.** After the call you get a title, an overview, key topics, decisions, action items with owners, open questions and the next meeting. Ask AI answers questions about a meeting with timestamped sources.
+- **Your AI or none.** Notes come from the built-in Qwen3.5 4B model, offline, or from the Claude, ChatGPT, Codex or Gemini plan you already pay for. Read about [your own AI](/ai).
+- **MCP.** Claude Desktop, Claude Code, Cursor, Codex, VS Code and others can search your meetings and dictation history through a server that only apps on your Mac can reach.
+- **A cheaper start.** Dictation costs $2.99, file transcription is included, and the dictionary learns words from the corrections you make.
+
+## Who should choose which
+
+**Choose VoiceInk if** you want open-source software, you're on macOS 14 or 15, or you want text placed straight into the app with no ⌘V.
+
+**Choose Whisperer if** you're on macOS 26, you spend part of your week in calls, and you want dictation and meeting notes in one app you pay for once. Start with [dictation](/features), and add Pro when you need meetings.
+
+## FAQ
+
+### Is Whisperer a good VoiceInk alternative?
+
+For dictation alone the two are close peers: both run speech recognition on your Mac and both are one-time purchases. Pick Whisperer if you also want meeting notes, speaker names from your calendar, your own AI and an MCP server. Pick VoiceInk if you want open-source code or text placed straight into the app you're using.
+
+### How much does VoiceInk cost?
+
+VoiceInk is a one-time purchase: Solo $25 for one Mac, Personal $39 for two, Extended $49 for three (public pricing, November 2026). Whisperer is $2.99 one-time, plus $14.99 one-time for Pro.
+
+### Do both apps work offline?
+
+Yes. Both transcribe on your Mac with local models, so dictation works with no internet connection.
+
+### Does Whisperer type into my apps like VoiceInk?
+
+No. In the Mac App Store version, Whisperer copies your text and shows a "Copied ⌘V" toast, and you paste with ⌘V. VoiceInk puts the text into the field for you.

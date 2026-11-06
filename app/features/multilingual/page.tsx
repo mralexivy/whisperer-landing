@@ -1,80 +1,62 @@
-import { Metadata } from "next";
-import Link from "next/link";
-import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
-import { Button } from "@/components/ui/button";
-import { Apple, Globe, Languages, Layers, Cpu, ArrowRight } from "lucide-react";
-import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
-import { SectionGlow, DotGrid, GradientDivider } from "@/components/ui/decorations";
+import type { Metadata } from "next";
+import { Languages } from "lucide-react";
+import { breadcrumbSchema, JsonLd } from "@/lib/structured-data";
+import { LanguagesMock } from "@/components/landing/DictationMockups";
+import { PageHero, PointGrid, Split, FactTable, Related, Close } from "@/components/landing/PageKit";
+import { FAQSection } from "@/components/home/HomeFAQ";
+import { FACTS } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "100+ Languages — Multilingual Offline Dictation",
+  title: "97 Languages: Multilingual Offline Dictation for Mac",
   description:
-    "Dictate in over 100 languages on Mac with Whisperer. Per-app language profiles, AI-powered offline translation, and language-specific accuracy. All offline — no cloud, no subscription.",
+    "Dictate in 97 languages on your Mac. Whisperer detects the language as you speak, shows a live preview in that language and runs offline. Parakeet, Qwen3 ASR and Apple Speech cover more options.",
   keywords:
-    "multilingual dictation mac, dictation app 100 languages, voice to text spanish mac, voice to text german mac, voice to text french mac, offline translation dictation, multilingual speech recognition, per-app language profiles, dictation multiple languages, voice to text japanese chinese mac",
+    "multilingual dictation mac, dictation in multiple languages, offline dictation spanish mac, voice to text other languages mac, whisper languages, auto language detection dictation",
   openGraph: {
-    title: "100+ Languages — Multilingual Offline Dictation",
-    description:
-      "Dictate in 100+ languages with per-app language profiles and AI-powered offline translation.",
+    title: "Dictation in 97 languages, detected as you speak",
+    description: "Speak any of 97 languages and Whisperer writes it, offline on your Mac.",
     type: "website",
-    images: [{ url: "/assets/og/og-feature-multilingual.png", width: 1200, height: 630, alt: "Multilingual Dictation" }],
+    url: "https://whispererapp.com/features/multilingual",
+    images: [{ url: "/assets/og/og-feature-multilingual.png", width: 1200, height: 630, alt: "Whisperer multilingual dictation" }],
   },
   twitter: { card: "summary_large_image", images: ["/assets/og/og-feature-multilingual.png"] },
   alternates: { canonical: "https://whispererapp.com/features/multilingual" },
 };
 
-const languageHighlights = [
-  "English", "Spanish", "French", "German", "Italian", "Portuguese",
-  "Dutch", "Russian", "Chinese", "Japanese", "Korean", "Arabic",
-  "Hindi", "Turkish", "Polish", "Swedish", "Norwegian", "Danish",
-  "Finnish", "Czech", "Greek", "Hebrew", "Thai", "Vietnamese",
-];
-
-const backendLanguages = [
-  {
-    backend: "Whisper",
-    count: "99+",
-    description: "Widest language coverage. Handles major languages plus many regional ones.",
-    hardware: "Metal GPU",
-  },
-  {
-    backend: "NVIDIA",
-    count: "25",
-    description: "Top 25 languages, optimized for Neural Engine. Fastest option if your language is supported.",
-    hardware: "Neural Engine",
-  },
-  {
-    backend: "NVIDIA (English)",
-    count: "1",
-    description: "English-only model tuned for speed. Best latency for English dictation.",
-    hardware: "Neural Engine",
-  },
-  {
-    backend: "Apple Speech",
-    count: "System",
-    description: "Uses macOS system speech recognition. Requires macOS Tahoe or later.",
-    hardware: "System ML",
-  },
-];
-
-const faqs = [
+const FAQ = [
   {
     question: "How many languages does Whisperer support?",
-    answer: "With the Whisper backend, Whisperer supports 99+ languages — virtually every major language and many regional ones. NVIDIA supports 25 languages, with an English-only optimized model also available.",
+    answer:
+      "97 languages with the default Whisper engine. Parakeet covers 25 languages and Qwen3 ASR covers 31, and Apple Speech adds the languages macOS 26 supports.",
   },
   {
-    question: "Can I dictate in one language and translate to another?",
-    answer: "Yes. Whisperer's AI Translate mode can translate your dictation to any target language, entirely offline. Speak in Spanish, get English text — or any other language combination.",
+    question: "Do I have to pick a language before I speak?",
+    answer:
+      "No. Whisperer detects the language as you talk and shows it in the preview overlay. If you only ever speak one language you can choose it in Settings, which makes each dictation a little faster.",
   },
   {
-    question: "Can I set different languages for different apps?",
-    answer: "Yes. With per-app profiles, you can configure a different dictation language for each application. For example, dictate in English in VS Code and French in Pages.",
+    question: "Can I switch languages between dictations?",
+    answer:
+      "Yes. Each dictation is detected on its own, so you can write an English Slack message and then a Spanish email without touching a setting.",
   },
   {
-    question: "Should I use auto-detect or explicit language selection?",
-    answer: "Explicit language selection is recommended for best accuracy. Auto-detection works but may occasionally misidentify the language, especially for short utterances or languages with similar phonetics.",
+    question: "Do meeting notes work in other languages?",
+    answer:
+      "Yes, with Pro. The meeting is transcribed in the language spoken, and the notes are written in the language of the meeting.",
   },
+  {
+    question: "Does Whisperer handle right-to-left languages?",
+    answer: "Yes. Hebrew, Arabic and Persian text is laid out right to left in the preview and in your history.",
+  },
+];
+
+const POINTS = [
+  { title: `${FACTS.languages} languages`, body: "From English, Spanish and Mandarin to Welsh, Swahili and Icelandic, with the Whisper engine." },
+  { title: "Detected as you speak", body: "No menu before each message. The overlay shows the language it heard." },
+  { title: "Or set one", body: "Speak one language all day? Choose it in Settings and skip detection." },
+  { title: "More engines, more choice", body: "Parakeet (25 languages) and Qwen3 ASR (31) are there when you want a second opinion." },
+  { title: "Meetings too", body: "With Pro, a call in French gets a French transcript and French notes." },
+  { title: "Offline in every language", body: "Language models live on your Mac. No connection needed to switch." },
 ];
 
 export default function MultilingualPage() {
@@ -82,229 +64,45 @@ export default function MultilingualPage() {
     <>
       <JsonLd data={breadcrumbSchema([
         { name: "Home", url: "/" },
-        { name: "Features", url: "/features" },
+        { name: "Dictation", url: "/features" },
         { name: "Multilingual", url: "/features/multilingual" },
       ])} />
-      <JsonLd data={faqSchema(faqs)} />
 
-      {/* Hero */}
-      <section className="pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <SectionGlow position="top-center" size="xl" intensity={0.1} />
-          <DotGrid />
-        </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <Breadcrumbs items={[{ label: "Features", href: "/features" }, { label: "Multilingual" }]} />
-          <FadeIn>
-            <div className="max-w-3xl">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Dictate in <span className="text-primary">100+ languages</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Not just English. Whisperer handles over 100 languages offline. Set different languages
-                per app, translate between languages with the on-device LLM, or let it auto-detect
-                what you're speaking.
-              </p>
-              <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
-                <Button variant="hero" size="xl" className="gap-3">
-                  <Apple className="w-5 h-5" />
-                  Download on Mac App Store
-                </Button>
-              </a>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ label: "Dictation", href: "/features" }, { label: `${FACTS.languages} languages` }]}
+        title={`Dictate in ${FACTS.languages} languages`}
+        lede="Speak the language you think in. Whisperer works out which one it is while you talk, shows the preview in it, and writes the text without anything leaving your Mac."
+        visual={<LanguagesMock />}
+      />
 
-      {/* Language Grid */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <FadeIn>
-              <h2 className="text-3xl font-bold mb-4">Supported Languages</h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Here's a sample. The Whisper backend covers 100+ languages, all processed locally.
-              </p>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <div className="flex flex-wrap gap-3 mb-8">
-                {languageHighlights.map((lang, i) => (
-                  <span
-                    key={i}
-                    className="text-sm font-medium px-4 py-2 rounded-full bg-card border border-border text-foreground hover:border-primary/50 transition-colors"
-                  >
-                    {lang}
-                  </span>
-                ))}
-                <span className="text-sm font-medium px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary">
-                  +75 more
-                </span>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
+      <PointGrid title="Talk the way you talk" items={POINTS} />
 
-      <GradientDivider />
+      <Split
+        title="Whisper by default, others when they suit you"
+        lede="Whisper covers the most ground and is the default. The other engines are a click away in Settings if one handles your language or accent better."
+        visual={
+          <FactTable
+            rows={[
+              ["Whisper (Whisperer V3)", `${FACTS.languages} languages`],
+              ["Parakeet", "25 languages"],
+              ["Qwen3 ASR", "31 languages"],
+              ["WhisperKit", "Whisper models on Core ML"],
+              ["Apple Speech", "Languages built into macOS 26"],
+            ]}
+          />
+        }
+      />
 
-      {/* Backend Language Support */}
-      <section className="py-16 relative">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <DotGrid />
-        </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="max-w-4xl mx-auto">
-            <FadeIn>
-              <h2 className="text-3xl font-bold mb-8">Language Support by Backend</h2>
-            </FadeIn>
-            <FadeInStagger className="grid sm:grid-cols-2 gap-6">
-              {backendLanguages.map((item, i) => (
-                <StaggerItem key={i}>
-                  <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors h-full">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-lg font-semibold text-foreground">{item.backend}</h3>
-                      <span className="text-2xl font-bold text-primary">{item.count}</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground mb-3">{item.description}</p>
-                    <div className="text-xs text-muted-foreground bg-secondary/50 rounded-lg px-3 py-2">
-                      Hardware: {item.hardware}
-                    </div>
-                  </GlowCard>
-                </StaggerItem>
-              ))}
-            </FadeInStagger>
-          </div>
-        </div>
-      </section>
-
-      <GradientDivider />
-
-      {/* Key Features */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <FadeIn>
-              <h2 className="text-3xl font-bold mb-8">Multilingual Features</h2>
-            </FadeIn>
-            <FadeInStagger className="grid gap-6">
-              {[
-                {
-                  icon: Globe,
-                  title: "Explicit Language Selection",
-                  description: "Pick your language upfront for best accuracy. Auto-detect works, but explicit selection is more reliable.",
-                },
-                {
-                  icon: Cpu,
-                  title: "Auto-Detection",
-                  description: "Whisper figures out what language you're speaking. Handy when you switch languages mid-workflow.",
-                },
-                {
-                  icon: Layers,
-                  title: "Per-App Language Profiles",
-                  description: "Different language for each app. English in VS Code, French in Pages, German in Mail. Switches automatically.",
-                },
-                {
-                  icon: Languages,
-                  title: "AI Translation Mode",
-                  description: "Speak in one language, get text in another. The on-device LLM handles translation without touching the internet.",
-                },
-              ].map((feature, i) => (
-                <StaggerItem key={i}>
-                  <GlowCard className="bg-card border border-border rounded-xl hover:border-primary/50 transition-colors">
-                    <div className="flex gap-4 p-6">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                        <feature.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-1">{feature.title}</h3>
-                        <p className="text-muted-foreground">{feature.description}</p>
-                      </div>
-                    </div>
-                  </GlowCard>
-                </StaggerItem>
-              ))}
-            </FadeInStagger>
-          </div>
-        </div>
-      </section>
-
-      <GradientDivider />
-
-      {/* FAQ */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <FadeIn>
-              <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
-            </FadeIn>
-            <FadeInStagger className="grid gap-4">
-              {faqs.map((faq, i) => (
-                <StaggerItem key={i}>
-                  <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
-                    <h3 className="font-semibold text-foreground mb-2">{faq.question}</h3>
-                    <p className="text-muted-foreground">{faq.answer}</p>
-                  </GlowCard>
-                </StaggerItem>
-              ))}
-            </FadeInStagger>
-          </div>
-        </div>
-      </section>
-
-      <GradientDivider />
-
-      {/* Related */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <FadeIn>
-              <h3 className="text-xl font-bold mb-4">Related</h3>
-            </FadeIn>
-            <FadeInStagger className="grid sm:grid-cols-2 gap-3">
-              {[
-                { title: "Multilingual Dictation Guide", href: "/blog/multilingual-dictation-guide" },
-                { title: "Offline Transcription Engines", href: "/features/offline-transcription" },
-                { title: "AI Writing & Translation", href: "/features/ai-writing" },
-                { title: "Per-App Profiles Blog Post", href: "/blog/dictation-for-per-app-profiles" },
-              ].map((link, i) => (
-                <StaggerItem key={i}>
-                  <Link href={link.href} className="group block">
-                    <div className="flex items-center justify-between bg-card border border-border rounded-lg p-4 hover:border-primary/50 transition-colors">
-                      <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                        {link.title}
-                      </span>
-                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1" />
-                    </div>
-                  </Link>
-                </StaggerItem>
-              ))}
-            </FadeInStagger>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 relative overflow-hidden">
-        <SectionGlow position="center" size="lg" intensity={0.12} />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <FadeIn>
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-4">
-                Your language, <span className="text-primary">offline</span>
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                100+ languages. No internet required.
-              </p>
-              <a href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671" target="_blank" rel="noopener noreferrer">
-                <Button variant="hero" size="xl" className="gap-3">
-                  <Apple className="w-5 h-5" />
-                  Download on Mac App Store
-                </Button>
-              </a>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <FAQSection items={FAQ} title="Language questions" />
+      <Related
+        links={[
+          { title: "Live preview", body: "Words in your language as you speak.", href: "/features/live-preview" },
+          { title: "Offline engines", body: "How the five engines differ.", href: "/features/offline-transcription" },
+          { title: "Meeting notes", body: "Notes in the language of the call.", href: "/meetings" },
+          { title: "All dictation features", href: "/features" },
+        ]}
+      />
+      <Close title="Speak your own language" />
     </>
   );
 }

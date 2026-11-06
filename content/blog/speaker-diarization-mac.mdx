@@ -1,0 +1,131 @@
+---
+title: "Who Said What: On-Device Speaker Identification on Mac"
+description: "How Whisperer labels speakers in a meeting on your Mac, names them from the calendar invite in one click, and where speaker detection still gets it wrong."
+date: "2026-11-06"
+keywords: ["speaker diarization mac", "who said what meeting transcript", "speaker identification offline", "meeting transcript speaker names", "on-device diarization", "label speakers zoom transcript"]
+category: "meetings"
+howToSteps:
+  - name: "Record the meeting"
+    text: "Take notes on a call. Whisperer records the call audio and your microphone."
+  - name: "Let the Mac separate voices"
+    text: "During the call, an on-device diarization model labels each voice as Speaker 1, Speaker 2 and so on, in order of first appearance."
+  - name: "Name the speakers"
+    text: "If the meeting came from your calendar, pick names from the invite's participants in one click. Otherwise type a name once and it applies to every line from that speaker."
+faqs:
+  - question: "Does speaker identification send audio to a server?"
+    answer: "No. Whisperer runs the diarization model on your Mac. Audio never leaves it."
+  - question: "How are speakers numbered?"
+    answer: "By first appearance. The first voice heard is Speaker 1, the next new voice is Speaker 2, and so on."
+  - question: "Can Whisperer name speakers automatically?"
+    answer: "It suggests names from the calendar invite's participant list, and you confirm with one click. It doesn't guess who someone is from their voice."
+  - question: "Why are two people sometimes merged into one speaker?"
+    answer: "Similar voices, people talking over each other, or several people sharing one laptop microphone in a room can all make voices hard to tell apart. You can fix labels by hand."
+---
+
+Whisperer works out who said what in a meeting on your Mac, without sending audio anywhere. While the call runs, an on-device diarization model (Nemotron) splits the audio by voice and labels each one Speaker 1, Speaker 2 and so on, in the order they first spoke. If the meeting came from your calendar, you can name every speaker from the invite in one click. It works well on typical video calls, and less well when people talk over each other or share one microphone.
+
+## What diarization means
+
+Transcription turns speech into text. Diarization answers a different question: which stretches of audio belong to the same voice. Put the two together and a wall of text becomes a transcript you can actually read:
+
+> **[04:12] Maya Levin:** Can we still ship the Android build on the 18th?
+>
+> **[04:16] Dan Ortiz:** Only if QA gets the release candidate by Thursday.
+
+Without speaker labels, the AI summary can't say who owns an action item, and you can't skim for what your manager said. That's why every [meeting note](/meetings) in Whisperer runs diarization by default.
+
+## How Whisperer does it
+
+### Both sides of the call are recorded
+
+Whisperer records two things: the call's audio coming out of your Mac and your own microphone. That way it captures the other people and you, whether you're on speakers or headphones. If only the call audio were recorded, your side of the conversation would be missing.
+
+### Voices are grouped on the Mac
+
+The diarization model runs locally on Apple Silicon, alongside the transcription, so speaker labels show up in the live transcript during the call. It groups stretches of audio that sound like the same person. Nothing is uploaded, and there's no account involved.
+
+### Speakers are numbered by first appearance
+
+The first voice heard is **Speaker 1**. The next new voice is **Speaker 2**. That order is predictable: on most calls, Speaker 1 is whoever opened the meeting.
+
+## Naming speakers from the calendar
+
+Numbers are a start. Names are better.
+
+If you connect [Google Calendar or Microsoft Outlook](/calendar), Whisperer reads the participants from the invite and saves them with the recording. When you open the meeting, each speaker label offers those names. Click **Maya Levin** for Speaker 1, **Dan Ortiz** for Speaker 2, and every line in the transcript updates.
+
+<StepList>
+<Step num="1" title="Open the meeting">
+Find it in **Meeting Notes** in the Workspace window.
+</Step>
+<Step num="2" title="Click a speaker label">
+The participants from the invite appear as choices.
+</Step>
+<Step num="3" title="Pick the name">
+It applies to every line from that speaker, in the transcript, the summary and the action items.
+</Step>
+</StepList>
+
+For calls that weren't on your calendar, such as a quick Slack huddle, you type the name once and it applies the same way.
+
+<Callout type="info">
+Names come from the invite or from you. Whisperer doesn't keep a library of your coworkers' voices to recognize them in later meetings.
+</Callout>
+
+## Where it gets things wrong
+
+Speaker detection is good on a typical video call, where each person has their own microphone and people mostly take turns. It's not perfect, and these cases are where you'll see mistakes.
+
+### People talking over each other
+
+When two people speak at once, the model has to pick one label for that stretch. Short interruptions ("right", "yeah") sometimes land on the wrong person.
+
+### Similar voices
+
+Two people with similar pitch and accent can be merged into one speaker, especially in a short meeting where neither talks much.
+
+### A room around one laptop
+
+If five people sit around a conference table and the call runs on one laptop's microphone, everyone in that room reaches the Mac through the same mic, at different distances and with echo. Expect more merged or split speakers. A proper conference speakerphone helps.
+
+### Very short contributions
+
+Someone who says one sentence in an hour-long call may be folded into a neighbouring speaker. There isn't much audio to go on.
+
+In all these cases, you can relabel a speaker by hand. The AI notes use whatever labels you settle on.
+
+## Why it matters for AI notes
+
+Speaker names flow into everything built on the transcript:
+
+- **Action items with owners**, like "Priya: send the updated pricing deck"
+- **Ask AI**, so "What did Dan say about the QA timeline?" gets a real answer with timestamped sources
+- **Search**, across all your meetings
+- **MCP**, so Claude or Cursor reading a transcript through [Whisperer's MCP server](/mcp) sees `[mm:ss] Speaker: text` lines with real names
+
+A transcript with good speaker labels is far more useful to the AI that summarizes it.
+
+## FAQ
+
+### Does speaker identification send audio to a server?
+
+No. Whisperer runs the diarization model on your Mac. Audio never leaves it.
+
+### How are speakers numbered?
+
+By first appearance. The first voice heard is Speaker 1, the next new voice is Speaker 2, and so on.
+
+### Can Whisperer name speakers automatically?
+
+It suggests names from the calendar invite's participant list, and you confirm with one click. It doesn't guess who someone is from their voice.
+
+### Why are two people sometimes merged into one speaker?
+
+Similar voices, people talking over each other, or several people sharing one laptop microphone in a room can all make voices hard to tell apart. You can fix labels by hand.
+
+## Related reading
+
+- [Record meetings from your calendar automatically](/blog/calendar-meeting-recorder)
+- [AI meeting notes on Mac without a bot](/blog/ai-meeting-notes-mac)
+
+Speaker identification is part of Whisperer Pro, $14.99 once. See the [pricing page](/pricing).

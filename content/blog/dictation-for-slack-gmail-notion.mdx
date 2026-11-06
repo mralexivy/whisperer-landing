@@ -1,149 +1,103 @@
 ---
-title: "Dictation for Slack, Gmail & Notion on Mac — Per-App Profiles"
-description: "Use Whisperer to dictate into Slack, Gmail, and Notion on Mac with automatic per-app profiles. Different formatting rules for each app. 100% offline."
+title: "Dictation for Slack, Gmail and Notion on Mac"
+description: "Dictate Slack replies, Gmail drafts and Notion pages on a Mac with Whisperer. How to get the right tone for each app, offline, and paste with ⌘V."
 date: "2026-03-28"
-keywords: ["dictation for slack mac", "dictation for gmail mac", "dictation for notion mac", "per-app dictation profiles", "voice to text slack", "dictation app for email"]
+updated: "2026-11-06"
+keywords: ["dictation for slack mac", "dictation for gmail mac", "dictation for notion mac", "voice to text slack", "dictation app for email", "different tone slack email dictation"]
 category: "guides"
 ---
 
-Dictation apps usually treat every app the same. But the way you write in Slack is different from Gmail, which is different from VS Code. Whisperer switches modes automatically based on which app you're in.
+You can dictate into Slack, Gmail and Notion on a Mac with Whisperer: hold Fn, speak, release, and press ⌘V to paste. The speech-to-text runs on your Mac. What changes between apps is how you talk and which cleanup you use, because a Slack reply, a client email and a Notion page want different shapes of text.
 
-## Why One Mode Doesn't Work
+This guide covers what works in each app and how to switch tone without fiddling with settings every time.
 
-The same text style doesn't work everywhere:
+## The same voice, three kinds of writing
 
-- **Slack:** You want casual, conversational text. No formal punctuation overkill.
-- **Gmail:** You want professional email formatting with proper sentences and sign-offs.
-- **Notion:** You want structured content — headers, bullets, clean formatting.
-- **VS Code:** You want [Code Mode](/code-mode) with camelCase, snake_case, and symbols.
-- **Terminal:** You want literal commands with dashes, dots, and paths.
+- **Slack** wants short, casual messages. One or two sentences, light punctuation.
+- **Gmail** wants full sentences, a greeting, paragraphs and a sign-off.
+- **Notion** wants structure: headings, bullets, short blocks you can scan.
 
-Switching modes manually gets old fast. Per-app profiles handle it for you.
+The trick is mostly in what you say. Whisperer's Fast Polish handles punctuation, removes "um" and "uh", and breaks long dictations into paragraphs. For the more formal jobs, an AI mode can reshape the text after you speak.
 
-## Setting Up Per-App Profiles
+## How dictation works in each app
 
-<StepList>
-<Step num="1" title="Open Whisperer Settings">
-Click the Whisperer icon in your menu bar → Settings → Profiles.
-</Step>
+Every app gets the same flow:
 
-<Step num="2" title="Add an App Profile">
-Click "Add Profile" and select the app (e.g., Slack). Whisperer detects running apps automatically.
-</Step>
+1. Click into the message box, email body or Notion block.
+2. Hold **Fn** (or your own shortcut) and speak.
+3. Release. The text is copied and a **Copied ⌘V** toast appears.
+4. Press **⌘V** to paste.
 
-<Step num="3" title="Configure the Profile">
-Set the dictation mode, AI post-processing mode, language, and any other preferences for that app.
-</Step>
+Because the result goes through the clipboard, it works anywhere you can paste: Slack, Gmail in Safari or Chrome, Apple Mail, Outlook, Notion, Obsidian, Google Docs.
 
-<Step num="4" title="Repeat for Each App">
-Add profiles for Gmail (or your email client), Notion, VS Code, Terminal, and any other frequently used apps.
-</Step>
-</StepList>
+## Slack
 
-## Recommended Profiles
+Talk the way you'd talk to the person. Voice already comes out conversational, so Slack needs the least help. Keep Fast Polish on so fillers disappear.
 
-### Slack
+<VoiceDemo voice="hey just pushed the fix for the login bug can you take a look when you get a minute" output="Hey, just pushed the fix for the login bug. Can you take a look when you get a minute?" lang="Slack" />
 
-| Setting | Value |
-|---------|-------|
-| Mode | Natural language |
-| AI Mode | Off or Rewrite (casual) |
-| Filler removal | On |
-| Language | Your default |
+Tips for Slack:
 
-Slack messages should sound like you're talking to someone. Voice dictation already produces casual text. Just turn on filler word removal so you don't get "um" and "uh" everywhere.
+- Dictate one message at a time. Short bursts read more naturally than one long paragraph.
+- Say names clearly. If a teammate's name keeps coming out wrong, add it to the [personal dictionary](/blog/personal-dictionary-setup).
+- Huddles are calls. With Pro, Whisperer can take notes on a Slack huddle the same way it does for Zoom. See [meeting notes](/meetings).
 
-<VoiceDemo voice="hey just pushed the fix for the auth bug can you review the PR when you get a chance" output="Hey, just pushed the fix for the auth bug. Can you review the PR when you get a chance?" lang="Slack" />
+## Gmail and other email
 
-### Gmail
+Email is where an AI mode pays off. In Workspace, open **AI Modes** and set the post-process mode to **Email** while you work through your inbox. You speak the content, and it comes back with a greeting, paragraphs and a sign-off.
 
-| Setting | Value |
-|---------|-------|
-| Mode | Natural language |
-| AI Mode | Email |
-| Filler removal | On |
-| Language | Your default |
+<VoiceDemo voice="hi Sarah wanted to follow up on the pricing discussion I think we should go with option B because it's simpler and the team already knows it let me know if you want to talk it through on Thursday" output="Hi Sarah,
 
-The Email AI mode adds greetings, proper punctuation, and sign-offs. You speak the content, it comes out formatted like a real email.
+Wanted to follow up on the pricing discussion. I think we should go with Option B. It's simpler and the team already knows it.
 
-<VoiceDemo voice="hi Sarah wanted to follow up on our discussion about the API redesign I think we should go with option B the REST approach because it's simpler and the team is more familiar with it let me know if you want to schedule a call to discuss" output="Hi Sarah,
+Let me know if you want to talk it through on Thursday.
 
-Wanted to follow up on our discussion about the API redesign. I think we should go with Option B (the REST approach) — it's simpler and the team is more familiar with it.
+Best," lang="Email" />
 
-Let me know if you'd like to schedule a call to discuss.
+Tips for email:
 
-Best regards" lang="Email" />
+- Say the point first, then the details. It makes the AI's job easier and the email shorter.
+- Switch the mode back to plain dictation when you go back to Slack, or the AI will tidy your casual messages too.
+- For long replies, use toggle mode (press once to start, once to stop) so you don't hold Fn for a minute.
 
-### Notion
+More in the [email dictation guide](/blog/dictation-for-email).
 
-| Setting | Value |
-|---------|-------|
-| Mode | Natural language |
-| AI Mode | Format (Markdown) |
-| Filler removal | On |
-| Language | Your default |
+## Notion
 
-Format mode outputs Markdown. Notion renders it natively.
+For Notion, the **Format** mode turns a spoken brain dump into Markdown-style structure, which Notion renders when you paste. Speak in the order you want the page to read: "Heading, launch checklist. Then a list: confirm pricing, update screenshots, write release notes."
 
-### VS Code / Cursor
+Tips for Notion:
 
-| Setting | Value |
-|---------|-------|
-| Mode | Code Mode |
-| AI Mode | Off |
-| Filler removal | On |
-| Language | English |
+- Dictate one block or section at a time and paste it where it belongs.
+- Plain dictation is fine for meeting notes and journals. Use Format when you want lists and headings.
+- If your Notion page is notes from a call, let Whisperer write them instead: with Pro it produces decisions, action items and open questions after the meeting.
 
-Code Mode handles camelCase, snake_case, symbols. Switches on automatically when your IDE is focused.
+## Switching tone without per-app settings
 
-### Terminal
+Whisperer doesn't change behaviour based on which app is in front. You pick the cleanup, and it stays until you change it. In practice that's simple:
 
-| Setting | Value |
-|---------|-------|
-| Mode | Code Mode |
-| AI Mode | Off |
-| Filler removal | On |
-| Language | English |
+| Task | What to use |
+|---|---|
+| Quick Slack or iMessage replies | Plain dictation with Fast Polish |
+| A batch of emails | Email AI mode |
+| Notion pages, outlines | Format AI mode |
+| Anything you'll edit heavily | Plain dictation |
 
-Terminal commands need exact syntax. Code Mode handles dashes, dots, slashes, and paths.
+Most people leave plain dictation on and switch to Email only for an inbox session.
 
-## How It Works in Practice
+## Which AI does the rewriting
 
-A typical session:
+AI modes use the AI you choose on the **LLM** page. The default is Qwen3.5 4B, which runs on your Mac and works offline. You can also use your Claude, ChatGPT or Gemini plan, or an API key. If you pick a cloud AI, only text goes to it. Your audio stays on the Mac. See [bring your own AI](/ai).
 
-1. **Coding in VS Code** — Code Mode. You say `camelCase fetchUserData` and get `fetchUserData`.
-2. **Switch to Slack** — Natural language mode. Casual reply.
-3. **Open Gmail** — Email mode. Polished, professional.
-4. **Jump to Notion** — Format mode. Structured Markdown.
-5. **Back to VS Code** — Code Mode again.
+## Apps people dictate into most
 
-No manual switching. It just works.
-
-<Callout type="tip">
-Per-app profiles are part of the [Pro Pack ($14.99 lifetime)](/pricing). I haven't seen another Mac dictation app that does this.
-</Callout>
-
-## Supported Apps
-
-Whisperer works with any text field on Mac. Common ones:
-
-<FeatureGrid>
-<FeatureCard title="Communication" icon="message-square">
-Slack, Microsoft Teams, Discord, Telegram, WhatsApp Desktop, iMessage
-</FeatureCard>
-<FeatureCard title="Email" icon="message-square">
-Gmail (web), Apple Mail, Outlook, Spark, Superhuman
-</FeatureCard>
-<FeatureCard title="Writing & Notes" icon="file-text">
-Notion, Obsidian, Bear, Apple Notes, Google Docs, Craft
-</FeatureCard>
-<FeatureCard title="Development" icon="code">
-VS Code, Cursor, JetBrains IDEs, Xcode, Terminal, iTerm2, Warp
-</FeatureCard>
-</FeatureGrid>
+| Kind of app | Examples |
+|---|---|
+| Chat | Slack, Microsoft Teams, Discord, Telegram, WhatsApp, Messages |
+| Email | Gmail on the web, Apple Mail, Outlook, Spark, Superhuman |
+| Writing and notes | Notion, Obsidian, Bear, Apple Notes, Google Docs, Craft |
+| Anything else | If you can paste into it, you can dictate into it |
 
 ---
 
-*Related: [Per-App Profiles Setup](/blog/dictation-for-per-app-profiles), [Dictation for Email](/blog/dictation-for-email), [Voice Coding — Complete Guide](/voice-coding). See [all features](/features) and [pricing](/pricing).*
-
-<CTA />
+*Related: [Dictation for email](/blog/dictation-for-email), [Filler word removal](/blog/filler-word-removal-dictation), [all dictation features](/features). Whisperer is $2.99 on the Mac App Store; see [pricing](/pricing).*

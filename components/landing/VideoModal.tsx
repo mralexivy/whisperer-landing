@@ -7,9 +7,13 @@ import { X } from "lucide-react";
 export function VideoModal({
   open,
   onOpenChange,
+  src = "/demo.mp4",
+  poster,
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  src?: string;
+  poster?: string;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -40,7 +44,8 @@ export function VideoModal({
 
           <video
             ref={videoRef}
-            src="/demo.mp4"
+            src={src}
+            poster={poster}
             autoPlay
             controls
             playsInline

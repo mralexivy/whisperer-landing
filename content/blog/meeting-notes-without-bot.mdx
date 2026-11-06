@@ -1,0 +1,120 @@
+---
+title: "Meeting Notes Without a Bot: Why Record on Your Own Mac"
+description: "Why a bot-free meeting recorder works better for many calls, how to handle consent, what stays private on your Mac, and the honest downsides."
+date: "2026-11-06"
+keywords: ["meeting notes without bot", "no bot meeting recorder", "bot free notetaker", "record meeting without bot joining", "meeting recording consent", "private meeting notes mac"]
+category: "meetings"
+faqs:
+  - question: "Is it legal to record a call without a bot?"
+    answer: "The law is about consent, not about bots. Some places require everyone on the call to agree to a recording, others only one person. Whisperer shows a one-time reminder, but checking the rules where you and the other people are is your responsibility. The simple habit is to tell everyone at the start."
+  - question: "Will the other people know I'm recording?"
+    answer: "Not unless you tell them. No bot joins and nothing appears in the call app. That's why you should say it out loud at the start of the call."
+  - question: "Does a bot-free recorder work in every call app?"
+    answer: "Whisperer works with Zoom, Microsoft Teams, Google Meet, Slack huddles, Webex, FaceTime and calls in the browser, because it records on your Mac rather than joining through each service."
+  - question: "Where does the recording go?"
+    answer: "It stays on your Mac, stored as Opus audio under ~/Library/Application Support/Whisperer/. You choose whether to keep it for 7, 30, 90 or 365 days, or forever."
+  - question: "Can my team see my notes?"
+    answer: "Not automatically. Whisperer has no shared team workspace. You copy notes into wherever your team works."
+---
+
+A bot-free meeting recorder captures the call from your own computer instead of sending an AI assistant to join it. Nobody sees "Notetaker has joined", it works in any call app, and the audio never has to go to a vendor's servers. The cost is that you have to tell people you're recording, because nothing in the call will tell them for you.
+
+Whisperer is one such recorder for the Mac. This post is about why that approach is worth it, how to handle consent like an adult, and where it falls short.
+
+## The bot problem
+
+Most cloud notetakers work by joining your call as a participant. A tile appears called "Otter.ai" or "Fireflies Notetaker" or someone's name plus "'s Notetaker". For an internal stand-up nobody minds. For other calls it changes the room:
+
+- **A client call.** The bot shows up before you've said hello. Someone asks what it is and whether it's storing the call. You spend the first two minutes on that.
+- **A job interview or a sensitive one-to-one.** People speak more carefully, or ask you to remove it.
+- **A call you didn't host.** Some hosts block or remove bots. Some company Zoom settings refuse them.
+- **A call app the bot doesn't support.** A Slack huddle, FaceTime, a browser call on a tool you've never heard of.
+
+A recorder on your Mac sidesteps all of that. It doesn't care which service the call runs on, because it isn't joining the call at all.
+
+## How a bot-free recorder hears the call
+
+Whisperer sees which app has opened the microphone. When Zoom, Teams, Google Meet, a Slack huddle, Webex, FaceTime or a browser call starts using the mic, it offers to take notes, or starts on its own for meetings on your [calendar](/calendar).
+
+It records two things on your Mac: the call audio and your microphone. That's how it captures both sides even with headphones on. The transcript, speaker labels and notes are made after that, on the Mac by default. The [end-to-end guide](/blog/ai-meeting-notes-mac) walks through each step.
+
+## Consent, without the hand-waving
+
+Not having a bot doesn't remove the need for consent. It moves the job to you.
+
+Recording laws vary. In some places one person on the call can consent for everyone. In others, every participant has to agree. Workplaces often have their own rules on top. Whisperer shows a one-time reminder before your first recording, and after that it's up to you to know the rules where you and the other people are.
+
+The easy habit is to say it at the start of every call. Something like:
+
+> "Quick heads-up, I'm recording this on my Mac so I can take notes. It stays with me. Is that okay with everyone?"
+
+That covers the useful parts. It says you're recording, why, where the recording goes, and it gives people a real chance to say no. If someone objects, stop the recording from the Island bar and take notes by hand.
+
+<Callout type="tip">
+If a meeting comes from your calendar, put a line in the invite too: "I'll record this call for notes." People see it before they join.
+</Callout>
+
+## Privacy you can actually check
+
+With a cloud notetaker, your audio and transcript live on the vendor's servers under their retention and security rules. With Whisperer, they live on your Mac.
+
+- **Audio stays on the Mac.** Stored as Opus under `~/Library/Application Support/Whisperer/`.
+- **Retention is your call.** Keep audio forever, or delete it automatically after 7, 30, 90 or 365 days.
+- **Transcription is local.** Speech recognition and speaker diarization run on Apple Silicon.
+- **Notes can be local too.** The default AI for notes is Qwen3.5 4B, running on your Mac. If you choose Claude, ChatGPT, Codex or Gemini on the [LLM page](/ai), only the transcript text goes to that provider, and you can keep any single meeting local.
+- **No account.** No sign-up, no analytics, no tracking. The App Store listing says "Data Not Collected".
+
+This matters most when what's said in the meeting isn't yours to share: client details, health information, a performance review.
+
+## Honest downsides
+
+A bot-free recorder isn't better for everyone. Here's where it loses.
+
+### It's Mac only
+
+Whisperer runs on Apple Silicon Macs with macOS 26 Tahoe. If you take calls on Windows or on your phone, it can't record them.
+
+### No shared team workspace
+
+Cloud tools like Granola, Otter and Fireflies have team spaces where notes appear for everyone automatically, with comments, sharing links and admin controls. Whisperer keeps notes on your Mac. You copy them to Slack, Notion or email yourself. For a team that wants one shared library of every call, that's a real gap. Our [alternatives comparison](/blog/granola-otter-fireflies-alternatives) goes into where those tools are stronger.
+
+### Nobody sees a recorder
+
+The bot is annoying, but it is also a visible notice. Without it, the burden of telling people is fully on you. If you're likely to forget, a visible bot might suit you better.
+
+### It only records calls on your Mac
+
+A bot can join a meeting you're not in. A local recorder can't. If you want notes from a call you skipped, you need someone else to record it.
+
+## When bot-free is the better fit
+
+- You take calls with clients, candidates or partners, where a bot feels intrusive.
+- You use several call apps and want one recorder for all of them.
+- What's said in your meetings shouldn't sit on a vendor's servers.
+- You'd rather pay once than per seat each month. Whisperer is $2.99, plus $14.99 once for Pro with meetings ([pricing](/pricing)).
+
+And if you want an AI to work with the notes afterwards, you can still have that. Use the AI subscription you already pay for, or connect Claude or ChatGPT through [MCP](/mcp) so they can read your meetings when you ask.
+
+## FAQ
+
+### Is it legal to record a call without a bot?
+
+The law is about consent, not about bots. Some places require everyone on the call to agree to a recording, others only one person. Whisperer shows a one-time reminder, but checking the rules where you and the other people are is your responsibility. The simple habit is to tell everyone at the start.
+
+### Will the other people know I'm recording?
+
+Not unless you tell them. No bot joins and nothing appears in the call app. That's why you should say it out loud at the start of the call.
+
+### Does a bot-free recorder work in every call app?
+
+Whisperer works with Zoom, Microsoft Teams, Google Meet, Slack huddles, Webex, FaceTime and calls in the browser, because it records on your Mac rather than joining through each service.
+
+### Where does the recording go?
+
+It stays on your Mac, stored as Opus audio under `~/Library/Application Support/Whisperer/`. You choose whether to keep it for 7, 30, 90 or 365 days, or forever.
+
+### Can my team see my notes?
+
+Not automatically. Whisperer has no shared team workspace. You copy notes into wherever your team works.
+
+[See how Whisperer meetings work](/meetings).

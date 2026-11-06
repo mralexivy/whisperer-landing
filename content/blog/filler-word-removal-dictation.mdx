@@ -1,72 +1,63 @@
 ---
-title: "Remove Filler Words from Dictation Automatically — Um, Uh, No More"
-description: "How to automatically remove filler words (um, uh, erm, ah) from dictation on Mac. Plus: list formatting, text processing pipeline, and keeping dictation clean."
+title: "Remove Filler Words from Dictation Automatically on Mac"
+description: "Strip um, uh and er from dictation on a Mac automatically. How Whisperer's filler removal, Fast Polish and list formatting clean up your text."
 date: "2026-03-28"
+updated: "2026-11-06"
 keywords: ["remove filler words dictation", "um uh removal voice to text", "clean dictation output", "filler word removal mac", "dictation text processing", "list formatting dictation"]
 category: "features"
 ---
 
-Everyone says "um" and "uh" when they talk. That's fine in conversation. It's annoying in transcribed text. Whisperer can strip these out automatically.
+To remove filler words from dictation on a Mac, turn on **Remove filler words** in Whisperer's Settings. Every "um", "uh" and "er" is then stripped before the text is copied for you to paste. Fast Polish also fixes punctuation, casing and paragraph breaks, and optional list formatting turns spoken lists into bullets. It all runs on your Mac.
 
-## How to enable it
+Everyone says "um" when they talk. That's fine in conversation and annoying in a Slack message.
 
-It's off by default (sometimes you want exact transcription). To turn it on:
+## How to turn it on
 
-1. Open Settings
-2. Find "Filler Word Removal" under Text Processing
-3. Toggle it on
+1. Open Whisperer's **Settings**.
+2. Find the **Filler Words** card.
+3. Turn on **Remove filler words**.
 
-Done. Filler words get stripped from all future dictation.
+Filler words are now stripped from everything you dictate.
 
 ## What gets removed
 
-These words: um, uh, erm, er, ah, hmm.
+Standalone fillers like um, uh, er, erm, ah and hmm.
 
 <Callout type="info">
-Only standalone words. "Umbrella" stays "umbrella." "Ermine" stays "ermine." The matching is smart enough not to mangle actual words.
+Only whole words are removed. "Umbrella" stays "umbrella" and "ermine" stays "ermine."
 </Callout>
 
-## The processing pipeline
+## What happens to your text, in order
 
-Filler removal is one step in a longer chain. Every transcription goes through these stages:
+Filler removal is one step in a short chain. Each optional step can be switched on or off by itself.
 
-1. **Transcription** — Whisper/NVIDIA/Apple Speech produces raw text
-2. **Dictionary corrections** — fixes your custom terms ([details](/features/personal-dictionary))
-3. **Filler word removal** — strips um, uh, etc. (optional)
-4. **List formatting** — converts spoken lists to bullets (optional)
-5. **AI post-processing** — rewrite, translate, format ([details](/features/ai-writing)) (optional)
-6. **Trailing space** — adds a space so you're ready to keep typing (optional)
-7. **Injection** — text goes into the focused field
-
-Each step can be toggled independently. Mix and match.
+1. **Transcription.** Your chosen engine (Whisper by default) turns speech into raw text on your Mac.
+2. **Dictionary corrections.** Your [personal dictionary](/blog/personal-dictionary-setup) fixes names and terms.
+3. **Filler removal** (optional).
+4. **Fast Polish.** Punctuation, casing and paragraph breaks at the pauses you actually took, using fast local rules.
+5. **List formatting** (optional). Spoken lists become numbered or bulleted lists.
+6. **AI mode** (optional). Rewrite, Grammar, Format, Translate and others, using the AI you chose on the LLM page. See [rewriting dictation with AI](/blog/ai-rewriting-dictation-offline).
+7. **Copy.** The text is copied and a "Copied ⌘V" toast appears. Press ⌘V to paste it.
 
 ## List formatting
 
-Whisperer can turn spoken lists into formatted bullet points. No AI needed for this one.
+Turn on **Auto-format lists** in Settings and Whisperer turns spoken lists into formatted ones, with no AI needed. It recognizes ordinals ("first", "second"), numbers ("one", "two") and phrases like "number one".
 
-It recognizes:
-- Ordinals: "first", "second", "third"
-- Cardinals: "one", "two", "three"
-- Digits: "1", "2", "3"
-- Phrases: "number one", "bullet point", "dash"
+It tries hard not to turn ordinary sentences into lists. "I had two coffees" stays a sentence. If the rules miss a list, an optional **AI-enhanced detection** setting asks the language model to look for list structure.
 
-There's false-positive prevention built in. "I had two coffees" doesn't become a list. "About three hours" stays as prose. It checks 60+ preceding words to avoid mistakes.
+## Which settings to use when
 
-If the rule-based engine misses something, there's an optional AI fallback that looks for implicit list structure.
-
-## When to use what
-
-| Scenario | Settings |
+| Situation | Settings |
 |---|---|
-| Professional emails | Filler removal ON, List formatting OFF |
-| Meeting notes | Filler removal ON, List formatting ON |
-| Code documentation | Filler removal ON, AI Coding mode ON |
-| Exact transcription | Everything OFF |
-| Creative writing | Filler removal OFF, AI Creative mode ON |
+| Work email | Filler removal on, list formatting off |
+| Notes and to-do lists | Filler removal on, list formatting on |
+| Exact, word-for-word transcript | Filler removal off, no AI mode |
+| Creative writing | Filler removal off, Creative AI mode |
 
-## Getting started
+## Meetings too
 
-1. [Download Whisperer](https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671)
-2. Turn on Filler Word Removal in Settings
-3. Optionally enable List Formatting
-4. Try [AI post-processing](/features/ai-writing) for more cleanup options
+With Pro, meeting transcripts get the same treatment. Transcript polish takes the fillers out of a recorded call so the transcript reads cleanly, while the original audio is kept. See [meeting notes](/meetings).
+
+---
+
+*Related: [Rewrite dictation with AI](/blog/ai-rewriting-dictation-offline), [Dictation for Slack, Gmail and Notion](/blog/dictation-for-slack-gmail-notion). See [pricing](/pricing) and [all dictation features](/features).*

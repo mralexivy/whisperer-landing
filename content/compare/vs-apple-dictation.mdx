@@ -1,146 +1,93 @@
 ---
-title: "Whisperer vs. Apple Dictation — Why Built-In Dictation Falls Short"
-description: "Compare Whisperer with Apple's built-in Dictation on Mac. See why developers and power users need Code Mode, per-app profiles, and better customization."
+title: "Whisperer vs Apple Dictation: When the Free Option Is Enough"
+description: "Apple Dictation is free and built into every Mac. Whisperer adds 97 languages, a dictionary that learns, history and bot-free meeting notes."
 date: "2026-03-28"
-keywords: ["Apple dictation alternative", "mac dictation alternative", "is Apple dictation good enough", "Apple dictation vs Whisperer"]
+updated: "2026-11-06"
+keywords: ["Apple dictation alternative", "mac dictation alternative", "is Apple dictation good enough", "Apple dictation vs Whisperer", "better dictation app mac"]
 category: "comparison"
+faqs:
+  - question: "Is Apple Dictation good enough?"
+    answer: "For short messages and notes, often yes. It is free, built in, and types straight into the field. People who dictate long text, use names and jargon, switch languages or want meeting notes tend to outgrow it."
+  - question: "Is Whisperer more accurate than Apple Dictation?"
+    answer: "Whisperer's default engine is Whisper Large V3 Turbo, which handles long, natural speech and names well, and you can teach it words with a personal dictionary. Results depend on your voice, microphone and language, so try both on your own speech."
+  - question: "Does Whisperer cost money?"
+    answer: "Yes. Dictation is $2.99 one-time on the Mac App Store. Pro is a $14.99 one-time in-app purchase that adds meeting notes, calendar recording, speaker names, your own AI and an MCP server. There is no subscription."
+  - question: "Does Whisperer type into apps like Apple Dictation does?"
+    answer: "No. Apple Dictation types into the field. Whisperer copies the text and shows a 'Copied ⌘V' toast, and you paste with ⌘V."
 ---
 
-Apple Dictation ships with every Mac. It's free, already installed, and works fine for casual use. So why pay for anything else?
+Stick with **Apple Dictation** if you dictate short messages, it gets your words right, and you like that it types straight into the field for free. Switch to **Whisperer** if you dictate longer text, use names and jargon Apple keeps getting wrong, speak more than one language, or want [meeting notes without a bot](/meetings). Dictation is $2.99 once, and Pro is $14.99 once.
 
-Short answer: Apple built it for quick texts and short notes. Not for developers. Not for power users. And definitely not for anyone who needs control over how their dictation behaves.
+## The short version
 
-## What Apple Dictation Can't Do
+Apple Dictation is already on your Mac. Press the dictation key, talk, and text appears where your cursor is. On Apple Silicon it runs on the device for many languages. For a quick reply in Messages, it's hard to beat free and zero setup.
 
-<FeatureGrid>
-<FeatureCard title="No Code Mode" icon="shield">
-Try saying "getUserProfile" to Apple Dictation. You'll get "Get user profile" with spaces and wrong capitalization. There's no way to dictate camelCase, snake_case, or programming symbols.
-</FeatureCard>
+Whisperer is a separate app built for people who dictate a lot. Hold Fn, speak, release. Words stream in while you talk, and the finished text is copied for you to paste with ⌘V. It uses Whisper on the Metal GPU by default, with Parakeet, Qwen3 ASR, WhisperKit and Apple's own Speech engine as alternatives, all offline. Pro adds a meeting recorder, your own AI and an [MCP server](/mcp).
 
-<FeatureCard title="Same Behavior Everywhere" icon="refresh-cw">
-Apple Dictation acts the same whether you're in VS Code or iMessage. You can't tell it to switch to code mode in your IDE. It treats everything like prose.
-</FeatureCard>
+## Feature comparison
 
-<FeatureCard title="Autocorrection You Can't Turn Off" icon="pencil">
-Fine for "ur" becoming "your" in texts. Awful when variable names, CLI flags, and API endpoints get "corrected" into gibberish.
-</FeatureCard>
+| | Whisperer | Apple Dictation |
+|---|---|---|
+| Price | $2.99, Pro $14.99 once | Free |
+| Built in, nothing to install | No | Yes |
+| Types into the current field | No (copies, you press ⌘V) | Yes |
+| Runs on your Mac | Yes | Yes, for many languages on Apple Silicon |
+| Live words while you speak | Yes | Yes |
+| Languages | 97 with Whisper | Fewer, see Apple's list |
+| Language detected automatically | Yes | No, you pick one |
+| Choice of speech engine | Yes (five) | No |
+| Personal dictionary that learns from corrections | Yes | No |
+| Filler and punctuation cleanup | Yes (Fast Polish) | Partial (auto punctuation) |
+| Hold-to-talk, toggle and hands-free modes | Yes | Partial |
+| History with search and audio replay | Yes | No |
+| Audio and video file transcription | Yes | No |
+| Meeting notes and speaker names | Yes (Pro) | No |
+| iPhone and iPad | No | Yes |
 
-<FeatureCard title="No Way to Teach It" icon="settings">
-No personal dictionary. Can't add technical terms. Can't choose between transcription models. What Apple ships is what you get.
-</FeatureCard>
+## Pricing
 
-<FeatureCard title="Awkward Activation" icon="keyboard">
-Double-tap Fn, then a fixed timeout decides when you're done. Whisperer uses hold-to-talk: hold the key, speak, release. You decide when recording stops.
-</FeatureCard>
-</FeatureGrid>
+| | Whisperer | Apple Dictation |
+|---|---|---|
+| Dictation | $2.99 one-time | Free |
+| Meetings, calendar, AI notes, MCP | $14.99 one-time Pro | Not offered |
+| Subscription | No | No |
 
-## Feature Comparison
+## Where Apple Dictation wins
 
-| Feature | Whisperer | Apple Dictation |
-|---------|-----------|----------------|
-| Price | Free / $14.99 Pro | Free |
-| Code Mode | Yes | No |
-| Per-app profiles | Yes | No |
-| Casing commands | Yes | No |
-| Symbol dictation | Yes | Limited |
-| Personal dictionary | Yes | No |
-| Model selection | Yes (multiple Whisper models) | No (fixed Apple model) |
-| Streaming preview | Yes (HUD overlay) | Yes (inline) |
-| Hold-to-talk | Yes | No (timeout-based) |
-| Toggle mode | Yes | Yes |
-| 100% offline | Yes | Yes (macOS 14+) |
-| Languages | 100+ | 20+ |
-| Autocorrection control | Full control | Cannot disable |
-| Custom shortcut | Yes | Limited |
+- **It's free and already there.** No purchase, no download, no settings.
+- **It types for you.** Text goes straight into the field. With Whisperer you press ⌘V.
+- **Every Apple device.** The same dictation works on iPhone, iPad and Mac. Whisperer is Mac-only and needs Apple Silicon and macOS 26 Tahoe.
+- **Voice commands for editing.** Apple has spoken commands for punctuation and selection that Whisperer doesn't try to copy.
 
-## Where Apple Dictation Makes Sense
+## Where Whisperer wins
 
-### Already There
-No download. No setup. Press Fn twice and go. For occasional use, that convenience is real.
+- **Long, natural speech.** Whisper models were trained on a large amount of real-world audio and handle rambling, accents and long passages well.
+- **Your words.** Add names, product terms and acronyms to the dictionary, and Whisperer learns new ones from the corrections you make. Prompt words help the engine expect them.
+- **Languages.** 97 with Whisper, detected as you speak, so you can switch between English and Spanish without touching a menu. See the [multilingual guide](/blog/multilingual-dictation-guide).
+- **Everything you said is kept.** Search past dictations, replay the audio, and re-transcribe with another engine. Statistics show words per minute, apps, languages and peak hours.
+- **Files.** Drop in a voice memo, lecture or video and get a transcript.
+- **Meetings (Pro).** Whisperer notices a Zoom, Teams, Meet, Slack, Webex or FaceTime call, records both sides, names speakers from your [calendar](/calendar), and writes decisions and action items. Notes come from a local model or from the [AI plan you already have](/ai).
 
-### Free
-If you dictate a few texts per week and don't care about accuracy for technical terms, Apple Dictation costs nothing.
+## Who should choose which
 
-### System-Level Integration
-Apple's dictation works in places third-party apps sometimes can't reach. Whisperer handles most apps through paste fallback, but Apple has home-field advantage in a few edge cases.
+**Stay with Apple Dictation if** you dictate a sentence or two at a time, you also dictate on iPhone, and the accuracy is fine for you.
 
-## Where Whisperer Wins
+**Choose Whisperer if** you dictate for minutes at a time, Apple keeps getting names wrong, you speak several languages, or you want your calls written up for you. Start with [dictation](/features) for $2.99 and add Pro when you need it. We wrote a longer piece on this question: [Is Apple Dictation good enough in 2026?](/blog/is-apple-dictation-good-enough-for-devs)
 
-Once you need more than casual dictation, the gaps become obvious:
+## FAQ
 
-- **Code dictation** — say "user ID camel case" and get `userID`, not "user i d"
-- **Per-app modes** — Code Mode in VS Code, natural language in Slack
-- **Model choice** — pick from multiple Whisper models depending on speed vs accuracy tradeoffs
-- **Personal dictionary** — teach it your project names, colleague names, technical terms
-- **Hold-to-talk** — feels natural, not like racing a timer
-- **Offline guarantee** — Whisperer never sends audio anywhere. Apple's privacy story depends on which macOS version you're running
+### Is Apple Dictation good enough?
 
-## Stick with Apple Dictation If...
+For short messages and notes, often yes. It is free, built in, and types straight into the field. People who dictate long text, use names and jargon, switch languages or want meeting notes tend to outgrow it.
 
-- You dictate occasional messages and don't care about accuracy for technical terms
-- You never need to dictate code or symbols
-- Zero setup matters more than features
+### Is Whisperer more accurate than Apple Dictation?
 
-## Switch to Whisperer If...
+Whisperer's default engine is Whisper Large V3 Turbo, which handles long, natural speech and names well, and you can teach it words with a personal dictionary. Results depend on your voice, microphone and language, so try both on your own speech.
 
-<Callout type="tip">
-- **You write code** — Apple Dictation literally cannot produce camelCase
-- **You dictate a lot** — per-app profiles save constant mental switching
-- **Privacy is non-negotiable** — Whisperer is offline, period
-- **Autocorrection drives you crazy** — you control it in Whisperer
-- **You have domain-specific vocabulary** — personal dictionary learns your terms
-</Callout>
+### Does Whisperer cost money?
 
-## Switching Takes Two Minutes
+Yes. Dictation is $2.99 one-time on the Mac App Store. Pro is a $14.99 one-time in-app purchase that adds meeting notes, calendar recording, speaker names, your own AI and an MCP server. There is no subscription.
 
-<StepList>
-<Step num="1" title="Download from the Mac App Store">
-Install Whisperer like any other app.
-</Step>
+### Does Whisperer type into apps like Apple Dictation does?
 
-<Step num="2" title="Grant Permissions">
-Microphone, Accessibility, and Input Monitoring. The app walks you through it.
-</Step>
-
-<Step num="3" title="Start Dictating">
-Hold Fn, speak, release. Same key as Apple Dictation, different behavior.
-</Step>
-
-<Step num="4" title="Upgrade If You Want Pro Features">
-$14.99 unlocks Code Mode and per-app profiles.
-</Step>
-</StepList>
-
-If you're used to the Fn key from Apple Dictation, the muscle memory transfers.
-
-## Cost
-
-| Period | Whisperer Pro | Apple Dictation |
-|--------|--------------|-----------------|
-| 1 year | $14.99 | Free |
-| 3 years | $14.99 | Free |
-| Lifetime | $14.99 | Free |
-
-Free is hard to beat on price. The real question is what free costs you in capability: no Code Mode, no per-app profiles, no personal dictionary, no AI post-processing, no engine choices, no file transcription, no history.
-
-$14.99 once is less than a mediocre lunch. If you dictate regularly, the features pay for themselves fast. See [pricing details](/pricing).
-
-## The Features Apple Doesn't Have
-
-### Code Mode
-Apple treats everything as prose. Want `getUserProfile`? Too bad, you get "Get user profile." [Whisperer's Code Mode](/code-mode) has 20+ symbol commands and four casing conventions. Nothing else on Mac does this.
-
-### Per-App Profiles
-Apple's dictation is the same everywhere. Whisperer [switches modes automatically](/blog/dictation-for-per-app-profiles) based on what app you're in. Code Mode in your IDE, regular text in Slack.
-
-### Multiple Engines
-Apple ships one model, take it or leave it. Whisperer offers [three](/features/offline-transcription): Whisper (GPU), NVIDIA (Neural Engine), Apple Speech. Pick your speed/accuracy tradeoff.
-
-### AI Post-Processing
-Apple transcribes. Period. Whisperer has [10 AI modes](/features/ai-writing) that run offline: rewrite, translate, format, summarize, fix grammar. All on-device.
-
----
-
-*More comparisons: [vs Superwhisper](/compare/vs-superwhisper), [vs Voibe](/compare/vs-voibe), [vs Wispr Flow](/compare/vs-wispr-flow). See [all comparisons](/compare) and [pricing](/pricing).*
-
-<CTA />
+No. Apple Dictation types into the field. Whisperer copies the text and shows a "Copied ⌘V" toast, and you paste with ⌘V.

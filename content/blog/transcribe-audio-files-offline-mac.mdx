@@ -1,136 +1,119 @@
 ---
-title: "Transcribe Audio & Video Files Offline on Mac with Whisperer"
-description: "Convert MP3, WAV, M4A, MP4, and other audio/video files to text offline on your Mac. Whisperer uses local Whisper AI models — no cloud, no upload, no subscription."
+title: "Transcribe Audio and Video Files Offline on a Mac"
+description: "Turn MP3, WAV, M4A, FLAC, Opus, MP4 and MOV files into text on your Mac with Whisperer. Local Whisper models, no upload, no subscription."
 date: "2026-03-28"
+updated: "2026-11-06"
 keywords: ["transcribe audio file mac offline", "offline audio transcription app", "whisper transcribe file mac", "convert audio to text mac", "offline speech to text file"]
 category: "productivity"
 howToSteps:
   - name: "Open File Transcription"
-    text: "Open Whisperer from the menu bar and click File Transcription in the sidebar."
+    text: "Open Whisperer's Workspace window and choose File Transcription in the sidebar."
   - name: "Drop or choose your file"
-    text: "Drag and drop an audio or video file onto the drop zone, or click Choose File to browse. Supported formats: MP3, WAV, M4A, FLAC, MP4, MOV, AIFF."
-  - name: "Wait for processing"
-    text: "Whisperer processes the file locally using your selected Whisper model. Processing time depends on file length and model size."
-  - name: "Copy or save the result"
-    text: "Once transcription is complete, copy the text to your clipboard or save it to your transcription history."
+    text: "Drag an audio or video file onto the drop zone, or click Choose File. Supported: WAV, MP3, M4A, AAC, AIFF, FLAC, Opus, OGG, CAF, MP4, MOV and M4V."
+  - name: "Let it transcribe on your Mac"
+    text: "Whisperer transcribes the file with your selected model. Nothing is uploaded. Time depends on the file's length and the model."
+  - name: "Copy or keep the result"
+    text: "Copy the text, or keep it in your history to search later."
+faqs:
+  - question: "Is there a length limit for file transcription?"
+    answer: "No. Whisperer works through long files in chunks on your Mac. Longer files simply take longer."
+  - question: "Do I need Pro to transcribe files?"
+    answer: "No. File transcription is part of the $2.99 app. Pro ($14.99 once) adds live meeting recording with speakers and AI notes."
 ---
 
-Got a meeting recording that needs transcribing? A podcast episode? Voice memos? Whisperer handles audio and video files entirely on your Mac. No upload, no subscription, no internet needed.
+To transcribe an audio or video file offline on a Mac, open **File Transcription** in Whisperer's Workspace, drop the file in, and Whisperer turns it into text with a Whisper model running on your Mac. Nothing is uploaded and there's no per-minute charge. It's part of the $2.99 app and handles WAV, MP3, M4A, AAC, AIFF, FLAC, Opus, OGG, CAF, MP4, MOV and M4V.
 
+Interview recordings, podcast episodes, voice memos and lectures all work the same way.
 
----
-
-*Related: [File Transcription Feature](/features/file-transcription), [Offline Transcription Engines](/features/offline-transcription), [Whisperer vs MacWhisper](/compare/vs-macwhisper). See [pricing](/pricing) and [all features](/features).*
-
-<CTA />
-
-## The Interface
+## The interface
 
 <FileTranscriptionMockup />
 
-Drop a file onto the interface. Whisperer transcribes it using the same Whisper models as live dictation.
+Drop a file on the window. Whisperer transcribes it with the same engines as live dictation.
 
-## Supported Formats
+## Supported formats
 
-<FeatureGrid>
-<FeatureCard title="Audio" icon="headphones">
-MP3, WAV, M4A, FLAC, AIFF. No conversion needed.
-</FeatureCard>
+| Kind | Formats |
+|---|---|
+| Audio | WAV, MP3, M4A, AAC, AIFF, FLAC, Opus, OGG, CAF |
+| Video | MP4, MOV, M4V (the audio track is extracted for you) |
 
-<FeatureCard title="Video" icon="monitor">
-MP4 and MOV. Audio track gets extracted automatically.
-</FeatureCard>
-</FeatureGrid>
-
-## How It Works
+## How it works
 
 <StepList>
 <Step num="1" title="Open File Transcription">
-Click the Whisperer icon in your menu bar and select **File Transcription** from the sidebar.
+Open Whisperer's Workspace window and choose **File Transcription** in the sidebar.
 </Step>
 
 <Step num="2" title="Drop your file">
-Drag and drop a file onto the drop zone, or click **Choose File** to browse your Mac. You can transcribe files of any length.
+Drag a file onto the drop zone or click **Choose File**. Files of any length work.
 </Step>
 
-<Step num="3" title="Processing happens locally">
-Whisperer runs the file through your selected Whisper model. Everything stays on your Mac.
+<Step num="3" title="Transcription runs on your Mac">
+Whisperer works through the file with your selected model. Everything stays on your Mac.
 </Step>
 
 <Step num="4" title="Get your text">
-Once complete, the full transcription appears below the drop zone. Copy it to your clipboard or save it to your transcription history.
+The transcript appears when it's done. Copy it, or keep it in your history to search later.
 </Step>
 </StepList>
 
 <Callout type="tip">
-**Speed depends on your model.** Turbo is often faster than real-time on Apple Silicon. Large V3 is slower but better for difficult audio.
+**Speed depends on the model.** Whisperer V3, the default, is quick on Apple Silicon. Large V3 is slower but handles difficult audio better. See [which Whisper model to use](/blog/best-whisper-model-for-dictation).
 </Callout>
 
-## Use Cases
+## What people use it for
 
-### Meetings
+**Interviews and podcasts.** Turn recordings into searchable text you can quote from.
 
-Record your Zoom or in-person meetings, transcribe them locally. No one else sees the audio.
+**Voice memos.** iPhone Voice Memos sync to your Mac through iCloud. Drop them into Whisperer.
 
-### Podcasts and Interviews
+**Lectures.** Transcribe recorded lectures for study notes. Add subject terms to your [personal dictionary](/blog/personal-dictionary-setup) first.
 
-Turn episodes and interview recordings into searchable text.
+**Old meeting recordings.** If you have a Zoom recording saved as an MP4, it works too.
 
-### Voice Memos
+<Callout type="info">
+**Recording a call live?** That's what Whisperer Pro's [meeting notes](/meetings) are for. It notices the call, records both sides without a bot, labels speakers and writes notes with decisions and action items. File transcription is for recordings you already have.
+</Callout>
 
-iPhone Voice Memos sync via iCloud. Transcribe them on your Mac.
+## Why offline
 
-### Lectures
-
-Record lectures, transcribe them for study notes. Add field-specific terms to your dictionary for better accuracy.
-
-## Why Offline
-
-<FeatureGrid>
-<FeatureCard title="Privacy" icon="lock">
-Audio stays on your Mac. Matters for confidential meetings, legal recordings, medical content.
-</FeatureCard>
-
-<FeatureCard title="No Subscription" icon="dollar-sign">
-Cloud services charge per minute. Whisperer is $14.99 one-time.
-</FeatureCard>
-
-<FeatureCard title="Works Anywhere" icon="globe">
-No internet needed. Planes, remote locations, restricted networks.
-</FeatureCard>
-
-<FeatureCard title="Fast" icon="zap">
-No upload, no queue. Processing starts immediately.
-</FeatureCard>
-</FeatureGrid>
+- **Privacy.** Audio stays on your Mac, which matters for confidential interviews, legal recordings and medical content.
+- **No per-minute pricing.** Cloud services often charge by the minute or cap minutes per plan. Here you paid $2.99 once.
+- **Works anywhere.** Planes, trains and locked-down office networks.
+- **No upload wait.** Long video files don't have to go anywhere before work starts.
 
 ## Accuracy
 
-Same Whisper models as live dictation. Results depend on:
+Results depend on:
 
-- **Model size** — Large V3 is most accurate, Turbo is fastest
-- **Audio quality** — clear recordings work best
-- **Language** — 100+ languages, accuracy varies
-- **Dictionary** — add custom terms for specialized vocabulary
+- **The model.** Large V3 is the most accurate. Whisperer V3 is the best balance.
+- **Audio quality.** Clear recordings with one speaker close to the mic work best.
+- **Language.** Whisper covers 97 languages, with accuracy that varies by language.
+- **Your dictionary.** Names and specialist terms come out right once they're in it.
 
-<Callout type="info">
-For technical content: Large V3 model plus domain terms in your [personal dictionary](/blog/personal-dictionary-setup).
-</Callout>
+## Compared with cloud transcription services
 
-## vs. Cloud Transcription Services
+| | Whisperer | Typical cloud service |
+|---|---|---|
+| Price | $2.99 one-time | Monthly plan or per-minute pricing |
+| Where audio goes | Stays on your Mac | Uploaded to the provider |
+| Internet needed | No | Yes |
+| File length | No limit | Often capped by plan |
+| Sharing with a team | Copy and send the text | Usually built in |
 
-| Feature | Whisperer | Cloud Services (Otter, Rev, etc.) |
-|---------|-----------|-----------------------------------|
-| Price | $14.99 one-time | $8–25/month subscription |
-| Privacy | 100% offline, on-device | Audio uploaded to cloud |
-| Internet required | No | Yes |
-| File length limit | Unlimited | Often capped per plan |
-| Processing speed | Real-time or faster (Apple Silicon) | Depends on server load |
-| Languages | 100+ | Varies by service |
+Cloud services win on team sharing and on transcribing from a phone. If you work alone on a Mac, local transcription is simpler and private.
 
+## FAQ
+
+### Is there a length limit for file transcription?
+
+No. Whisperer works through long files in chunks on your Mac. Longer files simply take longer.
+
+### Do I need Pro to transcribe files?
+
+No. File transcription is part of the $2.99 app. Pro ($14.99 once) adds live meeting recording with speakers and AI notes.
 
 ---
 
-*Related: [File Transcription Feature](/features/file-transcription), [Offline Transcription Engines](/features/offline-transcription), [Whisperer vs MacWhisper](/compare/vs-macwhisper). See [pricing](/pricing) and [all features](/features).*
-
-<CTA />
+*Related: [File transcription feature](/features/file-transcription), [Whisperer vs MacWhisper](/compare/vs-macwhisper). See [pricing](/pricing) and [all dictation features](/features).*

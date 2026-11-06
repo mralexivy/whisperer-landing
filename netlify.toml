@@ -26,6 +26,105 @@
   status = 301
   force = true
 
+# 2.0: the coding pages became the MCP page (keeps their search signal)
+[[redirects]]
+  from = "/code-mode"
+  to = "/mcp"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/voice-coding"
+  to = "/mcp"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/voice-to-text-developers"
+  to = "/mcp"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/og-generator"
+  to = "/"
+  status = 301
+  force = true
+
+# Blog posts merged or rewritten for 2.0
+[[redirects]]
+  from = "/blog/voice-dictation-for-agentic-coding"
+  to = "/blog/claude-mcp-meeting-notes"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/voice-coding-with-cursor"
+  to = "/blog/cursor-mcp-meetings"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/vibe-coding-voice-dictation"
+  to = "/blog/chatgpt-mcp-connector-meetings"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/how-to-dictate-code-on-mac"
+  to = "/blog/ai-meeting-notes-mac"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/how-to-dictate-camelcase-snake-case"
+  to = "/blog/meeting-notes-without-bot"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dictation-for-terminal-cli"
+  to = "/blog/bring-your-own-ai-meeting-notes"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/developer-productivity-voice-dictation"
+  to = "/blog/local-llm-meeting-summaries"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/voice-coding-vs-typing-speed"
+  to = "/blog/speaker-diarization-mac"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/rsi-prevention-voice-coding"
+  to = "/blog/calendar-meeting-recorder"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/voice-dictation-for-vscode"
+  to = "/blog/granola-otter-fireflies-alternatives"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/dictation-for-per-app-profiles"
+  to = "/blog/dictation-for-slack-gmail-notion"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/whisper-vs-nvidia-transcription"
+  to = "/blog/whisper-vs-nvidia-vs-apple-speech"
+  status = 301
+  force = true
+
+
 # Trailing slash redirect removed - was causing redirect loops
 # Next.js handles this with trailingSlash: false in next.config.mjs
 

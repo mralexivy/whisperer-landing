@@ -1,87 +1,56 @@
 ---
-title: "Whisperer Transcription History — Search, Pin & Replay Your Dictations"
-description: "Whisperer saves every dictation with full audio, transcription text, speed stats, and language detection. Search, pin, flag, and replay your recording history."
+title: "Whisperer Transcription History: Search, Pin and Replay Dictations"
+description: "Whisperer saves every dictation with its text, audio and stats on your Mac. Search it, pin and flag entries, replay audio and re-transcribe with another model."
 date: "2026-03-28"
+updated: "2026-11-06"
 keywords: ["dictation history mac", "transcription history app", "voice transcription log", "dictation recording history"]
 category: "productivity"
 ---
 
-Whisperer keeps everything you dictate. The text, the audio, the stats. I didn't think I'd use the history feature much, but I end up searching it a few times a week.
+Whisperer keeps a history of everything you dictate, on your Mac: the text, the audio, and stats like words per minute and the detected language. Open **Transcriptions** in Workspace to search it, pin or flag entries, play back what you said, copy the text again, or re-transcribe a recording with a different model. Nothing is uploaded.
 
-
----
-
-*Related: [Transcription History Feature](/features/transcription-history), [File Transcription](/features/file-transcription), [Getting Started Guide](/blog/getting-started-whisperer). See [pricing](/pricing) and [all features](/features).*
-
-<CTA />
-
-## The Transcriptions View
+## The Transcriptions view
 
 <TranscriptionsMockup />
 
-Three panels:
+- **Timeline.** Every dictation in order, with the time, duration and first lines of text.
+- **Detail panel.** Click a recording to see the full text, play the audio and check its stats.
+- **Search.** Full-text search across everything you've dictated.
+- **Pin and flag.** Pin the things you want to find again. Flag recordings to review later.
 
-<FeatureGrid>
-<FeatureCard title="Recording Timeline" icon="clock">
-Chronological list of every dictation. Timestamps, duration, first few lines of text. You can scroll through a whole day's recordings quickly.
-</FeatureCard>
+## Why keep a history
 
-<FeatureCard title="Detail Panel" icon="eye">
-Click any recording. See the full text, play the audio, check the stats (WPM, word count, detected language).
-</FeatureCard>
+Many dictation apps throw the recording away once the text appears. That's fine until:
 
-<FeatureCard title="Search & Filter" icon="target">
-Full-text search across everything. Cmd+K from anywhere in the app.
-</FeatureCard>
-
-<FeatureCard title="Pin & Flag" icon="star">
-Pin things you want to find again. Flag recordings for later review.
-</FeatureCard>
-</FeatureGrid>
-
-## Why Bother Keeping History?
-
-Most dictation apps delete the audio after transcribing. You speak, text appears, the recording disappears. That's fine until:
-
-- **Something looks wrong** — play back the audio and hear what you actually said
-- **You need to find something** — "what was that API endpoint I mentioned yesterday?" One search.
-- **You accidentally deleted the text** — paste didn't work, you closed the app, whatever. The transcription is still in history.
-- **You're curious about your habits** — how much do you actually dictate? When? In which apps?
+- **Something looks wrong.** Play the audio and hear what you actually said.
+- **You need to find something.** "What was that address I dictated on Tuesday?" One search.
+- **You forgot to paste.** You dictated, got distracted, and copied something else. The text is still in history.
+- **The model got it wrong.** Click **Re-transcribe** to run the same audio through another model, such as Large V3.
 
 <Callout type="tip">
-All audio stays on your Mac. Whisperer doesn't upload recordings anywhere. History is local and private.
+History and audio stay under `~/Library/Application Support/Whisperer/` on your Mac. Whisperer has no analytics and doesn't upload recordings anywhere.
 </Callout>
 
 ## Statistics
 
-Whisperer also tracks aggregate stats:
+Workspace also has a **Statistics** page built from the same history:
 
 <StatisticsMockup />
 
-- **Words transcribed** — total count
-- **Audio recorded** — cumulative time
-- **Total sessions** — how often you use dictation
-- **Average speed** — your WPM
-- **Time saved** — estimated vs. typing at 40 WPM
-- **Usage by app** — where you dictate most
-- **Daily activity** — bar chart of your week
+It shows total words, recording time, number of sessions, average words per minute, the apps you dictated into, daily activity, languages and peak hours. More in [tracking your dictation](/blog/dictation-productivity-statistics).
 
-<Callout type="info">
-"Time Saved" compares your speaking speed to average typing (40 WPM). If you dictate at 130 WPM, that's 3x faster. The savings add up.
-</Callout>
+## Searching
 
-## Searching History
+The search bar at the top of Transcriptions matches the full text of every dictation. It runs locally, so results appear straight away with no network request.
 
-Search bar at the top of Transcriptions. Works across:
+## Copying text again
 
-- Full transcription text
-- Date and time
-- Language
+Click a transcription and copy it. Handy when you want to reuse a paragraph you dictated last week, or paste the same answer into a second email.
 
-All local, all instant. No network requests.
+## Meetings have their own history
 
-## Copy and Export
+With Pro, recorded calls live on the **Meeting Notes** page, separate from dictation. Each meeting keeps its transcript, speakers, notes and audio, and you can search across all of them. You can set how long meeting audio is kept: never, 7, 30, 90 or 365 days. See [meetings](/meetings).
 
-Click a transcription to select it. Copy to clipboard. Flag things for batch review if you want.
+---
 
-If you dictate terminal commands, this becomes handy. Search "kubectl" or "deploy" and find every command you've spoken.
+*Related: [Transcription history feature](/features/transcription-history), [File transcription](/blog/transcribe-audio-files-offline-mac), [Getting started](/blog/getting-started-whisperer). See [pricing](/pricing) and [all dictation features](/features).*

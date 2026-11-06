@@ -1,111 +1,82 @@
 ---
-title: "Best Whisper Model for Dictation — Comparing Speed vs. Accuracy"
-description: "Which Whisper model should you use for dictation? Compare Turbo, Large V3, Medium, Small, and Base models for speed, accuracy, and memory usage on Mac."
+title: "Best Whisper Model for Dictation: Speed vs Accuracy on a Mac"
+description: "Which Whisper model to use for dictation in Whisperer: Whisperer V3 (the default), Large V3, Turbo, Medium, Small and Base compared by size and speed."
 date: "2026-03-28"
-keywords: ["best whisper model dictation", "whisper model comparison", "whisper mac app", "whisper turbo vs large"]
+updated: "2026-11-06"
+keywords: ["best whisper model dictation", "whisper model comparison", "whisper mac app", "whisper turbo vs large", "whisper large v3 turbo q5"]
 category: "guides"
+faqs:
+  - question: "Which Whisper model should I use for dictation?"
+    answer: "Start with Whisperer V3, the default. It's Whisper Large V3 Turbo compressed to about 547 MB, fast on Apple Silicon and accurate across 97 languages. Switch to Large V3 only if you need the last bit of accuracy and have memory to spare."
+  - question: "Does a bigger Whisper model always mean better dictation?"
+    answer: "Not always. Large V3 is the most accurate on hard audio, but it's 2.9 GB and slower. For everyday dictation a good microphone and a personal dictionary make more difference than moving from Whisperer V3 to Large V3."
 ---
 
-Whisperer ships with multiple Whisper models. This raises an obvious question: which one should you actually use?
+For dictation on a Mac, use **Whisperer V3**, the default model. It's Whisper Large V3 Turbo, quantized down to about 547 MB, so it loads quickly, runs fast on the Apple Silicon GPU and keeps Large-class accuracy across 97 languages. Move to Large V3 only when you need maximum accuracy on hard audio, and drop to Small or Base only if memory is tight.
 
-Short answer: probably Turbo. Longer answer: it depends on what you're doing.
+Whisperer offers several Whisper models in Settings. Here's how they differ.
 
 ## The models
 
-| Model | Size | RAM Usage | Speed* | Accuracy | Best For |
-|-------|------|-----------|--------|----------|----------|
-| Tiny | ~75MB | ~200MB | Instant | Fair | Quick notes, low-end hardware |
-| Base | ~150MB | ~350MB | Very fast | Good | Fast dictation, older Macs |
-| Small | ~500MB | ~800MB | Fast | Very good | Balanced everyday use |
-| Medium | ~1.5GB | ~2.5GB | Moderate | Excellent | High-accuracy dictation |
-| Large V3 | ~3GB | ~5GB | Slower | Best | Maximum accuracy, long dictation |
-| Turbo | ~800MB | ~1.5GB | Fast | Very good | Best speed/accuracy balance |
+Sizes are the download sizes shown in Whisperer.
 
-*Speed tested on M1 MacBook Pro, 30-second recording.
+| Model | Size | Speed | Best for |
+|---|---|---|---|
+| Whisperer V3 (Large V3 Turbo, Q5) | 547 MB | Fast | The default. Everyday dictation in any of 97 languages |
+| Large V3 Turbo | 1.5 GB | Fast | The same model at full precision |
+| Large V3 Q5 | 1.1 GB | Medium | Large V3 accuracy in less space |
+| Large V3 | 2.9 GB | Slowest | Maximum accuracy, accents, noisy rooms |
+| Distil Large V3 | 756 MB | Very fast | Fast English-heavy dictation |
+| Medium | 1.5 GB | Slow | Older choice, mostly replaced by Turbo |
+| Small | 466 MB | Medium | Low memory |
+| Base | 142 MB | Fast | Very low memory, short notes |
+| Tiny | 75 MB | Fastest | Testing only |
 
-## My recommendations
+There's also a Hebrew Large V3 Turbo model (1.5 GB) for people who dictate mostly in Hebrew.
 
-<FeatureGrid>
-<FeatureCard title="Most people: Turbo" icon="zap">
+## Recommendations
+
+**Most people: Whisperer V3.** It's what Whisperer downloads on first launch. It's quick enough to drive the live preview while you speak and accurate enough that you rarely fix anything.
+
+**Maximum accuracy: Large V3.** Worth it for strong accents, technical vocabulary, noisy rooms, or languages where smaller models struggle. It's slower and takes more memory, so it suits Macs with 16 GB or more.
+
+**Tight on memory: Small or Base.** On an 8 GB Mac with lots of apps open, a smaller model keeps things responsive. Expect more mistakes on long or fast speech.
 
 <Callout type="tip">
-Turbo is fast and accurate enough for most dictation. It's noticeably quicker than Large V3 without giving up much accuracy for English. Start here.
+Whisper isn't the only engine. Settings also has Parakeet (25 languages, on the Neural Engine), Qwen3 ASR (31 languages) and WhisperKit (Core ML), all offline. Apple Speech drives the live preview. See [Whisper vs Parakeet vs Apple Speech](/blog/whisper-vs-nvidia-vs-apple-speech).
 </Callout>
-
-</FeatureCard>
-
-<FeatureCard title="Maximum accuracy: Large V3" icon="target">
-
-If you have 16GB+ RAM and need the best possible accuracy, Large V3 wins. Especially useful for:
-- Non-English languages
-- Heavy accents
-- Technical terms
-- Noisy rooms
-
-</FeatureCard>
-
-<FeatureCard title="Speed over accuracy: Small or Base" icon="zap">
-
-Small gives you near-instant results with occasional mistakes. Base is even faster but noticeably less accurate with complex speech.
-
-</FeatureCard>
-
-<FeatureCard title="Older Macs: Base or Tiny" icon="code">
-
-Intel Macs or 8GB Apple Silicon should stick to Base or Small. Bigger models will choke your system.
-
-</FeatureCard>
-</FeatureGrid>
 
 ## Language matters
 
-<Callout type="info">
-Whisper handles English well even at smaller sizes. Other languages need more horsepower:
+Whisper handles English well at every size. Other languages benefit from the larger models:
 
-- **Spanish, French, German** — Small or Turbo work fine
-- **Chinese, Japanese, Korean** — use Medium or Large V3
-- **Everything else** — Large V3 is your safest bet
-</Callout>
+- **Spanish, French, German, Portuguese:** Whisperer V3 is plenty.
+- **Chinese, Japanese, Korean, Arabic:** Whisperer V3 or Large V3.
+- **Less common languages:** Large V3 is the safest bet.
 
-## Preloading
+Whisperer detects the language automatically. If you only ever dictate in one language, choosing it in Settings can help with very short phrases.
 
-Enable model preloading in Settings to skip the 1-3 second cold start. The model stays in RAM, ready to go. Only do this if you have RAM to spare.
+## Tips that matter more than model size
+
+- **Use a decent microphone.** Input quality beats model size. A headset mic close to your mouth helps more than moving to Large V3.
+- **Add names to the dictionary.** The [personal dictionary](/blog/personal-dictionary-setup) fixes the words any model gets wrong, like product names and colleagues' surnames.
+- **Close memory-hungry apps** before running Large V3 on a 16 GB Mac.
+- **Keep the model warm.** Whisperer keeps the model loaded so the first dictation after a pause starts quickly.
 
 ## Switching models
 
-You can swap models without restarting. I use Turbo for quick notes and switch to Large V3 when accuracy matters more than speed.
+You can download several models and switch in Settings without restarting the app. Many people keep Whisperer V3 as the default and use Large V3 for [file transcription](/blog/transcribe-audio-files-offline-mac), where speed matters less.
 
-## Tips
+## FAQ
 
-<FeatureGrid>
-<FeatureCard title="Close other apps" icon="sparkles">
-Large V3 on 16GB? Close Chrome and its 47 tabs first.
-</FeatureCard>
+### Which Whisper model should I use for dictation?
 
-<FeatureCard title="Turbo for live preview" icon="monitor">
-Turbo is fast enough for real-time feedback while you speak.
-</FeatureCard>
+Start with Whisperer V3, the default. It's Whisper Large V3 Turbo compressed to about 547 MB, fast on Apple Silicon and accurate across 97 languages. Switch to Large V3 only if you need the last bit of accuracy and have memory to spare.
 
-<FeatureCard title="Preload your model" icon="zap">
-Keeps the model in RAM so there's no startup delay.
-</FeatureCard>
+### Does a bigger Whisper model always mean better dictation?
 
-<FeatureCard title="Pick your language" icon="globe">
-Selecting a language explicitly beats auto-detect for accuracy.
-</FeatureCard>
-
-<FeatureCard title="Get a decent mic" icon="mic">
-Input quality matters more than model size. A $30 USB mic beats a laptop mic with Large V3.
-</FeatureCard>
-</FeatureGrid>
-
-## Short version
-
-Start with **Turbo**. Not accurate enough? Try **Large V3**. Need it faster? Drop to **Small**. You can download multiple models and switch whenever.
-
+Not always. Large V3 is the most accurate on hard audio, but it's 2.9 GB and slower. For everyday dictation a good microphone and a personal dictionary make more difference than moving from Whisperer V3 to Large V3.
 
 ---
 
-*Related: [Whisper vs NVIDIA vs Apple Speech](/blog/whisper-vs-nvidia-vs-apple-speech), [Offline Transcription Engines](/features/offline-transcription), [Getting Started Guide](/blog/getting-started-whisperer). See [pricing](/pricing) and [all features](/features).*
-
-<CTA />
+*Related: [Whisper vs Parakeet vs Apple Speech](/blog/whisper-vs-nvidia-vs-apple-speech), [Getting started](/blog/getting-started-whisperer). See [pricing](/pricing) and [all dictation features](/features).*

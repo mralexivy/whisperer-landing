@@ -1,0 +1,158 @@
+---
+title: "Use Your Meetings Inside Cursor, Codex and VS Code with MCP"
+description: "Give Cursor, Codex, VS Code or Windsurf access to your meeting transcripts and action items through Whisperer's local MCP server. Setup for each editor."
+date: "2026-11-06"
+keywords: ["cursor mcp meetings", "codex mcp server", "vs code mcp meeting transcripts", "copilot agent mode mcp", "windsurf mcp", "meeting notes in ide"]
+category: "mcp"
+howToSteps:
+  - name: "Turn on Whisperer's MCP server"
+    text: "In Whisperer's Workspace, open MCP and pick your editor. The server starts and only answers apps on this Mac."
+  - name: "Copy the setup"
+    text: "Press the button. Whisperer copies the config entry and opens the editor's config file location in Finder."
+  - name: "Paste it into the editor's config"
+    text: "Cursor uses ~/.cursor/mcp.json, Codex uses ~/.codex/config.toml, VS Code uses mcp.json in its User folder, Windsurf uses ~/.codeium/windsurf/mcp_config.json."
+  - name: "Reload the editor"
+    text: "Reload Cursor or VS Code, restart Codex, or refresh Cascade in Windsurf, then check that Whisperer shows as connected."
+  - name: "Ask about a meeting"
+    text: "In the editor's agent chat, ask something like 'Turn the action items from Tuesday's review into a task list.'"
+faqs:
+  - question: "Which editors can connect to Whisperer?"
+    answer: "Cursor, Codex, VS Code with Copilot Chat in Agent mode, Windsurf and Antigravity each have a one-click setup in Whisperer's MCP page. Any other client that speaks streamable HTTP or SSE can use the connection details."
+  - question: "Do I need a different setup for the Codex CLI and the Codex IDE extension?"
+    answer: "No. The Codex CLI, the Codex IDE extension and Codex inside the ChatGPT app all read ~/.codex/config.toml, so one entry covers them."
+  - question: "Can the editor see my meeting audio?"
+    answer: "No. The tools return text only: summaries, decisions, action items, notes and timestamped transcript lines."
+  - question: "Does this cost extra?"
+    answer: "MCP is part of Whisperer Pro, a $14.99 one-time in-app purchase on top of the $2.99 app. There is no subscription."
+---
+
+To use your meetings inside Cursor, Codex or VS Code, turn on the MCP server built into [Whisperer](/mcp), paste the config entry Whisperer copies for you into the editor's MCP file, and reload the editor. The agent can then list your meetings, read the decisions and action items, search every transcript and quote lines with timestamps, without you leaving the editor.
+
+The point is simple. The context for a lot of work lives in calls: what the team agreed, who owns what, the exact wording of a requirement. MCP lets your editor's agent go and read it.
+
+## What you can do with it
+
+A few things people actually use this for:
+
+- **Action items to tasks.** "Take the action items from Tuesday's mobile launch review and write them as a task list grouped by owner."
+- **Exact requirements.** "Search my meetings for 'offline mode' and quote what Priya said, with timestamps."
+- **Decision checks.** "Did we decide to ship the beta to everyone or just to staff? Show me where."
+- **Write-ups.** "Write release notes for this branch, using the decisions from the last two planning calls."
+- **Notes back on the meeting.** "Add a note to the launch review: the API change is merged."
+
+Answers come back with speaker names and `[mm:ss]` timestamps, so you can check the source in Whisperer before you rely on it.
+
+## Before you start
+
+You need Whisperer Pro, the $14.99 one-time in-app purchase that adds meetings and MCP to the $2.99 app ([pricing](/pricing)). You also need some recorded meetings. Whisperer records calls on your Mac without a bot. See [AI meeting notes on Mac](/blog/ai-meeting-notes-mac) for how that part works.
+
+In every case, the setup starts in the same place: open Whisperer's Workspace, choose **MCP**, and pick your editor. The App Store build copies the entry and opens the config file's folder in Finder. It doesn't write the file for you, so you paste it in.
+
+## Cursor
+
+Cursor reads MCP servers from `~/.cursor/mcp.json`.
+
+```json
+{
+  "mcpServers": {
+    "whisperer": {
+      "url": "http://localhost:8080/mcp"
+    }
+  }
+}
+```
+
+If the file already has servers, add `whisperer` next to them. Reload Cursor, then open **Settings → MCP**. Whisperer should show a green dot. Ask in the agent chat.
+
+## Codex
+
+Codex keeps its config in `~/.codex/config.toml`. The same file serves the Codex CLI, the Codex IDE extension and Codex inside the ChatGPT app, so you set it up once.
+
+```toml
+[mcp_servers.whisperer]
+url = "http://localhost:8080/mcp"
+default_tools_approval_mode = "approve"
+```
+
+The approval line matters for `codex exec`, which runs without prompts and would otherwise refuse each tool call. If you turned on a token in Whisperer, the entry also gets an `http_headers` line with the `Authorization` header. Restart Codex after saving.
+
+<Callout type="tip">
+If you want ChatGPT models to write your meeting notes too, that's a different setting. On Whisperer's [LLM page](/ai) you can pick Codex or ChatGPT and use the ChatGPT plan you already pay for.
+</Callout>
+
+## VS Code
+
+VS Code reads MCP servers from `mcp.json` in your User settings folder, under a `servers` key.
+
+```json
+{
+  "servers": {
+    "whisperer": {
+      "type": "http",
+      "url": "http://localhost:8080/mcp"
+    }
+  }
+}
+```
+
+Reload VS Code. Open Copilot Chat and switch it to **Agent** mode. The tools only show up there, not in plain Ask mode.
+
+## Windsurf and Antigravity
+
+**Windsurf** uses `~/.codeium/windsurf/mcp_config.json`, with a `serverUrl` field instead of `url`. After pasting, open Cascade, go to MCP servers and press Refresh.
+
+**Antigravity** takes the same `serverUrl` shape. Open the Agent panel, go to MCP Servers, choose Manage, then View raw config, paste the entry and save.
+
+## Any other client
+
+For anything else, choose **Other** in Whisperer's MCP page and copy the connection details. You get the streamable HTTP URL (`/mcp`), a legacy SSE address for older clients, and the token if you set one. Use streamable HTTP when the client offers it.
+
+## The tools your editor gets
+
+| Tool | What it returns |
+|---|---|
+| list_meetings | Recent meetings with titles and dates |
+| get_meeting | Summary, decisions, action items, open questions, notes, topic outline |
+| get_meeting_transcript | The transcript in pages, as `[mm:ss] Speaker: text` |
+| search_meetings | Matching snippets across all meetings, with timestamps |
+| list_meeting_notes | Notes on a meeting |
+| add_meeting_note | Adds a note labelled with the app's name |
+| update_meeting_note / delete_meeting_note | Changes notes that app added |
+| search_transcriptions / get_transcription | Your dictation history |
+
+The agent can't edit notes you wrote. If you don't want any AI app writing notes, turn off **Let AI apps add notes** in the MCP page.
+
+## Security in plain terms
+
+The MCP server is off until you turn it on. It listens on loopback, so only apps running on your Mac can reach it. LAN access is a separate switch, off by default. You can require a bearer token so a random local process can't read your meetings.
+
+The trade-off to keep in mind: when the agent reads a transcript, that text goes to whatever model the editor uses. If the editor runs a cloud model, the text goes to that provider under your plan's terms. Audio never leaves Whisperer.
+
+## Troubleshooting
+
+- **Not listed after reload.** Check the JSON is valid and that `whisperer` sits inside the right key (`mcpServers` for Cursor, `servers` for VS Code).
+- **401 errors.** You turned on a token after copying the setup. Copy it again from Whisperer and paste the new entry.
+- **Tools missing in VS Code.** Switch Copilot Chat to Agent mode.
+- **Connection refused.** The server is off, or you changed the port. The MCP page shows the current URL.
+
+Using Claude instead? Read [how to let Claude read your meeting notes](/blog/claude-mcp-meeting-notes).
+
+## FAQ
+
+### Which editors can connect to Whisperer?
+
+Cursor, Codex, VS Code with Copilot Chat in Agent mode, Windsurf and Antigravity each have a one-click setup in Whisperer's MCP page. Any other client that speaks streamable HTTP or SSE can use the connection details.
+
+### Do I need a different setup for the Codex CLI and the Codex IDE extension?
+
+No. The Codex CLI, the Codex IDE extension and Codex inside the ChatGPT app all read `~/.codex/config.toml`, so one entry covers them.
+
+### Can the editor see my meeting audio?
+
+No. The tools return text only: summaries, decisions, action items, notes and timestamped transcript lines.
+
+### Does this cost extra?
+
+MCP is part of Whisperer Pro, a $14.99 one-time in-app purchase on top of the $2.99 app. There is no subscription.
+
+[See the MCP tools](/mcp), or [check what Pro includes](/pricing).

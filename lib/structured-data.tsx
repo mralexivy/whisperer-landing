@@ -14,48 +14,45 @@ export function softwareAppSchema() {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: "Whisperer",
-    operatingSystem: "macOS",
-    applicationCategory: "ProductivityApplication",
+    operatingSystem: "macOS 26 or later",
+    applicationCategory: "BusinessApplication",
+    applicationSubCategory: "Meeting notes and dictation",
     description:
-      "Offline dictation app for Mac with Code Mode for developers. Hold Fn, speak, release — text appears in the focused field. 100% offline, powered by Whisper, NVIDIA, and Apple Speech engines.",
+      "AI meeting notes and dictation for Mac. Detects calls in Zoom, Teams, Meet and Slack, transcribes every speaker on the Mac, and writes notes, decisions and action items with Claude, ChatGPT, Gemini or a built-in offline model. Includes calendar sync, Ask AI, a local MCP server for AI apps, and hold-to-talk dictation in 97 languages. One-time purchase, no subscription.",
     offers: [
       {
         "@type": "Offer",
-        name: "Base App",
+        name: "Whisperer",
         price: "2.99",
         priceCurrency: "USD",
-        description:
-          "Core dictation — hold-to-record, live preview, 100+ languages, 3 engines, file transcription, offline processing",
+        description: "Dictation in any app, live preview in 97 languages, every speech engine, personal dictionary, history and file transcription.",
       },
       {
         "@type": "Offer",
-        name: "Pro Pack",
+        name: "Whisperer Pro",
         price: "14.99",
         priceCurrency: "USD",
-        description:
-          "Lifetime unlock — Code Mode, per-app profiles, personal dictionary, AI post-processing (10 modes)",
+        description: "One-time in-app purchase: meeting notes with named speakers, meeting detection, Google Calendar and Outlook sync, AI notes and Ask AI, your own Claude, ChatGPT or Gemini plan, and the MCP server.",
       },
     ],
     url: "https://whispererapp.com",
-    downloadUrl:
-      "https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671",
-    screenshot: "https://whispererapp.com/assets/hero-demo.png",
+    downloadUrl: "https://apps.apple.com/app/whisperer-voice-to-text/id6758626671",
+    screenshot: "https://whispererapp.com/assets/og/og-home.png",
     featureList: [
-      "100% offline on-device transcription",
-      "Code Mode for camelCase, snake_case, symbols",
-      "Per-app profiles (Slack, Gmail, VS Code)",
-      "Three transcription engines: Whisper, NVIDIA, Apple Speech",
-      "AI post-processing with 10 built-in modes",
-      "100+ language support",
-      "Live preview with ~300ms latency",
-      "Personal dictionary with fuzzy and phonetic matching",
-      "File transcription (audio and video)",
-      "Transcription history with search and audio playback",
-      "Usage statistics (WPM, peak hours, app usage)",
-      "Filler word removal",
-      "Hold-to-talk and toggle recording modes",
-      "VS Code, Cursor, Terminal support",
-      "Metal GPU and Neural Engine acceleration",
+      "AI meeting notes for Zoom, Microsoft Teams, Google Meet, Slack huddles and Webex",
+      "Automatic meeting detection and calendar-based auto-record",
+      "Speaker diarization with names from the calendar invite",
+      "Summaries, decisions, action items and open questions",
+      "Ask AI about any meeting, with timestamped sources",
+      "Bring your own AI: Claude, ChatGPT, Gemini plans or OpenAI, Anthropic and Gemini API keys",
+      "Built-in offline AI model (Qwen3.5 4B)",
+      "Google Calendar and Outlook sync with Join & Record reminders",
+      "Local MCP server for Claude, ChatGPT, Cursor, Codex, VS Code and Windsurf",
+      "Hold-to-talk dictation with live preview in 97 languages",
+      "Offline speech engines: Whisper, Parakeet, Qwen3 ASR and WhisperKit",
+      "Personal dictionary that learns from your corrections",
+      "Audio and video file transcription",
+      "No account, no tracking, data stays on the Mac",
     ],
   };
 }
@@ -145,34 +142,57 @@ export function breadcrumbSchema(
 
 export function comparisonPageSchema(competitor: {
   name: string;
-  price: string;
   slug: string;
+  /** Plain number as a string ("14", "8.33"), or omitted when there is no single public price. */
+  price?: string;
+  /** What the number means, e.g. "per user per month, billed monthly". */
+  priceNote?: string;
+  /** Short category for the page name, e.g. "Meeting Notes" or "Dictation". */
+  category?: string;
 }) {
+  const category = competitor.category ?? "Mac Dictation";
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: `Whisperer vs ${competitor.name} — Mac Dictation Comparison 2026`,
-    description: `Feature-by-feature comparison of Whisperer ($14.99 lifetime) vs ${competitor.name} (${competitor.price}) for offline dictation on Mac.`,
+    name: `Whisperer vs ${competitor.name}: ${category} Comparison`,
+    description: `Whisperer ($2.99 for dictation, plus a $14.99 one-time Pro purchase for meetings, your own AI and MCP) compared with ${competitor.name} on a Mac.`,
     url: `https://whispererapp.com/compare/${competitor.slug}`,
     about: [
       {
         "@type": "SoftwareApplication",
         name: "Whisperer",
-        operatingSystem: "macOS",
-        offers: {
-          "@type": "Offer",
-          price: "14.99",
-          priceCurrency: "USD",
-        },
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "macOS 26 or later, Apple Silicon",
+        offers: [
+          {
+            "@type": "Offer",
+            name: "Whisperer (dictation)",
+            price: "2.99",
+            priceCurrency: "USD",
+            description: "One-time purchase on the Mac App Store",
+          },
+          {
+            "@type": "Offer",
+            name: "Whisperer Pro (in-app purchase)",
+            price: "14.99",
+            priceCurrency: "USD",
+            description: "One-time in-app purchase: meetings, calendar, speakers, AI notes, bring your own AI, MCP",
+          },
+        ],
       },
       {
         "@type": "SoftwareApplication",
         name: competitor.name,
-        offers: {
-          "@type": "Offer",
-          price: competitor.price,
-          priceCurrency: "USD",
-        },
+        ...(competitor.price !== undefined
+          ? {
+              offers: {
+                "@type": "Offer",
+                price: competitor.price,
+                priceCurrency: "USD",
+                ...(competitor.priceNote ? { description: competitor.priceNote } : {}),
+              },
+            }
+          : {}),
       },
     ],
   };

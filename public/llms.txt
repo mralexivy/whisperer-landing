@@ -1,37 +1,28 @@
-# Whisperer - Offline Dictation for Mac
+# Whisperer
 
-> Whisperer is a $14.99 one-time purchase offline dictation app for Mac with Code Mode for developers. Hold Fn, speak, release - text appears anywhere. No subscription, no cloud.
+> Whisperer is a Mac app for AI meeting notes and dictation that runs on the Mac. It detects calls in Zoom, Microsoft Teams, Google Meet, Slack huddles and Webex, records both sides without a bot, names every speaker, and writes the summary, decisions and action items with the user's own AI (a Claude, ChatGPT or Gemini plan, an API key) or a free built-in model that works offline. It includes Google Calendar and Outlook sync, Ask AI with timestamped sources, a local MCP server for AI apps, and hold-to-talk dictation in 97 languages. The app costs $2.99 and Pro costs $14.99, both one-time purchases on the Mac App Store. No subscription and no account.
 
-## Core Facts
-- Price: $2.99 base app, $14.99 Pro Pack (lifetime, one-time)
-- Platform: macOS only (Apple Silicon recommended, Intel supported)
-- Privacy: 100% offline, on-device processing, no data leaves Mac
-- Engines: 3 transcription engines (Whisper GPU, NVIDIA Neural Engine, Apple Speech)
-- Languages: 100+ with Whisper, 25 with NVIDIA
+## Key facts
+- Platform: macOS 26 Tahoe or later, Apple Silicon (M1 or later). Mac App Store: https://apps.apple.com/app/whisperer-voice-to-text/id6758626671
+- Price: $2.99 app (dictation). Pro is a $14.99 one-time in-app purchase that adds meetings, meeting detection, calendar sync, AI notes, Ask AI, bring-your-own-AI and the MCP server. No minute limits.
+- Privacy: audio, transcription and speaker detection stay on the Mac. No account, no analytics, no tracking; App Store label "Data Not Collected". A cloud AI only receives the text transcript, only if the user picks one.
+- Meeting notes: detection by which app opened the microphone; prompt or automatic recording for calendar meetings; live transcript; on-device speaker diarization with names from the calendar invite; overview, key topics, decisions, action items, open questions, next meeting; Ask AI with sources; search across meetings; audio retention setting; no bot joins the call.
+- Bring your own AI: built-in Qwen3.5 4B model (offline, free, default and fallback); Claude (Pro/Max), ChatGPT (Plus/Pro), Codex (ChatGPT plan) and Gemini (Google AI Pro/Ultra) plan sign-in with no extra bill; OpenAI, Anthropic and Gemini API keys stored in the macOS Keychain.
+- MCP server: local Model Context Protocol server, off by default, loopback only, optional bearer token, optional LAN access, Streamable HTTP at /mcp. One-click setup for Claude Desktop, Claude Code, Codex, Cursor, VS Code, Windsurf and Antigravity; ChatGPT via a developer-mode connector with a tunnel URL. Tools: list_meetings, get_meeting, get_meeting_transcript, search_meetings, list_meeting_notes, add_meeting_note, update_meeting_note, delete_meeting_note, search_transcriptions, get_transcription.
+- Dictation: hold Fn, speak, release; live preview in the spoken language; text is copied for pasting with Cmd+V. Offline engines: Whisper (whisper.cpp on Metal, default Large V3 Turbo, 97 languages), Parakeet (25 languages), Qwen3 ASR (31 languages), WhisperKit; Apple Speech powers the live preview. Personal dictionary that learns corrections, file transcription, history, statistics.
 
-## Unique Features
-- Code Mode: Dictate camelCase, snake_case, PascalCase, 20+ symbol commands
-- Per-App Profiles: Automatic mode switching based on active app
-- Personal Dictionary: Custom vocabulary with fuzzy and phonetic matching
-- AI Post-Processing: 10 offline modes (rewrite, translate, summarize, etc.)
-
-## Developer Focus
-- Works in VS Code, Cursor, JetBrains, Terminal
-- Code Mode handles parentheses, brackets, braces, arrows, semicolons
-- Casing commands: "user ID camel case" -> userID
-- Symbol commands: "open paren" -> (
-
-## Pricing Comparison
-- Whisperer Pro: $14.99 lifetime
-- Superwhisper: $249 lifetime or $8/month
-- Wispr Flow: $10-15/month subscription
-- Voibe: $99 lifetime
-
-## Links
-- Website: https://whispererapp.com
-- Mac App Store: https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671
-- Blog: https://whispererapp.com/blog
-- Pricing: https://whispererapp.com/pricing
+## Pages
+- [Home](https://whispererapp.com/): overview of meetings, your own AI, MCP and dictation
+- [Meeting notes](https://whispererapp.com/meetings): how detection, recording, speakers and AI notes work
+- [Your own AI](https://whispererapp.com/ai): Claude, ChatGPT, Gemini, API keys and the offline model
+- [MCP server](https://whispererapp.com/mcp): tools, supported clients, setup and security
+- [Calendar](https://whispererapp.com/calendar): Google Calendar and Outlook sync
+- [Teams and enterprise](https://whispererapp.com/enterprise): company rollout via Apple Business Manager and MDM, on-device data, company AI accounts, seat cost calculator
+- [Pricing](https://whispererapp.com/pricing): $2.99 app, $14.99 Pro, plan comparison
+- [Dictation features](https://whispererapp.com/features)
+- [Comparisons](https://whispererapp.com/compare): Whisperer vs Granola, Otter, Fireflies, Wispr Flow, Superwhisper, MacWhisper and others
+- [Blog](https://whispererapp.com/blog)
+- [Privacy policy](https://whispererapp.com/privacy)
 
 ## Contact
-- Email: support@whisperer.app
+support@whispererapp.com

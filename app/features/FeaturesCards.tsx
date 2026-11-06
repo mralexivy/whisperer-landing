@@ -1,128 +1,109 @@
-"use client";
-
 import Link from "next/link";
-import { Sparkles, Cpu, Eye, BookOpen, Clock, FileAudio, Globe, ArrowRight } from "lucide-react";
-import { FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
 import {
-  AIProcessingGraphic,
-  EnginesGraphic,
-  LivePreviewGraphic,
-  DictionaryGraphic,
-  HistoryGraphic,
-  FileTranscriptionGraphic,
-  LanguagesGraphic,
-} from "@/components/landing/FeaturesGrid";
-import { ComponentType } from "react";
+  ArrowRight, Eye, Globe, Cpu, BookOpen, FileAudio, Clock, Wand2, NotebookPen, CalendarDays, Sparkles, Workflow,
+  type LucideIcon,
+} from "lucide-react";
+import { BrandIcon, type Brand } from "@/components/product/primitives";
+import { PRICE_PRO, FACTS } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
-const features: {
-  icon: ComponentType<{ className?: string }>;
-  title: string;
-  description: string;
-  href: string;
-  graphic: ComponentType;
-}[] = [
+type Pillar = { icon: LucideIcon; color: string; title: string; body: string; href: string; cta: string; brands: Brand[] };
+
+const PILLARS: Pillar[] = [
+  {
+    icon: NotebookPen,
+    color: "text-cyan-300",
+    title: "Meeting notes",
+    body: "Spots a Zoom, Teams or Meet call, records both sides, names the speakers and writes the summary, decisions and action items.",
+    href: "/meetings",
+    cta: "See meeting notes",
+    brands: ["zoom", "teams", "google-meet", "slack"],
+  },
+  {
+    icon: CalendarDays,
+    color: "text-rose-300",
+    title: "Calendar",
+    body: "Connect Google Calendar or Outlook. Before each meeting you get Join & Record, and the notes are named after the invite.",
+    href: "/calendar",
+    cta: "See calendar sync",
+    brands: ["google-calendar", "outlook"],
+  },
   {
     icon: Sparkles,
-    title: "AI Writing & Post-Processing",
-    description:
-      "Rewrite, translate, format, summarize, and fix grammar — all with an on-device LLM. 10 built-in modes plus custom prompts.",
-     href: "/features/ai-writing",
-    graphic: AIProcessingGraphic,
+    color: "text-pink-300",
+    title: "Your own AI",
+    body: `Notes written by your Claude, ChatGPT or Gemini plan, or by ${FACTS.localModel} running on your Mac with Wi-Fi off.`,
+    href: "/ai",
+    cta: "See the AI options",
+    brands: ["claude", "openai", "gemini"],
   },
   {
-    icon: Cpu,
-    title: "Offline Transcription Engines",
-    description:
-      "Three backends — Whisper (Metal GPU), NVIDIA (Neural Engine), and Apple Speech. 10+ model sizes from 75MB to 2.9GB.",
-     href: "/features/offline-transcription",
-    graphic: EnginesGraphic,
-  },
-  {
-    icon: Eye,
-    title: "Live Preview",
-    description:
-      "See your words appear in real-time as you speak. Dual-engine streaming with ~300ms latency and typewriter animation.",
-     href: "/features/live-preview",
-    graphic: LivePreviewGraphic,
-  },
-  {
-    icon: BookOpen,
-    title: "Personal Dictionary & Spell Correction",
-    description:
-      "Three-tier correction engine with fuzzy matching, phonetic matching, and prompt word vocabulary boosting.",
-     href: "/features/personal-dictionary",
-    graphic: DictionaryGraphic,
-  },
-  {
-    icon: Clock,
-    title: "Transcription History & Statistics",
-    description:
-      "Full workspace with search, pin, flag, audio playback, re-transcribe, and usage statistics with charts.",
-     href: "/features/transcription-history",
-    graphic: HistoryGraphic,
-  },
-  {
-    icon: FileAudio,
-    title: "File Transcription",
-    description:
-      "Transcribe audio and video files offline. Drag-and-drop interface using the same high-quality transcription engine.",
-     href: "/features/file-transcription",
-    graphic: FileTranscriptionGraphic,
-  },
-  {
-    icon: Globe,
-    title: "100+ Languages",
-    description:
-      "Dictate in over 100 languages with per-app language profiles. AI-powered translation between languages, all offline.",
-     href: "/features/multilingual",
-    graphic: LanguagesGraphic,
+    icon: Workflow,
+    color: "text-teal-300",
+    title: "MCP server",
+    body: "Claude, Cursor, Codex and VS Code can search your meetings and dictations, read the notes and add their own.",
+    href: "/mcp",
+    cta: "See the MCP tools",
+    brands: ["claude-code", "cursor", "codex", "visual-studio-code"],
   },
 ];
 
-export function FeaturesCards() {
-  return (
-    <FadeInStagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-      {features.map((feature, i) => {
-        const Graphic = feature.graphic;
-        return (
-          <StaggerItem key={i}>
-            <Link href={feature.href} className="block group h-full">
-              <GlowCard className="bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-500 h-full flex flex-col">
-                {/* Graphic area */}
-                <div className="relative h-[280px] bg-gradient-to-b from-white/[0.02] to-transparent border-b border-white/[0.05] overflow-hidden">
-                  <div
-                    className="absolute inset-0 opacity-[0.03]"
-                    style={{
-                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23fff'/%3E%3C/svg%3E")`,
-                      backgroundRepeat: "repeat",
-                      backgroundSize: "20px 20px",
-                    }}
-                  />
-                  <Graphic />
-                </div>
+type Feature = { icon: LucideIcon; title: string; body: string; href: string };
 
-                {/* Content area */}
-                <div className="p-6 flex-1 flex flex-col">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <feature.icon className="w-4 h-4 text-primary" />
-                    </div>
-                    <h2 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {feature.title}
-                    </h2>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed flex-1">
-                    {feature.description}
-                  </p>
-                  <div className="flex items-center gap-2 mt-4 text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                    Learn more <ArrowRight className="w-4 h-4" />
-                  </div>
-                </div>
-              </GlowCard>
+const DICTATION: Feature[] = [
+  { icon: Eye, title: "Live preview", body: "Words appear as you speak, in the language you are speaking.", href: "/features/live-preview" },
+  { icon: Globe, title: `${FACTS.languages} languages`, body: "Detected as you talk, so there is nothing to switch.", href: "/features/multilingual" },
+  { icon: Cpu, title: "Offline speech engines", body: "Whisper, Parakeet, Qwen3 ASR, WhisperKit and Apple Speech, all on your Mac.", href: "/features/offline-transcription" },
+  { icon: Wand2, title: "Fast Polish and AI cleanup", body: "Fillers out, punctuation in. Meeting notes go through the AI you pick.", href: "/features/ai-writing" },
+  { icon: BookOpen, title: "Personal dictionary", body: "Fix a name once and Whisperer learns it from your correction.", href: "/features/personal-dictionary" },
+  { icon: FileAudio, title: "File transcription", body: "Drop in an interview, a lecture or a voice memo and get the text.", href: "/features/file-transcription" },
+  { icon: Clock, title: "History and statistics", body: "Every dictation saved with audio, search and your words per minute.", href: "/features/transcription-history" },
+];
+
+export function PillarCards() {
+  return (
+    <div>
+      <ul className="border-t border-white/[0.08]">
+        {PILLARS.map((p) => (
+          <li key={p.href} className="border-b border-white/[0.08]">
+            <Link href={p.href} className="group grid items-center gap-4 py-7 md:grid-cols-[220px_minmax(0,1fr)_auto] md:gap-10">
+              <span className="flex items-center gap-3 text-[22px] font-semibold tracking-tight text-white">
+                <p.icon className={cn("h-5 w-5", p.color)} />
+                {p.title}
+              </span>
+              <span className="max-w-[560px] text-[15.5px] leading-[1.6] text-white/60">{p.body}</span>
+              <span className="flex items-center gap-5">
+                <span className="flex items-center gap-2.5">
+                  {p.brands.map((b) => <BrandIcon key={b} brand={b} size={22} />)}
+                </span>
+                <span className="inline-flex items-center gap-1.5 whitespace-nowrap text-[14px] font-medium text-[#9BA6FF] group-hover:text-white">
+                  {p.cta} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </span>
             </Link>
-          </StaggerItem>
-        );
-      })}
-    </FadeInStagger>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-5 text-[13px] text-white/40">Meetings, calendar, your own AI and MCP come with Pro, a {PRICE_PRO} one-time in-app purchase.</p>
+    </div>
+  );
+}
+
+export function DictationCards() {
+  return (
+    <ul className="grid border-t border-white/[0.08] md:grid-cols-2 md:gap-x-12">
+      {DICTATION.map((f) => (
+        <li key={f.href} className="border-b border-white/[0.08]">
+          <Link href={f.href} className="group flex items-start gap-4 py-5">
+            <f.icon className="mt-1 h-[18px] w-[18px] shrink-0 text-[#9BA6FF]" />
+            <span className="flex-1">
+              <span className="block text-[16.5px] font-semibold text-white">{f.title}</span>
+              <span className="mt-1 block text-[14.5px] leading-[1.55] text-white/55">{f.body}</span>
+            </span>
+            <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-white/35 transition-transform group-hover:translate-x-0.5 group-hover:text-white" />
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 }

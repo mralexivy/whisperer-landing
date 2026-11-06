@@ -1,0 +1,140 @@
+---
+title: "AI Meeting Notes on Mac Without a Bot: How It Works End to End"
+description: "How Whisperer takes AI meeting notes on a Mac with no bot in the call: call detection, recording both sides, speakers, notes, Ask AI and search."
+date: "2026-11-06"
+keywords: ["ai meeting notes mac", "meeting notes without bot", "record zoom call mac", "meeting transcription mac", "ai notetaker mac", "local meeting notes"]
+category: "meetings"
+howToSteps:
+  - name: "Join a call as usual"
+    text: "Start a Zoom, Teams, Google Meet, Slack huddle, Webex, FaceTime or browser call. Whisperer notices when the call app opens the microphone."
+  - name: "Take notes"
+    text: "Click Take notes on the 'Zoom call started' prompt, or let Whisperer record automatically for meetings on your calendar."
+  - name: "Talk while it transcribes"
+    text: "Whisperer records the call audio and your microphone and shows a live transcript. Pause or stop from the Island bar at the edge of the screen."
+  - name: "Name the speakers"
+    text: "After the call, speakers are numbered by when they first spoke. Name them from the calendar invite in one click."
+  - name: "Read the notes and ask questions"
+    text: "Open the meeting for the title, overview, decisions, action items and open questions. Use Ask AI for anything else, with timestamped sources."
+faqs:
+  - question: "Does Whisperer join my Zoom or Teams call?"
+    answer: "No. Nothing joins the call. Whisperer records on your Mac, from the call audio and your microphone, so no bot appears in the participant list."
+  - question: "Does it work with headphones?"
+    answer: "Yes. Whisperer records the call audio directly as well as your microphone, so both sides are captured with speakers or headphones."
+  - question: "Which AI writes the notes?"
+    answer: "By default the built-in Qwen3.5 4B model, which runs on your Mac with no internet. You can switch to Claude, ChatGPT, Codex or Gemini through a plan you already pay for, or an API key."
+  - question: "What does it cost?"
+    answer: "The app is $2.99. Meetings, calendar, speakers, AI notes, Ask AI and MCP come with Pro, a $14.99 one-time in-app purchase. No subscription and no minute limits."
+  - question: "What Mac do I need?"
+    answer: "An Apple Silicon Mac running macOS 26 Tahoe or later."
+---
+
+Whisperer takes AI meeting notes on a Mac without putting a bot in your call. It notices when Zoom, Teams, Meet or another call app starts using the microphone, asks if you want notes (or records automatically for calendar meetings), records both sides of the call on your Mac, and writes a transcript with speakers, an overview, decisions and action items when you hang up. Transcription and diarization run on the Mac, and the default AI for the notes does too.
+
+Here is the whole flow, from the moment a call starts to searching it a month later.
+
+## 1. The call starts and Whisperer notices
+
+Whisperer doesn't guess from which apps are open. Having Zoom open in the background doesn't mean you're in a meeting. Instead it watches which app has opened the microphone. When Zoom, Microsoft Teams, Google Meet, a Slack huddle, Webex, FaceTime or a call in your browser starts using the mic, that's a call.
+
+You see a small card: **Zoom call started. Take notes?** Click it and recording begins. Ignore it and nothing happens.
+
+Camera use can be added as an extra signal for detection. It's off by default, and Whisperer only needs Microphone permission to work.
+
+### Meetings on your calendar
+
+If you connect [Google Calendar or Microsoft Outlook](/calendar) (read-only), Whisperer knows what's coming. A minute before a meeting, a reminder card offers **Join & Record**, **Record** or **Dismiss**. The recording is named after the invite, and the participants are saved with it. That pays off later when you name speakers.
+
+## 2. Recording both sides of the call
+
+A common problem with Mac recorders is that they only hear your microphone. Put on headphones and the other people disappear.
+
+Whisperer records two sources: the call audio and your microphone. That captures everyone, whether you use speakers, AirPods or a headset.
+
+While it records:
+
+- **A live transcript** fills in as people talk, so you can glance back at something said two minutes ago.
+- **The Island** sits as a fixed bar at the edge of the screen, with pause, stop and open. It stays out of the way of the call window.
+- **Dictation still works.** Hold Fn to dictate a quick reply in Slack mid-call. The meeting pauses while you dictate and resumes when you let go, so your dictation doesn't end up in the transcript.
+
+<Callout type="info">
+Before your first recording, Whisperer shows a one-time reminder about consent. Recording laws differ by place, and in some places everyone on the call has to agree. That part is your responsibility. See [why a bot-free recorder](/blog/meeting-notes-without-bot) for a plain way to tell people.
+</Callout>
+
+## 3. Who said what
+
+When the call ends, Whisperer works out the speakers on your Mac using the Nemotron diarization model. Speakers are numbered in the order they first spoke: Speaker 1, Speaker 2, and so on.
+
+If the meeting came from your calendar, the invite's participants are right there. Name each speaker in one click and the names carry through the transcript, the notes and the action items. More on how this works in [on-device speaker identification](/blog/speaker-diarization-mac).
+
+## 4. The notes
+
+After the call you get:
+
+| Section | What it contains |
+|---|---|
+| Title | From the calendar invite, or written from the content |
+| Overview | A short summary of the meeting |
+| Key topics | What the discussion covered |
+| Decisions | What was agreed |
+| Action items | Tasks with owners |
+| Open questions | Things left unresolved |
+| Next meeting | If one was mentioned |
+
+Transcript polish takes out "um", "uh" and false starts, so the transcript reads cleanly without changing what people said.
+
+### Which AI writes them
+
+By default, the notes come from Qwen3.5 4B, a model that runs on your Mac. It's about a 3.2 GB download, works offline and costs nothing extra.
+
+If you'd rather use a bigger model, the [LLM page](/ai) lists the AI subscriptions you may already have: Claude (Pro or Max), ChatGPT (Plus or Pro), Codex, and Gemini (Google AI Pro or Ultra). Usage counts against that plan. You can also use OpenAI, Anthropic or Gemini API keys, stored in the macOS Keychain. Only the transcript text goes to the AI you pick. The audio stays on the Mac, and you can keep any single meeting local. If the cloud AI isn't available, the Mac model takes over. See [bring your own AI](/blog/bring-your-own-ai-meeting-notes) and [local LLM meeting summaries](/blog/local-llm-meeting-summaries) for the trade-offs.
+
+## 5. Ask AI about the meeting
+
+Notes cover the usual questions. For anything else, use Ask AI on the meeting: "What did Dan say about the beta date?" or "Did anyone object to moving the launch?"
+
+Answers come with timestamped sources, so you can find the moment in the transcript and check the answer against what was said.
+
+## 6. Finding it later
+
+A month on, you won't remember which call it was. Full-transcript search looks across every meeting, not just titles. Search "pricing page" and you get every place it came up, with the meeting and the timestamp.
+
+You can also reach your meetings from other AI apps. Whisperer has a built-in [MCP server](/mcp) that lets Claude, ChatGPT, Cursor, Codex and others read your meetings when you ask. See [Claude](/blog/claude-mcp-meeting-notes) or [Cursor, Codex and VS Code](/blog/cursor-mcp-meetings).
+
+## 7. Storage and retention
+
+Audio is kept as Opus, which is small enough to keep months of calls. A retention setting deletes old audio after 7, 30, 90 or 365 days, or never. Everything lives under `~/Library/Application Support/Whisperer/` on your Mac. There's no account, no analytics and no tracking.
+
+## What it doesn't do
+
+Some honest limits:
+
+- **Mac only.** There's no Windows, iPhone or web version.
+- **No shared team workspace.** Notes live on your Mac. You share them by copying them out, not with a team link.
+- **No bot means no notice.** Other people don't see a recorder join, so tell them yourself.
+- **Apple Silicon and macOS 26 Tahoe** are required.
+
+If team sharing matters more than privacy and price, a cloud tool may suit you better. Our [comparison of Granola, Otter and Fireflies](/blog/granola-otter-fireflies-alternatives) covers where they're stronger.
+
+## FAQ
+
+### Does Whisperer join my Zoom or Teams call?
+
+No. Nothing joins the call. Whisperer records on your Mac, from the call audio and your microphone, so no bot appears in the participant list.
+
+### Does it work with headphones?
+
+Yes. Whisperer records the call audio directly as well as your microphone, so both sides are captured with speakers or headphones.
+
+### Which AI writes the notes?
+
+By default the built-in Qwen3.5 4B model, which runs on your Mac with no internet. You can switch to Claude, ChatGPT, Codex or Gemini through a plan you already pay for, or an API key.
+
+### What does it cost?
+
+The app is $2.99. Meetings, calendar, speakers, AI notes, Ask AI and MCP come with Pro, a $14.99 one-time in-app purchase. No subscription and no minute limits.
+
+### What Mac do I need?
+
+An Apple Silicon Mac running macOS 26 Tahoe or later.
+
+[See how meetings work](/meetings), or [check pricing](/pricing).

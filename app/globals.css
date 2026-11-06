@@ -249,3 +249,30 @@ html {
 .prose :where(tbody tr):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   border: none;
 }
+
+/* Reduced motion: every loop rests, nothing stays hidden. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Section rhythm: each marketing section fills about one screen. */
+.screen {
+  min-height: min(100svh, 980px);
+}
+
+/* Range input, themed from the palette */
+.seat-range { -webkit-appearance: none; appearance: none; height: 6px; border-radius: 999px; background: rgba(255,255,255,0.1); outline: none; }
+.seat-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 999px; background: #fff; box-shadow: 0 0 0 6px rgba(91,108,247,0.35), 0 6px 16px -4px rgba(0,0,0,0.6); cursor: grab; transition: box-shadow .2s; }
+.seat-range::-webkit-slider-thumb:active { cursor: grabbing; box-shadow: 0 0 0 9px rgba(91,108,247,0.4), 0 6px 16px -4px rgba(0,0,0,0.6); }
+.seat-range::-moz-range-thumb { width: 24px; height: 24px; border: 0; border-radius: 999px; background: #fff; box-shadow: 0 0 0 6px rgba(91,108,247,0.35); }
+.seat-range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px #0B0B19, 0 0 0 7px #8B9BFF; }
+
+/* Browser surfaces carry the palette */
+:focus-visible { outline: 2px solid #8B9BFF; outline-offset: 3px; border-radius: 6px; }
+::selection { background: rgba(91,108,247,0.4); color: #fff; }
+html { caret-color: #8B9BFF; }

@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm";
 import { getAllComparisons, getComparisonBySlug } from "@/lib/blog";
 import { mdxComponents } from "@/components/mdx/MDXComponents";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { breadcrumbSchema, comparisonPageSchema, JsonLd } from "@/lib/structured-data";
+import { breadcrumbSchema, comparisonPageSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
@@ -65,16 +65,20 @@ export default async function ComparisonPost({
     (c) => c.meta.slug !== post.meta.slug
   );
 
-  const competitorPrices: Record<string, { name: string; price: string }> = {
-    "vs-superwhisper": { name: "Superwhisper", price: "249" },
-    "vs-voibe": { name: "Voibe", price: "99" },
-    "vs-wispr-flow": { name: "Wispr Flow", price: "10" },
-    "vs-apple-dictation": { name: "Apple Dictation", price: "0" },
-    "vs-macwhisper": { name: "MacWhisper", price: "64" },
-    "vs-voice-ink": { name: "VoiceInk", price: "25" },
-    "vs-willow": { name: "Willow", price: "0" },
-    "vs-spokenly": { name: "Spokenly", price: "0" },
-    "vs-jestype": { name: "JesType", price: "14.95" },
+  // Public pricing, November 2026, one seat. `price` is a plain number; omit it when there is no single figure.
+  const competitorPrices: Record<string, { name: string; price?: string; priceNote?: string; category: string }> = {
+    "vs-granola": { name: "Granola", price: "14", priceNote: "Business, per user per month; free Basic plan available", category: "Meeting Notes" },
+    "vs-otter": { name: "Otter", price: "16.99", priceNote: "Pro, per month billed monthly ($8.33/month billed yearly)", category: "Meeting Notes" },
+    "vs-fireflies": { name: "Fireflies", price: "18", priceNote: "Pro, per month billed monthly ($10/month billed yearly)", category: "Meeting Notes" },
+    "vs-wispr-flow": { name: "Wispr Flow", price: "15", priceNote: "Pro, per user per month billed monthly ($12 billed yearly)", category: "Dictation" },
+    "vs-superwhisper": { name: "Superwhisper", price: "8.49", priceNote: "Pro, per month ($84.99 per year or $249.99 lifetime)", category: "Dictation" },
+    "vs-macwhisper": { name: "MacWhisper", priceNote: "Pro is a one-time €64 license", category: "Transcription" },
+    "vs-voice-ink": { name: "VoiceInk", price: "25", priceNote: "Solo license, one-time, one Mac", category: "Dictation" },
+    "vs-apple-dictation": { name: "Apple Dictation", price: "0", priceNote: "Built into macOS", category: "Dictation" },
+    "vs-willow": { name: "Willow", price: "15", priceNote: "Pro, per user per month billed monthly ($12 billed yearly)", category: "Dictation" },
+    "vs-spokenly": { name: "Spokenly", price: "12", priceNote: "Pro, per month billed yearly ($144 per year); free and $29 Local+ tiers", category: "Dictation" },
+    "vs-voibe": { name: "Voibe", price: "9.90", priceNote: "Dictation plan, per month ($99 per year or $199 lifetime)", category: "Dictation" },
+    "vs-jestype": { name: "JesType", priceNote: "Personal license is a one-time €14.95", category: "Dictation" },
   };
   const competitor = competitorPrices[post.meta.slug];
 
@@ -92,9 +96,12 @@ export default async function ComparisonPost({
         <JsonLd data={comparisonPageSchema({
           name: competitor.name,
           price: competitor.price,
+          priceNote: competitor.priceNote,
+          category: competitor.category,
           slug: post.meta.slug,
         })} />
       )}
+      {post.meta.faqs && post.meta.faqs.length > 0 && <JsonLd data={faqSchema(post.meta.faqs)} />}
 
       <main className="pt-32 pb-24 relative">
         {/* Background atmosphere */}

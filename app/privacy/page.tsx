@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import { Header } from "@/components/landing/Header";
-import { Footer } from "@/components/landing/Footer";
+import { SiteHeader, SiteFooter } from "@/components/site/Shell";
 import {
   Shield,
   Mic,
@@ -27,7 +26,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Header />
+      <SiteHeader />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 relative">
@@ -516,7 +515,7 @@ export default function PrivacyPage() {
         </div>
       </main>
 
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }

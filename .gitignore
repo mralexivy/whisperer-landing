@@ -35,3 +35,5 @@ remotion/out
 .env.local
 .claude/*
 .agents/*
+# local App Store screenshot exports
+scratch-appstore/

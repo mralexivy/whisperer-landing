@@ -1,0 +1,135 @@
+---
+title: "Offline Meeting Summaries With a Local Model on Your Mac"
+description: "Summarize meetings with no internet using Qwen3.5 4B on Apple Silicon. What a local model does well, where cloud models still win, and how to choose."
+date: "2026-11-06"
+keywords: ["offline meeting summary", "local llm meeting notes", "qwen3.5 4b mac", "private meeting notes mac", "on-device ai meeting summary", "apple silicon llm"]
+category: "ai"
+howToSteps:
+  - name: "Download the model"
+    text: "Open Workspace, choose LLM, and select On this Mac. Whisperer downloads Qwen3.5 4B, about 3.2 GB, once."
+  - name: "Record a meeting"
+    text: "Take notes on a call. Recording, transcription and speaker labels already run on your Mac."
+  - name: "Read the summary"
+    text: "When the call ends, the local model writes the overview, decisions, action items and open questions with no network connection."
+faqs:
+  - question: "Does the local model need an internet connection?"
+    answer: "Only once, to download it. After that, summaries, Ask AI and transcript polish run with no connection."
+  - question: "How big is the local model?"
+    answer: "Qwen3.5 4B is about a 3.2 GB download and runs on Apple Silicon Macs."
+  - question: "Is a local model as good as ChatGPT or Claude?"
+    answer: "Not on every meeting. For clear, structured calls it does well. For long, messy meetings with a lot of nuance, large cloud models usually write better notes. You can switch per meeting."
+  - question: "Does the local model cost anything?"
+    answer: "No. It's included and free to use. It's also the fallback when a cloud AI you picked isn't available."
+---
+
+You can get meeting summaries with no internet connection by running a small language model on your Mac. In Whisperer, the built-in model is **Qwen3.5 4B**, about a 3.2 GB download, running on Apple Silicon. It writes the overview, decisions, action items and open questions after every call, and nothing leaves the Mac. It's the default choice, it's free, and it's the fallback whenever a cloud AI isn't available.
+
+## Why summarize meetings locally
+
+A meeting transcript is often the most sensitive text you produce all week. It has names, numbers, plans that aren't public yet and things people said because they thought only the room was listening.
+
+With a local model, the whole chain stays on your Mac:
+
+- the call audio and your microphone are recorded locally
+- transcription and speaker labels run locally
+- the summary is written locally
+
+There's no account, no upload and no server log to worry about. For a board update, a performance review or a call with a lawyer, that's often the only setup people are comfortable with.
+
+## How it works in Whisperer
+
+<StepList>
+<Step num="1" title="Pick On this Mac">
+Open the Workspace window, choose **LLM**, and select **On this Mac**. It's already selected on a fresh install.
+</Step>
+<Step num="2" title="Let the model download">
+Qwen3.5 4B is about 3.2 GB. It downloads once and then works offline.
+</Step>
+<Step num="3" title="Take notes on a call">
+Whisperer detects the call in Zoom, Teams, Meet, Slack, Webex, FaceTime or a browser and asks if you want notes. Or it starts on its own for meetings on your [calendar](/calendar).
+</Step>
+<Step num="4" title="Read the notes">
+After the call you get a title, an AI overview, key topics, decisions, action items with owners, open questions and the next meeting. You can also ask questions about the meeting and get answers with timestamped sources.
+</Step>
+</StepList>
+
+The same model handles Ask AI and transcript polish (taking out "um", "you know" and false starts), so a fully offline setup still gets all three.
+
+## What a 4B model does well
+
+A 4-billion-parameter model is small next to the models behind ChatGPT or Claude. It's still good at the parts of meeting notes that are mostly about structure:
+
+- pulling out who agreed to do what
+- listing decisions that were said out loud
+- writing a short overview of a 30-minute call
+- tidying a transcript so it reads cleanly
+
+For a weekly sync, a standup, a customer call with a clear agenda or a one-on-one, the local notes are often all you need.
+
+## Where cloud models still win
+
+It would be dishonest to say a laptop model matches a frontier cloud model. It doesn't, and here's where you'll notice:
+
+### Long meetings
+
+A two-hour planning session produces a long transcript. Larger cloud models hold more of it in view at once and tend to connect a point from minute 10 with a decision at minute 95.
+
+### Nuance and tone
+
+When a decision was half-made, or someone disagreed politely, bigger models are better at writing "Dan had concerns about the date; not settled" instead of turning it into a clean decision.
+
+### Speed
+
+How fast the local model writes depends on your Mac: the chip and how much memory it has. On a Mac with plenty of memory it's comfortable. On a base model with other heavy apps open, it's slower. A cloud model's speed depends on the provider instead.
+
+## Picking between local and cloud
+
+You don't have to choose once. Whisperer lets you set a default and keep any single meeting local.
+
+| Situation | Good fit |
+|---|---|
+| Confidential call (HR, legal, finance) | On this Mac |
+| No internet (plane, train, poor hotel Wi-Fi) | On this Mac |
+| Short sync or standup | On this Mac |
+| Long workshop or planning session | A cloud AI you already pay for |
+| You want the most detailed notes possible | A cloud AI you already pay for |
+
+If you do use a cloud AI, it's your own plan: Claude, ChatGPT, Codex or Gemini, or an API key. Only the text transcript goes to it. Audio never leaves the Mac. See [bring your own AI for meeting notes](/blog/bring-your-own-ai-meeting-notes) for that setup.
+
+<Callout type="tip">
+A practical default: use your cloud AI for everyday meetings and mark the sensitive ones local. If the cloud AI is down or out of quota, the local model takes over anyway.
+</Callout>
+
+## What you need
+
+- An Apple Silicon Mac
+- macOS 26 Tahoe
+- About 3.2 GB of free disk space for the model
+- Whisperer ($2.99) with Pro ($14.99, one-time) for meetings and AI notes
+
+There's no subscription and no per-minute limit. Your data stays under `~/Library/Application Support/Whisperer/`.
+
+## FAQ
+
+### Does the local model need an internet connection?
+
+Only once, to download it. After that, summaries, Ask AI and transcript polish run with no connection.
+
+### How big is the local model?
+
+Qwen3.5 4B is about a 3.2 GB download and runs on Apple Silicon Macs.
+
+### Is a local model as good as ChatGPT or Claude?
+
+Not on every meeting. For clear, structured calls it does well. For long, messy meetings with a lot of nuance, large cloud models usually write better notes. You can switch per meeting.
+
+### Does the local model cost anything?
+
+No. It's included and free to use. It's also the fallback when a cloud AI you picked isn't available.
+
+## Related reading
+
+- [How AI meeting notes work on a Mac](/blog/ai-meeting-notes-mac)
+- [Your AI options](/ai) and [Meetings](/meetings)
+
+See the one-time price on the [pricing page](/pricing).

@@ -1,161 +1,109 @@
 ---
-title: "Whisper vs NVIDIA vs Apple Speech: Which Transcription Engine to Use"
-description: "Deep technical comparison of Whisperer's three transcription engines — Whisper (Metal GPU), NVIDIA (Neural Engine), and Apple Speech. Speed, accuracy, model sizes, and when to use each."
+title: "Whisper vs Parakeet vs Apple Speech: Which Engine to Use on Mac"
+description: "Whisperer's offline speech engines compared: Whisper on the Metal GPU, NVIDIA Parakeet, Qwen3 ASR, WhisperKit and Apple Speech. Languages, hardware and when to use each."
 date: "2026-03-28"
-keywords: ["whisper vs nvidia", "whisper transcription mac", "nvidia neural engine", "apple speech recognition", "best whisper model mac", "transcription engine comparison", "on-device speech recognition"]
+updated: "2026-11-06"
+keywords: ["whisper vs nvidia", "whisper vs parakeet", "whisper transcription mac", "nvidia parakeet mac", "apple speech recognition", "transcription engine comparison", "on-device speech recognition"]
 category: "technical"
+faqs:
+  - question: "Which speech engine should I use in Whisperer?"
+    answer: "Start with Whisper and the default Whisperer V3 model. It covers 97 languages and is accurate everywhere. Try Parakeet if you dictate in one of its 25 European languages and want it on the Neural Engine, or Qwen3 ASR for its 31 languages."
+  - question: "Is NVIDIA Parakeet better than Whisper?"
+    answer: "Neither wins everywhere. Results depend on the language. Whisper covers far more languages (97 against Parakeet's 25), so it's the safer default. Parakeet runs on the Neural Engine, which leaves the GPU free."
+  - question: "Do all the engines work offline?"
+    answer: "Yes. Every engine in Whisperer runs on your Mac. After the model download, no internet is needed."
 ---
 
-Whisperer runs three different transcription engines. They use different hardware and have different strengths. Here's how to pick.
+Whisperer gives you several offline speech engines. **Whisper** (the default, on the Metal GPU) covers 97 languages and is the safe choice for everyone. **NVIDIA Parakeet** runs on the Neural Engine and covers 25 European languages. **Qwen3 ASR** covers 31 languages. **WhisperKit** runs Whisper models through Core ML. **Apple Speech**, Apple's own recognizer in macOS 26, drives the live preview you see while you talk. Which engine is most accurate depends on the language, so the default is the one that works for every language.
 
-## Overview
+All of them run on your Mac. After the model downloads, no internet is needed.
 
-| | Whisper | NVIDIA | Apple Speech |
-|---|---------|----------|--------------|
-| Library | Local Whisper | CoreML | SpeechAnalyzer |
-| Hardware | Metal GPU | Apple Neural Engine | System ML |
-| Languages | 99+ | 25 | System languages |
-| Models | 10+ (75MB–2.9GB) | Optimized | Built-in |
-| Accuracy | Highest | Very high | Good |
-| Speed | Fast (GPU) | Fastest (ANE) | Fast |
-| Min macOS | 14+ | 14+ (Apple Silicon) | 26+ (Tahoe) |
+## At a glance
 
-## Whisper — The Default
+| | Whisper | Parakeet | Qwen3 ASR | WhisperKit | Apple Speech |
+|---|---|---|---|---|---|
+| Made by | OpenAI (whisper.cpp) | NVIDIA | Alibaba Qwen | Argmax (Whisper on Core ML) | Apple |
+| Runs on | Metal GPU | Neural Engine | Apple Silicon | Core ML | macOS |
+| Languages | 97 | 25 | 31 | Whisper's languages | Apple's list |
+| Role in Whisperer | Default engine | Engine you can pick | Engine you can pick | Engine you can pick | Live preview |
 
-OpenAI's open-source model, running locally. No Python, no dependencies.
+## Whisper, the default
 
-### How it works
+OpenAI's open-source model, running locally through whisper.cpp on your Mac's GPU. No Python, nothing extra to install.
 
-Processes audio after you release the record button. Runs on Apple Silicon's Metal GPU.
+**Default model:** Whisperer V3, which is Large V3 Turbo quantized to about 547 MB. Quantizing (Q5) cuts the file to roughly a third of the full-precision 1.5 GB with little accuracy loss.
 
-### Model sizes
+**Other sizes:** from Tiny (75 MB) to Large V3 (2.9 GB). See [which Whisper model to use](/blog/best-whisper-model-for-dictation).
 
-| Model | Size | Speed | Accuracy | Best For |
-|-------|------|-------|----------|----------|
-| Tiny | 75MB | Fastest | Basic | Quick testing |
-| Base | 142MB | Very fast | Good | Low-storage devices |
-| Small | 466MB | Fast | High | Daily dictation |
-| Medium | 1.5GB | Moderate | Very high | Accuracy-focused |
-| Large V3 | 2.9GB | Slower | Highest | Maximum accuracy |
-| Large V3 Turbo | ~1.5GB | Fast | Very high | Best balanced |
+**Use it when:**
 
-<Callout type="tip">
-**Start here:** Large V3 Turbo (~1.5GB). Near-Large accuracy, much faster. Good default.
-</Callout>
+- You want one engine that works for every language you speak
+- You dictate in a less common language
+- You're transcribing files and want the most accurate model (Large V3)
 
-### When to use it
+## Parakeet
 
-- High accuracy matters
-- Non-English (99+ languages)
-- You want control over the speed/accuracy tradeoff
-- File transcription
+NVIDIA's Parakeet model, running on Apple Silicon's Neural Engine. The Neural Engine is a separate part of the chip from the GPU, so it leaves the GPU free for other work like video editing.
 
-## NVIDIA — The fast one
+**Use it when:**
 
-CTC-based speech recognition running on Apple Silicon's Neural Engine via CoreML. Fastest option, and has a feature the others don't: vocabulary boosting.
+- You dictate in one of its 25 European languages
+- You'd like the GPU kept free
+- You want to compare: for some languages it may suit your voice better than Whisper
 
-### How it works
+**Limits:** 25 languages, against Whisper's 97.
 
-NVIDIA uses the Neural Engine, which is separate from the GPU. So it can run alongside GPU work with no contention. The same chip powers Whisperer's live preview (~300ms latency).
+## Qwen3 ASR
 
-### Vocabulary boosting
+A speech model from the Qwen team, covering 31 languages. It's a larger download than Whisperer V3. It does well in English. For some languages, Hebrew for example, Whisper is clearly better.
 
-This is why NVIDIA matters. Your [personal dictionary](/features/personal-dictionary) entries bias the CTC decoder at the acoustic level:
+**Use it when** you mostly dictate in English or another of its main languages and want to try an alternative to Whisper.
 
-- Project terms recognized more accurately
-- Names, acronyms, jargon decoded correctly
-- Happens during decoding, not as post-processing cleanup
+## WhisperKit
 
-<Callout type="info">
-Only NVIDIA supports this. Whisper and Apple Speech use attention-based architectures that can't do direct decoder biasing. If you have lots of custom terminology, NVIDIA with a configured dictionary is worth trying.
-</Callout>
+Whisper models compiled for Core ML. Same model family as Whisper, different runtime. Worth a try if you want Whisper's language coverage on Apple's Core ML stack.
 
-### When to use NVIDIA
+## Apple Speech
 
-- Speed is priority
-- You have a big personal dictionary
-- You want GPU free for video/ML work
-- You work in a top-25 language
+Apple's on-device recognizer in macOS 26 Tahoe. In Whisperer it drives the **live preview**: the words that stream in while you're still speaking. Your chosen engine then produces the final text when you release the key. Apple's model needs no download from Whisperer and runs beside your engine instead of competing with it.
 
-## Apple Speech — The native option
+## How they fit together
 
-macOS's built-in SpeechAnalyzer framework. Only on macOS 26 (Tahoe) and later. Zero setup.
+Whatever engine you pick, the rest works the same:
 
-### How it works
+- Your [personal dictionary](/blog/personal-dictionary-setup) and prompt words
+- Filler word removal and Fast Polish
+- AI modes such as Rewrite, Grammar and Translate
+- History, statistics and file transcription
 
-Uses the system speech recognition pipeline. No models to download. Apple handles everything.
+Switch engines in Settings without restarting. With Pro, [meeting transcription](/meetings) follows the engine you choose too.
 
-### When to use it
+## Which one to pick
 
-- You're on macOS 26+
-- You don't want to download models
-- You're low on disk space
-- Accuracy isn't critical
+| If you | Use |
+|---|---|
+| Want a default that works for every language | Whisper, Whisperer V3 |
+| Need maximum accuracy on a hard recording | Whisper, Large V3 |
+| Dictate in a supported European language and want the GPU free | Parakeet |
+| Mostly dictate in English and like to compare | Qwen3 ASR |
+| Prefer Core ML | WhisperKit |
 
-## Actual benchmarks
+The honest advice: start with the default, and only switch if you notice a specific problem in your language.
 
-### Accuracy (English)
+## FAQ
 
-| Engine | Short Phrases | Long Dictation | Technical Terms | Code Terms |
-|--------|---------------|----------------|-----------------|------------|
-| Whisper (Large V3 Turbo) | Excellent | Excellent | Very good | Good |
-| NVIDIA (v3) | Excellent | Very good | Excellent* | Good |
-| Apple Speech | Good | Good | Fair | Poor |
+### Which speech engine should I use in Whisperer?
 
-*With vocabulary boosting enabled and dictionary configured.
+Start with Whisper and the default Whisperer V3 model. It covers 97 languages and is accurate everywhere. Try Parakeet if you dictate in one of its 25 European languages and want it on the Neural Engine, or Qwen3 ASR for its 31 languages.
 
-### Speed (Apple M1 Pro, typical 10-second recording)
+### Is NVIDIA Parakeet better than Whisper?
 
-| Engine | Model | Processing Time | Real-Time Factor |
-|--------|-------|-----------------|-------------------|
-| NVIDIA v3 | Default | ~0.8s | 0.08x |
-| Whisper | Large V3 Turbo | ~2.5s | 0.25x |
-| Whisper | Small | ~1.2s | 0.12x |
-| Whisper | Large V3 | ~5.0s | 0.50x |
-| Apple Speech | Built-in | ~1.5s | 0.15x |
+Neither wins everywhere. Results depend on the language. Whisper covers far more languages (97 against Parakeet's 25), so it's the safer default. Parakeet runs on the Neural Engine, which leaves the GPU free.
 
-<Callout type="tip">
-NVIDIA is 2–3x faster than Whisper Large V3 Turbo for typical dictation. If speed is your priority and you don't need 99+ languages, NVIDIA is the clear winner.
-</Callout>
+### Do all the engines work offline?
 
-### Resource usage
-
-| Engine | Hardware | GPU Free? | ANE Free? | Battery |
-|--------|-------------|-----------|-----------|----------------|
-| Whisper | Metal GPU | No | Yes | Moderate |
-| NVIDIA | Neural Engine | Yes | No | Low |
-| Apple Speech | System ML | Varies | Varies | Low |
-
-NVIDIA leaves the GPU free, which matters if you're editing video or training models while dictating.
-
-## Which one?
-
-<FeatureGrid>
-<FeatureCard title="Default choice" icon="star">
-**Whisper Large V3 Turbo**. Good accuracy, reasonable speed, 99+ languages. Start here.
-</FeatureCard>
-<FeatureCard title="Speed priority" icon="zap">
-**NVIDIA**. 2-3x faster, GPU stays free. Good if you work in English with lots of custom terms.
-</FeatureCard>
-<FeatureCard title="No setup" icon="sparkles">
-**Apple Speech**. No downloads, works immediately. Fine for casual use on macOS 26+.
-</FeatureCard>
-<FeatureCard title="Max accuracy" icon="target">
-**Whisper Large V3** (2.9GB). Most accurate. Use for file transcription or when errors cost you.
-</FeatureCard>
-</FeatureGrid>
-
-## Switching engines
-
-Settings, Engine, pick one. No restart needed.
-
-You can use different engines for different work:
-- NVIDIA for live dictation (fastest)
-- Whisper Large V3 for file transcription (most accurate)
-- Apple Speech when battery is low
+Yes. Every engine in Whisperer runs on your Mac. After the model download, no internet is needed.
 
 ---
 
-*More: [Offline Transcription](/features/offline-transcription), [Best Whisper Model](/blog/best-whisper-model-for-dictation), [Whisper vs NVIDIA](/blog/whisper-vs-nvidia-transcription). [Features](/features), [pricing](/pricing).*
-
-<CTA />
+*More: [Best Whisper model for dictation](/blog/best-whisper-model-for-dictation), [Offline transcription engines](/features/offline-transcription), [Multilingual dictation](/blog/multilingual-dictation-guide). See [all dictation features](/features) and [pricing](/pricing).*

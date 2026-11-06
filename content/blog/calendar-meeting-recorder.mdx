@@ -1,0 +1,141 @@
+---
+title: "Record Meetings From Google Calendar or Outlook on Your Mac"
+description: "Connect Google Calendar or Outlook to Whisperer: a reminder before each meeting, Join & Record in one click, and recordings named after the invite."
+date: "2026-11-06"
+keywords: ["calendar meeting recorder mac", "record google calendar meetings", "outlook meeting recorder", "automatic meeting recording mac", "join and record zoom", "meeting notes from calendar"]
+category: "meetings"
+howToSteps:
+  - name: "Open the Calendar page"
+    text: "In the Whisperer Workspace window, choose Calendar in the sidebar."
+  - name: "Sign in with Google or Microsoft"
+    text: "Connect Google Calendar or Microsoft Outlook. Access is read-only and the sign-in token is stored in the macOS Keychain."
+  - name: "Choose calendars and reminder time"
+    text: "Turn on the calendars you want and pick when the reminder shows: at the start, or 1, 2 or 5 minutes before."
+  - name: "Click Join & Record"
+    text: "When the reminder card appears, click Join & Record to open the meeting link and start recording, Record to record only, or Dismiss."
+  - name: "Optionally record detected calls automatically"
+    text: "Turn on Automatically record detected meetings to start recording Zoom, Teams and Webex calls after a short countdown you can cancel."
+faqs:
+  - question: "Can Whisperer change or delete my calendar events?"
+    answer: "No. The Google and Microsoft sign-ins are read-only. Whisperer reads events and participants and never writes to your calendar."
+  - question: "Where is my calendar sign-in stored?"
+    answer: "In the macOS Keychain on your Mac. Events come straight from Google or Microsoft and are not sent anywhere else."
+  - question: "Does Whisperer join the meeting as a bot?"
+    answer: "No. Join & Record opens the meeting link in your own Zoom, Teams or Meet, and Whisperer records on your Mac. Nothing joins the call."
+  - question: "What about calls that aren't on my calendar?"
+    answer: "Whisperer detects calls in Zoom, Teams, Google Meet, Slack huddles, Webex, FaceTime and browsers by seeing which app opened the microphone, and asks if you want notes."
+  - question: "Do I need a calendar to use meeting notes?"
+    answer: "No. The calendar adds reminders, invite titles and participant names. Call detection and notes work without it."
+---
+
+Whisperer connects to Google Calendar or Microsoft Outlook and turns your schedule into recordings without extra clicks. Shortly before each meeting, a reminder card appears with **Join & Record**, **Record** and **Dismiss**. One click opens the meeting link and starts recording on your Mac, and the recording is named after the invite with the participants saved alongside it. Access is read-only, the sign-in token stays in your Keychain, and no bot joins the call.
+
+## What the calendar adds
+
+Whisperer already notices calls on its own. It sees when Zoom, Teams, Google Meet, a Slack huddle, Webex, FaceTime or a browser tab opens the microphone, and asks "Zoom call started — Take notes?". The calendar makes that better in three ways.
+
+### A reminder before the call
+
+You pick when it shows: at the start, or 1, 2 or 5 minutes before. The card has three buttons:
+
+- **Join & Record** opens the meeting link in your own Zoom, Teams or Meet app and starts recording
+- **Record** starts recording, for when you've already joined
+- **Dismiss** skips this one
+
+### A real title
+
+Without a calendar, a recording might be called "Zoom call, Tuesday 10:00". With it, the recording takes the invite's title, like "Mobile launch review". That's what you'll search for next week.
+
+### Participants from the invite
+
+The invite's attendee list is saved with the recording. When the transcript shows Speaker 1 and Speaker 2, you can [name them from that list in one click](/blog/speaker-diarization-mac). Action items then carry real owners.
+
+## Set it up
+
+<StepList>
+<Step num="1" title="Open Calendar in the Workspace window">
+It's in the sidebar, between Meeting Notes and File Transcription.
+</Step>
+<Step num="2" title="Sign in with Google or Microsoft">
+Pick Google Calendar or Microsoft Outlook and sign in in your browser. Whisperer asks for read-only access.
+</Step>
+<Step num="3" title="Choose your calendars">
+Turn on the calendars you want reminders for. A shared team calendar full of other people's events can stay off.
+</Step>
+<Step num="4" title="Pick the reminder time">
+At the start, or 1, 2 or 5 minutes before. There's also an option to skip events with no attendees and no meeting link, so your "focus time" blocks don't trigger anything.
+</Step>
+<Step num="5" title="Click Join & Record">
+The next time a meeting comes up, the card appears. One click and you're in, recording.
+</Step>
+</StepList>
+
+<Callout type="info">
+The first time you record, Whisperer shows a one-time reminder about consent. In many places the law requires you to tell people you're recording. That part is up to you.
+</Callout>
+
+## Automatic recording
+
+If you'd rather not click anything, turn on **Automatically record detected meetings**. For Zoom, Teams and Webex calls, Whisperer starts recording after a short countdown you can cancel. Other calls, such as a Slack huddle or a browser call, still ask first, because those apps use the microphone for other things too.
+
+When a detected call matches an event on your calendar, the card and the recording use the event's title.
+
+## While it records
+
+A small bar called the Island sits at the edge of your screen with pause, stop and open. You get a live transcript as people talk. Both sides of the call are captured, the call audio and your microphone, whether you use speakers or headphones.
+
+If you need to dictate mid-call, hold Fn. The meeting pauses, you dictate, and the meeting picks up again when you let go.
+
+## After the call
+
+The recording becomes a meeting note in **Meeting Notes**:
+
+- title from the invite, and the participant list
+- AI overview, key topics and decisions
+- action items with owners
+- open questions and the next meeting
+- the full transcript with speaker names, searchable across all your meetings
+
+The notes are written by the AI you pick on the [LLM page](/ai): the free model on your Mac, or your own ChatGPT, Claude, Codex or Gemini plan.
+
+## Privacy
+
+- **Read-only.** Whisperer reads events and attendees. It can't create, edit or delete anything on your calendar.
+- **Keychain.** The Google or Microsoft token is stored in the macOS Keychain.
+- **No middleman.** Events come straight from Google or Microsoft to your Mac. There's no Whisperer server and no account.
+- **Audio stays local.** Recording and transcription happen on your Mac.
+
+## Limits
+
+- Google Calendar and Microsoft Outlook are supported. iCloud calendars and other providers aren't covered by the sign-in.
+- Join & Record needs a meeting link in the invite. Without one, use Record.
+- Whisperer has to be running on the Mac you take the call on. It doesn't record calls you take on your phone.
+
+## FAQ
+
+### Can Whisperer change or delete my calendar events?
+
+No. The Google and Microsoft sign-ins are read-only. Whisperer reads events and participants and never writes to your calendar.
+
+### Where is my calendar sign-in stored?
+
+In the macOS Keychain on your Mac. Events come straight from Google or Microsoft and are not sent anywhere else.
+
+### Does Whisperer join the meeting as a bot?
+
+No. Join & Record opens the meeting link in your own Zoom, Teams or Meet, and Whisperer records on your Mac. Nothing joins the call.
+
+### What about calls that aren't on my calendar?
+
+Whisperer detects calls in Zoom, Teams, Google Meet, Slack huddles, Webex, FaceTime and browsers by seeing which app opened the microphone, and asks if you want notes.
+
+### Do I need a calendar to use meeting notes?
+
+No. The calendar adds reminders, invite titles and participant names. Call detection and notes work without it.
+
+## Related reading
+
+- [AI meeting notes on Mac without a bot](/blog/ai-meeting-notes-mac)
+- [Calendar](/calendar) and [Meetings](/meetings)
+
+Calendar and meeting notes are part of Whisperer Pro, $14.99 once. See the [pricing page](/pricing).

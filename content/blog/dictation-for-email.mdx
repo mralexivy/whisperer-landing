@@ -1,7 +1,8 @@
 ---
-title: "Dictation for Email: Write Emails 3x Faster with Voice on Mac"
+title: "Dictation for Email: Write Emails Faster with Your Voice on Mac"
 description: "How to use voice dictation to write emails faster on Mac. Dictate in Gmail, Apple Mail, and Outlook with natural language formatting using Whisperer."
 date: "2026-03-28"
+updated: "2026-11-06"
 keywords: ["voice dictation email mac", "dictation for email", "speak emails mac", "voice to text gmail"]
 category: "productivity"
 ---
@@ -10,7 +11,7 @@ Email is mostly typing the same kinds of sentences over and over. "Thanks for se
 
 ## Why This Works
 
-Typing: 40-60 words per minute. Speaking: 130-150. Email is natural language, not code. No symbols. Just talk.
+Typing: 40-60 words per minute. Speaking: 130-150. Email is plain language. No symbols, no formatting. Just talk.
 
 <Callout type="info">
 A 100-word email takes:
@@ -20,9 +21,9 @@ A 100-word email takes:
 If you send 40 emails a day, that adds up to **40-80 minutes**.
 </Callout>
 
-## Works Anywhere
+## Works in any email app
 
-Whisperer inserts text wherever your cursor is. Any email client works:
+Hold Fn, speak, release. Whisperer copies the text and shows a **Copied ⌘V** toast. Press ⌘V to paste it into the reply. That works in any email client:
 
 - **Gmail** (Chrome, Safari, Arc)
 - **Apple Mail**
@@ -30,11 +31,9 @@ Whisperer inserts text wherever your cursor is. Any email client works:
 - **Superhuman**
 - **Hey**
 
-### Set Up a Profile for Email
+### Let AI lay out the email
 
-Create a per-app profile with natural language mode (not Code Mode). Whisperer switches automatically when your email app is in front.
-
-You get proper sentences with punctuation for email, while Code Mode stays active for your IDE.
+In Workspace, open **AI Modes** and set the post-process mode to **Email** while you clear your inbox. You speak the content and it comes back with a greeting, paragraphs and a sign-off. Switch back to plain dictation when you're done. The rewriting runs on the AI you pick on the LLM page, which by default is a model on your Mac.
 
 ## How It Works
 
@@ -44,7 +43,7 @@ Hold Fn, say your reply, release:
 
 <VoiceDemo voice="Thanks for sending this over. I've reviewed the proposal and have a few comments. Can we schedule a call for Thursday afternoon to discuss? I'm free after two PM." output="Thanks for sending this over. I've reviewed the proposal and have a few comments. Can we schedule a call for Thursday afternoon to discuss? I'm free after two PM." lang="Email" />
 
-Text appears in the reply field. Done.
+Press ⌘V and it's in the reply field.
 
 ### Longer Emails
 
@@ -78,44 +77,33 @@ Colleague names, project names, company jargon. Saves correction time.
 </Step>
 </StepList>
 
-## Automatic Mode Switching
+## Plain dictation or Email mode
 
-<Callout type="tip">
-Per-app profiles mean you don't think about modes:
-
-| App | Mode | Result |
-|-----|------|--------|
-| Gmail | Natural language | "Hi Sarah, can we reschedule our 3pm?" |
-| VS Code | Code Mode | `const fetchUserData = async () => {` |
-| Slack | Chat style | "sounds good, I'll take a look" |
-| Terminal | Code Mode | `git push origin main` |
-
-Whisperer sees which app is active and adjusts.
-</Callout>
+| Situation | Use |
+|-----|------|
+| Two-line reply | Plain dictation with Fast Polish |
+| A batch of client emails | Email AI mode |
+| A message you'll edit heavily | Plain dictation |
 
 ## Mobile Drafts
 
 Whisperer is Mac-only, but most email clients sync drafts. Start an email by voice on your Mac, finish on your phone. Or the other way around.
 
-## Questions People Ask
+## FAQ
 
-<FeatureGrid>
-<FeatureCard title="Won't it make mistakes?" icon="circle-help">
-Whisper handles conversational English well. Accuracy runs 95%+ for email. You should still scan before hitting send.
-</FeatureCard>
+### Won't it make mistakes?
 
-<FeatureCard title="What about sensitive emails?" icon="lock">
-Everything processes locally on your Mac. Nothing gets sent anywhere. Fine for confidential stuff.
-</FeatureCard>
+Whisper handles conversational English well. It's accurate for everyday email, but scan before you hit send.
 
-<FeatureCard title="Does formatting work?" icon="sparkles">
-Whisperer inserts plain text. Your email client handles formatting. Plain text is usually what you want anyway.
-</FeatureCard>
-</FeatureGrid>
+### What about sensitive emails?
+
+Speech is turned into text on your Mac. With the built-in AI model nothing is sent anywhere, which makes it fine for confidential mail.
+
+### Does formatting work?
+
+Whisperer gives you plain text to paste. Your email client handles formatting, and plain text is usually what you want anyway.
 
 
 ---
 
-*Related: [Dictation for Slack, Gmail & Notion](/blog/dictation-for-slack-gmail-notion), [AI Writing & Post-Processing](/features/ai-writing), [Per-App Profiles](/blog/dictation-for-per-app-profiles). See [pricing](/pricing) and [all features](/features).*
-
-<CTA />
+*Related: [Dictation for Slack, Gmail & Notion](/blog/dictation-for-slack-gmail-notion), [AI Writing & Post-Processing](/features/ai-writing), [Rewrite dictation with AI](/blog/ai-rewriting-dictation-offline). See [pricing](/pricing) and [all features](/features).*

@@ -1,0 +1,184 @@
+---
+title: "How to Let Claude Read Your Meeting Notes with MCP"
+description: "Connect Claude Code or Claude Desktop to Whisperer's built-in MCP server and ask about your meetings, decisions and action items. Setup, prompts, tools."
+date: "2026-11-06"
+keywords: ["claude mcp meeting notes", "claude desktop mcp server", "claude code mcp", "meeting transcripts claude", "mcp meeting notes mac", "whisperer mcp"]
+category: "mcp"
+howToSteps:
+  - name: "Turn on the MCP server"
+    text: "Open Whisperer's Workspace, choose MCP, and pick Claude Code or Claude Desktop. The server is off until you turn it on, and it only answers apps on your Mac."
+  - name: "Copy the setup"
+    text: "Press the connect button. The App Store build copies the config entry to your clipboard and opens the folder that holds the config file in Finder."
+  - name: "Paste it into Claude's config"
+    text: "For Claude Code, add the entry to ~/.claude.json under mcpServers. For Claude Desktop, add it to claude_desktop_config.json. Claude Desktop uses the mcp-remote bridge, which needs Node.js."
+  - name: "Restart Claude"
+    text: "Start a new Claude Code session and run /mcp to see Whisperer listed, or quit and reopen Claude Desktop."
+  - name: "Ask about a meeting"
+    text: "Try 'What did we decide in my last meeting?' Claude calls Whisperer's tools and answers from your transcripts."
+faqs:
+  - question: "Does Claude get my meeting audio?"
+    answer: "No. The MCP tools return text: summaries, decisions, action items, notes and transcript lines with timestamps. The audio file stays in Whisperer on your Mac."
+  - question: "Can Claude change my meeting notes?"
+    answer: "Only if you leave 'Let AI apps add notes' on. Then Claude can add notes, labelled with its name, and edit or delete the notes it added. It cannot change notes you wrote yourself."
+  - question: "Why does Claude Desktop need Node.js?"
+    answer: "Claude Desktop starts local MCP servers as command-line programs. Whisperer's server speaks HTTP, so the setup runs the small mcp-remote bridge through npx, and npx comes with Node.js."
+  - question: "Is the MCP server part of the $2.99 app?"
+    answer: "MCP is part of Whisperer Pro, a $14.99 one-time in-app purchase that also covers meetings, calendar, speakers and AI notes. The $2.99 app is dictation."
+  - question: "Can other people on my network reach my transcripts?"
+    answer: "Not by default. The server listens on loopback, so only apps on your Mac can connect. LAN access is a separate opt-in setting, and you can require a bearer token."
+---
+
+You can let Claude read your meetings by turning on the MCP server built into [Whisperer](/mcp), pasting one config entry into Claude Code or Claude Desktop, and restarting Claude. After that, Claude can list your meetings, open a summary, search every transcript and quote exact lines with timestamps. Everything is served from your Mac. Nothing joins your calls, and the audio never leaves the machine.
+
+This guide covers both Claude apps, the tools Claude gets, a set of prompts that work well, and the privacy settings worth knowing.
+
+## What MCP gives Claude
+
+MCP (Model Context Protocol) is the standard way for AI apps to call tools that live somewhere else. Whisperer runs a small MCP server inside the app. When Claude needs something from your meetings, it calls one of Whisperer's tools and gets text back.
+
+That means you stop copying transcripts into a chat window. You ask "what did Priya say about the launch date?" and Claude goes and looks.
+
+Whisperer records your calls on the Mac, transcribes them, works out who spoke, and writes notes with decisions and action items. The [meetings page](/meetings) covers that side. MCP is the door that lets Claude read the result.
+
+## Before you start
+
+- **Whisperer Pro.** The app is $2.99 for dictation. Meetings and MCP come with Pro, a $14.99 one-time in-app purchase. See [pricing](/pricing).
+- **A few recorded meetings.** Claude can only read what Whisperer has captured.
+- **For Claude Desktop, Node.js.** The bridge it uses runs through `npx`.
+
+## Set up Claude Code
+
+Claude Code reads MCP servers from `~/.claude.json`. Whisperer's server speaks streamable HTTP, which Claude Code supports directly.
+
+<StepList>
+<Step num="1" title="Open Workspace → MCP">
+Pick **Claude Code** from the list of apps. If the server is off, the button reads "Turn on & copy setup". The server starts and answers only apps on this Mac.
+</Step>
+<Step num="2" title="Paste the entry">
+The App Store build of Whisperer can't edit files in your home folder, so it copies the entry to your clipboard and shows `~/.claude.json` in Finder. Add it under `mcpServers`.
+</Step>
+<Step num="3" title="Start a new session">
+Run `/mcp` inside Claude Code. Whisperer should be listed and connected.
+</Step>
+</StepList>
+
+The entry looks like this:
+
+```json
+"mcpServers": {
+  "whisperer": {
+    "type": "http",
+    "url": "http://localhost:8080/mcp"
+  }
+}
+```
+
+If you turned on a token, Whisperer adds a `headers` block with `Authorization: Bearer …`. If you'd rather use the command line, the same thing works with `claude mcp add --transport http --scope user whisperer http://localhost:8080/mcp`.
+
+## Set up Claude Desktop
+
+Claude Desktop starts local MCP servers as programs it launches itself, over standard input and output. It can't point at a local HTTP address on its own. So the setup uses `mcp-remote`, a small bridge that runs through `npx` and forwards to Whisperer.
+
+<StepList>
+<Step num="1" title="Pick Claude Desktop">
+In Workspace → MCP, choose **Claude Desktop** and press the button. The entry is copied and the folder with `claude_desktop_config.json` opens in Finder.
+</Step>
+<Step num="2" title="Add it to the config file">
+Paste it under `mcpServers`. Keep any servers you already have.
+</Step>
+<Step num="3" title="Quit and reopen Claude Desktop">
+A full quit matters. Closing the window is not enough.
+</Step>
+</StepList>
+
+```json
+"mcpServers": {
+  "whisperer": {
+    "command": "npx",
+    "args": ["-y", "mcp-remote@latest", "http://localhost:8080/mcp"]
+  }
+}
+```
+
+<Callout type="tip">
+If Claude Desktop shows the server as failed, check that Node.js is installed (`node -v` in Terminal). That is the most common cause.
+</Callout>
+
+## The tools Claude gets
+
+Whisperer exposes two groups of tools. Claude picks the right one from your question.
+
+### Meetings
+
+- **list_meetings** lists recent meetings with titles and dates.
+- **get_meeting** returns the summary, decisions, action items, open questions, notes and a topic outline.
+- **get_meeting_transcript** returns the transcript in pages, as `[mm:ss] Speaker: text`.
+- **search_meetings** searches every transcript and returns snippets with timestamps.
+
+### Meeting notes
+
+- **list_meeting_notes** reads the notes on a meeting.
+- **add_meeting_note**, **update_meeting_note** and **delete_meeting_note** let Claude add notes and manage the ones it added.
+
+### Dictation history
+
+- **search_transcriptions** and **get_transcription** read what you've dictated with Whisperer.
+
+## Prompts that work well
+
+Start broad, then get specific. A few that tend to give good answers:
+
+- "What did we decide in my last meeting?"
+- "List every action item assigned to me this week, with the meeting each came from."
+- "In the mobile launch review, what exactly did Dan say about the beta date? Quote it with the timestamp."
+- "Search my meetings for 'pricing page' and summarise how the plan changed over the last month."
+- "Draft a follow-up email for yesterday's call with Maya, using the decisions and open questions."
+- "Add a note to the launch review: 'Check legal sign-off before Friday.'"
+
+Because the transcript comes back with timestamps and speaker names, you can ask Claude to show its source. That makes it easy to check a claim against what was said.
+
+<Callout type="info">
+Speakers are numbered by when they first speak. If the meeting came from your calendar, you can name them from the invite in one click, and Claude will see the names. More on that in [who said what](/blog/speaker-diarization-mac).
+</Callout>
+
+## Privacy and control
+
+The server is built to be dull and safe.
+
+- **Off by default.** Nothing listens until you turn it on.
+- **Loopback only.** It answers apps on this Mac. LAN access is a separate setting you have to switch on.
+- **Optional token.** Turn on a bearer token and every client must send it.
+- **Notes stay yours.** With "Let AI apps add notes" on, Claude can add notes, and they're labelled with its name. It can't edit or delete notes you wrote. Turn the setting off and the note tools stop writing.
+- **Text only.** Claude gets transcript text and notes. The audio stays in Whisperer.
+
+One honest point: once Claude reads a transcript, that text is in your Claude conversation and follows Anthropic's rules for your plan. If a meeting is sensitive, don't ask about it, or turn the server off.
+
+## Claude as the note writer
+
+MCP is for Claude reading your meetings on demand. If you also want Claude to write the notes after each call, that's a different setting. On the [LLM page](/ai) you can pick Claude through your Claude Pro or Max plan, and Whisperer uses it for summaries, Ask AI and transcript polish. It counts against the plan you already pay for. If Claude isn't available, the built-in Qwen3.5 4B model on your Mac takes over.
+
+Using Cursor, Codex or VS Code instead? See [meetings inside Cursor, Codex and VS Code](/blog/cursor-mcp-meetings). For ChatGPT, read [the ChatGPT connector guide](/blog/chatgpt-mcp-connector-meetings).
+
+## FAQ
+
+### Does Claude get my meeting audio?
+
+No. The MCP tools return text: summaries, decisions, action items, notes and transcript lines with timestamps. The audio file stays in Whisperer on your Mac.
+
+### Can Claude change my meeting notes?
+
+Only if you leave "Let AI apps add notes" on. Then Claude can add notes, labelled with its name, and edit or delete the notes it added. It cannot change notes you wrote yourself.
+
+### Why does Claude Desktop need Node.js?
+
+Claude Desktop starts local MCP servers as command-line programs. Whisperer's server speaks HTTP, so the setup runs the small mcp-remote bridge through npx, and npx comes with Node.js.
+
+### Is the MCP server part of the $2.99 app?
+
+MCP is part of Whisperer Pro, a $14.99 one-time in-app purchase that also covers meetings, calendar, speakers and AI notes. The $2.99 app is dictation.
+
+### Can other people on my network reach my transcripts?
+
+Not by default. The server listens on loopback, so only apps on your Mac can connect. LAN access is a separate opt-in setting, and you can require a bearer token.
+
+[See what Pro includes](/pricing), or [read how the MCP server works](/mcp).

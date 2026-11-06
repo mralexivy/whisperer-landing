@@ -1,148 +1,148 @@
 ---
-title: "Set Up Whisperer in 5 Minutes — Quick Start Guide"
-description: "Get Whisperer running on your Mac in under 5 minutes. Download, grant permissions, choose a Whisper model, and start dictating. Step-by-step setup guide with tips."
+title: "Set Up Whisperer 2.0 on Your Mac: Dictation, Meetings and Your AI"
+description: "Set up Whisperer on a Mac: microphone access, the default model, hold Fn to dictate, then meetings, calendar, your own AI and MCP with Pro."
 date: "2026-03-28"
-keywords: ["whisperer setup guide", "dictation app setup mac", "hold to talk dictation mac", "whisperer getting started", "Fn key dictation mac"]
+updated: "2026-11-06"
+keywords: ["whisperer setup guide", "whisperer getting started", "dictation app setup mac", "meeting notes app setup mac", "hold to talk dictation mac", "Fn key dictation mac"]
 category: "getting-started"
 howToSteps:
-  - name: "Download Whisperer"
-    text: "Get Whisperer free from the Mac App Store. No account or sign-up required."
-  - name: "Grant Accessibility permission"
-    text: "Open System Settings > Privacy & Security > Accessibility and enable Whisperer. This allows it to insert text into other apps."
-  - name: "Grant Input Monitoring permission"
-    text: "Open System Settings > Privacy & Security > Input Monitoring and enable Whisperer. This allows it to detect your keyboard shortcut globally."
-  - name: "Download a Whisper model"
-    text: "Open Whisperer from the menu bar, go to Settings, and download a Whisper model. Turbo is recommended for speed, Large V3 for maximum accuracy."
-  - name: "Hold Fn and speak"
-    text: "Hold the Fn key (or your custom shortcut), speak naturally, then release. Text appears in the focused field."
-  - name: "Set up per-app profiles (optional)"
-    text: "Go to Settings > Profiles and create profiles for different apps. Assign Code Mode to your IDE and natural language to email and chat apps."
+  - name: "Get Whisperer from the Mac App Store"
+    text: "Buy Whisperer for $2.99 on the Mac App Store. It needs an Apple Silicon Mac and macOS 26 Tahoe. No account or sign-up."
+  - name: "Allow the microphone"
+    text: "When Whisperer asks, allow microphone access. That is the only permission dictation needs."
+  - name: "Let the default model download"
+    text: "Whisperer downloads its default speech model, Whisperer V3 (Whisper Large V3 Turbo, about 547 MB). It runs on your Mac with no internet needed afterwards."
+  - name: "Hold Fn, speak, release, paste"
+    text: "Hold Fn (or your own shortcut), speak, and release. The text is copied and a 'Copied ⌘V' toast appears. Press ⌘V to paste it where you're typing."
+  - name: "Add Pro for meetings"
+    text: "Buy Pro for $14.99 once inside the app. Whisperer then notices calls in Zoom, Teams, Meet and other apps and asks whether to take notes."
+  - name: "Connect your calendar"
+    text: "Sign in with Google Calendar or Microsoft Outlook (read-only) so meetings are named after the invite and can be recorded automatically."
+  - name: "Choose the AI that writes your notes"
+    text: "In Workspace, open the LLM page and pick the built-in Qwen3.5 4B model on this Mac, your Claude, ChatGPT, Codex or Gemini plan, or an API key."
+  - name: "Connect an AI app over MCP (optional)"
+    text: "In Workspace, open MCP, pick your app (Claude, Cursor, Codex and others) and copy the setup so it can read your meetings."
 ---
 
-Whisperer is an offline dictation app for Mac. Hold a key, talk, release, and your words show up wherever your cursor is. No account, no cloud, no monthly fee.
+Whisperer is a Mac app for dictation and meeting notes. Dictation costs $2.99: hold Fn, talk, release, and paste the text with ⌘V. Pro is a $14.99 one-time purchase that adds meeting notes, calendar recording, speaker names, AI summaries with the AI you already use, and an MCP server for apps like Claude and Cursor. Speech is turned into text on your Mac. There's no account and no subscription.
 
-Setup takes about five minutes. Here's the whole process.
+This guide walks through the whole setup, dictation first, then meetings.
 
-<CTA />
+## What you need
 
-## Initial Setup
+- A Mac with Apple Silicon (M1 or later)
+- macOS 26 Tahoe
+- About 1 GB of free disk space for the default speech model, and about 3.2 GB more if you want the built-in AI model for meeting notes
+
+## Set up dictation
 
 <StepList>
-<Step num="1" title="Download from the Mac App Store">
-Whisperer is a free download. Search "Whisperer Voice to Text" in the App Store, or use the link above. No account creation or sign-up required.
+<Step num="1" title="Get Whisperer from the Mac App Store">
+Search "Whisperer Voice to Text" or use [this App Store link](https://apps.apple.com/app/whisperer-voice-to-text/id6758626671). It's $2.99, one time. You don't create an account.
 </Step>
 
-<Step num="2" title="Grant Accessibility permission">
-When you first launch Whisperer, macOS will prompt for Accessibility access. This is required so Whisperer can insert text into other apps.
-
-Go to **System Settings > Privacy & Security > Accessibility** and toggle Whisperer on.
+<Step num="2" title="Allow the microphone">
+On first launch Whisperer asks for microphone access. Click Allow. That's the only permission dictation needs. Whisperer doesn't ask to control your Mac or watch your keyboard.
 </Step>
 
-<Step num="3" title="Grant Input Monitoring permission">
-Whisperer also needs Input Monitoring to detect your keyboard shortcut (Fn key) globally, even when other apps are focused.
-
-Go to **System Settings > Privacy & Security > Input Monitoring** and toggle Whisperer on.
+<Step num="3" title="Let the default model download">
+Whisperer downloads **Whisperer V3**, its default speech model (Whisper Large V3 Turbo, about 547 MB). It handles 97 languages and runs on your Mac's GPU. After the download, dictation works with Wi-Fi off.
 </Step>
 
-<Step num="4" title="Download a Whisper model">
-Open Whisperer from your menu bar and go to **Settings**. You'll see a list of available Whisper models. Download one to get started.
-</Step>
-
-<Step num="5" title="Hold Fn and speak">
-Click into any text field — a note, a message, a code editor — hold the **Fn** key, speak naturally, then release. Your words appear as text in the focused field.
+<Step num="4" title="Hold Fn, speak, release, paste">
+Click into any text field, hold **Fn**, speak normally, and let go. Words stream into a small preview while you talk. When you release, the text is copied and a **Copied ⌘V** toast appears. Press **⌘V** to paste it.
 </Step>
 </StepList>
 
 <Callout type="tip">
-**Which model?** Turbo works well for most people. Fast, good accuracy. If Turbo struggles with your accent or technical vocabulary, try Large V3 instead. You can switch anytime.
+**Don't want to use Fn?** Pick another shortcut in Settings. You can also switch from hold-to-talk to a toggle (press once to start, once to stop) or a hands-free mode for longer stretches.
 </Callout>
 
-That's the whole setup.
-
-Here's what the full Whisperer workspace looks like once you're set up:
+Here's the Workspace window, where your dictation history lives:
 
 <TranscriptionsMockup />
 
-## Your First Dictation
+## Your first dictation
 
-Try it now. Click into any text field on your Mac, hold Fn, and say something:
+Open Notes, hold Fn and say something like this:
 
-<VoiceDemo voice="The quick brown fox jumps over the lazy dog" output="The quick brown fox jumps over the lazy dog" lang="Natural Language" />
+<VoiceDemo voice="Remind me to send the deck to Priya before Thursday's review" output="Remind me to send the deck to Priya before Thursday's review." lang="Dictation" />
 
-Whisperer streams a live preview as you speak, so you can see the text forming in real time. When you release Fn, the final transcription is inserted into the focused field.
+Whisperer works out the language on its own, so you can switch from English to Spanish between dictations without touching a setting. Fast Polish cleans up punctuation, filler words like "um", and paragraph breaks.
 
-<Callout type="info">
-**Hold-to-talk** means dictation is only active while you hold the key. Release and it stops. This gives you precise control — no accidental dictation of background conversations or thinking-out-loud moments.
-</Callout>
+If a name keeps coming out wrong, add it to the [personal dictionary](/blog/personal-dictionary-setup). Whisperer also learns words from the corrections you make.
 
-## Enabling Code Mode (Pro Pack)
+## Pick a speech engine (optional)
 
-Code Mode is the main reason developers use Whisperer. It's part of the Pro Pack ($14.99, one-time).
+The default is fine for most people. If you want to experiment, you can pick another engine in Settings. All run offline:
+
+| Engine | Good for |
+|---|---|
+| Whisper (default, Whisperer V3) | Best all-round accuracy, 97 languages |
+| Parakeet | Fast English and 24 other European languages on the Neural Engine |
+| Qwen3 ASR | 31 languages |
+| WhisperKit | Whisper models on Core ML |
+| Apple Speech | Apple's on-device recognizer in macOS 26. It drives the live preview for every engine |
+
+See [which Whisper model to pick](/blog/best-whisper-model-for-dictation) for more on the trade-offs.
+
+## Add Pro for meeting notes
+
+Pro is a $14.99 one-time in-app purchase. Open Whisperer's settings and buy it from there. It adds everything on the [meetings page](/meetings): call detection, calendar recording, speakers, AI notes, Ask AI and MCP.
 
 <StepList>
-<Step num="1" title="Unlock the Pro Pack">
-Open Whisperer from the menu bar, go to **Settings**, and purchase the Pro Pack via in-app purchase. It's a one-time payment — no subscription.
+<Step num="1" title="Take a call">
+Start a Zoom, Microsoft Teams, Google Meet, Slack huddle, Webex or FaceTime call, or a call in your browser. Whisperer notices when the call app turns on the microphone and shows a card: **"Zoom call started — Take notes?"**
 </Step>
 
-<Step num="2" title="Enable Code Mode in a profile">
-Go to **Settings > Profiles**. Create a new profile (or edit the default) and set the mode to **Code Mode**.
+<Step num="2" title="Confirm the consent reminder once">
+Before your first recording Whisperer shows a one-time reminder. Recording laws differ by place, and in some you need everyone's permission. Telling people is your job, so read it once and agree.
 </Step>
 
-<Step num="3" title="Assign it to your IDE">
-Set the profile's app filter to your IDE — VS Code, Cursor, Terminal, or any other app. Code Mode activates automatically when that app is in focus.
+<Step num="3" title="Record">
+Whisperer records the call audio and your microphone, so both sides are captured whether you use speakers or headphones. Nothing joins the call. A small bar at the edge of the screen, the Island, shows the recording with pause, stop and open buttons, and a live transcript fills in as people talk.
+</Step>
+
+<Step num="4" title="Read the notes">
+When the call ends you get a title, an overview, key topics, decisions, action items with owners, open questions and the next meeting. Speakers are numbered in the order they first spoke. You can name them in one click from the calendar invite.
 </Step>
 </StepList>
 
-Now try dictating code:
+<Callout type="info">
+**Dictating during a call still works.** Hold Fn mid-meeting and the recording pauses while you dictate, then picks up again.
+</Callout>
 
-<VoiceDemo voice="const camel case fetch user data equals async open paren close paren fat arrow open brace" output="const fetchUserData = async () => {" lang="TypeScript" />
+## Connect your calendar
 
-Code Mode understands casing commands (`camelCase`, `snake_case`, `PascalCase`, `CONSTANT_CASE`), symbol commands (parentheses, brackets, braces, arrows, semicolons), and disables autocorrect so your identifiers stay intact.
+Open the Calendar page in Workspace and sign in with **Google Calendar** or **Microsoft Outlook**. Access is read-only and the sign-in tokens stay in your Mac's Keychain.
 
-## Setting Up Per-App Profiles
+A minute before a meeting starts, a card offers **Join & Record**, **Record** or **Dismiss**. Recordings are named after the invite, and the participant list is saved with them so naming speakers is quick. More on this in [recording meetings from your calendar](/blog/calendar-meeting-recorder).
 
-Per-app profiles let Whisperer automatically switch dictation modes based on the active app. No manual toggling needed.
+## Choose the AI that writes your notes
 
-<VoiceDemo voice="Hey team, the deploy looks good. Let's ship it after lunch." output="Hey team, the deploy looks good. Let's ship it after lunch." lang="Slack (Natural Language)" />
+Open the **LLM** page in Workspace. It's one list:
 
-<VoiceDemo voice="def snake case validate input open paren data colon dict close paren arrow bool colon" output="def validate_input(data: dict) -> bool:" lang="VS Code (Code Mode)" />
+- **On this Mac.** The built-in Qwen3.5 4B model (about 3.2 GB download). Offline, free, and the default. If any other choice is unavailable, this one takes over.
+- **Your AI subscriptions.** Claude (Pro or Max, through Claude Code), ChatGPT (Plus or Pro), Codex (through your ChatGPT plan) or Gemini (Google AI Pro or Ultra). Notes count against the plan you already pay for.
+- **API keys.** OpenAI, Anthropic or Gemini keys, stored in Keychain.
 
-Same voice, same shortcut — Whisperer detects which app is focused and applies the right profile automatically.
+The AI you pick writes meeting notes, answers Ask AI questions and polishes transcripts. Audio never leaves your Mac. If you pick a cloud AI, only the text transcript goes to it, and you can keep any single meeting local. The [your AI page](/ai) has the details.
 
-To set this up:
+## Let Claude, Cursor or ChatGPT read your meetings (optional)
 
-1. Go to **Settings > Profiles**
-2. Create a profile for each context (e.g., "IDE", "Chat", "Email")
-3. Set the mode (Code Mode or Natural Language) and assign an app filter
-4. Whisperer switches profiles automatically as you move between apps
+Whisperer has a built-in MCP server, off by default. Open **MCP** in Workspace, choose your app (Claude Desktop, Claude Code, Codex, Cursor, VS Code, Windsurf, Antigravity or ChatGPT) and copy the setup it gives you. Whisperer opens the right config file in Finder so you can paste it in. Then ask your app something like "What did we decide in my last meeting?"
 
-## Tips & Tricks
+The server only accepts connections from apps on your Mac unless you turn on LAN access. ChatGPT connects from the cloud, so it needs a public https tunnel URL. See the [MCP page](/mcp) and the guide to [using Claude with your meeting notes](/blog/claude-mcp-meeting-notes).
 
-<FeatureGrid>
-<FeatureCard title="Custom Shortcut" icon="keyboard">
-Don't like Fn? Change the dictation shortcut in Settings. You can use any key combination — double-tap Fn, a function key, or a custom hotkey.
-</FeatureCard>
+## Where your data lives
 
-<FeatureCard title="Personal Dictionary" icon="book-open">
-Add technical terms, project names, and custom vocabulary to your personal dictionary. This improves recognition accuracy for domain-specific words that Whisper might not know. See our [personal dictionary guide](/blog/personal-dictionary-setup).
-</FeatureCard>
+Everything stays under `~/Library/Application Support/Whisperer/` on your Mac. Meeting audio is kept in a compact format, and you choose how long: never, 7, 30, 90 or 365 days. Whisperer has no analytics or tracking, and its App Store listing says "Data Not Collected".
 
-<FeatureCard title="Model Switching" icon="settings">
-Keep multiple models downloaded for different situations. Use Turbo for quick casual dictation and switch to Large V3 when you need maximum accuracy for technical content.
-</FeatureCard>
+## Where to go next
 
-<FeatureCard title="Streaming Preview" icon="eye">
-Watch your text form in real time as you speak. The streaming preview shows a live transcription so you can catch errors before they're inserted.
-</FeatureCard>
-</FeatureGrid>
+- [Dictation tips for Slack, Gmail and Notion](/blog/dictation-for-slack-gmail-notion)
+- [AI meeting notes on a Mac without a bot](/blog/ai-meeting-notes-mac)
+- [Use your own ChatGPT, Claude or Gemini plan for meeting notes](/blog/bring-your-own-ai-meeting-notes)
+- [Transcribe audio files offline](/blog/transcribe-audio-files-offline-mac)
 
-## What's Next?
-
-Some guides that might help:
-
-- [How to Dictate Code on Mac](/blog/how-to-dictate-code-on-mac) — camelCase, snake_case, symbols by voice
-- [Voice Coding with Cursor](/blog/voice-coding-with-cursor) — dictate AI prompts and refactors
-- [Voice Dictation for VS Code](/blog/voice-dictation-for-vscode) — setup and workflow tips
-- [Per-App Profiles Guide](/blog/dictation-for-per-app-profiles) — context-aware dictation
-
-<CTA />
+Questions? Write to support@whispererapp.com. Prices and what each purchase includes are on the [pricing page](/pricing).

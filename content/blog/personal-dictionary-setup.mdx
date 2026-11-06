@@ -1,168 +1,107 @@
 ---
-title: "Personal Dictionary Setup — Fix Dictation Accuracy for Technical Terms"
-description: "How to add technical terms, project names, and custom vocabulary to Whisperer's personal dictionary. Improve recognition accuracy for domain-specific words."
+title: "Personal Dictionary Setup: Fix Names and Terms in Dictation"
+description: "Add names, product terms and jargon to Whisperer's personal dictionary so dictation and meeting transcripts spell them right. It learns from your fixes."
 date: "2026-03-28"
-keywords: ["dictation personal dictionary mac", "custom words dictation", "dictation accuracy", "speech recognition custom vocabulary"]
+updated: "2026-11-06"
+keywords: ["dictation personal dictionary mac", "custom words dictation", "dictation accuracy", "speech recognition custom vocabulary", "fix names in transcription"]
 category: "productivity"
 howToSteps:
-  - name: "Open Personal Dictionary"
-    text: "Open Whisperer from the menu bar and go to Settings > Personal Dictionary."
-  - name: "Add a term"
-    text: "Click Add and type the term exactly as you want it recognized and inserted. For example: Kubernetes, useState, PostgreSQL."
-  - name: "Add variations if needed"
-    text: "If a term can be spoken in multiple ways, add each variation. For example, add both 'PostgreSQL' and 'Postgres' if you use both."
-  - name: "Test your terms"
-    text: "Hold Fn and speak a sentence using your custom terms. Verify they're recognized correctly and appear as entered in the dictionary."
+  - name: "Open the Dictionary page"
+    text: "Open Whisperer's Workspace window and choose Dictionary in the sidebar."
+  - name: "Add an entry"
+    text: "Type what the app hears (the incorrect form) and what it should write (the correct form). For example: 'my a leaven' to 'Maya Levin'."
+  - name: "Fix close variations too"
+    text: "Leave 'Also fix close variations' on so similar mishearings are corrected as well."
+  - name: "Test it"
+    text: "Hold Fn, say a sentence with the word, release and paste with ⌘V. Check it comes out right."
+faqs:
+  - question: "Does Whisperer learn new words on its own?"
+    answer: "Yes. When you correct a word, Whisperer can learn it and adds it to the dictionary marked as learned. You can edit or delete learned entries at any time."
+  - question: "Does the dictionary work for meeting transcripts?"
+    answer: "Yes. The same dictionary is applied to dictation and to meeting transcripts, so colleagues' names and product terms come out right in both."
 ---
 
-Speech recognition models don't know your tech stack. They've never heard of your internal tools. Say "Kubernetes" and you get "Cooper Netties." Say your project name and you get... something else entirely.
+A personal dictionary fixes the words speech recognition keeps getting wrong: colleagues' names, product names, places and jargon. In Whisperer, open **Dictionary** in Workspace, type what the app hears and what it should write, and every future dictation and meeting transcript uses the right spelling. Whisperer also learns words from the corrections you make, so the list grows on its own.
 
-A personal dictionary fixes this. Add the word once, and it gets recognized correctly from then on.
+Speech models are trained on general speech. They've never heard of your company's product or your new colleague's surname.
 
+## The problem
 
----
-
-*Related: [Personal Dictionary Feature](/features/personal-dictionary), [Code Mode](/code-mode), [Getting Started Guide](/blog/getting-started-whisperer). See [pricing](/pricing) and [all features](/features).*
-
-<CTA />
-
-## The Problem
-
-Whisper models are trained on general speech. Everyday English works fine. Tech vocabulary does not:
+Everyday English works fine. Specific names don't:
 
 <Callout type="warning">
-Common misrecognitions without a personal dictionary:
+Typical mishearings without a dictionary:
 
-- "Kubernetes" becomes "Cooper Netties" or "Kuber nettys"
-- "useState" becomes "use state" or "you state"
-- "PostgreSQL" becomes "post gress Q L" or "post rescue"
-- "Tailwind" becomes "tail wind" or "tail wined"
-- "Vercel" becomes "versaille" or "verse cell"
-- "Supabase" becomes "super base" or "soup a base"
+- "Priya Shah" becomes "pre a shaw"
+- "Maya Levin" becomes "my a leaven"
+- "Supabase" becomes "super base"
+- "Kubernetes" becomes "Cooper Netties"
+- "Okonkwo" becomes "oh con co"
 </Callout>
 
-These errors add up. You'll spend more time fixing misrecognitions than you saved by dictating. A dictionary entry takes five seconds and solves the problem permanently.
+These add up. You spend more time fixing names than you saved by dictating. An entry takes a few seconds and fixes the word for good.
 
-## Setting Up Your Dictionary
-
-Here's what the Dictionary interface looks like in Whisperer:
+## Setting up your dictionary
 
 <DictionaryMockup />
 
 <StepList>
-<Step num="1" title="Open Personal Dictionary">
-Open Whisperer from the menu bar and go to **Settings > Personal Dictionary**. This is where you add and manage custom terms.
+<Step num="1" title="Open the Dictionary page">
+Open Whisperer's Workspace window and choose **Dictionary** in the sidebar.
 </Step>
 
-<Step num="2" title="Add your first term">
-Click **Add** and type the term exactly as you want it to appear when recognized. The spelling you enter is the spelling that gets inserted.
+<Step num="2" title="Add an entry">
+Each entry has two parts: the **incorrect form** (what the app hears) and the **correct form** (what it should write). You can add a category and a note if you like.
 </Step>
 
-<Step num="3" title="Test it">
-Hold Fn, speak a sentence using the term, and verify it's recognized correctly. If not, check the spelling in your dictionary and try again.
+<Step num="3" title="Fix close variations">
+Leave **Also fix close variations** on. Then "pre a shaw", "pria shah" and similar mishearings all become "Priya Shah".
+</Step>
+
+<Step num="4" title="Test it">
+Hold Fn, say a sentence with the word, release and paste with ⌘V.
 </Step>
 </StepList>
 
 <Callout type="tip">
-Don't try to add everything upfront. Just add terms when you notice they're being misrecognized. After a few days of use, you'll have covered most of your working vocabulary.
+Don't try to add everything up front. Add words as you notice them going wrong. After a few days you'll have covered most of your working vocabulary.
 </Callout>
 
-## What to Add
+## It learns from your corrections
 
-These categories cause the most problems:
+When you fix a word, Whisperer can learn it. Learned entries appear in the dictionary marked **Learned**, next to the ones you added yourself. You can edit or delete them like any other entry.
 
-<FeatureGrid>
-<FeatureCard title="Library & Framework Names" icon="package">
-React, Next.js, Tailwind, Prisma, Drizzle, Zustand, Zod, tRPC, Vite, Bun, Deno, FastAPI, Django, Flask, Express, NestJS, Svelte, Nuxt, Remix, Astro.
-</FeatureCard>
+## What to add
 
-<FeatureCard title="Infrastructure & Services" icon="cpu">
-Kubernetes, Docker, Terraform, Vercel, Supabase, PlanetScale, Neon, Cloudflare, Hetzner, Fly.io, Railway, AWS, GCP, Azure, PostgreSQL, Redis, Kafka.
-</FeatureCard>
+- **People.** Colleagues, clients, family. Unusual or non-English names benefit most.
+- **Your company and products.** Product names, internal tool names, project code names.
+- **Places.** Street names, small towns, venues.
+- **Industry terms.** Medical, legal or financial vocabulary that general models rarely hear.
+- **Brands and services** you mention often, like Supabase, Figma or HubSpot.
+- **Acronyms** you say as words.
 
-<FeatureCard title="Project-Specific Terms" icon="folder-open">
-Your product name, internal tool names, microservice names, API endpoint names, database table names — anything unique to your codebase that a general model won't know.
-</FeatureCard>
+## Prompt words
 
-<FeatureCard title="Team Member Names" icon="user">
-Names of colleagues, clients, and stakeholders you frequently mention in messages, emails, and documentation. Unusual or non-English names especially benefit from dictionary entries.
-</FeatureCard>
+The Dictionary page has a second tab, **Prompt Words**: a short list of terms handed to the speech model before it starts, so it expects them. Use prompt words for a handful of names you say constantly. Use dictionary entries for fixing specific mishearings.
 
-<FeatureCard title="Acronyms & Abbreviations" icon="hash">
-CI/CD, RBAC, gRPC, OAuth, JWT, SSR, SSG, ISR, CSR, ORM, SDK, CLI, WASM, HIPAA — any acronym you regularly dictate.
-</FeatureCard>
+## Meetings use it too
 
-<FeatureCard title="Domain Vocabulary" icon="library">
-Industry-specific terms: medical terminology if you're in healthtech, financial terms for fintech, legal terms for legaltech. These are rarely in general speech models.
-</FeatureCard>
-</FeatureGrid>
+With Pro, the same dictionary is applied to [meeting transcripts](/meetings). If "Okonkwo" is in your dictionary, it's spelled right in Tuesday's call transcript and in the action items written from it.
 
-## Before and After
+## How many entries you need
 
-The difference is obvious:
+Not many. Ten entries catch the worst offenders. Twenty-five or so cover the names and terms most people use every week. Start small and let the learned entries fill in the rest.
 
-<VoiceDemo voice="Deploy the next JS app to Vercel with Supabase" output="Deploy the next JS app to versaille with super base" lang="Without Dictionary" />
+## FAQ
 
-<VoiceDemo voice="Deploy the Next.js app to Vercel with Supabase" output="Deploy the Next.js app to Vercel with Supabase" lang="With Dictionary" />
+### Does Whisperer learn new words on its own?
 
-<VoiceDemo voice="Set up Kubernetes with Terraform on Hetzner" output="Set up Cooper Netties with terra form on Hetzner" lang="Without Dictionary" />
+Yes. When you correct a word, Whisperer can learn it and adds it to the dictionary marked as learned. You can edit or delete learned entries at any time.
 
-<VoiceDemo voice="Set up Kubernetes with Terraform on Hetzner" output="Set up Kubernetes with Terraform on Hetzner" lang="With Dictionary" />
+### Does the dictionary work for meeting transcripts?
 
-With dictionary entries, technical terms work like regular words.
-
-## Pro Tips
-
-<Callout type="tip">
-**Compound terms:** For multi-word terms like "Next.js" or "Fly.io", add the complete term including punctuation. Whisperer will match the spoken form to your written form.
-</Callout>
-
-<Callout type="info">
-**Casing matters in Code Mode.** If you add "useState" to your dictionary, it will be recognized with that exact casing when Code Mode is active. For natural language mode, standard sentence casing rules still apply.
-</Callout>
-
-### Starter List for Web Developers
-
-Here's a quick-start dictionary you can build from if you work in the JavaScript/TypeScript ecosystem:
-
-```
-React
-Next.js
-TypeScript
-Tailwind
-Prisma
-Zustand
-Zod
-tRPC
-Vercel
-Supabase
-PostgreSQL
-Redis
-Vite
-Bun
-Deno
-ESLint
-Prettier
-Vitest
-Playwright
-Storybook
-```
-
-Add these as a starting point and expand as you encounter new misrecognitions in your daily workflow.
-
-## How Many Terms Do You Need?
-
-Not many:
-
-- **10 terms** catches the worst offenders
-- **25 terms** covers your main tech stack and project names
-- **50+ terms** handles pretty much everything
-
-Most people hit 95% accuracy with 25-30 entries. That's maybe 10 minutes of work total, spread over your first few days of use.
-
+Yes. The same dictionary is applied to dictation and to meeting transcripts, so colleagues' names and product terms come out right in both.
 
 ---
 
-*Related: [Personal Dictionary Feature](/features/personal-dictionary), [Code Mode](/code-mode), [Getting Started Guide](/blog/getting-started-whisperer). See [pricing](/pricing) and [all features](/features).*
-
-<CTA />
+*Related: [Personal dictionary feature](/features/personal-dictionary), [Getting started](/blog/getting-started-whisperer). See [pricing](/pricing) and [all dictation features](/features).*

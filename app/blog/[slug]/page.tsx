@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { mdxComponents } from "@/components/mdx/MDXComponents";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { blogPostSchema, breadcrumbSchema, JsonLd } from "@/lib/structured-data";
+import { blogPostSchema, breadcrumbSchema, faqSchema, JsonLd } from "@/lib/structured-data";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
@@ -33,6 +33,7 @@ export async function generateMetadata({
       description: post.meta.description,
       type: "article",
       publishedTime: post.meta.date,
+      ...(post.meta.updated ? { modifiedTime: post.meta.updated } : {}),
       images: [
         {
           url: `/assets/og/og-blog-${slug}.png`,
@@ -72,7 +73,24 @@ export default async function BlogPost({
 
   return (
     <>
-      <JsonLd data={blogPostSchema(post.meta)} />
+      <JsonLd data={{ ...blogPostSchema(post.meta), dateModified: post.meta.updated ?? post.meta.date }} />
+      {post.meta.howToSteps && post.meta.howToSteps.length > 0 && (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            name: post.meta.title,
+            description: post.meta.description,
+            step: post.meta.howToSteps.map((s, i) => ({
+              "@type": "HowToStep",
+              position: i + 1,
+              name: s.name,
+              text: s.text,
+            })),
+          }}
+        />
+      )}
+      {post.meta.faqs && post.meta.faqs.length > 0 && <JsonLd data={faqSchema(post.meta.faqs)} />}
       <JsonLd data={breadcrumbSchema([
         { name: "Home", url: "/" },
         { name: "Blog", url: "/blog" },
@@ -110,6 +128,16 @@ export default async function BlogPost({
                       year: "numeric",
                     })}
                   </span>
+                  {post.meta.updated && post.meta.updated !== post.meta.date && (
+                    <span>
+                      Updated{" "}
+                      {new Date(post.meta.updated).toLocaleDateString("en-US", {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </span>
+                  )}
                   <span className="flex items-center gap-1.5">
                     <Clock className="w-3.5 h-3.5" />
                     {post.meta.readingTime}

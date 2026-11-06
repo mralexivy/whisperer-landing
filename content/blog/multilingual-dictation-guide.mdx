@@ -1,78 +1,96 @@
 ---
-title: "How to Dictate in Multiple Languages on Mac — Complete Guide"
-description: "Set up multilingual dictation on Mac with Whisperer. Configure per-app language profiles, use AI translation between languages, and optimize accuracy for non-English dictation."
+title: "How to Dictate in Multiple Languages on Mac"
+description: "Dictate in more than one language on a Mac with Whisperer: automatic language detection across 97 languages, engine choice, translation and accuracy tips."
 date: "2026-03-28"
-keywords: ["multilingual dictation mac", "dictate multiple languages mac", "voice to text spanish mac", "per-app language profiles", "offline translation dictation", "dictation language switching"]
+updated: "2026-11-06"
+keywords: ["multilingual dictation mac", "dictate multiple languages mac", "voice to text spanish mac", "offline translation dictation", "dictation language switching", "automatic language detection dictation"]
 category: "guides"
 howToSteps:
-  - name: "Choose Your Language"
-    text: "Open Whisperer Settings and select your primary dictation language. Explicit selection is recommended over auto-detection for best accuracy."
-  - name: "Set Up Per-App Profiles"
-    text: "In Pro Pack settings, create per-app profiles to use different languages in different applications automatically."
-  - name: "Enable AI Translation (Optional)"
-    text: "Enable AI Post-Processing with Translate mode to dictate in one language and receive text in another."
-  - name: "Add Language-Specific Prompt Words"
-    text: "Add proper nouns, technical terms, and frequently used words in your target language to prompt words for better recognition."
+  - name: "Leave language on automatic"
+    text: "Whisperer detects the language you speak on each dictation, across 97 languages with the default Whisper model. You don't switch anything when you change language."
+  - name: "Pin a language if you only use one"
+    text: "If you always dictate in one language, choose it in Settings. That helps with very short phrases."
+  - name: "Pick the right engine"
+    text: "Whisper covers 97 languages. Parakeet covers 25 European languages on the Neural Engine, and Qwen3 ASR covers 31."
+  - name: "Translate as you dictate (optional)"
+    text: "In AI Modes, choose Translate for Post-Process to speak in one language and paste text in another."
+  - name: "Add names and terms"
+    text: "Add proper nouns and terms in each language to the personal dictionary and prompt words."
+faqs:
+  - question: "Can I switch languages without changing a setting?"
+    answer: "Yes. With language set to automatic, Whisperer detects the language of each dictation. You can dictate a Slack reply in English and the next email in Spanish without touching anything."
+  - question: "How many languages does Whisperer support?"
+    answer: "97 with the default Whisper model. Parakeet supports 25 European languages and Qwen3 ASR supports 31."
 ---
 
-If you work in multiple languages, most dictation apps make you manually switch every time. It's annoying. Whisperer lets you set up per-app language profiles, so your IDE uses English while your email uses French. No manual switching.
+To dictate in more than one language on a Mac, leave Whisperer's language on automatic. It detects the language of each dictation across 97 languages with the default Whisper model, and the live preview streams words in the language you're speaking. You can answer a colleague in English, then dictate an email in Spanish, without touching a setting. Everything runs on your Mac.
 
-## Pick your language explicitly
+## How automatic detection works
 
-Auto-detection is convenient but it makes mistakes. Especially with:
-- Short phrases (not enough data to guess from)
-- Similar-sounding languages (Spanish vs Portuguese)
-- Mixing languages in one sentence
+Whisper identifies the language from the first stretch of audio. Whisperer watches the live preview and settles on a language once it's consistent, then keeps it for the rest of that dictation.
 
-<Callout type="info">
-Explicit language selection is about 10-15% more accurate than auto-detect. Worth setting up.
+It's reliable for normal sentences. It can struggle with:
+
+- **Very short phrases**, like "yes" or a single name, where there isn't much to go on
+- **Close languages**, such as Spanish and Portuguese, or Czech and Slovak
+- **Mixing languages inside one sentence**
+
+<Callout type="tip">
+If you only ever dictate in one language, pick it in Settings. That removes the guesswork for short phrases.
 </Callout>
 
-## Different languages for different apps
+## Which engine for which language
 
-Pro Pack lets you assign languages per app:
+Every engine runs offline. Choose one in Settings.
 
-- **VS Code / Cursor:** English for code
-- **Pages / Word:** French for documents
-- **Mail:** German for correspondence
-- **Slack:** English for team chat
+| Engine | Languages | Notes |
+|---|---|---|
+| Whisper (default, Whisperer V3) | 97 | Widest coverage. The pick for less common languages |
+| Parakeet | 25 European languages | Runs on the Neural Engine, quick for supported languages |
+| Qwen3 ASR | 31 | Another option for major languages |
+| WhisperKit | Whisper languages | Whisper models on Core ML |
+| Apple Speech | Apple's list on macOS 26 | Drives the live preview while you speak |
 
-Switch apps, language switches automatically. No toggling.
+If you need Romanian, Icelandic or Swahili, Whisper is the safest choice. For English, Spanish, French or German, try Parakeet and see which you prefer.
 
 ## Translate as you dictate
 
-[AI post-processing](/features/ai-writing) has a Translate mode. Speak in one language, get text in another. All offline.
+AI Modes include a **Translate** mode. Speak in one language and get text in another, ready to paste with ⌘V.
 
-1. Enable AI Post-Processing in Settings
-2. Select "Translate" mode
-3. Set your target language
-4. Speak in your native language, get output in the target
+1. In Workspace, open **AI Modes**.
+2. Set **Post-Process** to **Translate** and choose the target language.
+3. On the **LLM** page, keep the built-in Qwen3.5 4B model (offline) or pick your own AI.
+4. Hold Fn, speak in your own language, release, paste.
 
-Good for:
-- Writing in a language you speak better than you type
-- Quick translations without switching apps
-- Using [personal dictionary](/features/personal-dictionary) terms for consistent translations
+Useful when you speak a language better than you write it, or for quick replies without a translation site.
 
-## Which backend for which language
+## Making non-English dictation more accurate
 
-| Backend | Languages | Notes |
-|---|---|---|
-| **Whisper** | 99+ | Only option for less common languages |
-| **NVIDIA** | 25 | Fastest, but limited coverage |
-| **Apple Speech** | System languages | Whatever Apple supports |
-
-If you need Romanian or Icelandic or something uncommon, Whisper is your only choice. For English, Spanish, French, and other top languages, NVIDIA is faster.
-
-## Making non-English work better
-
-1. **Use bigger models.** Tiny and Small struggle with non-English. Medium or Large V3 are noticeably better.
+1. **Use Whisperer V3 or Large V3.** Small and Base struggle more outside English. See [which Whisper model to use](/blog/best-whisper-model-for-dictation).
 2. **Add prompt words** for names and technical terms in your language.
-3. **Fix recurring mistakes** with dictionary corrections.
-4. **Set language explicitly** instead of relying on auto-detect.
+3. **Fix recurring mistakes** with the [personal dictionary](/blog/personal-dictionary-setup). Whisperer also learns from your corrections.
+4. **Use a decent microphone.** It matters more than people expect.
+
+## Meetings in other languages
+
+With Pro, [meeting notes](/meetings) work in other languages too. The transcript is in the language people speak. Notes are written by the AI you choose, so their quality depends on that model's handling of the language.
 
 ## Getting started
 
-1. [Download Whisperer](https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671)
-2. Settings, select your language
-3. Set up [per-app profiles](/blog/dictation-for-per-app-profiles) if you use multiple languages
-4. Full details on [multilingual features](/features/multilingual)
+1. [Get Whisperer on the Mac App Store](https://apps.apple.com/app/whisperer-voice-to-text/id6758626671) ($2.99).
+2. Leave language on automatic, or pin your main language in Settings.
+3. Try Translate in AI Modes if you need it.
+
+## FAQ
+
+### Can I switch languages without changing a setting?
+
+Yes. With language set to automatic, Whisperer detects the language of each dictation. You can dictate a Slack reply in English and the next email in Spanish without touching anything.
+
+### How many languages does Whisperer support?
+
+97 with the default Whisper model. Parakeet supports 25 European languages and Qwen3 ASR supports 31.
+
+---
+
+*Related: [Whisper vs Parakeet vs Apple Speech](/blog/whisper-vs-nvidia-vs-apple-speech), [multilingual features](/features/multilingual). See [pricing](/pricing).*

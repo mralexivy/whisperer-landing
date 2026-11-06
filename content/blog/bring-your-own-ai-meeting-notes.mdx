@@ -1,0 +1,135 @@
+---
+title: "Use Your ChatGPT, Claude or Gemini Plan for Meeting Notes"
+description: "Write meeting notes with the AI plan you already pay for. Whisperer uses ChatGPT, Claude, Codex or Gemini, or a free model on your Mac. No extra subscription."
+date: "2026-11-06"
+keywords: ["bring your own ai meeting notes", "chatgpt meeting notes mac", "claude meeting notes", "meeting notes without subscription", "gemini meeting summary", "ai meeting notes cost"]
+category: "ai"
+howToSteps:
+  - name: "Open the LLM page"
+    text: "In Whisperer, open the Workspace window and choose LLM in the sidebar."
+  - name: "Pick where the notes are written"
+    text: "Choose On this Mac for the built-in Qwen3.5 4B model, one of your AI subscriptions (Claude, ChatGPT, Codex, Gemini), or an API key."
+  - name: "Sign in or paste a key"
+    text: "Sign in with the plan you already have, or paste an OpenAI, Anthropic or Gemini API key. Keys are stored in the macOS Keychain."
+  - name: "Record a meeting"
+    text: "Take notes on a Zoom, Teams or Meet call. When it ends, the AI you picked writes the overview, decisions and action items."
+faqs:
+  - question: "Does using my ChatGPT or Claude plan cost extra?"
+    answer: "No. Whisperer does not add a bill. The notes count against the usage limits of the plan you already pay for, the same way a chat would."
+  - question: "What happens if my AI subscription is unavailable?"
+    answer: "Whisperer falls back to the built-in Qwen3.5 4B model on your Mac, so the meeting still gets notes."
+  - question: "Does my meeting audio go to the cloud AI?"
+    answer: "No. Audio is transcribed on your Mac and stays there. Only the text transcript is sent to the cloud AI you chose, and you can keep any meeting fully local."
+  - question: "Do I need an API key?"
+    answer: "No. You can sign in with a Claude, ChatGPT or Google AI plan, or use the free model on your Mac. API keys are an option for people who prefer them."
+---
+
+You can write AI meeting notes with the ChatGPT, Claude, Codex or Gemini plan you already pay for, instead of buying another subscription. Whisperer records and transcribes the call on your Mac, then hands only the text transcript to the AI you pick. If you'd rather not use a cloud AI at all, a built-in model on your Mac writes the notes offline for free. The app is $2.99 and the Pro upgrade with meetings is $14.99, both one-time.
+
+## Why a second AI subscription feels wrong
+
+Most meeting note apps bundle their own AI and charge for it every month. That made sense when few people had an AI plan. Now many people already pay for ChatGPT Plus, Claude Pro or Google AI Pro, and a meeting recorder that charges again for the same kind of model is paying twice for one job.
+
+Whisperer splits the job in two. The Mac does the recording, the transcription and the speaker labels. The writing of notes goes to whichever AI you choose.
+
+## How the LLM page works
+
+Open the Workspace window and pick **LLM** in the sidebar. You get one list, grouped into three parts.
+
+### On this Mac
+
+The default is a built-in **Qwen3.5 4B** model. It's about a 3.2 GB download, runs on Apple Silicon and works offline. It's free, and it's also the fallback for everything else on the list. More on what it's good at in [offline meeting summaries with a local model](/blog/local-llm-meeting-summaries).
+
+### Your AI subscriptions
+
+- **Claude** uses your Claude Pro or Max plan through Claude Code.
+- **ChatGPT** signs in with your Plus or Pro plan.
+- **Codex** uses your ChatGPT plan through Codex.
+- **Gemini / Antigravity** uses a Google AI Pro or Ultra plan.
+
+Usage counts against the plan you already pay for. Whisperer doesn't add a charge on top.
+
+### API keys
+
+If you'd rather pay per use, paste an **OpenAI**, **Anthropic** or **Gemini** API key. Keys are stored in the macOS Keychain, not in a settings file.
+
+<Callout type="info">
+The AI you pick here is used for three things: meeting notes, Ask AI questions about a meeting, and transcript polish. Dictation doesn't need it.
+</Callout>
+
+## Set it up in a few minutes
+
+<StepList>
+<Step num="1" title="Open the LLM page">
+Workspace window, then **LLM** in the sidebar.
+</Step>
+<Step num="2" title="Pick where notes are written">
+Leave **On this Mac** selected, or choose one of your subscriptions or an API key.
+</Step>
+<Step num="3" title="Sign in or paste a key">
+Sign in with the plan you have. For keys, paste it once and it goes into the Keychain.
+</Step>
+<Step num="4" title="Take notes on a call">
+Join a Zoom, Teams or Google Meet call. When Whisperer asks "Zoom call started — Take notes?", say yes. After the call, the AI you picked writes the title, overview, key topics, decisions, action items with owners, open questions and the next meeting.
+</Step>
+</StepList>
+
+## The cost math
+
+Here's what one person pays over a year. Competitor prices are public pricing, November 2026, for one seat.
+
+| App | Plan | First year | Second year |
+|---|---|---|---|
+| Whisperer | $2.99 app + $14.99 Pro, one-time | $17.98 | $0 |
+| Granola | Business, $14/user/month (monthly only) | $168 | $168 |
+| Otter | Pro, $8.33/month billed yearly | about $100 | about $100 |
+| Otter | Pro, $16.99 billed monthly | about $204 | about $204 |
+| Fireflies | Pro, $10/month billed yearly | $120 | $120 |
+| Fireflies | Pro, $18 billed monthly | $216 | $216 |
+
+The Whisperer line assumes you already pay for an AI plan, or that you use the free model on your Mac. If you'd sign up for ChatGPT Plus only for meeting notes, count that cost too. At that point the comparison is closer, and you also get a general-purpose assistant for the money.
+
+To be fair to the others: Granola has a free Basic plan, and Otter and Fireflies have free tiers too. If you have a few meetings a month and the free limits fit, they may cost you nothing.
+
+## What leaves your Mac and what doesn't
+
+The audio never leaves your Mac. Recording, transcription and speaker identification all happen locally.
+
+When you pick a cloud AI, only the text transcript goes to that provider, under that provider's terms. When you pick **On this Mac**, nothing leaves at all. You can also keep a single meeting local, which is handy for a one-on-one or a call about a contract, while your other meetings use Claude or ChatGPT.
+
+## When your AI isn't there
+
+Plans hit limits. Sign-ins expire. Wi-Fi drops on a train. If the AI you chose can't be reached, the Mac takes over and the built-in model writes the notes. You still get notes for the meeting; they may just be a little plainer than what a large cloud model would write.
+
+## Limits worth knowing
+
+- **Plan limits apply.** A long all-hands transcript sent to Claude uses some of your Claude allowance. Heavy users on lower tiers may notice.
+- **Quality varies by model.** Large cloud models catch more nuance in a two-hour planning meeting than a 4B model on a laptop.
+- **Mac only.** Whisperer needs Apple Silicon and macOS 26 Tahoe. There's no Windows or web version, and no shared team workspace.
+- **No meeting bot.** Nothing joins the call. That's good for privacy, but it means Whisperer has to run on the Mac you take the call on.
+
+## FAQ
+
+### Does using my ChatGPT or Claude plan cost extra?
+
+No. Whisperer does not add a bill. The notes count against the usage limits of the plan you already pay for, the same way a chat would.
+
+### What happens if my AI subscription is unavailable?
+
+Whisperer falls back to the built-in Qwen3.5 4B model on your Mac, so the meeting still gets notes.
+
+### Does my meeting audio go to the cloud AI?
+
+No. Audio is transcribed on your Mac and stays there. Only the text transcript is sent to the cloud AI you chose, and you can keep any meeting fully local.
+
+### Do I need an API key?
+
+No. You can sign in with a Claude, ChatGPT or Google AI plan, or use the free model on your Mac. API keys are an option for people who prefer them.
+
+## Related reading
+
+- [How meeting notes work end to end](/blog/ai-meeting-notes-mac)
+- [Let Claude read your meeting notes with MCP](/blog/claude-mcp-meeting-notes)
+- [Your AI, explained](/ai) and [Meetings](/meetings)
+
+See what's included on the [pricing page](/pricing).

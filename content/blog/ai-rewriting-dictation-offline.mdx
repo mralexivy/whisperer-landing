@@ -1,39 +1,38 @@
 ---
-title: "How to Rewrite & Format Dictation with Offline AI on Mac"
-description: "Use Whisperer's on-device AI to rewrite, translate, format, summarize, and fix grammar in your dictation — 100% offline. 10 built-in modes plus custom prompts."
+title: "How to Rewrite and Format Dictation with AI on Mac"
+description: "Use Whisperer's AI modes to rewrite, translate, format, summarize and fix grammar in your dictation, with an offline model on your Mac or your own AI."
 date: "2026-03-28"
+updated: "2026-11-06"
 keywords: ["offline AI writing mac", "dictation rewrite offline", "AI post-processing dictation", "offline LLM dictation", "rewrite voice to text", "format dictation AI"]
 category: "features"
 howToSteps:
-  - name: "Enable AI Post-Processing"
-    text: "Open Whisperer Settings, go to the AI section, and enable AI Post-Processing. Choose one of the 10 built-in modes."
-  - name: "Select Your AI Mode"
-    text: "Pick the mode that matches your task: Rewrite for professional prose, Translate for language conversion, Format for Markdown, Summarize for key points, Grammar for cleanup, or any other mode."
-  - name: "Dictate as Usual"
-    text: "Hold your shortcut key and speak naturally. Whisperer transcribes your speech, then the AI mode automatically transforms the text before inserting it."
-  - name: "Review in History"
-    text: "Check the before/after in your transcription history. Undo any AI enhancement to revert to the original if needed."
+  - name: "Choose your AI"
+    text: "In Workspace, open the LLM page. The built-in Qwen3.5 4B model runs offline on your Mac; you can also pick your Claude, ChatGPT or Gemini plan, or an API key."
+  - name: "Pick a post-process mode"
+    text: "Open AI Modes in Workspace and set the Post-Process mode: Rewrite, Translate, Format, Summarize, Grammar, Email or a custom prompt."
+  - name: "Dictate as usual"
+    text: "Hold Fn and speak. Whisperer transcribes on your Mac, runs the text through the mode you picked, and copies the result so you can paste it with ⌘V."
+  - name: "Check the result in History"
+    text: "Your transcription history keeps the text so you can compare, copy or re-transcribe it."
 ---
 
-Speaking naturally is fast, but it produces messy text. Filler words, rambling sentences, casual phrasing. Fine for talking, not great for professional writing.
+Whisperer can reshape your dictation with an AI before you paste it. You pick a mode, such as Rewrite, Email or Format, and every dictation goes through it. By default the AI is Qwen3.5 4B running on your Mac, so this works offline with no API key and no per-word charge. You can switch to your own Claude, ChatGPT or Gemini plan if you prefer.
 
-Whisperer can clean this up automatically before the text gets inserted. An LLM runs locally on your Mac and transforms your raw dictation into something polished.
+Speaking is fast, but spoken text is messy: filler words, run-on sentences, casual phrasing. Fast Polish already handles fillers, punctuation and paragraphs. AI modes go further and change the shape of the text.
 
-No cloud. No API keys. No per-word charges. Just your Mac doing the processing.
-
-## The Built-In Modes
+## The built-in modes
 
 ### Rewrite
 
-Takes spoken text and makes it read like written text. Cuts the filler, fixes run-on sentences, tightens things up.
+Makes spoken text read like written text. Cuts filler, fixes run-ons, tightens things up.
 
-**Before:** "so basically what I was thinking is that we should probably go ahead and implement the new caching layer because it would make things faster"
+**Before:** "so basically what I was thinking is that we should probably go ahead and move the launch review to Thursday because Dan is out on Tuesday"
 
-**After:** "We should implement the new caching layer to improve performance."
+**After:** "Let's move the launch review to Thursday, since Dan is out on Tuesday."
 
 ### Translate
 
-Speak in one language, get text in another. All offline. The translation quality is decent for most common language pairs.
+Speak in one language, get text in another. Quality is good for common language pairs.
 
 **Before:** "Please send me the quarterly report by Friday afternoon."
 
@@ -41,71 +40,68 @@ Speak in one language, get text in another. All offline. The translation quality
 
 ### Format
 
-Applies Markdown formatting with headers, bullets, and structure.
+Adds Markdown structure: headings, bullets, numbered lists.
 
-**Before:** "the project has three phases first research second development third deployment each phase takes about two weeks"
+**Before:** "the project has three phases first research second build third launch each phase takes about two weeks"
 
 **After:**
 ```
-# Project Phases
+# Project phases
 
-1. **Research** - 2 weeks
-2. **Development** - 2 weeks
-3. **Deployment** - 2 weeks
+1. **Research**: 2 weeks
+2. **Build**: 2 weeks
+3. **Launch**: 2 weeks
 ```
 
 ### Summarize
 
-Condenses long dictation into key points.
+Condenses a long dictation into the key points.
 
-### Grammar
+### Grammar and Correct
 
-Fixes grammar and punctuation. Doesn't change meaning, just cleans up the rough edges.
+Fixes grammar and punctuation without changing what you meant.
 
 ### List Format
 
-Detects when you're listing things and formats them as actual lists.
-
-### Coding
-
-Turns spoken descriptions into technical docs or code comments.
+Notices when you're listing things and turns them into a real list.
 
 ### Email
 
-Adds a greeting and sign-off, formats as a proper email.
+Adds a greeting and sign-off and lays the text out as an email. See [dictation for email](/blog/dictation-for-email).
 
 ### Creative
 
-Makes the language more colorful. Useful for marketing copy.
+Makes the language livelier. Useful for marketing drafts.
 
 ### Custom
 
-Write your own prompt. The LLM follows your instructions.
+Write your own prompt and the AI follows it, for example "Rewrite as a short status update for my manager."
 
-## Rewriting Existing Text
+## Which AI runs the modes
 
-You can also rewrite text you've already written. Press Option+Shift+Tab to run your clipboard through the active AI mode.
+The AI comes from the **LLM** page in Workspace, the same one that writes your meeting notes:
 
-1. Select text in any app
-2. Copy it (Cmd+C)
-3. Press Option+Shift+Tab
-4. The AI-processed version replaces your clipboard
+- **On this Mac:** Qwen3.5 4B (about 3.2 GB download). Offline, free, the default and the fallback.
+- **Your AI subscriptions:** Claude, ChatGPT, Codex or Gemini, using the plan you already pay for.
+- **API keys:** OpenAI, Anthropic or Gemini, stored in Keychain.
 
-Handy for cleaning up notes, reformatting text, or translating things you've already written.
+If you choose a cloud AI, only the text is sent. Your audio never leaves the Mac. More on the [your AI page](/ai).
 
-## History and Undo
+## Trade-offs
 
-Every transformation is saved with before/after text. Made a mistake? Undo and get the original back.
+- An AI mode adds a moment after you release Fn while the model works. For quick Slack replies, plain dictation with Fast Polish is faster.
+- A small local model is good at cleanup and formatting. For heavy rewriting or translation of long text, a cloud model you already pay for may do better.
+- The mode stays on until you change it, so switch back to plain dictation when you're done with a batch of emails.
 
 ## Privacy
 
-The LLM runs on your Mac. Your text stays on your Mac. No API keys, no cloud servers, no subscription fees.
+With the built-in model, both the speech recognition and the rewriting happen on your Mac. Nothing is sent anywhere. Whisperer has no account, no analytics and no tracking.
 
-## Getting Started
+## Getting started
 
-1. [Download Whisperer](https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671) from the Mac App Store
-2. Open Settings and enable AI Post-Processing
-3. Choose your preferred AI mode
-4. Dictate and let the AI handle the polish
+1. Get [Whisperer on the Mac App Store](https://apps.apple.com/app/whisperer-voice-to-text/id6758626671)
+2. Open the LLM page and keep the built-in model, or pick your own AI
+3. Open AI Modes and choose a Post-Process mode
+4. Hold Fn, speak, release, and paste with ⌘V
 
-Learn more about all AI modes on the [AI Writing feature page](/features/ai-writing).
+See the [AI writing feature page](/features/ai-writing) for more.

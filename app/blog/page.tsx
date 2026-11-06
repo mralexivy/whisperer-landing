@@ -1,19 +1,17 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts, type Post } from "@/lib/blog";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
-import { FadeIn, FadeInStagger, StaggerItem, GlowCard } from "@/components/ui/animated";
-import { SectionGlow, DotGrid } from "@/components/ui/decorations";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Blog | Voice Coding & Dictation Tips for Mac",
+  title: "Blog | Meeting Notes, Your Own AI, MCP and Dictation on Mac",
   description:
-    "Guides, tutorials, and insights on voice coding, offline dictation, and developer productivity on Mac. Learn to dictate code, use Code Mode, and type faster with your voice.",
+    "Guides to bot-free meeting notes on Mac, using your ChatGPT, Claude or Gemini plan for summaries, connecting AI apps over MCP, and offline dictation.",
   openGraph: {
-    title: "Whisperer Blog — Voice Coding & Dictation Tips",
+    title: "Whisperer Blog: Meeting Notes, Your AI, MCP and Dictation",
     description:
-      "Guides and tutorials on voice coding, offline dictation, and developer productivity for Mac.",
+      "Guides to bot-free meeting notes, your own AI, MCP and offline dictation on Mac.",
     type: "website",
     images: [{ url: "/assets/og/og-blog.png", width: 1200, height: 630, alt: "Whisperer Blog" }],
   },
@@ -24,115 +22,87 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://whispererapp.com/blog" },
 };
 
+// Display order and labels for frontmatter `category` values.
+const CATEGORIES: { key: string; label: string }[] = [
+  { key: "meetings", label: "Meetings" },
+  { key: "ai", label: "Your own AI" },
+  { key: "mcp", label: "MCP" },
+  { key: "comparison", label: "Comparisons" },
+  { key: "getting-started", label: "Getting started" },
+  { key: "guides", label: "Dictation guides" },
+  { key: "productivity", label: "Dictation guides" },
+  { key: "features", label: "Features" },
+  { key: "privacy", label: "Privacy" },
+  { key: "technical", label: "Speech models" },
+];
+
+function categoryLabel(key: string) {
+  return CATEGORIES.find((c) => c.key === key)?.label ?? key;
+}
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+}
+
+function PostRow({ post }: { post: Post }) {
+  const isUpdated = Boolean(post.meta.updated && post.meta.updated !== post.meta.date);
+  return (
+    <li>
+      <Link
+        href={`/blog/${post.meta.slug}`}
+        className="group flex items-start justify-between gap-6 py-5 transition-transform duration-200 hover:-translate-y-0.5"
+      >
+        <div className="min-w-0">
+          <h3 className="text-[17px] font-semibold text-white transition-colors group-hover:text-[#9BA6FF]">
+            {post.meta.title}
+          </h3>
+          <p className="mt-1.5 text-[15px] leading-relaxed text-white/60">{post.meta.description}</p>
+          <p className="mt-2 text-[13px] text-white/45">
+            {isUpdated ? "Updated " : ""}
+            {formatDate(isUpdated ? post.meta.updated! : post.meta.date)} · {post.meta.readingTime}
+          </p>
+        </div>
+        <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-white/30 transition-all group-hover:translate-x-0.5 group-hover:text-[#9BA6FF]" />
+      </Link>
+    </li>
+  );
+}
+
 export default function BlogIndex() {
   const posts = getAllPosts();
-  const [featured, ...rest] = posts;
+
+  // Group by display label in CATEGORIES order; unknown categories go last.
+  const groups = new Map<string, Post[]>();
+  for (const c of CATEGORIES) if (!groups.has(c.label)) groups.set(c.label, []);
+  for (const p of posts) {
+    const label = categoryLabel(p.meta.category);
+    if (!groups.has(label)) groups.set(label, []);
+    groups.get(label)!.push(p);
+  }
 
   return (
-    <main className="pt-32 pb-24 relative">
-      {/* Background atmosphere */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <SectionGlow position="top-center" size="xl" intensity={0.08} />
-        <DotGrid />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <main className="pt-32 pb-24">
+      <div className="mx-auto max-w-[880px] px-4 sm:px-6">
         <Breadcrumbs items={[{ label: "Blog" }]} />
 
-        <div className="max-w-4xl mx-auto">
-          <FadeIn>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-              Whisperer <span className="text-primary">Blog</span>
-            </h1>
-            <p className="text-lg text-muted-foreground mb-12">
-              Guides, tutorials, and insights on voice coding, offline dictation,
-              and developer productivity.
-            </p>
-          </FadeIn>
+        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">Whisperer blog</h1>
+        <p className="mt-4 max-w-[640px] text-lg leading-relaxed text-white/60">
+          How to take meeting notes on a Mac without a bot, use the AI plan you already pay for, let
+          Claude or Cursor read your meetings over MCP, and dictate in any app.
+        </p>
 
-          {/* Featured post */}
-          {featured && (
-            <FadeIn delay={0.1} className="mb-10">
-              <Link
-                href={`/blog/${featured.meta.slug}`}
-                className="group block"
-              >
-                <GlowCard className="bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-300">
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                    <span className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5" />
-                      {new Date(featured.meta.date).toLocaleDateString("en-US", {
-                        month: "long",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5" />
-                      {featured.meta.readingTime}
-                    </span>
-                    <span className="bg-primary/10 text-primary px-2 py-0.5 rounded text-xs font-medium">
-                      {featured.meta.category}
-                    </span>
-                  </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-foreground group-hover:text-primary transition-colors mb-3">
-                    {featured.meta.title}
-                  </h2>
-                  <p className="text-muted-foreground text-lg mb-4">
-                    {featured.meta.description}
-                  </p>
-                  <span className="inline-flex items-center gap-2 text-primary font-medium">
-                    Read article
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </GlowCard>
-              </Link>
-            </FadeIn>
-          )}
-
-          {/* Rest of posts */}
-          <FadeInStagger className="grid gap-6">
-            {rest.map((post) => (
-              <StaggerItem key={post.meta.slug}>
-                <Link
-                  href={`/blog/${post.meta.slug}`}
-                  className="group block"
-                >
-                  <GlowCard className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
-                    <div className="flex items-center justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
-                          <span className="flex items-center gap-1.5">
-                            <Calendar className="w-3.5 h-3.5" />
-                            {new Date(post.meta.date).toLocaleDateString("en-US", {
-                              month: "long",
-                              day: "numeric",
-                              year: "numeric",
-                            })}
-                          </span>
-                          <span className="flex items-center gap-1.5">
-                            <Clock className="w-3.5 h-3.5" />
-                            {post.meta.readingTime}
-                          </span>
-                          <span className="bg-primary/10 text-primary px-2 py-0.5 rounded text-xs font-medium">
-                            {post.meta.category}
-                          </span>
-                        </div>
-                        <h2 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-2">
-                          {post.meta.title}
-                        </h2>
-                        <p className="text-muted-foreground">
-                          {post.meta.description}
-                        </p>
-                      </div>
-                      <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-all shrink-0 ml-4 group-hover:translate-x-1" />
-                    </div>
-                  </GlowCard>
-                </Link>
-              </StaggerItem>
-            ))}
-          </FadeInStagger>
-        </div>
+        {[...groups.entries()]
+          .filter(([, list]) => list.length > 0)
+          .map(([label, list]) => (
+            <section key={label} className="mt-14">
+              <h2 className="text-xl font-semibold text-white">{label}</h2>
+              <ul className="mt-2 divide-y divide-white/[0.07] border-t border-white/[0.07]">
+                {list.map((post) => (
+                  <PostRow key={post.meta.slug} post={post} />
+                ))}
+              </ul>
+            </section>
+          ))}
       </div>
     </main>
   );

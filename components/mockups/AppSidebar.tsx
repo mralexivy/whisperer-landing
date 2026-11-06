@@ -1,17 +1,18 @@
 import {
-  MessageSquare, FileAudio, BookOpen, Sparkles, BarChart3,
-  Terminal, CheckCircle, MessageCircle, Settings,
+  MessageSquare, Users, CalendarDays, FileAudio, BookOpen, Sparkles, BarChart3,
+  Plug, Settings,
 } from "lucide-react";
 
+// Mirrors the real Workspace sidebar in Whisperer 2.0.
 const navItems = [
   { label: "Transcriptions", icon: MessageSquare, color: "text-blue-400", bg: "bg-blue-400/10" },
+  { label: "Meeting Notes", icon: Users, color: "text-indigo-400", bg: "bg-indigo-400/10" },
+  { label: "Calendar", icon: CalendarDays, color: "text-rose-400", bg: "bg-rose-400/10" },
   { label: "File Transcription", icon: FileAudio, color: "text-purple-400", bg: "bg-purple-400/10" },
   { label: "Dictionary", icon: BookOpen, color: "text-red-400", bg: "bg-red-400/10" },
-  { label: "AI Modes", icon: Sparkles, color: "text-cyan-400", bg: "bg-cyan-400/10" },
+  { label: "LLM", icon: Sparkles, color: "text-cyan-400", bg: "bg-cyan-400/10" },
   { label: "Statistics", icon: BarChart3, color: "text-green-400", bg: "bg-green-400/10" },
-  { label: "Command Mode", icon: Terminal, color: "text-yellow-400", bg: "bg-yellow-400/10" },
-  { label: "Setup", icon: CheckCircle, color: "text-green-400", bg: "bg-green-400/10" },
-  { label: "Feedback", icon: MessageCircle, color: "text-orange-400", bg: "bg-orange-400/10" },
+  { label: "MCP", icon: Plug, color: "text-yellow-400", bg: "bg-yellow-400/10" },
   { label: "Settings", icon: Settings, color: "text-gray-400", bg: "bg-gray-400/10" },
 ];
 
@@ -74,7 +75,7 @@ export function AppSidebar({ activeItem }: { activeItem: string }) {
             </div>
           ))}
         </div>
-        <div className="text-center text-[10px] text-white/20 mt-2">Whisperer v1.1 (4)</div>
+        <div className="text-center text-[10px] text-white/20 mt-2">Whisperer v2.0</div>
       </div>
     </div>
   );

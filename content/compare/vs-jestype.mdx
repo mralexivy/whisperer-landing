@@ -1,92 +1,98 @@
 ---
-title: "Whisperer vs. JesType — Offline Mac Dictation Compared"
-description: "Compare Whisperer and JesType for offline Mac dictation. Feature comparison covering price, Code Mode, transcription engines, per-app profiles, and developer tools."
+title: "Whisperer vs JesType: Offline Dictation at a Similar Price"
+description: "JesType is offline Parakeet dictation for €14.95 once on Mac and Windows. Whisperer is $2.99 for dictation and $14.99 once for meeting notes."
 date: "2026-03-28"
-keywords: ["JesType alternative", "Whisperer vs JesType", "JesType dictation mac", "offline dictation mac comparison", "best offline dictation app"]
+updated: "2026-11-06"
+keywords: ["JesType alternative", "Whisperer vs JesType", "JesType review", "offline dictation mac", "dictation one-time purchase", "parakeet dictation mac"]
 category: "comparison"
+faqs:
+  - question: "How much does JesType cost?"
+    answer: "JesType Personal is €14.95 one-time for one device, Pro is €34.95 for three, and Team is €49.95 for six (public pricing, November 2026). There is a 48-hour trial."
+  - question: "Is Whisperer a good JesType alternative?"
+    answer: "For dictation alone they are close: both run on the device and both are one-time purchases. Whisperer adds 97 languages with Whisper, file transcription, history, and with Pro, meeting notes, speaker names, your own AI and an MCP server."
+  - question: "Does JesType need the internet?"
+    answer: "Speech recognition runs on the device, but JesType checks its licence online, and paid licences work offline for up to 30 days between checks. Whisperer is bought through the Mac App Store and needs no licence check."
+  - question: "Does Whisperer type into apps like JesType?"
+    answer: "No. In the Mac App Store version, Whisperer copies your text and you paste with ⌘V. JesType pastes into the focused field."
 ---
 
-JesType is a simple offline dictation app for Mac. It runs Whisper and the Moonshine model locally and costs about the same as Whisperer (around $15). The apps solve the same basic problem but take different approaches.
+Pick **JesType** if you want simple offline dictation on Mac and Windows with one payment, and you mainly speak one of Parakeet's 25 languages. Pick **Whisperer** if you're on a Mac, want offline dictation in 97 languages for $2.99, and also want [meeting notes without a bot](/meetings), your own AI and an [MCP server](/mcp) for a one-time $14.99.
 
-## Price Comparison
+## The short version
+
+JesType keeps things small. It uses NVIDIA's Parakeet V3 models for 25 languages, plus Moonshine for streaming English, and pastes text into the field you're in. AI cleanup is optional and off by default.
+
+Whisperer offers five offline engines, with Whisper Large V3 Turbo as the default. Hold Fn, speak, release, and the text is copied for you to paste with ⌘V. The $14.99 Pro purchase adds a meeting recorder that detects calls, records both sides and writes notes.
+
+## Feature comparison
 
 | | Whisperer | JesType |
-|---|-----------|---------|
-| Price | $2.99 base / $14.99 Pro Pack | €14.95 one-time |
-| Subscription | No | No |
-| Cloud fees | None | None |
-| Model | One-time purchase | One-time purchase |
-
-<Callout type="info">
-Same ballpark price. Both one-time purchases. The difference is features: Whisperer adds Code Mode, per-app profiles, and AI post-processing. JesType keeps things minimal.
-</Callout>
-
-## Feature Comparison
-
-| Feature | Whisperer | JesType |
-|---------|-----------|---------|
-| Live dictation | Yes | Yes |
-| Inserts into any app | Yes | Yes |
-| Code Mode (camelCase, symbols) | Yes (Pro) | No |
-| Per-app profiles | Yes (Pro) | No |
-| Personal dictionary | Yes (Pro) | Limited |
-| 100% offline | Yes | Yes |
-| AI post-processing | Yes (10 modes, offline) | No |
-| Streaming preview | Yes | Yes |
-| Whisper support | Yes | Yes |
-| Moonshine model | No | Yes |
-| NVIDIA engine | Yes | No |
-| Apple Speech | Yes | No |
+|---|---|---|
+| Speech recognition on your device | Yes | Yes |
+| Pastes into the current field | No (copies, you press ⌘V) | Yes |
+| Live words while you speak | Yes | Yes (Moonshine, English) |
+| Languages | 97 with Whisper | 25 with Parakeet |
+| Speech engines | Whisper, Parakeet, Qwen3 ASR, WhisperKit, Apple Speech | Parakeet V3, Moonshine |
+| Personal dictionary that learns from corrections | Yes | Check JesType's site |
+| Optional AI cleanup | Yes (Fast Polish on device) | Yes (off by default) |
 | File transcription | Yes | No |
-| Transcription history | Yes | No |
-| Filler word removal | Yes | No |
-| Languages | 100+ | 90+ |
+| History with search and audio replay | Yes | Partial |
+| Online licence checks | No | Yes, every 30 days |
+| Meeting detection and recording | Yes (Pro) | No |
+| AI meeting notes with your own plan | Yes (Pro) | No |
+| MCP server | Yes (Pro) | No |
+| Windows | No | Yes |
+| Needs | Apple Silicon, macOS 26 | Apple Silicon, macOS 13.4 or later |
 
-## Where Whisperer Wins
+## Pricing
 
-<FeatureGrid>
-<FeatureCard title="Code Mode" icon="code">
-JesType doesn't have developer features. Whisperer lets you dictate `camelCase`, `snake_case`, parentheses, brackets, arrows, semicolons. If you write code, this is the gap.
-</FeatureCard>
+Public pricing, November 2026.
 
-<FeatureCard title="Three Engines" icon="cpu">
-Whisperer has Whisper (GPU), NVIDIA (Neural Engine), and Apple Speech. JesType has Whisper and Moonshine. The NVIDIA engine is fast because it runs on the Neural Engine, leaving your GPU free.
-</FeatureCard>
+| | Whisperer | JesType |
+|---|---|---|
+| Dictation | $2.99 one-time | Personal €14.95 one-time (1 device) |
+| More devices | Same Apple ID | Pro €34.95 (3), Team €49.95 (6) |
+| Meetings, AI notes, MCP | $14.99 one-time Pro | Not offered |
+| Trial | No | 48 hours |
+| Subscription | No | No |
 
-<FeatureCard title="AI Post-Processing" icon="sparkles">
-Whisperer can rewrite, translate, format, summarize, and fix grammar after transcription. Ten modes, all offline. JesType just transcribes.
-</FeatureCard>
+See Whisperer [pricing](/pricing).
 
-<FeatureCard title="Per-App Profiles" icon="target">
-Whisperer switches modes automatically. Code Mode in VS Code, normal text in Slack. JesType uses the same settings everywhere.
-</FeatureCard>
-</FeatureGrid>
+## Where JesType wins
 
-## Where JesType Wins
+- **Text goes into the field.** JesType pastes for you. With Whisperer's App Store build you press ⌘V.
+- **Windows and older macOS.** JesType runs on Windows and on macOS 13.4 or later. Whisperer is Mac-only and needs macOS 26 Tahoe.
+- **A trial.** You can try JesType for 48 hours before paying.
+- **Fewer moving parts.** Two engines and a short settings list.
 
-### Moonshine Support
-JesType runs the Moonshine model. Whisperer doesn't. Moonshine is smaller and faster than most Whisper variants, so if model size matters, JesType has an edge there.
+## Where Whisperer wins
 
-### Simplicity
-JesType does less. Some people want that. No modes to configure, no profiles to set up. Install and go.
+- **More languages.** 97 with Whisper, detected as you speak, compared with Parakeet's 25.
+- **No licence server.** Bought through the Mac App Store, so it never needs to phone home to keep working.
+- **Files and history.** Transcribe audio and video files. Search past dictations, replay audio, re-transcribe with another engine.
+- **Meetings.** Whisperer sees which app opened the microphone and asks "Zoom call started. Take notes?", or records automatically for meetings on your [calendar](/calendar). Speakers are named from the invite. Notes come from the built-in Qwen3.5 4B model or your Claude, ChatGPT, Codex or Gemini plan. See [your own AI](/ai).
+- **MCP.** Claude, Cursor or Codex can search your meetings and transcripts from your Mac.
 
-### Good SEO
-They rank well for "offline dictation Mac." That doesn't affect the product, but it's why you might have found them.
+## Who should choose which
 
-## Bottom Line
+**Choose JesType if** you need Windows, you're not on macOS 26, or you want the simplest possible dictation tool.
 
-<Callout type="tip">
-**Developers:** Whisperer. JesType doesn't have Code Mode or per-app profiles.
+**Choose Whisperer if** you speak a language outside Parakeet's list, you want file transcription and history, or you want your calls written up too. Start with [dictation](/features).
 
-**General dictation:** Both work. Whisperer has more features (AI modes, file transcription, history). JesType is simpler if that's what you want.
+## FAQ
 
-**Privacy:** Tie. Both run offline.
+### How much does JesType cost?
 
-**Value:** Same price, more features in Whisperer. Code Mode, AI post-processing, per-app profiles, personal dictionary, file transcription, and history are all in the $14.99 Pro Pack.
-</Callout>
+JesType Personal is €14.95 one-time for one device, Pro is €34.95 for three, and Team is €49.95 for six (public pricing, November 2026). There is a 48-hour trial.
 
----
+### Is Whisperer a good JesType alternative?
 
-*More comparisons: [vs Superwhisper](/compare/vs-superwhisper), [vs Apple Dictation](/compare/vs-apple-dictation), [vs MacWhisper](/compare/vs-macwhisper). See [all features](/features) or [pricing](/pricing).*
+For dictation alone they are close: both run on the device and both are one-time purchases. Whisperer adds 97 languages with Whisper, file transcription, history, and with Pro, meeting notes, speaker names, your own AI and an MCP server.
 
-<CTA />
+### Does JesType need the internet?
+
+Speech recognition runs on the device, but JesType checks its licence online, and paid licences work offline for up to 30 days between checks. Whisperer is bought through the Mac App Store and needs no licence check.
+
+### Does Whisperer type into apps like JesType?
+
+No. In the Mac App Store version, Whisperer copies your text and you paste with ⌘V. JesType pastes into the focused field.

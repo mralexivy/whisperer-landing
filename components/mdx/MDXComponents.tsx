@@ -376,20 +376,20 @@ export const mdxComponents: MDXComponentsType = {
       {/* Content */}
       <div className="relative border border-primary/25 rounded-2xl p-10 text-center">
         <p className="text-xl font-semibold text-foreground mb-2">
-          Ready to try voice dictation on your Mac?
+          Meeting notes and dictation that run on your Mac
         </p>
         <p className="text-sm text-muted-foreground mb-6">
-          Free download. No account required. 100% offline.
+          $2.99 app, Pro $14.99, paid once. No account, no subscription.
         </p>
         <a
-          href="https://apps.apple.com/il/app/whisperer-voice-to-text/id6758626671"
+          href="https://apps.apple.com/app/whisperer-voice-to-text/id6758626671"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2.5 text-white px-8 py-3.5 rounded-full font-medium hover:scale-105 transition-all duration-300 shadow-[0_0_30px_hsl(233_91%_66%/0.3)]"
           style={{ background: "linear-gradient(135deg, hsl(233 91% 66%), hsl(258 90% 66%))" }}
         >
           <Apple className="w-5 h-5" />
-          Download on the Mac App Store
+          Get Whisperer
         </a>
       </div>
     </div>

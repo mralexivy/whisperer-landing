@@ -5,48 +5,43 @@ export async function generateStaticParams() {
   return [{ __metadata_id__: [] }];
 }
 
+const BASE = "https://whispererapp.com";
+
+// The date each page's content last changed. Update it when you change the page,
+// so search engines see a real signal instead of the build date.
+const PAGES: [path: string, modified: string, priority: number][] = [
+  ["/", "2026-11-06", 1.0],
+  ["/meetings", "2026-11-06", 0.95],
+  ["/ai", "2026-11-06", 0.9],
+  ["/mcp", "2026-11-06", 0.9],
+  ["/calendar", "2026-11-06", 0.85],
+  ["/enterprise", "2026-11-06", 0.9],
+  ["/pricing", "2026-11-06", 0.9],
+  ["/features", "2026-11-06", 0.85],
+  ["/features/live-preview", "2026-11-06", 0.75],
+  ["/features/multilingual", "2026-11-06", 0.75],
+  ["/features/offline-transcription", "2026-11-06", 0.75],
+  ["/features/personal-dictionary", "2026-11-06", 0.7],
+  ["/features/ai-writing", "2026-11-06", 0.7],
+  ["/features/transcription-history", "2026-11-06", 0.7],
+  ["/features/file-transcription", "2026-11-06", 0.7],
+  ["/why-whisperer", "2026-11-06", 0.8],
+  ["/compare", "2026-11-06", 0.85],
+  ["/blog", "2026-11-06", 0.7],
+  ["/offline-dictation-mac", "2026-11-06", 0.75],
+  ["/speech-to-text-mac", "2026-11-06", 0.75],
+  ["/dictation-no-subscription", "2026-11-06", 0.75],
+  ["/cheapest-dictation-mac", "2026-11-06", 0.7],
+  ["/privacy", "2026-11-06", 0.3],
+  ["/terms", "2026-10-13", 0.3],
+];
+
+type Meta = { slug: string; date?: string; updated?: string };
+const modified = (m: Meta) => m.updated ?? m.date ?? "2026-11-06";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://whispererapp.com";
-  const now = new Date().toISOString().split("T")[0];
-
-  const staticPages = [
-    { url: `${baseUrl}/`, lastModified: now, changeFrequency: "weekly" as const, priority: 1.0 },
-    { url: `${baseUrl}/features`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
-    { url: `${baseUrl}/features/ai-writing`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
-    { url: `${baseUrl}/features/offline-transcription`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
-    { url: `${baseUrl}/features/live-preview`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${baseUrl}/features/personal-dictionary`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
-    { url: `${baseUrl}/features/transcription-history`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${baseUrl}/features/file-transcription`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${baseUrl}/features/multilingual`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
-    { url: `${baseUrl}/voice-coding`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
-    { url: `${baseUrl}/code-mode`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
-    { url: `${baseUrl}/pricing`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
-    { url: `${baseUrl}/compare`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
-    { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${baseUrl}/offline-dictation-mac`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
-    { url: `${baseUrl}/dictation-no-subscription`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
-    { url: `${baseUrl}/voice-to-text-developers`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
-    { url: `${baseUrl}/cheapest-dictation-mac`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
-    { url: `${baseUrl}/speech-to-text-mac`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
-    { url: `${baseUrl}/why-whisperer`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.85 },
-    { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.3 },
-    { url: `${baseUrl}/terms`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.3 },
-  ];
-
-  const blogPosts = getAllPosts().map((post) => ({
-    url: `${baseUrl}/blog/${post.meta.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
-
-  const comparisons = getAllComparisons().map((post) => ({
-    url: `${baseUrl}/compare/${post.meta.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
-
-  return [...staticPages, ...blogPosts, ...comparisons];
+  const pages = PAGES.map(([path, lastModified, priority]) => ({ url: `${BASE}${path === "/" ? "/" : path}`, lastModified, priority }));
+  const posts = getAllPosts().map((p) => ({ url: `${BASE}/blog/${p.meta.slug}`, lastModified: modified(p.meta as Meta), priority: 0.6 }));
+  const comparisons = getAllComparisons().map((p) => ({ url: `${BASE}/compare/${p.meta.slug}`, lastModified: modified(p.meta as Meta), priority: 0.75 }));
+  return [...pages, ...posts, ...comparisons];
 }

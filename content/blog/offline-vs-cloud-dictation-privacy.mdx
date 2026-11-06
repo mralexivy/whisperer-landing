@@ -1,96 +1,99 @@
 ---
-title: "Offline vs. Cloud Dictation: Privacy, Speed & Reliability Compared"
-description: "Should you use offline or cloud-based dictation? Compare privacy, speed, reliability, and accuracy of on-device vs. cloud speech-to-text for Mac."
+title: "Offline vs Cloud Dictation: Privacy, Speed and Reliability"
+description: "Offline or cloud speech-to-text on a Mac? Where your audio goes, what can see it, and when it's worth sending text to a cloud AI for meeting notes."
 date: "2026-03-28"
-keywords: ["offline vs cloud dictation privacy", "private speech to text", "no cloud dictation", "on-device transcription mac"]
+updated: "2026-11-06"
+keywords: ["offline vs cloud dictation privacy", "private speech to text", "no cloud dictation", "on-device transcription mac", "private meeting notes mac"]
 category: "privacy"
+faqs:
+  - question: "Is offline dictation as accurate as cloud dictation?"
+    answer: "For everyday dictation on Apple Silicon, modern Whisper models running on the Mac are close enough that most people can't tell the difference. Cloud models can still do better on very noisy audio or rare vocabulary."
+  - question: "Does Whisperer send anything to the cloud?"
+    answer: "Speech recognition always runs on your Mac and audio never leaves it. If you choose a cloud AI such as Claude or ChatGPT for meeting notes or rewriting, only the text transcript goes to that provider. The built-in Qwen3.5 4B model keeps everything local."
 ---
 
-When you dictate, your voice either stays on your computer or gets uploaded to someone else's server. Simple distinction, big implications.
+With offline dictation your voice is turned into text on your own computer and the audio never leaves it. With cloud dictation the audio is uploaded to a company's servers, transcribed there, and sometimes kept. On a Mac with Apple Silicon, offline dictation is now accurate and fast enough for daily use, so the main reasons to pick cloud are specific features, not quality.
 
 Most people don't think about this until they've dictated something they shouldn't have.
 
-## Cloud dictation
+## What happens with cloud dictation
 
 <StepList>
-<Step num="1" title="Recording">Mac records your voice.</Step>
-<Step num="2" title="Upload">Audio goes to a server.</Step>
-<Step num="3" title="Processing">Server transcribes it.</Step>
-<Step num="4" title="Download">Text comes back.</Step>
-<Step num="5" title="Storage">Audio might be stored for "quality improvement."</Step>
+<Step num="1" title="Record">Your Mac records your voice.</Step>
+<Step num="2" title="Upload">The audio goes to a server.</Step>
+<Step num="3" title="Process">The server transcribes it.</Step>
+<Step num="4" title="Return">Text comes back to your Mac.</Step>
+<Step num="5" title="Retain">Depending on the service, audio or text may be stored, reviewed or used to improve models.</Step>
 </StepList>
 
 <Callout type="warning">
-Everything you say travels across the internet. Passwords, client names, proprietary code, private conversations. All of it.
+Everything you say travels over the internet: client names, health details, salary numbers, the draft you haven't shown anyone. Read the provider's retention policy before you dictate anything sensitive.
 </Callout>
 
-## Offline dictation
+## What happens with offline dictation
 
 <StepList>
-<Step num="1" title="Recording">Mac records your voice.</Step>
-<Step num="2" title="Local Processing">Whisper on your Mac transcribes it.</Step>
-<Step num="3" title="Insertion">Text goes into your app.</Step>
-<Step num="4" title="Your Choice">Audio saved locally or deleted immediately. Your call.</Step>
+<Step num="1" title="Record">Your Mac records your voice.</Step>
+<Step num="2" title="Transcribe">A model on your Mac turns it into text.</Step>
+<Step num="3" title="Paste">In Whisperer, the text is copied and you paste it with ⌘V.</Step>
+<Step num="4" title="Keep or delete">History and audio stay on your Mac, and you decide how long to keep them.</Step>
 </StepList>
 
-Nothing leaves your machine. No servers, no uploads, no third parties.
+No servers, no uploads, no third parties. It keeps working on a plane, and it keeps working even if the company that made the app disappears.
 
-## The actual differences
+## The differences side by side
 
 | | Cloud | Offline |
-|---------|----------------|------------------|
-| Audio leaves device | Yes | No |
-| Third-party access | Possible | No |
-| Training data | Often used | Never |
-| Works offline | No | Yes |
-| HIPAA/NDA safe | Probably not | Yes |
-| Safe for passwords | No | Yes |
-| Code stays private | No | Yes |
+|---|---|---|
+| Audio leaves your Mac | Yes | No |
+| Works without internet | No | Yes |
+| Provider can retain your data | Depends on the service | No |
+| Ongoing cost | Usually a subscription | Often a one-time purchase |
+| Access to the largest AI models | Yes | Limited to what fits on your Mac |
 
-<FeatureGrid>
-<FeatureCard title="Developers" icon="code">
-Cloud dictation sends your code to external servers. If you're under NDA or have security policies, that's a violation. Offline keeps everything local.
-</FeatureCard>
-<FeatureCard title="Lawyers, Doctors, Finance" icon="scale">
-Anyone handling sensitive information should care about where their voice data goes. Offline removes the question entirely.
-</FeatureCard>
-</FeatureGrid>
+## Who should care most
+
+- **Lawyers, doctors, therapists and finance staff** handling confidential information. Keeping audio on the device removes one big question. You still need to follow your own compliance rules.
+- **Anyone under an NDA** or with a company policy on sending data to outside services.
+- **Journalists** protecting sources.
+- **Anyone who dictates personal things**, like journal entries or messages to family.
 
 ## Speed
 
-<Callout type="info">
-Cloud adds 350-1700ms latency (upload, process, download). Offline on Apple Silicon: 50-300ms. With streaming mode, text appears as you speak.
-</Callout>
+Offline dictation skips the upload and download. On Apple Silicon, Whisperer streams words into a live preview while you're still speaking, and the final text is ready moments after you release the key. Cloud services can be fast too, but they depend on your connection.
 
 ## Reliability
 
-Cloud fails when your internet drops. Or the service goes down. Or you're on a plane.
+Cloud dictation fails when the Wi-Fi drops, when the service has an outage, or when you're on a plane. Offline dictation doesn't care.
 
-Offline works always. On planes, in cafes with bad WiFi, even if the company that made the app shuts down tomorrow.
+## Accuracy
 
-## Accuracy: Is offline good enough now?
+Cloud used to have a clear lead. With Whisper Large V3 Turbo on Apple Silicon, the gap for everyday dictation is small. Cloud models still help with very noisy audio and rare vocabulary, and a [personal dictionary](/blog/personal-dictionary-setup) closes much of the rest.
 
-Cloud used to have a clear accuracy advantage. With Whisper on Apple Silicon, that gap is mostly gone:
+## The middle ground for meeting notes
 
-| | Accuracy |
-|-------|----------|
-| Cloud services | ~95-98% English |
-| Offline (Large model) | ~94-97% English |
-| Offline (Turbo model) | ~92-95% English |
+Meeting notes are where a big cloud model can genuinely help: summarizing an hour of discussion into decisions and action items. Whisperer splits the job so you choose:
 
-<Callout type="tip">
-For code, offline with Code Mode is actually *better* than cloud because it's built for code syntax. Cloud services are optimized for prose.
-</Callout>
+- **Speech recognition always runs on your Mac.** Meeting audio never leaves it.
+- **Notes are written by the AI you pick on the LLM page.** The built-in Qwen3.5 4B model keeps everything local. Or use your Claude, ChatGPT or Gemini plan, in which case only the text transcript is sent to that provider.
+- **You can keep any single meeting local,** even if your default is a cloud AI.
 
-## "Free" cloud services
+See [your AI](/ai) and [meetings](/meetings) for how this works.
 
-When a cloud service is free, you're probably the product. Your voice trains their models. Human contractors might review your audio. Usage data feeds targeting systems.
+## About "free" cloud services
 
-Offline has a simpler deal: pay once, data stays yours.
+When a cloud dictation service is free, ask how it pays for itself. Some use recordings to train models, and some allow human review of samples. Check the policy. An offline app has a simpler deal: you pay for the software, and your data stays on your Mac.
 
+## FAQ
+
+### Is offline dictation as accurate as cloud dictation?
+
+For everyday dictation on Apple Silicon, modern Whisper models running on the Mac are close enough that most people can't tell the difference. Cloud models can still do better on very noisy audio or rare vocabulary.
+
+### Does Whisperer send anything to the cloud?
+
+Speech recognition always runs on your Mac and audio never leaves it. If you choose a cloud AI such as Claude or ChatGPT for meeting notes or rewriting, only the text transcript goes to that provider. The built-in Qwen3.5 4B model keeps everything local.
 
 ---
 
-*Related: [Offline Dictation for Mac](/offline-dictation-mac), [Whisperer vs Wispr Flow](/compare/vs-wispr-flow), [Offline Transcription Engines](/features/offline-transcription). See [pricing](/pricing) and [all features](/features).*
-
-<CTA />
+*Related: [Whisperer vs Wispr Flow](/compare/vs-wispr-flow), [AI meeting notes without a bot](/blog/meeting-notes-without-bot). See [pricing](/pricing) and [all dictation features](/features).*
