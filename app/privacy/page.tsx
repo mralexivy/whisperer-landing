@@ -13,7 +13,8 @@ import {
   Mail,
   Globe,
   Server,
-  Clock
+  Clock,
+  CalendarDays
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -41,7 +42,7 @@ export default function PrivacyPage() {
               Privacy Policy
             </h1>
             <p className="text-muted-foreground text-lg">
-              Last Updated: October 13, 2026
+              Last Updated: November 6, 2026
             </p>
           </div>
         </div>
@@ -128,12 +129,18 @@ export default function PrivacyPage() {
           {/* Network Usage */}
           <section>
             <h2 className="text-2xl font-semibold mb-6">Network Usage</h2>
-            <p className="text-muted-foreground mb-4">The app uses the network for one purpose only:</p>
+            <p className="text-muted-foreground mb-4">The app uses the network only for the following:</p>
             <div className="grid gap-4">
               <div className="bg-card border border-border rounded-xl p-5">
                 <h3 className="font-semibold mb-2">Model Downloads</h3>
                 <p className="text-muted-foreground text-sm">
                   Whisperer downloads AI model weights from Hugging Face. The speech model is about 2.5 GB. The language model is about 3.2 GB. These files are data files, not executable code. The download sends no personal information.
+                </p>
+              </div>
+              <div className="bg-card border border-border rounded-xl p-5">
+                <h3 className="font-semibold mb-2">Calendar (only if you connect one)</h3>
+                <p className="text-muted-foreground text-sm">
+                  If you connect Google Calendar or Outlook, the app reads your calendar list and upcoming events directly from Google or Microsoft. See Calendar Data below.
                 </p>
               </div>
               <div className="bg-card border border-border rounded-xl p-5">
@@ -148,12 +155,59 @@ export default function PrivacyPage() {
             </p>
           </section>
 
+          {/* Calendar Data */}
+          <section id="calendar">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <CalendarDays className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-semibold">Calendar Data</h2>
+                <p className="text-muted-foreground">Optional. Only if you choose to connect a calendar</p>
+              </div>
+            </div>
+            <p className="text-muted-foreground mb-4">
+              You can connect Google Calendar or Microsoft Outlook so Whisperer can remind you before a meeting, open the meeting link and start recording in one click, and name the recording and its speakers after the invite. Connecting is optional, and the app works fully without it.
+            </p>
+            <div className="space-y-3 mb-6">
+              {[
+                { label: "What is accessed", desc: "Read-only access to the list of your calendars and to your events: title, start and end time, meeting link, organizer and the names and email addresses of attendees. Whisperer cannot create, change or delete anything in your calendar." },
+                { label: "How it is used", desc: "Only to show your upcoming meetings, remind you before them, join and record them when you ask, and label a recording with the meeting's title and participant names. Nothing else." },
+                { label: "Where it is stored", desc: "Event details are kept only on your Mac. Sign-in tokens are stored in your macOS Keychain. Nothing is sent to Whisperer's servers; Whisperer has none." },
+                { label: "Sharing", desc: "Calendar data is never sold, never shared with third parties, never used for advertising, and never used to train AI models." },
+                { label: "Disconnecting", desc: "Remove the account in Whisperer's Calendar page at any time. This deletes the stored tokens and cached events from your Mac. You can also revoke access in your Google or Microsoft account settings." },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 shrink-0" />
+                  <p className="text-muted-foreground">
+                    <span className="text-foreground font-medium">{item.label}:</span> {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="bg-card border border-border rounded-xl p-5">
+              <p className="text-muted-foreground text-sm">
+                Whisperer&apos;s use and transfer of information received from Google APIs adheres to the{" "}
+                <a
+                  href="https://developers.google.com/terms/api-services-user-data-policy"
+                  className="text-primary underline underline-offset-4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Google API Services User Data Policy
+                </a>
+                , including the Limited Use requirements.
+              </p>
+            </div>
+          </section>
+
           {/* Third-Party Services */}
           <section>
             <h2 className="text-2xl font-semibold mb-6">Third-Party Services</h2>
             <div className="space-y-3">
               {[
                 { label: "Hugging Face", desc: "Used solely to download open-source AI model weights. No personal data is transmitted." },
+                { label: "Google and Microsoft (optional)", desc: "Only if you connect a calendar: the app talks directly to Google Calendar or Microsoft Graph to read your events. See Calendar Data." },
                 { label: "Apple App Store", desc: "Handles the Pro Pack purchase. Apple processes all payment information under its own privacy policy." },
                 { label: "No Analytics", desc: "The app does not use Google Analytics, Mixpanel, Segment, or any other analytics platform." },
                 { label: "No Ads", desc: "The app contains no advertising or ad networks." },
