@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, type ReactNode } from "react";
-import { Menu, X, ArrowRight, Play } from "lucide-react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
+import { Menu, X, ArrowRight, Play, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { APP_STORE_URL, NAV_LINKS, PRICE_PRO } from "@/lib/site";
+import { APP_STORE_URL, NAV_LINKS, FEATURE_MENU, PRICE_PRO } from "@/lib/site";
 import appIcon from "../../public/assets/app-icon.webp";
 
 export function AppStoreButton({ className, label = "Get it on the Mac App Store", size = "lg" }: { className?: string; label?: string; size?: "lg" | "sm" }) {
@@ -61,6 +62,71 @@ export function TextLink({ href, children, className }: { href: string; children
   );
 }
 
+const NAV_LINK = "rounded-full px-3.5 py-2 text-[13.5px] text-white/60 transition-colors hover:text-white hover:bg-white/[0.05]";
+
+/** The Features menu: every feature page in three groups. Opens on hover or click, closes on Escape or leaving. */
+function FeaturesMenu() {
+  const [open, setOpen] = useState(false);
+  const wrap = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<number | undefined>(undefined);
+  const pathname = usePathname();
+  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onDown = (e: PointerEvent) => !wrap.current?.contains(e.target as Node) && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("pointerdown", onDown);
+    return () => { window.removeEventListener("keydown", onKey); window.removeEventListener("pointerdown", onDown); };
+  }, [open]);
+  const show = () => { window.clearTimeout(closeTimer.current); setOpen(true); };
+  const hide = () => { closeTimer.current = window.setTimeout(() => setOpen(false), 140); };
+  const active = pathname.startsWith("/features") || FEATURE_MENU.some((g) => g.items.some((i) => i.href === pathname));
+  return (
+    <div ref={wrap} className="relative" onPointerEnter={show} onPointerLeave={hide}>
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls="features-menu"
+        onClick={() => setOpen((v) => !v)}
+        className={cn(NAV_LINK, "inline-flex items-center gap-1", (open || active) && "text-white", open && "bg-white/[0.05]")}
+      >
+        Features <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200", open && "rotate-180")} />
+      </button>
+      <div
+        id="features-menu"
+        className={cn(
+          "absolute left-1/2 top-full pt-3 -translate-x-[30%] transition-[opacity,transform,filter] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          open ? "visible opacity-100 translate-y-0 [filter:none]" : "invisible opacity-0 -translate-y-1 blur-[4px] pointer-events-none",
+        )}
+      >
+        <div className="grid w-[860px] grid-cols-[1.35fr_1fr_1fr] gap-2 rounded-[22px] bg-[#101024] p-3 ring-1 ring-white/[0.09] shadow-[0_40px_100px_-30px_rgba(0,0,0,0.9)] backdrop-blur-xl">
+          {FEATURE_MENU.map((g) => (
+            <div key={g.title} className="rounded-[16px] p-3">
+              <Link href={g.href} className="group mb-2 inline-flex items-center gap-1 px-2 text-[12px] font-semibold text-[#9BA6FF] hover:text-white">
+                {g.title} <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+              <ul>
+                {g.items.map((i) => (
+                  <li key={i.href}>
+                    <Link
+                      href={i.href}
+                      className={cn("block rounded-[12px] px-2 py-2 transition-colors hover:bg-white/[0.05]", pathname === i.href && "bg-white/[0.05]")}
+                    >
+                      <span className="block text-[14px] font-medium text-white">{i.label}</span>
+                      <span className="block text-[12.5px] text-white/50">{i.body}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -82,9 +148,10 @@ export function SiteHeader() {
           <img src={appIcon.src} alt="" width={28} height={28} className="h-7 w-7 rounded-[8px]" />
           <span className="text-[17px] font-semibold tracking-tight text-white">Whisperer</span>
         </Link>
-        <nav className="hidden lg:flex items-center gap-0.5">
+        <nav aria-label="Main" className="hidden lg:flex items-center gap-0.5">
+          <FeaturesMenu />
           {NAV_LINKS.map((l) => (
-            <Link key={l.href} href={l.href} className="rounded-full px-3.5 py-2 text-[13.5px] text-white/60 transition-colors hover:text-white hover:bg-white/[0.05]">
+            <Link key={l.href} href={l.href} className={NAV_LINK}>
               {l.label}
             </Link>
           ))}
@@ -92,14 +159,27 @@ export function SiteHeader() {
         <div className="hidden lg:block">
           <AppStoreButton size="sm" label="Get Whisperer" />
         </div>
-        <button className="lg:hidden p-2 text-white" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"}>
+        <button className="lg:hidden p-2 text-white" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
+      {/* Mobile menu. absolute, not fixed: the header's backdrop blur makes it the containing block for fixed children. */}
       {open && (
-        <div className="lg:hidden fixed inset-x-0 top-16 bottom-0 bg-[#0B0B19] px-4 py-6 flex flex-col">
-          <nav className="flex flex-col">
-            {NAV_LINKS.map((l) => (
+        <div className="lg:hidden absolute inset-x-0 top-16 h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain bg-[#0B0B19] px-4 pb-10 pt-4">
+          <nav aria-label="Main" className="flex flex-col">
+            {FEATURE_MENU.map((g) => (
+              <div key={g.title} className="border-b border-white/[0.06] py-4">
+                <Link href={g.href} onClick={() => setOpen(false)} className="text-[13px] font-semibold text-[#9BA6FF]">{g.title}</Link>
+                <ul className="mt-2 grid grid-cols-2 gap-x-4">
+                  {g.items.map((i) => (
+                    <li key={i.href}>
+                      <Link href={i.href} onClick={() => setOpen(false)} className="block py-2 text-[15.5px] text-white/85">{i.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            {NAV_LINKS.filter((l) => l.href !== "/meetings" && l.href !== "/voice-coding").map((l) => (
               <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="border-b border-white/[0.06] py-4 text-[20px] font-medium text-white">
                 {l.label}
               </Link>

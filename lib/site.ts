@@ -27,13 +27,47 @@ export const FACTS = {
   localModel: "Qwen3.5 4B",
 } as const;
 
+// Top bar. "Features" opens FEATURE_MENU; the rest are plain links.
 export const NAV_LINKS = [
-  { label: "Dictation", href: "/features" },
   { label: "Meetings", href: "/meetings" },
-  { label: "Your AI", href: "/ai" },
-  { label: "MCP", href: "/mcp" },
+  { label: "Voice coding", href: "/voice-coding" },
   { label: "For teams", href: "/enterprise" },
   { label: "Pricing", href: "/pricing" },
   { label: "Compare", href: "/compare" },
   { label: "Blog", href: "/blog" },
+] as const;
+
+// Every feature page, grouped the way the app is sold. Shown in the header's Features menu.
+export const FEATURE_MENU = [
+  {
+    title: "Dictation",
+    href: "/features",
+    items: [
+      { label: "Live preview", body: "Words appear as you speak", href: "/features/live-preview" },
+      { label: "97 languages", body: "Detected as you talk", href: "/features/multilingual" },
+      { label: "Offline engines", body: "Whisper, Parakeet, Qwen3 ASR", href: "/features/offline-transcription" },
+      { label: "Fast Polish and AI", body: "Fillers out, punctuation in", href: "/features/ai-writing" },
+      { label: "Personal dictionary", body: "Learns names from corrections", href: "/features/personal-dictionary" },
+      { label: "File transcription", body: "Interviews, lectures, memos", href: "/features/file-transcription" },
+      { label: "History and statistics", body: "Every dictation, searchable", href: "/features/transcription-history" },
+    ],
+  },
+  {
+    title: "Meetings and AI",
+    href: "/meetings",
+    items: [
+      { label: "Meeting notes", body: "Every speaker named, no bot", href: "/meetings" },
+      { label: "Calendar", body: "Google and Outlook, Join & Record", href: "/calendar" },
+      { label: "Your own AI", body: "Claude, ChatGPT, Gemini or offline", href: "/ai" },
+      { label: "MCP server", body: "Claude and Cursor read your meetings", href: "/mcp" },
+    ],
+  },
+  {
+    title: "For developers",
+    href: "/voice-to-text-developers",
+    items: [
+      { label: "Voice coding", body: "Talk to Cursor, Claude Code, Codex", href: "/voice-coding" },
+      { label: "Voice to text for developers", body: "PRs, reviews, tickets by voice", href: "/voice-to-text-developers" },
+    ],
+  },
 ] as const;
