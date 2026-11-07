@@ -260,11 +260,6 @@ html {
   }
 }
 
-/* Section rhythm: each marketing section fills about one screen. */
-.screen {
-  min-height: min(100svh, 980px);
-}
-
 /* Range input, themed from the palette */
 .seat-range { -webkit-appearance: none; appearance: none; height: 6px; border-radius: 999px; background: rgba(255,255,255,0.1); outline: none; }
 .seat-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 999px; background: #fff; box-shadow: 0 0 0 6px rgba(91,108,247,0.35), 0 6px 16px -4px rgba(0,0,0,0.6); cursor: grab; transition: box-shadow .2s; }
@@ -276,3 +271,46 @@ html {
 :focus-visible { outline: 2px solid #8B9BFF; outline-offset: 3px; border-radius: 6px; }
 ::selection { background: rgba(91,108,247,0.4); color: #fff; }
 html { caret-color: #8B9BFF; }
+
+/* ---------- Motion: things come into focus ----------
+   One curve and one idea everywhere. Hidden states exist only once JS has run (html.js),
+   so a page without scripts shows everything. See components/site/Motion.tsx. */
+:root { --ease-focus: cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* On load: hero copy and the hero picture. Pure CSS, so it plays before hydration. */
+@keyframes focus-in {
+  from { opacity: 0; transform: translate3d(0, 16px, 0); filter: blur(8px); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+@keyframes frame-in {
+  from { opacity: 0; transform: translate3d(0, 28px, 0) scale(0.965); filter: blur(16px); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+[data-enter] { animation: focus-in 0.9s var(--ease-focus) both; animation-delay: var(--d, 0ms); }
+[data-enter="frame"] { animation-name: frame-in; animation-duration: 1.2s; }
+
+/* On scroll */
+.js [data-reveal]:not([data-reveal="list"]) {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  filter: blur(8px);
+  transition: opacity 0.8s var(--ease-focus), transform 0.9s var(--ease-focus), filter 0.8s var(--ease-focus);
+  transition-delay: var(--rd, 0ms);
+}
+.js [data-reveal="frame"] {
+  transform: translate3d(0, 32px, 0) scale(0.97);
+  filter: blur(14px);
+  transition-duration: 1s, 1.15s, 1s;
+}
+.js [data-reveal="list"] > * {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition: opacity 0.6s var(--ease-focus), transform 0.75s var(--ease-focus);
+  transition-delay: calc(var(--rd, 0ms) + var(--i, 0) * 60ms);
+}
+.js [data-reveal][data-in],
+.js [data-reveal="list"][data-in] > * { opacity: 1; transform: none; filter: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-enter], .js [data-reveal], .js [data-reveal="list"] > * { transform: none !important; filter: none !important; }
+}

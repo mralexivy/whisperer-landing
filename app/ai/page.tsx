@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Monitor, KeyRound, FileText, MessageSquareText, Wand2, ShieldCheck, ToggleLeft, RotateCcw } from "lucide-react";
 import { SiteHeader, SiteFooter, Section } from "@/components/site/Shell";
-import { PageHero, SectionHead, FeatureRow, CheckList } from "@/components/site/PageParts";
 import { ProviderList } from "@/components/product/ProviderList";
+import { Showcase, PageHero, SectionHead, FeatureRow, CheckList } from "@/components/site/PageParts";
 import { BrandIcon, BrandTile, type Brand } from "@/components/product/primitives";
 import { FAQSection, type QA } from "@/components/home/HomeFAQ";
 import { CostCard, CloseSection, CostFootnote } from "@/components/home/Sections";
@@ -93,6 +93,14 @@ export default function AIPage() {
             </div>
           </div>
         </Section>
+
+        <Showcase
+          id="switch"
+          title="Switch the AI in one click"
+          lede="Pick Claude today and Gemini tomorrow. The next meeting is written by whatever you chose, and if it is unavailable, the model on your Mac takes over."
+          video="ai-loop"
+          alt="The LLM page in Whisperer: choosing Claude, then ChatGPT, then Gemini to write meeting notes"
+        />
 
         <Section id="cost">
           <div className="grid items-center gap-14 lg:grid-cols-2">

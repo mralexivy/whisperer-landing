@@ -1,0 +1,94 @@
+---
+title: "Dictation for Terminal and CLI Workflows on Mac"
+description: "How to use voice dictation in Terminal, iTerm2 and Warp on Mac: prompts for Claude Code and Codex, commit messages, and why you should let the agent write the shell syntax."
+date: "2026-03-28"
+updated: "2026-11-07"
+keywords: ["dictation app for terminal mac", "voice dictation terminal", "speech to text terminal", "voice coding CLI", "dictation claude code terminal", "voice prompts codex cli"]
+category: "guides"
+---
+
+Dictation in the terminal used to mean trying to say `docker compose -f docker-compose.prod.yml up --build -d` out loud. That's still a bad idea. What changed is that a lot of terminal work now happens through CLI agents like Claude Code and Codex, and those want plain English. That's where voice is genuinely faster.
+
+Whisperer works in Terminal, iTerm2, Warp and any other terminal: hold Fn, speak, release, press ⌘V.
+
+## What to dictate in a terminal
+
+<FeatureGrid>
+<FeatureCard title="Prompts to CLI agents" icon="bot">
+Claude Code, Codex and similar tools run in your terminal and take natural-language instructions. Speak them.
+</FeatureCard>
+<FeatureCard title="Commit messages" icon="git-branch">
+They're prose. Dictate the message, paste it between the quotes of `git commit -m ""` or into your commit editor.
+</FeatureCard>
+<FeatureCard title="Asking for a command" icon="terminal">
+Don't speak the flags. Ask the agent: "show me the pods in production with their node names". It writes the `kubectl` command.
+</FeatureCard>
+<FeatureCard title="Notes while reading logs" icon="file-text">
+Describe what you're seeing to the agent or into a ticket without switching to type.
+</FeatureCard>
+</FeatureGrid>
+
+## Why not dictate shell commands directly?
+
+Shell syntax is mostly symbols: dashes, dots, slashes, quotes, pipes. Whisperer doesn't have spoken symbol commands, so "dash dash build" comes out as words. Even with a tool that does, a long command dictated symbol by symbol is slower than typing it and much slower than asking an agent for it. Tab completion and shell history are already good at the rest.
+
+## Claude Code and Codex by voice
+
+Click into the agent's input, hold **Fn**, describe the task, release. Whisperer copies the text and shows a **Copied ⌘V** toast. Press **⌘V** and check the prompt before you press Return.
+
+<VoiceDemo voice="look at the auth module and add rate limiting use a sliding window of five attempts per minute per IP and add tests for it" output="Look at the auth module and add rate limiting. Use a sliding window of five attempts per minute per IP, and add tests for it." lang="Claude Code" />
+
+<VoiceDemo voice="the migration failed on staging read the last fifty lines of the deploy log and tell me which table it stopped on" output="The migration failed on staging. Read the last fifty lines of the deploy log and tell me which table it stopped on." lang="Codex" />
+
+Spoken prompts tend to carry more detail than typed ones, which is usually what an agent needs to get it right first time. More on this in [voice dictation for agentic coding](/blog/voice-dictation-for-agentic-coding).
+
+## Commit messages
+
+<VoiceDemo voice="fix session timeout for users who stay idle longer than thirty minutes" output="Fix session timeout for users who stay idle longer than thirty minutes." lang="Commit message" />
+
+Many teams don't end a commit subject with a full stop. Whisper usually adds one, so delete it before you commit if your team cares.
+
+## Get tool names right
+
+Speech models trained on everyday speech mishear CLI vocabulary. Add the terms you say to the [personal dictionary](/features/personal-dictionary) once:
+
+| What it hears | Correct form |
+|---|---|
+| cube control | kubectl |
+| post gress | PostgreSQL |
+| engine x | nginx |
+| home brew | Homebrew |
+| your service and cluster names | your spelling |
+
+For a handful of names you say constantly, the **Prompt Words** tab on the Dictionary page tells the speech model to expect them. See [setting up the dictionary](/blog/personal-dictionary-setup).
+
+## Things to know in a terminal
+
+<Callout type="info">
+- **It's a paste.** Whisperer doesn't type into the terminal or press Return. You paste with ⌘V and decide when to run anything.
+- **Watch the final full stop.** If you do paste text at a shell prompt, check the end of the line: a trailing period after a command or path will break it.
+- **Multi-line text.** Agent prompts handle pasted paragraphs fine. At a bare shell prompt, read pasted multi-line text before pressing Return.
+- **Long prompts.** Switch the shortcut to toggle mode (press once to start, once to stop) so you're not holding Fn for a minute.
+- **Any shell.** zsh, bash, fish: the shell never sees Whisperer, only pasted text.
+</Callout>
+
+Whisperer recognises Terminal, iTerm2 and Warp as code apps, but it doesn't change the text there. The one per-app behaviour, dropping the full stop on one-line chat messages, applies only to chat apps. See [per-app dictation](/blog/dictation-for-per-app-profiles).
+
+## Let your agent read what you dictated
+
+With Pro, Whisperer can run a local [MCP server](/mcp). Claude Code, Codex, Cursor and other MCP clients can then search your dictation history and meeting transcripts. A practical use: dictate a long description of a bug once, then ask Claude Code to "find my dictation about the checkout bug and turn it into a failing test". The server is off by default and listens only on your Mac.
+
+## When voice helps most in the terminal
+
+- Long sessions with Claude Code or Codex, where most of what you type is instructions
+- Explaining a problem while you read logs
+- Commit messages and PR descriptions
+- Days when your hands need a break
+
+For short commands, flags and paths, keep typing. The split is the point.
+
+---
+
+*Related: [Voice dictation for agentic coding](/blog/voice-dictation-for-agentic-coding), [How to dictate code on Mac](/blog/how-to-dictate-code-on-mac), [Voice coding guide](/voice-coding), [Voice to text for developers](/voice-to-text-developers). See [pricing](/pricing) and [all features](/features).*
+
+<CTA />

@@ -1,0 +1,176 @@
+---
+title: "How to Dictate Code on Mac: What Actually Works in 2026"
+description: "Can you dictate code on a Mac? Speaking raw syntax is slow and error-prone. Here's the workflow that works: speak intent to an AI coding agent, and use a dictionary for identifiers."
+date: "2026-03-28"
+updated: "2026-11-07"
+keywords: ["dictate code mac", "voice coding mac", "dictate code by voice", "voice type code symbols", "camelCase voice dictation", "speech to text for programmers"]
+category: "guides"
+howToSteps:
+  - name: "Install Whisperer"
+    text: "Get Whisperer from the Mac App Store ($2.99). It needs Apple Silicon and macOS 26 Tahoe. Download the default speech model when the app asks."
+  - name: "Add your identifiers to the dictionary"
+    text: "Open Dictionary in Workspace and add the names speech recognition gets wrong: libraries, services, product names, teammates. For example, what it hears as 'post gress' should be written as 'PostgreSQL'."
+  - name: "Click into your AI coding tool"
+    text: "Focus the prompt box in Cursor, Claude Code, Codex, Windsurf or Copilot Chat."
+  - name: "Speak what you want built"
+    text: "Hold Fn, describe the change in plain sentences, and release. Whisperer copies the text and shows a Copied ⌘V toast."
+  - name: "Paste and send"
+    text: "Press ⌘V to paste the prompt, read it, and send it. The agent writes the code; you review the diff."
+faqs:
+  - question: "Can Whisperer turn 'open paren' into ( or 'camel case' into camelCase?"
+    answer: "No. Whisperer does not have spoken symbol or casing commands. It writes what you say as text. For code, the practical approach is to describe the change to an AI coding agent and let it write the syntax, and to add identifiers you say often to the personal dictionary."
+  - question: "What is the fastest way to write code by voice?"
+    answer: "Speak intent, not syntax. Tell Cursor, Claude Code, Codex or Windsurf what you want in full sentences, paste the prompt, and review what the agent writes. Use the keyboard for small edits and navigation."
+  - question: "Does Whisperer type into my editor automatically?"
+    answer: "No. Whisperer copies the transcribed text and shows a Copied ⌘V toast. You paste it with ⌘V wherever your cursor is, which works in any editor, terminal or chat box."
+---
+
+You can dictate code on a Mac, but not the way most people first try. Speaking raw syntax ("const, open paren, close paren, fat arrow, open brace") is slow, tiring and easy to get wrong. What works in 2026 is speaking **intent**: you describe the change in plain sentences to an AI coding agent such as Cursor, Claude Code, Codex or Windsurf, and it writes the syntax. Voice handles the part that's prose, and the agent handles the part that's punctuation.
+
+This guide covers that workflow with Whisperer, plus the one setting that matters most for code: a personal dictionary so names like Kubernetes, useEffect and PostgreSQL come out spelled right.
+
+<Callout type="info">
+To be clear up front: Whisperer does not have spoken symbol or casing commands. Saying "open paren" gives you the words "open paren", not `(`. Earlier versions had a Code Mode for this; it was removed in Whisperer 2.0.
+</Callout>
+
+## Why dictating raw syntax doesn't work well
+
+Code is dense with characters that have no natural spoken form. A short TypeScript line like this:
+
+```ts
+const user = await db.users.findFirst({ where: { id } });
+```
+
+is eleven words of English if you read it naturally, but about two dozen spoken tokens if you have to name every brace, dot and semicolon. You also have to plan the punctuation in your head before you say it, which is the opposite of the "think out loud" benefit of voice.
+
+The other problems:
+
+- **Every mistake is expensive.** A misheard "dot" breaks the line, and fixing it means finding the spot with the keyboard anyway.
+- **It doesn't scale past one line.** Indentation, multi-line blocks and nested brackets are hard to hold in your head while speaking.
+- **It's tiring to talk that way.** Speaking in a command grammar is a separate skill that takes real practice before it feels faster than typing.
+
+Dedicated command-grammar tools exist for people who need to code with no keyboard at all, and they're worth looking at if that's you. For most developers who want to type less, the better trade is to stop dictating syntax entirely.
+
+## The workflow that works: speak intent to an agent
+
+Most code changes start as a sentence in your head: "make the retry logic back off exponentially and give up after five attempts". That sentence is exactly what an AI coding agent wants as input. Speaking it takes a few seconds.
+
+<VoiceDemo voice="in the payments service make the retry logic back off exponentially starting at 200 milliseconds give up after five attempts and log each retry with the order ID" output="In the payments service, make the retry logic back off exponentially, starting at 200 milliseconds. Give up after five attempts and log each retry with the order ID." lang="Prompt" />
+
+The flow in Whisperer:
+
+1. Click into the prompt box of your agent: Cursor's chat or agent panel, Claude Code or Codex in the terminal, Windsurf, Copilot Chat in VS Code.
+2. Hold **Fn** (or your own shortcut) and speak. The live preview shows the words as you go.
+3. Release. Whisperer copies the text and shows a **Copied ⌘V** toast.
+4. Press **⌘V**, read it once, and send.
+
+The agent writes the code with correct casing, symbols and indentation. You review the diff with the keyboard, which is what the keyboard is good at.
+
+### Why spoken prompts tend to be better prompts
+
+When people type prompts, they abbreviate: "add retry". When they speak, they explain: which service, what the limit is, what should happen on failure. Agents do better with that context. Voice makes the longer, clearer prompt cost about the same effort as the short one.
+
+## Get identifiers right with the personal dictionary
+
+The real weak spot for developers isn't syntax, it's vocabulary. Speech models are trained mostly on everyday speech, so library names, internal service names and acronyms come out wrong. The [personal dictionary](/features/personal-dictionary) fixes that.
+
+<DictionaryMockup />
+
+Each entry is what the app hears and what it should write:
+
+| You say | Add as correct form |
+|---|---|
+| "post gress", "postgres Q L" | PostgreSQL |
+| "cube control" | kubectl |
+| "use effect" | useEffect |
+| "next JS" | Next.js |
+| "Supa base" | Supabase |
+| your internal service names | however your team spells them |
+
+<VoiceDemo voice="the use effect hook is refetching every render because the dependency array includes the Supa base client" output="The useEffect hook is refetching every render because the dependency array includes the Supabase client." lang="With dictionary entries" />
+
+A few things to know:
+
+- **Close variations.** Leave "Also fix close variations" on and similar mishearings get caught by one entry.
+- **It learns.** When you correct a word, Whisperer can add it to the dictionary marked Learned.
+- **Prompt words.** A second tab holds a short list of terms the speech model is told to expect before you start. Use it for the handful of names you say constantly.
+
+This is a spelling fix for specific words you choose, not a casing engine. "Use effect" becomes useEffect because you added that entry, not because Whisperer understands camelCase. More in the [dictionary setup guide](/blog/personal-dictionary-setup).
+
+## What to dictate, and what to type
+
+| Task | Voice or keyboard |
+|---|---|
+| Prompts to Cursor, Claude Code, Codex, Windsurf | Voice |
+| Commit messages and PR descriptions | Voice |
+| Code review comments | Voice |
+| Docstrings, README sections, comments | Voice |
+| Slack replies while you're mid-task | Voice |
+| Short edits, renames, navigation | Keyboard |
+| Writing syntax directly | Keyboard, or ask the agent |
+
+For comments and docstrings, dictate the sentence, then paste it after the `//` or inside the docstring you've already opened.
+
+## Optional: the Coding AI mode
+
+With Pro, Whisperer can pass your dictation through an AI before you paste it. The built-in **Coding** mode rewrites spoken text into concise technical prose, keeping technical terms and function names as you said them. It's useful for turning a rambling explanation into a clean docstring or PR description. It doesn't produce code syntax from spoken commands. The AI can be the built-in model that runs offline on your Mac, or your own Claude, ChatGPT or Gemini plan. See [AI writing](/features/ai-writing).
+
+## Works in every editor
+
+Because Whisperer delivers text through the clipboard, it works anywhere you can paste:
+
+<FeatureGrid>
+<FeatureCard title="Cursor and Windsurf" icon="bot">
+Speak into the agent or chat panel, paste with ⌘V, send. See [voice coding with Cursor](/blog/voice-coding-with-cursor).
+</FeatureCard>
+<FeatureCard title="VS Code and JetBrains" icon="code">
+Copilot Chat, commit message box, comments, Markdown files. See [dictation for VS Code](/blog/voice-dictation-for-vscode).
+</FeatureCard>
+<FeatureCard title="Terminal agents" icon="terminal">
+Claude Code and Codex in Terminal, iTerm2 or Warp. See [dictation for the terminal](/blog/dictation-for-terminal-cli).
+</FeatureCard>
+<FeatureCard title="Xcode" icon="monitor">
+Prompts, comments and docs work the same way.
+</FeatureCard>
+</FeatureGrid>
+
+## Why not Apple Dictation?
+
+Apple's built-in dictation is fine for prose and costs nothing. For developer work it lacks a personal dictionary you control, learned corrections and a choice of speech engines, and it doesn't have spoken code commands either. See the [Apple Dictation comparison](/compare/vs-apple-dictation) and [is Apple Dictation good enough for developers](/blog/is-apple-dictation-good-enough-for-devs).
+
+## How to start
+
+<StepList>
+<Step num="1" title="Day one: prompts and messages">
+Use voice only for agent prompts and Slack. No learning curve.
+</Step>
+<Step num="2" title="Add ten dictionary entries">
+The libraries, services and names that come out wrong. That covers most of the friction.
+</Step>
+<Step num="3" title="Add commit messages and PR descriptions">
+They're prose. Speak them.
+</Step>
+<Step num="4" title="Keep the keyboard for syntax">
+Edits, navigation and small fixes stay on the keyboard. That split is the point.
+</Step>
+</StepList>
+
+## FAQ
+
+### Can Whisperer turn "open paren" into ( or "camel case" into camelCase?
+
+No. Whisperer does not have spoken symbol or casing commands. It writes what you say as text. For code, the practical approach is to describe the change to an AI coding agent and let it write the syntax, and to add identifiers you say often to the personal dictionary.
+
+### What is the fastest way to write code by voice?
+
+Speak intent, not syntax. Tell Cursor, Claude Code, Codex or Windsurf what you want in full sentences, paste the prompt, and review what the agent writes. Use the keyboard for small edits and navigation.
+
+### Does Whisperer type into my editor automatically?
+
+No. Whisperer copies the transcribed text and shows a Copied ⌘V toast. You paste it with ⌘V wherever your cursor is, which works in any editor, terminal or chat box.
+
+---
+
+*More: [Voice coding guide](/voice-coding), [Voice to text for developers](/voice-to-text-developers), [camelCase and snake_case by voice](/blog/how-to-dictate-camelcase-snake-case), [Vibe coding with voice](/blog/vibe-coding-voice-dictation). Whisperer is $2.99 on the Mac App Store; see [pricing](/pricing).*
+
+<CTA />

@@ -15,7 +15,7 @@ export function AppStoreButton({ className, label = "Get it on the Mac App Store
       rel="noopener noreferrer"
       className={cn(
         "group inline-flex items-center justify-center gap-2 rounded-full font-semibold text-white",
-        "bg-gradient-to-b from-[#6B7BFF] to-[#4C5DE8] shadow-[0_10px_30px_-10px_rgba(91,108,247,0.8),inset_0_1px_0_rgba(255,255,255,0.25)]",
+        "bg-gradient-to-b from-[#5B6CF7] to-[#4352DB] shadow-[0_10px_30px_-10px_rgba(91,108,247,0.8),inset_0_1px_0_rgba(255,255,255,0.25)]",
         "transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-12px_rgba(91,108,247,0.9),inset_0_1px_0_rgba(255,255,255,0.3)] active:translate-y-0 active:scale-[0.98]",
         size === "lg" ? "h-12 px-6 text-[15px]" : "h-9 px-4 text-[13px]",
         className,
@@ -134,6 +134,8 @@ const FOOTER_GROUPS = [
       ["Personal dictionary", "/features/personal-dictionary"],
       ["File transcription", "/features/file-transcription"],
       ["History", "/features/transcription-history"],
+      ["Voice coding", "/voice-coding"],
+      ["For developers", "/voice-to-text-developers"],
     ],
   },
   {
@@ -197,12 +199,12 @@ export function SiteFooter() {
   );
 }
 
-/** One marketing section: about one screen tall, one heading, equal edges. */
+/** One marketing section: one heading, equal edges, the same rhythm on every page. `tall` keeps a near-screen height. */
 export function Section({
   id, children, className, wrapClassName, tall = false,
 }: { id?: string; children: ReactNode; className?: string; wrapClassName?: string; tall?: boolean }) {
   return (
-    <section id={id} className={cn("relative flex items-center py-24 sm:py-28", tall ? "min-h-[min(100svh,1100px)]" : "screen", className)}>
+    <section id={id} className={cn("relative py-16 sm:py-20 lg:py-24", tall && "flex items-center min-h-[min(100svh,1100px)]", className)}>
       <div className={cn("relative mx-auto w-full max-w-[1240px] px-4 sm:px-6", wrapClassName)}>{children}</div>
     </section>
   );
@@ -213,11 +215,11 @@ export function Eyebrow({ children, className }: { children: ReactNode; classNam
 }
 
 export function H2({ children, className }: { children: ReactNode; className?: string }) {
-  return <h2 className={cn("text-[34px] sm:text-[44px] lg:text-[52px] font-semibold leading-[1.05] tracking-[-0.03em] text-white text-balance", className)}>{children}</h2>;
+  return <h2 data-reveal className={cn("text-[34px] sm:text-[44px] lg:text-[52px] font-semibold leading-[1.05] tracking-[-0.03em] text-white text-balance", className)}>{children}</h2>;
 }
 
 export function Lede({ children, className }: { children: ReactNode; className?: string }) {
-  return <p className={cn("mt-5 max-w-[560px] text-[17px] sm:text-[18px] leading-[1.55] text-white/60 text-pretty", className)}>{children}</p>;
+  return <p data-reveal data-rd="90" className={cn("mt-5 max-w-[560px] text-[17px] sm:text-[18px] leading-[1.55] text-white/60 text-pretty", className)}>{children}</p>;
 }
 
 /** A soft light behind a product frame. */

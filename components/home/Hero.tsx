@@ -20,22 +20,22 @@ export function HomeHero() {
 
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
         <div className="mx-auto max-w-[900px] text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/[0.04] ring-1 ring-white/10 px-3 py-1.5 text-[13px] text-white/70">
+          <div data-enter className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/[0.04] ring-1 ring-white/10 px-3 py-1.5 text-[13px] text-white/70">
             <CallAppsLine />
             For everything you type and every call you take
           </div>
-          <h1 className="text-[42px] sm:text-[62px] lg:text-[74px] font-semibold leading-[0.98] tracking-[-0.045em] text-white text-balance">
+          <h1 data-enter style={{ "--d": "80ms" } as React.CSSProperties} className="text-[42px] sm:text-[62px] lg:text-[74px] font-semibold leading-[0.98] tracking-[-0.045em] text-white text-balance">
             Dictation and meeting notes for Mac, in one app
           </h1>
-          <p className="mx-auto mt-6 max-w-[700px] text-[18px] sm:text-[20px] leading-[1.5] text-white/60 text-pretty">
+          <p data-enter style={{ "--d": "180ms" } as React.CSSProperties} className="mx-auto mt-6 max-w-[700px] text-[18px] sm:text-[20px] leading-[1.5] text-white/60 text-pretty">
             Hold Fn and talk, and your words are ready to paste into any app. Join a call, and Whisperer writes the notes,
             with every speaker named. Both run on your Mac, with no subscription.
           </p>
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div data-enter style={{ "--d": "260ms" } as React.CSSProperties} className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <AppStoreButton className="w-full sm:w-auto" />
             <WatchButton mode={mode} onWatch={() => setVideo(true)} className="w-full sm:w-auto" />
           </div>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[13.5px] text-white/45">
+          <div data-enter style={{ "--d": "320ms" } as React.CSSProperties} className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[13.5px] text-white/45">
             <span><b className="font-semibold text-white">{PRICE_BASE}</b> app, Pro <b className="font-semibold text-white">{PRICE_PRO}</b>, paid once</span>
             <span className="hidden sm:inline text-white/20">·</span>
             <span>No account</span>
@@ -46,10 +46,10 @@ export function HomeHero() {
           </div>
         </div>
 
-        <div className="mt-12 flex justify-center">
+        <div data-enter style={{ "--d": "380ms" } as React.CSSProperties} className="mt-12 flex justify-center">
           <ModeTabs mode={mode} onChange={setMode} />
         </div>
-        <div className="mt-12">
+        <div data-enter="frame" style={{ "--d": "420ms" } as React.CSSProperties} className="mt-12">
           <ModeStage mode={mode} />
         </div>
       </div>

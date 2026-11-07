@@ -85,8 +85,8 @@ export default function BlogIndex() {
       <div className="mx-auto max-w-[880px] px-4 sm:px-6">
         <Breadcrumbs items={[{ label: "Blog" }]} />
 
-        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">Whisperer blog</h1>
-        <p className="mt-4 max-w-[640px] text-lg leading-relaxed text-white/60">
+        <h1 data-enter style={{ "--d": "60ms" } as React.CSSProperties} className="text-4xl font-bold tracking-tight text-white sm:text-5xl">Whisperer blog</h1>
+        <p data-enter style={{ "--d": "140ms" } as React.CSSProperties} className="mt-4 max-w-[640px] text-lg leading-relaxed text-white/60">
           How to take meeting notes on a Mac without a bot, use the AI plan you already pay for, let
           Claude or Cursor read your meetings over MCP, and dictate in any app.
         </p>

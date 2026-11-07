@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Lock, KeyRound, Laptop, Wifi, NotebookPen } from "lucide-react";
 import { SiteHeader, SiteFooter, Section } from "@/components/site/Shell";
-import { PageHero, SectionHead, FeatureRow, CodeBlock, Steps } from "@/components/site/PageParts";
+import { Showcase, PageHero, SectionHead, FeatureRow, CodeBlock, Steps } from "@/components/site/PageParts";
 import { MCPChat, MCPConnectCard } from "@/components/product/MCPChat";
 import { BrandIcon, type Brand } from "@/components/product/primitives";
 import { FAQSection, type QA } from "@/components/home/HomeFAQ";
@@ -136,6 +136,14 @@ export default function MCPPage() {
             </ul>
           </div>
         </Section>
+
+        <Showcase
+          id="watch"
+          title="Two tool calls, one checklist"
+          lede="Claude searches your meetings, opens the right one and answers from your notes. Nothing leaves your Mac except the text you asked about."
+          video="mcp-loop"
+          alt="Claude calls Whisperer's search_meetings and get_meeting tools and answers with a checklist from the launch review"
+        />
 
         <FeatureRow
           id="config"

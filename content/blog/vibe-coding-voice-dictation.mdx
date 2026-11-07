@@ -1,0 +1,127 @@
+---
+title: "Voice Dictation for Vibe Coding: Speak to Cursor, Claude Code and Windsurf"
+description: "How to use voice dictation for vibe coding on Mac. Speak prompts to Cursor, Claude Code, Codex and Windsurf, paste with ⌘V, and let the AI write the code."
+date: "2026-03-28"
+updated: "2026-11-07"
+keywords: ["vibe coding voice dictation", "voice coding cursor", "dictation for claude code", "voice to text AI IDE", "vibe coding tools", "speak to cursor IDE", "voice prompts AI coding"]
+category: "guides"
+---
+
+Vibe coding means describing what you want and letting an AI write the code. Cursor, Claude Code, Codex and Windsurf can build whole features from a few paragraphs of instructions. The one part still done by hand is writing those paragraphs.
+
+Speaking them is faster for most people, and it gives your hands a break. Here's how to set it up on a Mac with Whisperer.
+
+## What vibe coding looks like
+
+You give high-level instructions, the agent plans and writes the code, you review and redirect. The tools:
+
+<FeatureGrid>
+<FeatureCard title="Cursor" icon="monitor">
+AI-first editor. Agent mode, chat, inline edits and multi-file changes from prompts.
+</FeatureCard>
+<FeatureCard title="Claude Code" icon="terminal">
+Anthropic's coding agent in the terminal. Reads your codebase, edits files, runs tests.
+</FeatureCard>
+<FeatureCard title="Codex" icon="bot">
+OpenAI's coding agent, in the terminal, the IDE and its own app.
+</FeatureCard>
+<FeatureCard title="Windsurf" icon="code">
+AI coding editor with an agent that works across files.
+</FeatureCard>
+</FeatureGrid>
+
+## Why voice fits
+
+### The bottleneck is explaining
+
+The AI is fast. What slows you down is describing the change clearly. Conversational speech is commonly measured at around 130 to 150 words per minute; typing for most people is well under half that. When your input is paragraphs of instructions, that gap shows up on every prompt.
+
+### You say more when you speak
+
+Typed: "add user auth". Spoken: "Add email and password sign-in, hash passwords with bcrypt, and rate-limit login attempts per IP." The spoken version is the one the agent gets right first time.
+
+### Your hands rest
+
+Vibe coding is constant prompt writing. Moving that to voice takes a large share of a day's typing off your wrists.
+
+## Setup
+
+<StepList>
+<Step num="1" title="Get Whisperer">
+[Mac App Store](https://apps.apple.com/app/whisperer-voice-to-text/id6758626671), $2.99. Apple Silicon and macOS 26 Tahoe.
+</Step>
+<Step num="2" title="Pick a shortcut">
+Hold Fn by default. Use toggle mode (press once to start, once to stop) for long prompts.
+</Step>
+<Step num="3" title="Add your stack's vocabulary">
+Framework, library and service names go in the [personal dictionary](/features/personal-dictionary) so they're spelled right.
+</Step>
+<Step num="4" title="Dictate and paste">
+Hold Fn, talk, release. Whisperer copies the text and shows a Copied ⌘V toast. Press ⌘V in the prompt box and send.
+</Step>
+</StepList>
+
+There's nothing to configure per tool. The same paste works in an editor panel, a terminal or a browser.
+
+## In Cursor
+
+Click into the agent or chat panel, hold Fn, describe the feature:
+
+<VoiceDemo voice="create a React component called UserProfile that takes a user ID fetches the user from the API shows a spinner while loading and shows the name email and avatar in a card" output="Create a React component called UserProfile that takes a user ID, fetches the user from the API, shows a spinner while loading, and shows the name, email and avatar in a card." lang="Cursor" />
+
+About forty words, spoken in well under half a minute. More in [voice coding with Cursor](/blog/voice-coding-with-cursor).
+
+## In Claude Code and Codex
+
+Both run in your terminal. Click into the input and dictate the same way:
+
+<VoiceDemo voice="look at the authentication module and add rate limiting use a sliding window with five attempts per minute per IP address and add tests for the limiter" output="Look at the authentication module and add rate limiting. Use a sliding window with five attempts per minute per IP address, and add tests for the limiter." lang="Claude Code" />
+
+You paste, read it once, and press Return yourself. See [dictation for the terminal](/blog/dictation-for-terminal-cli).
+
+## Prompts, not syntax
+
+Whisperer writes what you say as text. It doesn't convert "open paren" into `(` or "camel case" into camelCase, and in vibe coding you don't need it to: the agent writes the syntax. If you want to mention an existing function, add it to the dictionary once ("use effect" to useEffect) and it'll come out right in every prompt.
+
+| You're doing | Use |
+|---|---|
+| Describing a feature or fix | Voice |
+| Redirecting the agent mid-task | Voice |
+| Review comments | Voice |
+| Small edits to the generated code | Keyboard |
+| Navigating the diff | Keyboard |
+
+## Tips
+
+<FeatureGrid>
+<FeatureCard title="Be specific" icon="target">
+Mention edge cases, error handling and what shouldn't change. Voice makes the extra sentence cheap.
+</FeatureCard>
+<FeatureCard title="Tidy long prompts" icon="sparkles">
+With Pro, the Rewrite AI mode can tighten a rambling prompt before you paste. Switch it off for quick ones.
+</FeatureCard>
+<FeatureCard title="Fix names once" icon="book-open">
+Framework names, endpoints and odd library names go in the dictionary.
+</FeatureCard>
+<FeatureCard title="Speak in any of 97 languages" icon="globe">
+If you think in another language, prompt in it. Most agents handle it fine.
+</FeatureCard>
+</FeatureGrid>
+
+## Let the agent read your context
+
+Specs often live in meetings and voice notes, not tickets. With Pro, Whisperer's local [MCP server](/mcp) lets Claude Code, Codex, Cursor and Windsurf search your meeting transcripts and dictation history. "Read yesterday's call with design and build what we agreed for the empty state" becomes a prompt the agent can act on. Whisperer's [meeting notes](/meetings) record calls without a bot joining.
+
+## The stack
+
+1. **Whisperer** for voice to text ($2.99; Pro $14.99 one-time for meetings, AI modes and MCP)
+2. **Cursor, Claude Code, Codex or Windsurf** as the agent
+3. **A decent mic.** The built-in Mac mic works; a headset helps in a noisy room.
+
+You describe, the AI types, you review.
+
+---
+
+*Related guides: [Voice coding guide](/voice-coding), [Voice coding with Cursor](/blog/voice-coding-with-cursor), [Voice dictation for agentic coding](/blog/voice-dictation-for-agentic-coding), [Voice dictation for VS Code](/blog/voice-dictation-for-vscode). See [pricing](/pricing).*
+
+<CTA />

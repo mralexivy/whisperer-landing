@@ -20,6 +20,8 @@
 - [Teams and enterprise](https://whispererapp.com/enterprise): company rollout via Apple Business Manager and MDM, on-device data, company AI accounts, seat cost calculator
 - [Pricing](https://whispererapp.com/pricing): $2.99 app, $14.99 Pro, plan comparison
 - [Dictation features](https://whispererapp.com/features)
+- [Voice coding](https://whispererapp.com/voice-coding): speaking prompts to Cursor, Claude Code, Codex and Windsurf (no spoken-symbol or casing commands)
+- [Voice to text for developers](https://whispererapp.com/voice-to-text-developers): prompts, PRs, reviews, tickets and Slack by voice; dictionary for technical names
 - [Comparisons](https://whispererapp.com/compare): Whisperer vs Granola, Otter, Fireflies, Wispr Flow, Superwhisper, MacWhisper and others
 - [Blog](https://whispererapp.com/blog)
 - [Privacy policy](https://whispererapp.com/privacy)

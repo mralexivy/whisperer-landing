@@ -1,0 +1,102 @@
+---
+title: "Voice Dictation for Agentic Coding in 2026"
+description: "How voice input fits agentic coding: direct Claude Code, Codex, Cursor and Windsurf by speaking, review by voice, and give agents your meetings and dictations through MCP."
+date: "2026-03-28"
+updated: "2026-11-07"
+keywords: ["voice dictation agentic coding", "vibe coding tools", "voice coding AI", "hands-free agentic development", "voice prompts claude code", "mcp dictation"]
+category: "guides"
+---
+
+In agentic coding, you spend more time telling an AI what to build than writing code yourself. Claude Code, Codex, Cursor and Windsurf do the implementation; you describe, redirect and review. Most of your input is now plain language, and plain language is what voice is good at.
+
+<Callout type="info">
+Typing speed used to be a coding skill. With agents, what matters is how quickly and clearly you can explain a change. Conversational speech is commonly around 130 to 150 words per minute, well above most people's typing.
+</Callout>
+
+## Why voice works here
+
+<FeatureGrid>
+<FeatureCard title="Speed" icon="zap">
+A feature description that takes a couple of minutes to type takes well under a minute to say. Agents get dozens of these a day.
+</FeatureCard>
+<FeatureCard title="Better prompts" icon="file-text">
+Typed prompts get terse. Spoken ones include the context, constraints and edge cases an agent needs.
+</FeatureCard>
+<FeatureCard title="Less fatigue" icon="shield">
+Long prompting sessions are a lot of typing. Speaking moves most of it off your hands.
+</FeatureCard>
+<FeatureCard title="Review is conversation" icon="eye">
+"Good, but make the error handling more specific" is easier to say than to type.
+</FeatureCard>
+</FeatureGrid>
+
+## The voice and agent loop
+
+Each step is the same action in Whisperer: hold Fn, speak, release, press ⌘V, send. Whisperer copies the text and shows a **Copied ⌘V** toast; it never types or presses Return for you.
+
+### 1. Initial direction
+
+<VoiceDemo voice="create a REST API for a todo list using Express and TypeScript with CRUD endpoints input validation with Zod error handling middleware and Jest tests for each endpoint" output="Create a REST API for a todo list using Express and TypeScript, with CRUD endpoints, input validation with Zod, error handling middleware, and Jest tests for each endpoint." lang="Initial prompt" />
+
+### 2. Course correction
+
+<VoiceDemo voice="the error middleware should return JSON with an error code a message and an optional details field don't use the default Express handler" output="The error middleware should return JSON with an error code, a message and an optional details field. Don't use the default Express handler." lang="Refinement" />
+
+### 3. Review by voice
+
+<VoiceDemo voice="this looks right but use a connection pool instead of opening a connection per request and add a graceful shutdown handler" output="This looks right, but use a connection pool instead of opening a connection per request, and add a graceful shutdown handler." lang="Review" />
+
+### 4. Approve and commit
+
+<VoiceDemo voice="this is good commit it with the message add todo API with CRUD endpoints and validation" output="This is good. Commit it with the message: Add todo API with CRUD endpoints and validation." lang="Approval" />
+
+## Setting up
+
+<StepList>
+<Step num="1" title="Install Whisperer">
+From the Mac App Store, $2.99. Apple Silicon and macOS 26 Tahoe.
+</Step>
+<Step num="2" title="Add your vocabulary">
+Library, service and product names go in the [personal dictionary](/features/personal-dictionary), so "Zod" and "PostgreSQL" don't come out as something else.
+</Step>
+<Step num="3" title="Use a clear mic">
+Built-in is fine in a quiet room. A headset helps when you're giving long, detailed instructions.
+</Step>
+<Step num="4" title="Watch the live preview">
+Words appear as you speak, so you can catch a misheard name before you paste.
+</Step>
+</StepList>
+
+There's nothing to set per tool. Whisperer writes what you say as plain text, which is exactly what agents take. It doesn't do spoken symbol or casing commands; the agent writes the syntax.
+
+## Give agents what you've said, not just what you type
+
+This is the part that changed in Whisperer 2.0. With Pro, Whisperer can run a local **MCP server**, so your agent can read your meetings and dictations directly:
+
+- `search_meetings` and `get_meeting_transcript` let it find the call where a feature was discussed
+- `search_transcriptions` and `get_transcription` let it read a long dictation you made earlier, such as a spoken bug report or design notes
+- `add_meeting_note` lets it write a summary back
+
+One-click setup covers Claude Code, Codex, Cursor, VS Code and Windsurf, among others. The server is off by default and listens only on your Mac. A prompt like "find what we decided about rate limits in Monday's call and implement it" then works from the real conversation. See the [MCP page](/mcp) and [meeting notes](/meetings).
+
+## Tools that work well with voice
+
+| Tool | Voice use |
+|---|---|
+| Claude Code | Spoken instructions in the terminal; reads your meetings via MCP |
+| Codex | Spoken tasks in CLI, IDE or app; MCP supported |
+| Cursor | Agent and chat prompts, inline edit prompts, review |
+| Windsurf | Agent prompts and multi-file changes |
+| VS Code with Copilot | Chat and agent prompts, commit messages |
+
+## Where this is going
+
+<Callout type="tip">
+More coding happens through conversation with agents and less through typing syntax. You don't need to dictate everything. But if you spend hours a day prompting AI tools, speaking those prompts is worth a week's trial.
+</Callout>
+
+---
+
+*Related: [Voice dictation for vibe coding](/blog/vibe-coding-voice-dictation), [Voice coding guide](/voice-coding), [Claude MCP for meeting notes](/blog/claude-mcp-meeting-notes), [Developer productivity with voice](/blog/developer-productivity-voice-dictation). See [pricing](/pricing).*
+
+<CTA />

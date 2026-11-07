@@ -1,0 +1,115 @@
+---
+title: "How to Dictate camelCase and snake_case on Mac (Honest Answer)"
+description: "Can voice dictation write camelCase, snake_case and PascalCase? Spoken casing commands are slow. The better route: let an AI coding agent name things, and use a dictionary for identifiers you say often."
+date: "2026-03-28"
+updated: "2026-11-07"
+keywords: ["camelCase voice dictation", "snake_case dictation", "voice dictation casing", "dictate variable names", "dictate identifiers mac", "voice coding naming conventions"]
+category: "guides"
+howToSteps:
+  - name: "Let the agent handle casing"
+    text: "When you want new code, describe it in plain words to Cursor, Claude Code, Codex or Windsurf. Say the name in plain words ('a function that gets the user profile') and the agent writes getUserProfile or get_user_profile to match your codebase."
+  - name: "Add identifiers you say often to the dictionary"
+    text: "In Whisperer, open Dictionary and add entries for names you mention in prose: what it hears ('use effect') and what it should write (useEffect)."
+  - name: "Dictate, then paste"
+    text: "Hold Fn, speak, release. The text is copied with a Copied ⌘V toast; paste it with ⌘V."
+  - name: "Type one-off names"
+    text: "For a single new identifier in the editor, typing it is faster than any spoken command."
+faqs:
+  - question: "Does Whisperer have a 'camel case' voice command?"
+    answer: "No. Whisperer does not convert spoken casing or symbol commands. It transcribes what you say as text. You can add specific identifiers to the personal dictionary so they are always written the way you want."
+  - question: "How do I get useEffect instead of 'use effect' when dictating?"
+    answer: "Add a dictionary entry with 'use effect' as the incorrect form and useEffect as the correct form. From then on, every dictation writes useEffect when you say it."
+  - question: "What's the fastest way to write identifiers by voice?"
+    answer: "Don't dictate them one by one. Describe what the code should do to an AI coding agent and let it pick names that follow your project's conventions. Save dictionary entries for the names you mention in prompts, comments and messages."
+---
+
+People searching for how to dictate camelCase usually want one of two things: to write new code by voice, or to mention existing identifiers (useEffect, get_user_profile, UserService) in prompts, comments and messages without fixing them afterwards. Whisperer handles the second well and the first differently than you might expect.
+
+The short answer: **Whisperer doesn't have spoken casing commands.** Saying "camel case get user name" gives you those words, not `getUserName`. For new code, let an AI coding agent do the naming. For identifiers you say often, add them to the personal dictionary once.
+
+## Why spoken casing commands are a poor fit
+
+Casing commands sound neat in a demo: say "snake case", then the words, and get underscores. In practice:
+
+- **You have to plan every name before you say it.** Where does the casing stop? Is it `getUserId` or `getUserID`? You end up thinking in syntax, which is what voice was supposed to free you from.
+- **Mistakes are hard to fix by voice.** A misheard word inside an identifier means reaching for the keyboard anyway.
+- **One name is rarely the task.** Identifiers live inside lines of code full of symbols, and dictating those is slower still.
+- **Your codebase already has conventions.** An agent that reads your project picks names that match them. You don't need to say the casing at all.
+
+Whisperer 1.x had a Code Mode with commands like these. It's gone in 2.0.
+
+## For new code: describe it, let the agent name it
+
+Say what the code should do. The agent picks `camelCase` for your TypeScript, `snake_case` for your Python and `PascalCase` for classes, because that's what your files already use.
+
+<VoiceDemo voice="add a function that takes a list of orders and returns the total price including tax use the tax rate from the config module" output="Add a function that takes a list of orders and returns the total price, including tax. Use the tax rate from the config module." lang="Prompt" />
+
+In a Python project an agent will typically write something like `calculate_total_price(orders)`; in TypeScript, `calculateTotalPrice(orders)`. You review the name in the diff, and rename with the keyboard if you want something else.
+
+This works the same in Cursor, Claude Code, Codex, Windsurf and Copilot Chat: hold Fn, speak, release, press ⌘V, send. See [how to dictate code on Mac](/blog/how-to-dictate-code-on-mac) for the full workflow.
+
+## For identifiers you mention: use the dictionary
+
+When you write a prompt, a code review comment or a Slack message, you often name things that already exist. A speech model hears "use effect" and writes two words. The [personal dictionary](/features/personal-dictionary) fixes this per word.
+
+| What the app hears | Correct form |
+|---|---|
+| use effect | useEffect |
+| use state | useState |
+| get user profile | getUserProfile |
+| user service | UserService |
+| max retries | MAX_RETRIES |
+| fetch with retry | fetch_with_retry |
+
+<VoiceDemo voice="the get user profile call fails when use state is still null on first render" output="The getUserProfile call fails when useState is still null on first render." lang="With dictionary entries" />
+
+Things to know:
+
+- **Each entry is one word or phrase you choose.** It's a spelling fix, not a casing rule. Adding `getUserProfile` doesn't teach Whisperer to camelCase anything else.
+- **Pick entries that won't clash with normal speech.** "User service" as UserService is fine in a dev context. Mapping a common phrase you also say in plain English may surprise you in emails.
+- **It learns from corrections.** Fix a word and Whisperer can add it to the dictionary as a Learned entry.
+- **Prompt words** (a second tab on the Dictionary page) tell the speech model to expect certain terms. Good for product names like Kubernetes or PostgreSQL that it otherwise mishears.
+
+More in the [dictionary setup guide](/blog/personal-dictionary-setup).
+
+## Naming conventions, for reference
+
+| Convention | Example | Typical use |
+|---|---|---|
+| camelCase | `getUserProfile` | Variables and functions in JavaScript, TypeScript, Java, Swift |
+| snake_case | `get_user_profile` | Python, Rust, Ruby, SQL columns |
+| PascalCase | `UserService` | Classes and types in most languages |
+| CONSTANT_CASE | `MAX_RETRY_COUNT` | Constants, environment variables |
+| kebab-case | `user-profile` | CSS classes, URLs, CLI flags, file names |
+
+If you're asking an agent to create something, you can say the convention in plain words when it matters: "name it in snake case". The agent understands that as an instruction; Whisperer just writes your sentence.
+
+## What to type instead
+
+Some things are still faster on the keyboard:
+
+- A single new variable name in the middle of a line
+- Renames (use your editor's rename symbol)
+- Anything where you'd have to spell letters out loud
+
+Voice is for the sentences around the code. The keyboard is for the code you touch by hand.
+
+## FAQ
+
+### Does Whisperer have a "camel case" voice command?
+
+No. Whisperer does not convert spoken casing or symbol commands. It transcribes what you say as text. You can add specific identifiers to the personal dictionary so they are always written the way you want.
+
+### How do I get useEffect instead of "use effect" when dictating?
+
+Add a dictionary entry with "use effect" as the incorrect form and useEffect as the correct form. From then on, every dictation writes useEffect when you say it.
+
+### What's the fastest way to write identifiers by voice?
+
+Don't dictate them one by one. Describe what the code should do to an AI coding agent and let it pick names that follow your project's conventions. Save dictionary entries for the names you mention in prompts, comments and messages.
+
+---
+
+*Related: [How to dictate code on Mac](/blog/how-to-dictate-code-on-mac), [Voice coding guide](/voice-coding), [Voice to text for developers](/voice-to-text-developers), [Personal dictionary](/blog/personal-dictionary-setup). See [pricing](/pricing).*
+
+<CTA />

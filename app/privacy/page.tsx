@@ -37,7 +37,7 @@ export default function PrivacyPage() {
               <Shield className="w-4 h-4 text-primary" />
               <span className="text-sm text-primary font-medium">Privacy First</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+            <h1 data-enter style={{ "--d": "60ms" } as React.CSSProperties} className="text-4xl sm:text-5xl font-bold mb-4">
               Privacy Policy
             </h1>
             <p className="text-muted-foreground text-lg">

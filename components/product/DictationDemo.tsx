@@ -49,6 +49,13 @@ export function DictationDemo({ className }: { className?: string }) {
         <div className="flex-1 min-w-0 flex flex-col">
           <div className="px-5 py-3 border-b border-white/[0.06] text-[13px] font-bold text-white flex items-center gap-1"><Hash className="h-3.5 w-3.5" /> launch</div>
           <div className="flex-1 min-h-0 overflow-hidden px-5 py-4 space-y-3 flex flex-col justify-end">
+            <div className="flex gap-2.5">
+              <span className="h-8 w-8 rounded-[6px] bg-emerald-500/25 text-emerald-300 text-[11px] font-bold flex items-center justify-center shrink-0">ML</span>
+              <div>
+                <div className="text-[12px] font-bold text-white">Maya Levin <span className="font-normal text-white/35 text-[10.5px]">10:38</span></div>
+                <div className="text-[13px] text-white/85 leading-snug">Where are we on the beta build?</div>
+              </div>
+            </div>
             {[...sent, ...(pasted ? [line] : [])].map((l, i) => (
               <div key={i} className="flex gap-2.5 animate-fade-in">
                 <span className="h-8 w-8 rounded-[6px] bg-[#5B6CF7]/30 text-[#9BA6FF] text-[11px] font-bold flex items-center justify-center shrink-0">ME</span>

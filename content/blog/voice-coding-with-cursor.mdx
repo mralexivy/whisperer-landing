@@ -1,0 +1,101 @@
+---
+title: "Voice Coding with Cursor: Speak Your Prompts on Mac"
+description: "How to use voice dictation with Cursor for AI-assisted coding on Mac. Speak agent prompts, refactors and review feedback, paste with ⌘V, and keep identifiers spelled right."
+date: "2026-03-28"
+updated: "2026-11-07"
+keywords: ["voice to text Cursor IDE", "voice coding Cursor", "dictation Cursor AI", "hands-free coding", "speak to cursor", "cursor voice prompts mac"]
+category: "guides"
+---
+
+Cursor turns most coding into a conversation: you describe a change, the agent writes it, you review. The slow part left is typing the description. Speaking it is quicker for most people, and it tends to produce longer, clearer prompts.
+
+<Callout type="info">
+Typical conversational speech runs around 130 to 150 words per minute. Average typing speed is often quoted at about 40 words per minute. Your numbers will differ, but for a paragraph-long prompt the gap is large.
+</Callout>
+
+## Where voice fits in Cursor
+
+<FeatureGrid>
+<FeatureCard title="Agent and chat" icon="message-square">
+"Why is this test failing? The mock should return a promise, not a value."
+</FeatureCard>
+<FeatureCard title="Inline edit prompts" icon="pencil">
+"Turn this if-else chain into a switch and keep the default case."
+</FeatureCard>
+<FeatureCard title="Multi-file changes" icon="bot">
+"Add a REST endpoint for user preferences with validation and tests."
+</FeatureCard>
+<FeatureCard title="Review feedback" icon="eye">
+"This has a race condition when two requests update the same row."
+</FeatureCard>
+</FeatureGrid>
+
+## Setup
+
+<StepList>
+<Step num="1" title="Install Whisperer">
+From the Mac App Store, $2.99. Needs Apple Silicon and macOS 26 Tahoe.
+</Step>
+<Step num="2" title="Pick your shortcut">
+The default is hold Fn. You can choose another key, and switch to toggle mode for long prompts.
+</Step>
+<Step num="3" title="Add your project vocabulary">
+Put library and service names in the [personal dictionary](/features/personal-dictionary) so they come out right.
+</Step>
+<Step num="4" title="Speak, then paste">
+Click into Cursor's prompt box, hold Fn, speak, release. Whisperer copies the text and shows a Copied ⌘V toast. Press ⌘V and send.
+</Step>
+</StepList>
+
+No Cursor-specific setup is needed. Whisperer works through the clipboard, so it works in Cursor the same way it works everywhere else.
+
+## Speaking a prompt
+
+<VoiceDemo voice="add input validation to the signup form check that the email is valid and the name is at least two characters and show the error under each field" output="Add input validation to the signup form. Check that the email is valid and the name is at least two characters, and show the error under each field." lang="Cursor prompt" />
+
+The live preview shows the words while you speak, so you can see a misheard name before you paste.
+
+## What about writing code directly?
+
+Whisperer writes what you say as text. It doesn't turn "open paren" into `(` or "camel case" into camelCase. In Cursor you rarely need that: describe the change and the agent writes the syntax. For code you edit by hand, use the keyboard. See [how to dictate code on Mac](/blog/how-to-dictate-code-on-mac) for why this split works better.
+
+## Directing the agent
+
+Agent runs are a back-and-forth. Voice suits the short corrections in between:
+
+<VoiceDemo voice="use JWT for the auth middleware not session cookies and keep the existing refresh endpoint" output="Use JWT for the auth middleware, not session cookies, and keep the existing refresh endpoint." lang="Course correction" />
+
+<VoiceDemo voice="looks good but move the database calls into the repository layer before you write the tests" output="Looks good, but move the database calls into the repository layer before you write the tests." lang="Review" />
+
+## Tips
+
+<FeatureGrid>
+<FeatureCard title="Say more than you'd type" icon="target">
+Mention edge cases, constraints and what not to touch. It costs seconds by voice.
+</FeatureCard>
+<FeatureCard title="Fix names once" icon="book-open">
+If "Supabase" keeps coming out as "Supa base", add a dictionary entry. It's fixed in every app.
+</FeatureCard>
+<FeatureCard title="Commit messages" icon="file-text">
+After the agent finishes, speak the commit message into Cursor's source control box.
+</FeatureCard>
+<FeatureCard title="Toggle mode for long prompts" icon="refresh-cw">
+Press once to start, once to stop, so you're not holding a key.
+</FeatureCard>
+</FeatureGrid>
+
+## Give Cursor your meetings and dictations
+
+With Pro, Whisperer runs an optional local [MCP server](/mcp), and Cursor can connect to it with one click. Cursor can then search your meeting transcripts and dictation history. Ask it to "read Tuesday's planning call and draft the ticket for the export feature" and it works from what was actually said. Setup is in [Cursor MCP for meetings](/blog/cursor-mcp-meetings).
+
+## Ergonomics
+
+<Callout type="tip">
+Cursor already cuts the amount of code you type. Speaking the prompts cuts the typing that's left. If your wrists are sore, that combination can make a real difference. See [RSI prevention for developers](/blog/rsi-prevention-voice-coding).
+</Callout>
+
+---
+
+*Related: [Vibe coding with voice](/blog/vibe-coding-voice-dictation), [Voice coding guide](/voice-coding), [Voice dictation for VS Code](/blog/voice-dictation-for-vscode), [How to dictate code on Mac](/blog/how-to-dictate-code-on-mac). See [pricing](/pricing).*
+
+<CTA />

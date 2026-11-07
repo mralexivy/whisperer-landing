@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Mail, ServerOff, UserX, Laptop, KeyRound, ShieldCheck, Building2, Briefcase, Code2, Scale, Headphones, MonitorSmartphone } from "lucide-react";
 import { SiteHeader, SiteFooter, Section, H2, Lede, AppStoreButton } from "@/components/site/Shell";
-import { Crumbs, SectionHead, Steps } from "@/components/site/PageParts";
+import { Crumbs, SectionHead, Steps, Showcase } from "@/components/site/PageParts";
 import { SeatCalculator } from "@/components/enterprise/SeatCalculator";
 import { ProviderList } from "@/components/product/ProviderList";
 import { MeetingStudio } from "@/components/product/MeetingStudio";
@@ -99,13 +99,13 @@ export default function EnterprisePage() {
           <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
             <Crumbs items={[{ name: "Teams and enterprise", href: "/enterprise" }]} />
             <div className="mx-auto max-w-[900px] text-center">
-              <h1 className="text-[42px] sm:text-[60px] lg:text-[72px] font-semibold leading-[0.98] tracking-[-0.04em] text-white text-balance">
+              <h1 data-enter style={{ "--d": "60ms" } as React.CSSProperties} className="text-[42px] sm:text-[60px] lg:text-[72px] font-semibold leading-[0.98] tracking-[-0.04em] text-white text-balance">
                 Meeting notes for every Mac in your company, paid once
               </h1>
-              <p className="mx-auto mt-6 max-w-[700px] text-[18px] sm:text-[20px] leading-[1.5] text-white/60 text-pretty">
+              <p data-enter style={{ "--d": "150ms" } as React.CSSProperties} className="mx-auto mt-6 max-w-[700px] text-[18px] sm:text-[20px] leading-[1.5] text-white/60 text-pretty">
                 Give each employee AI notes for every call for {PRICE_BASE} plus {PRICE_PRO} per Mac, not a subscription per seat. Audio stays on the device, no bot joins customer calls, and the notes use the AI your company already licenses.
               </p>
-              <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <div data-enter style={{ "--d": "230ms" } as React.CSSProperties} className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <a
                   href={ROLLOUT_MAIL}
                   className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white px-6 text-[15px] font-semibold text-[#0B0B19] transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-12px_rgba(255,255,255,0.45)] active:translate-y-0 active:scale-[0.98]"
@@ -122,13 +122,21 @@ export default function EnterprisePage() {
         </section>
 
         {/* Cost */}
-        <Section id="cost" tall>
+        <Section id="cost">
           <div className="max-w-[760px]">
             <H2>What meeting notes cost your company</H2>
             <Lede>Per-seat plans bill every employee every month. Whisperer is bought once per Mac. Drag to your headcount.</Lede>
           </div>
           <div className="mt-12"><SeatCalculator /></div>
         </Section>
+
+        <Showcase
+          id="notes"
+          title="What every employee gets after every call"
+          lede="An overview, decisions, action items with owners and open questions, written on their Mac by the AI your company already licenses."
+          video="meeting-loop"
+          alt="Meeting Studio writing an overview, decisions and action items when a call ends"
+        />
 
         {/* Security */}
         <Section id="security">
@@ -158,7 +166,7 @@ export default function EnterprisePage() {
         </Section>
 
         {/* Your AI */}
-        <Section id="your-ai" tall>
+        <Section id="your-ai">
           <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.15fr]">
             <div>
               <H2>Uses the AI your company already pays for</H2>

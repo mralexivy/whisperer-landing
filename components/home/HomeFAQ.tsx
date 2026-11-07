@@ -55,7 +55,7 @@ export function FAQSection({ items = HOME_FAQ, title = "Questions people ask" }:
         <div>
           <H2>{title}</H2>
         </div>
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion data-reveal="list" type="single" collapsible className="w-full">
           {items.map((qa, i) => (
             <AccordionItem key={qa.question} value={`q${i}`} className="border-white/[0.08]">
               <AccordionTrigger className="py-5 text-left text-[16.5px] font-medium text-white hover:no-underline">{qa.question}</AccordionTrigger>

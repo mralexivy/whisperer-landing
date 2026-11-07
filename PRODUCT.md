@@ -22,7 +22,10 @@ Plain, concrete, confident, honest about trade-offs. Category first. No hype voc
 ## Brand / visual world (incumbent, extend — do not replace)
 Matches the app: deep navy (#0B0B19 page, #0C0C1A app, #14142B surfaces), blue→violet accent (#5B6CF7 → #8B5CF6) as in
 the app icon, Inter, live product UI recreations as the hero imagery, real third-party brand icons, soft radial light.
-Motion: purposeful UI loops that demonstrate the product, hover lifts, no scroll-reveal fades; respects reduced motion.
+Motion (owner's direction, Nov 2026): every page animates. One idea everywhere: things come into focus (blur → sharp,
+slight rise, ease cubic-bezier(0.16,1,0.3,1)), via data-enter / data-reveal in components/site/Motion.tsx. Live product
+loops (useLoop) in half-width slots; Remotion-rendered films (remotion/, public/videos/*-loop) only in full-width
+Showcase sections where their UI reads at size. Content visible without JS; respects reduced motion.
 
 ## Surfaces
 Mode: Persuade for home, feature, pricing, enterprise pages; Read for blog, compare, legal.

@@ -1,0 +1,135 @@
+---
+title: "Per-App Dictation on Mac: What Changes Between Slack, Mail and Your Editor"
+description: "Does Whisperer change dictation per app? One setting, Match the app you're writing in, drops the full stop on one-line chat messages. Here's what it does, what it doesn't, and how to set up the rest by hand."
+date: "2026-03-28"
+updated: "2026-11-07"
+keywords: ["dictation per-app profiles mac", "per-app dictation", "context-aware dictation", "dictation slack no period", "app specific dictation mac", "hold to talk dictation mac"]
+category: "guides"
+faqs:
+  - question: "Does Whisperer have per-app profiles?"
+    answer: "Not as a settings system. It has one setting, Match the app you're writing in. When it's on, a one-line message dictated into a chat app such as Slack, Messages, WhatsApp, Discord, Telegram, Teams or Spark is pasted without a final full stop. Other apps get the same text as always."
+  - question: "Can I use a different AI mode for each app?"
+    answer: "Not automatically. The AI mode you pick stays on until you change it. Most people leave plain dictation on and switch to Email or Format for a batch of work."
+  - question: "Why doesn't Whisperer remove the period in Mail or Notes?"
+    answer: "Because in email, notes and documents a sentence should end with a full stop. The change only applies to one-sentence messages in chat apps, where people usually don't type one."
+---
+
+The text you want depends on where it's going. A Slack reply wants a quick, casual line. An email wants full sentences. A prompt to an AI coding agent wants plain, specific instructions. Dictation apps handle this in different ways, so here is exactly what Whisperer does, and what you do yourself.
+
+**In short:** Whisperer has one per-app behaviour, a setting called **Match the app you're writing in**. Everything else (AI modes, language, dictionary) is one choice that applies everywhere until you change it.
+
+## What "Match the app you're writing in" does
+
+Open **Settings**, find the **Text Output** card, and you'll see the switch. It's on by default. The description says what it does: *skips the full stop on one-line chat messages.*
+
+When you start dictating, Whisperer notes which app is in front. If it's a chat app and your message is a single sentence, the closing full stop is left off, because nobody types one in a quick chat reply and it can read as curt.
+
+<VoiceDemo voice="sounds good see you at three" output="Sounds good, see you at three" lang="Slack" />
+
+The chat apps it recognises:
+
+| Chat apps |
+|---|
+| Slack |
+| Messages |
+| WhatsApp |
+| Discord |
+| Telegram |
+| Microsoft Teams |
+| Spark |
+
+It's deliberately careful. The full stop stays when:
+
+- the message has more than one sentence
+- it ends in a question mark, exclamation mark or an ellipsis
+- the last word is an abbreviation ("etc.", "vs."), an initial, a number, or something like `config.js`
+- you're in any app that isn't on the chat list
+
+<VoiceDemo voice="pushed the fix it should be live in ten minutes" output="Pushed the fix. It should be live in ten minutes." lang="Slack, two sentences" />
+
+## What it doesn't do
+
+Whisperer also recognises editors and terminals (Xcode, VS Code, Cursor, Terminal, iTerm2, Warp, JetBrains, Sublime Text) and writing apps (Mail, Notes, Word, Outlook, Notion, Obsidian). Today, the text in those apps is the same as it would be anywhere else. There's no automatic switch to a different mode, language, dictionary or AI rewrite per app.
+
+That's a choice in favour of predictability: what you see in the live preview is what you get, whichever window you paste into.
+
+## Setting up the rest yourself
+
+Since modes don't switch on their own, it helps to know which choice to make for which kind of work. Every setting below applies to all apps until you change it.
+
+| Where you're writing | What to use |
+|---|---|
+| Slack, Teams, Messages | Plain dictation with Fast Polish. Match the app handles the full stop. |
+| Gmail, Mail, Outlook | Plain dictation for quick replies; the **Email** AI mode for a batch of longer emails |
+| Notion, Obsidian, docs | Plain dictation, or **Format** when you want headings and lists |
+| Cursor, Claude Code, Codex | Plain dictation. Speak the prompt in full sentences. |
+| Comments, docstrings, PR text | Plain dictation, or the **Coding** AI mode to tighten it into technical prose |
+
+AI modes come with Pro and use the AI you pick on the LLM page: the built-in model that runs offline on your Mac, or your own Claude, ChatGPT or Gemini plan. See [AI writing](/features/ai-writing).
+
+### Habits that replace per-app profiles
+
+<FeatureGrid>
+<FeatureCard title="Leave plain dictation on" icon="star">
+It's right for chat, prompts and quick replies, which is most of a day. Switch to an AI mode only for a batch of work, then switch back.
+</FeatureCard>
+<FeatureCard title="Batch by kind of writing" icon="layers">
+Do your inbox in one sitting with the Email mode. Don't flip modes every message.
+</FeatureCard>
+<FeatureCard title="One dictionary for everything" icon="book-open">
+Names, products and jargon get fixed in every app at once. See the [dictionary guide](/blog/personal-dictionary-setup).
+</FeatureCard>
+<FeatureCard title="Auto-detect or set the language" icon="globe">
+If you switch languages between apps, leave language on auto-detect. See [multilingual dictation](/blog/multilingual-dictation-guide).
+</FeatureCard>
+</FeatureGrid>
+
+## How text gets into each app
+
+The delivery is the same everywhere: hold **Fn** (or your own shortcut), speak, release. Whisperer copies the text and shows a **Copied ⌘V** toast. Press **⌘V** to paste. Because it's a paste, it works in any app with a text field, including web apps in Safari or Chrome.
+
+There's one more option in the same Text Output card: **Add space after text**, which adds a trailing space so you can keep typing straight after the pasted words.
+
+## When to turn Match the app off
+
+Turn it off if you want every message to end with a full stop, for example if your team's chat style is formal or you paste chat text into documents later. The switch is the only control; there's no per-app list to edit.
+
+## Examples
+
+### Standup in Slack
+
+<VoiceDemo voice="yesterday I finished the API migration today I'm on the onboarding flow no blockers" output="Yesterday I finished the API migration. Today I'm on the onboarding flow. No blockers." lang="Slack" />
+
+Several sentences, so the full stops stay.
+
+### Prompt in Cursor
+
+<VoiceDemo voice="move the date formatting into a helper in utils and use it in both the invoice and receipt components" output="Move the date formatting into a helper in utils and use it in both the invoice and receipt components." lang="Cursor" />
+
+Cursor is an editor, not a chat app, so the text is unchanged.
+
+### Email in Mail
+
+<VoiceDemo voice="hi Michael thanks for the feedback on the prototype the updated version is attached" output="Hi Michael, thanks for the feedback on the prototype. The updated version is attached." lang="Mail" />
+
+Mail is a writing app: normal punctuation.
+
+## FAQ
+
+### Does Whisperer have per-app profiles?
+
+Not as a settings system. It has one setting, Match the app you're writing in. When it's on, a one-line message dictated into a chat app such as Slack, Messages, WhatsApp, Discord, Telegram, Teams or Spark is pasted without a final full stop. Other apps get the same text as always.
+
+### Can I use a different AI mode for each app?
+
+Not automatically. The AI mode you pick stays on until you change it. Most people leave plain dictation on and switch to Email or Format for a batch of work.
+
+### Why doesn't Whisperer remove the period in Mail or Notes?
+
+Because in email, notes and documents a sentence should end with a full stop. The change only applies to one-sentence messages in chat apps, where people usually don't type one.
+
+---
+
+*Related: [Dictation for Slack, Gmail and Notion](/blog/dictation-for-slack-gmail-notion), [Dictation for email](/blog/dictation-for-email), [Voice coding guide](/voice-coding). See [all dictation features](/features) and [pricing](/pricing).*
+
+<CTA />

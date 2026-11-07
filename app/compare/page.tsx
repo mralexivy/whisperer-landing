@@ -95,15 +95,15 @@ export default function ComparePage() {
         <div className="mx-auto max-w-[1040px] px-4 sm:px-6">
           <Breadcrumbs items={[{ label: "Compare" }]} />
 
-          <h1 className="max-w-[760px] text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <h1 data-enter style={{ "--d": "60ms" } as React.CSSProperties} className="max-w-[760px] text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Whisperer compared with meeting notes and dictation apps
           </h1>
-          <p className="mt-5 max-w-[680px] text-lg leading-relaxed text-white/60">
+          <p data-enter style={{ "--d": "140ms" } as React.CSSProperties} className="mt-5 max-w-[680px] text-lg leading-relaxed text-white/60">
             Whisperer takes meeting notes on your Mac without a bot, writes them with the AI you already
             pay for, lets AI apps read them over MCP, and does offline dictation. It costs {PRICE_BASE} plus
             a one-time {PRICE_PRO} for Pro. Each page below says where the other app is the better pick.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-5">
+          <div data-enter style={{ "--d": "220ms" } as React.CSSProperties} className="mt-8 flex flex-wrap items-center gap-5">
             <AppStoreButton label="Get Whisperer" />
             <TextLink href="/pricing">See what Pro includes</TextLink>
           </div>

@@ -40,7 +40,7 @@ export function BrandIcon({ brand, size = 20, className, alt }: { brand: Brand; 
       alt={alt ?? BRAND_NAMES[brand]}
       width={size}
       height={size}
-      loading="lazy"
+      decoding="async"
       className={cn("object-contain shrink-0", INK_MARKS.has(brand) && "brightness-0 invert", className)}
       style={{ width: size, height: size }}
     />

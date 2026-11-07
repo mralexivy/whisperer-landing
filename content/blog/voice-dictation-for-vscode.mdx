@@ -1,0 +1,92 @@
+---
+title: "Voice Dictation for VS Code on Mac: Setup and Workflow"
+description: "How to use voice-to-text in VS Code on Mac: Copilot Chat prompts, comments, commit messages and Markdown, with offline dictation and a dictionary for your project's names."
+date: "2026-03-28"
+updated: "2026-11-07"
+keywords: ["speech to text VS Code", "voice dictation VS Code", "dictation for VS Code mac", "voice coding VS Code", "copilot chat voice", "dictate commit messages vscode"]
+category: "guides"
+---
+
+VS Code has no system-wide dictation of its own, and macOS Dictation treats everything as prose: it doesn't know your library names and it has no dictionary you control. Whisperer fills that gap for the parts of VS Code work that are actually text: prompts, comments, commit messages, docs.
+
+What it won't do is dictate syntax. Whisperer writes what you say as text, so "open paren" stays words. That's fine, because the code itself is usually better written by the keyboard or by Copilot.
+
+## Setup
+
+<StepList>
+<Step num="1" title="Install Whisperer">
+From the Mac App Store, $2.99. Apple Silicon and macOS 26 Tahoe.
+</Step>
+<Step num="2" title="Grant the microphone">
+Microphone access is the permission that matters. Whisperer doesn't control other apps: text reaches VS Code when you paste it.
+</Step>
+<Step num="3" title="Keep the default model">
+Whisper with the default Whisperer V3 model is a good start. It covers 97 languages and runs on your Mac's GPU.
+</Step>
+<Step num="4" title="Add your project's names">
+Put library, service and teammate names in the [personal dictionary](/features/personal-dictionary).
+</Step>
+</StepList>
+
+## The daily workflow
+
+Every dictation works the same way: click where the text should go, hold **Fn**, speak, release. Whisperer copies the text and shows a **Copied ⌘V** toast. Press **⌘V**.
+
+### Copilot Chat and agent prompts
+
+<VoiceDemo voice="explain why this hook re-renders on every keystroke and suggest a fix that doesn't change the public props" output="Explain why this hook re-renders on every keystroke and suggest a fix that doesn't change the public props." lang="Copilot Chat" />
+
+This is where voice saves the most. Prompts are plain English, and spoken ones tend to include the detail an assistant needs.
+
+### Comments and docstrings
+
+Type the comment marker or open the docstring, then dictate the sentence and paste it:
+
+<VoiceDemo voice="retries the request up to three times with exponential backoff and throws the last error if all attempts fail" output="Retries the request up to three times with exponential backoff and throws the last error if all attempts fail." lang="Docstring" />
+
+### Commit messages
+
+Open Source Control, click the message box, and speak:
+
+<VoiceDemo voice="fix authentication timeout by extending the session to thirty minutes" output="Fix authentication timeout by extending the session to thirty minutes." lang="Commit message" />
+
+Delete the final full stop if your team's style leaves it off.
+
+### README and Markdown
+
+Long-form docs are prose. For headings and lists, Pro's **Format** AI mode can turn a spoken outline into Markdown before you paste. See [AI writing](/features/ai-writing).
+
+## Tips
+
+<FeatureGrid>
+<FeatureCard title="Watch the preview" icon="eye">
+The live preview shows words as you speak. If a name is wrong, you'll see it before pasting.
+</FeatureCard>
+<FeatureCard title="Fix jargon once" icon="book-open">
+"use effect" to useEffect, "post gress" to PostgreSQL. One dictionary entry each, used in every app.
+</FeatureCard>
+<FeatureCard title="Start with comments" icon="message-square">
+If voice feels awkward in an editor, start with comments and commit messages. No syntax to think about.
+</FeatureCard>
+<FeatureCard title="Toggle mode for long text" icon="refresh-cw">
+Press once to start, once to stop. Easier than holding Fn through a README section.
+</FeatureCard>
+</FeatureGrid>
+
+## What about VS Code voice extensions?
+
+There are extensions that add voice input inside VS Code, such as Microsoft's VS Code Speech for Copilot Chat. They're worth a look if you only want voice in the editor. Whisperer works in every app on your Mac with the same shortcut and the same dictionary, so the words you fixed for VS Code are also right in Slack, Mail and your terminal.
+
+## Speed
+
+Transcription runs on your Mac's chip. On Apple Silicon, a short prompt is usually ready moments after you release the key. Longer dictations take a little longer, since the final pass runs on the whole recording. Nothing is uploaded.
+
+## Connect VS Code to your meetings
+
+With Pro, Whisperer's local [MCP server](/mcp) can connect to VS Code in one click. Copilot's agent can then search your meeting transcripts and dictation history, which helps when the spec for a feature lives in last week's call. The server is off until you turn it on.
+
+---
+
+*Related: [Voice coding with Cursor](/blog/voice-coding-with-cursor), [How to dictate code on Mac](/blog/how-to-dictate-code-on-mac), [Voice coding guide](/voice-coding), [Voice to text for developers](/voice-to-text-developers). See [pricing](/pricing) and [all features](/features).*
+
+<CTA />

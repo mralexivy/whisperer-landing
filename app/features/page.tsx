@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { breadcrumbSchema, JsonLd } from "@/lib/structured-data";
 import { Section, H2, Lede, GhostButton, AppStoreButton } from "@/components/site/Shell";
 import { DictationDemo } from "@/components/product/DictationDemo";
+import { Showcase } from "@/components/site/PageParts";
 import { PageHero, PointGrid, Close } from "@/components/landing/PageKit";
 import { FAQSection } from "@/components/home/HomeFAQ";
 import { PRICE_BASE, FACTS } from "@/lib/site";
@@ -90,6 +91,14 @@ export default function FeaturesPage() {
         </div>
         <div className="mt-12"><DictationCards /></div>
       </Section>
+
+      <Showcase
+        id="watch"
+        title="Three languages, no settings changed"
+        lede="Hold Fn and talk in English, then Spanish, then Italian. Whisperer hears which one you are speaking and writes it, ready to paste."
+        video="dictation-loop"
+        alt="Holding Fn in Slack: words stream in English, Spanish and Italian, each pasted with Command V"
+      />
 
       <PointGrid
         id="modes"

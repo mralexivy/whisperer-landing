@@ -36,7 +36,7 @@ export function DetectionSection() {
             Whisperer sees which app opened the microphone, so it knows a Zoom call from a voice memo. It asks once, or
             records on its own for meetings on your calendar.
           </Lede>
-          <ul className="mt-8 grid grid-cols-2 gap-2.5 max-w-[460px]">
+          <ul data-reveal="list" className="mt-8 grid grid-cols-2 gap-2.5 max-w-[460px]">
             {CALL_APPS.map((a) => (
               <li key={a.name} className="flex items-center gap-2.5 rounded-[12px] bg-white/[0.03] ring-1 ring-white/[0.07] px-3 py-2.5 text-[14px] text-white/85">
                 {a.brand ? <BrandIcon brand={a.brand} size={18} /> : <Mic className="h-[18px] w-[18px] text-emerald-400" />}
@@ -46,7 +46,7 @@ export function DetectionSection() {
           </ul>
           <TextLink href="/meetings" className="mt-8">See how meeting notes work</TextLink>
         </div>
-        <div className="relative h-[460px] rounded-[24px] bg-[radial-gradient(120%_90%_at_70%_20%,#1B1D4A_0%,#0D0D20_60%)] ring-1 ring-white/[0.07] overflow-hidden">
+        <div data-reveal="frame" className="relative h-[460px] rounded-[24px] bg-[radial-gradient(120%_90%_at_70%_20%,#1B1D4A_0%,#0D0D20_60%)] ring-1 ring-white/[0.07] overflow-hidden">
           {/* a Mac desktop with the menu bar, the Island and the prompt */}
           <div className="absolute inset-x-0 top-0 h-7 bg-black/40 backdrop-blur flex items-center justify-between px-4 text-[11px] text-white/70">
             <span className="font-semibold">Zoom Workplace</span>
@@ -97,7 +97,7 @@ export function NotesSection() {
         <H2>Notes, decisions and action items when the call ends</H2>
         <Lede>Every meeting lands in Meeting Studio with a clean transcript, named speakers and a summary you can ask questions about.</Lede>
       </div>
-      <div className="mt-12 grid gap-4 md:grid-cols-6">
+      <div data-reveal="list" className="mt-12 grid gap-4 md:grid-cols-6">
         <Tile className="md:col-span-3" icon={Users} color="bg-emerald-500/15 text-emerald-400" title="Names every speaker" body="Voices are told apart on your Mac, and names come from the calendar invite.">
           <div className="space-y-2">
             {SEGMENTS.slice(0, 2).map((s) => (
@@ -142,7 +142,7 @@ export function CalendarSection() {
           </div>
           <TextLink href="/calendar" className="mt-8">See calendar sync</TextLink>
         </div>
-        <CalendarPanel sidebar={false} />
+        <div data-reveal="frame" className="min-w-0"><CalendarPanel sidebar={false} /></div>
       </div>
     </Section>
   );
@@ -178,7 +178,7 @@ export function CostCard({ className }: { className?: string }) {
 
 export function OwnAISection() {
   return (
-    <Section id="your-ai" tall>
+    <Section id="your-ai">
       <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.2fr]">
         <div>
           <H2>Notes written by the AI you already pay for</H2>
@@ -186,10 +186,10 @@ export function OwnAISection() {
             Sign in with your Claude, ChatGPT or Gemini plan and Whisperer uses it for notes and answers, with no extra bill.
             No plan? The built-in {FACTS.localModel} model writes them on your Mac, offline.
           </Lede>
-          <CostCard className="mt-9" />
+          <div data-reveal data-rd="160"><CostCard className="mt-9" /></div>
           <TextLink href="/ai" className="mt-8">See every AI you can connect</TextLink>
         </div>
-        <ProviderList sidebar={false} />
+        <div data-reveal="frame" className="min-w-0"><ProviderList sidebar={false} /></div>
       </div>
     </Section>
   );
@@ -201,16 +201,16 @@ const MCP_APPS: Brand[] = ["claude", "openai", "cursor", "codex", "visual-studio
 
 export function MCPSection() {
   return (
-    <Section id="mcp" tall>
+    <Section id="mcp">
       <div className="grid items-center gap-14 lg:grid-cols-[1.2fr_1fr]">
-        <MCPChat className="order-2 lg:order-1" />
+        <div data-reveal="frame" className="order-2 min-w-0 lg:order-1"><MCPChat /></div>
         <div className="order-1 lg:order-2">
           <H2>Ask Claude about last Tuesday&apos;s meeting</H2>
           <Lede>
             Whisperer runs a small MCP server on your Mac. Claude, ChatGPT, Cursor and Codex can search your meetings and
             dictations, read the notes and add their own. Turn it on, pick the app, click Connect.
           </Lede>
-          <div className="mt-8 flex flex-wrap gap-2">
+          <div data-reveal="list" className="mt-8 flex flex-wrap gap-2">
             {MCP_APPS.map((b) => <BrandTile key={b} brand={b} size={44} />)}
           </div>
           <TextLink href="/mcp" className="mt-8">See the MCP tools</TextLink>
@@ -229,12 +229,12 @@ export function DictationSection() {
     { icon: Languages, title: "Learns your words", body: "Fix a name once and Whisperer spells it right from then on." },
   ];
   return (
-    <Section id="dictation" tall>
+    <Section id="dictation">
       <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.2fr]">
         <div>
           <H2>Dictation that writes like you type</H2>
           <Lede>Speak into Slack, Mail, Notion or any text box. Whisperer adds the punctuation, drops the ums and spells names the way you taught it, so the text is ready to paste when you let go.</Lede>
-          <div className="mt-9 space-y-5">
+          <div data-reveal="list" className="mt-9 space-y-5">
             {points.map((p) => (
               <div key={p.title} className="flex gap-4">
                 <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-[#5B6CF7]/15 text-[#9BA6FF]"><p.icon className="h-[18px] w-[18px]" /></span>
@@ -247,7 +247,7 @@ export function DictationSection() {
           </div>
           <TextLink href="/features" className="mt-8">See dictation features</TextLink>
         </div>
-        <div className="grid gap-4">
+        <div data-reveal="list" className="grid gap-4">
           <PolishMock />
           <DictionaryMock />
         </div>
@@ -271,7 +271,7 @@ export function PrivacyBand() {
         <H2>Your meetings stay on your Mac</H2>
         <Lede>Recording, speaker detection and transcription never leave the machine. You decide whether any AI outside it ever sees a transcript.</Lede>
       </div>
-      <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div data-reveal="list" className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
         {items.map((it) => (
           <div key={it.title} className="border-t border-white/[0.12] pt-6">
             <it.icon className="h-5 w-5 text-emerald-400" />
@@ -303,14 +303,18 @@ const PRO_FEATURES = [
   "MCP server for Claude, Cursor and more",
 ];
 
-export function PricingSection({ id = "pricing" }: { id?: string }) {
+export function PricingSection({ id = "pricing", asPage = false }: { id?: string; asPage?: boolean }) {
   return (
     <Section id={id}>
       <div className="text-center">
-        <H2 className="mx-auto max-w-[760px]">Pay once. Keep it.</H2>
+        {asPage ? (
+          <h1 data-enter className="mx-auto max-w-[760px] text-[40px] sm:text-[56px] lg:text-[64px] font-semibold leading-[1.02] tracking-[-0.04em] text-white text-balance">Pay once. Keep it.</h1>
+        ) : (
+          <H2 className="mx-auto max-w-[760px]">Pay once. Keep it.</H2>
+        )}
         <Lede className="mx-auto">No subscription, no account, no minute limits. Buy Whisperer on the Mac App Store and add Pro inside the app.</Lede>
       </div>
-      <div className="mx-auto mt-12 grid max-w-[920px] gap-5 md:grid-cols-2">
+      <div data-reveal="list" className="mx-auto mt-12 grid max-w-[920px] gap-5 md:grid-cols-2">
         <div className="rounded-[24px] bg-[#101024] ring-1 ring-white/[0.08] p-8">
           <div className="text-[15px] font-semibold text-white">Whisperer</div>
           <div className="mt-1 text-[14px] text-white/50">Dictation</div>
@@ -347,6 +351,7 @@ export function TeamsBand() {
     <section className="relative py-20">
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
         <Link
+          data-reveal="frame"
           href="/enterprise"
           className="group grid items-center gap-8 overflow-hidden rounded-[28px] bg-[linear-gradient(120deg,#1B1E52_0%,#121232_55%,#0F1A2E_100%)] ring-1 ring-white/[0.09] p-8 sm:p-12 transition-all duration-300 hover:-translate-y-0.5 hover:ring-[#5B6CF7]/50 md:grid-cols-[1.4fr_1fr]"
         >
@@ -376,9 +381,9 @@ export function CloseSection() {
     <section className="relative overflow-hidden py-32">
       <div aria-hidden className="absolute left-1/2 top-1/2 h-[520px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(91,108,247,0.35),transparent)]" />
       <div className="relative mx-auto max-w-[820px] px-4 text-center">
-        <h2 className="text-[40px] sm:text-[56px] font-semibold leading-[1.02] tracking-[-0.04em] text-white text-balance">Your next meeting writes its own notes</h2>
-        <p className="mx-auto mt-5 max-w-[520px] text-[18px] text-white/60">{PRICE_BASE} app, Pro {PRICE_PRO}, paid once. Runs on your Mac with the AI you already have.</p>
-        <div className="mt-9 flex justify-center"><AppStoreButton /></div>
+        <h2 data-reveal className="text-[40px] sm:text-[56px] font-semibold leading-[1.02] tracking-[-0.04em] text-white text-balance">Your next meeting writes its own notes</h2>
+        <p data-reveal data-rd="90" className="mx-auto mt-5 max-w-[520px] text-[18px] text-white/60">{PRICE_BASE} app, Pro {PRICE_PRO}, paid once. Runs on your Mac with the AI you already have.</p>
+        <div data-reveal data-rd="180" className="mt-9 flex justify-center"><AppStoreButton /></div>
       </div>
     </section>
   );

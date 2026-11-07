@@ -1,0 +1,86 @@
+---
+title: "Whisper vs NVIDIA Parakeet on Mac: Which Should You Use?"
+description: "Whisper vs NVIDIA Parakeet for offline dictation on Mac: 97 languages vs 25, Metal GPU vs Neural Engine, how each uses your dictionary, and when to pick which."
+date: "2026-03-28"
+updated: "2026-11-07"
+keywords: ["whisper vs nvidia", "whisper vs parakeet", "nvidia parakeet mac", "parakeet vs whisper accuracy", "neural engine transcription", "metal GPU speech recognition"]
+category: "technical"
+faqs:
+  - question: "Is NVIDIA Parakeet better than Whisper?"
+    answer: "Not across the board. Whisper covers 97 languages to Parakeet's 25, so it's the safer default. Parakeet runs on the Neural Engine, which keeps the GPU free, and for some voices and languages it may suit you better. Try both on your own speech."
+  - question: "Which languages does Parakeet support in Whisperer?"
+    answer: "25 European languages: Bulgarian, Croatian, Czech, Danish, Dutch, English, Estonian, Finnish, French, German, Greek, Hungarian, Italian, Latvian, Lithuanian, Maltese, Polish, Portuguese, Romanian, Russian, Slovak, Slovenian, Spanish, Swedish and Ukrainian."
+  - question: "Do both run offline?"
+    answer: "Yes. Whisper and Parakeet both run on your Mac after a one-time model download. No audio is sent anywhere."
+---
+
+Whisperer can transcribe with OpenAI's **Whisper** or NVIDIA's **Parakeet**, and both run entirely on your Mac. The short version: **Whisper is the default and the safe choice**, with 97 languages, running on the Metal GPU. **Parakeet** covers 25 European languages and runs on the Neural Engine, which leaves the GPU free. If your language is on Parakeet's list, try both and keep the one that gets your voice right.
+
+This post compares just those two. For all the engines, including Qwen3 ASR, WhisperKit and Apple Speech, see [Whisper vs Parakeet vs Apple Speech](/blog/whisper-vs-nvidia-vs-apple-speech).
+
+## At a glance
+
+| | Whisper | NVIDIA Parakeet |
+|---|---|---|
+| Made by | OpenAI, run through whisper.cpp | NVIDIA |
+| Runs on | Metal GPU | Neural Engine |
+| Languages | 97 | 25 European |
+| Model choice | Many sizes, from Tiny to Large V3 | Multilingual (v3) or English-only (v2) |
+| How your vocabulary helps | Prompt words are given to the model as a hint | Prompt words and dictionary terms bias recognition toward your words |
+| Default in Whisperer | Yes | No, pick it in Settings |
+
+## Languages: 97 vs 25
+
+This is the biggest difference. Whisper handles 97 languages, including Hebrew, Arabic, Japanese, Chinese, Hindi and Korean. Parakeet's 25 are European: English, German, French, Spanish, Italian, Portuguese, Dutch, Polish, Russian, Ukrainian, the Nordic and Baltic languages and most of Central Europe.
+
+If you dictate in a language outside that list, or switch between, say, English and Japanese, use Whisper. See [multilingual dictation](/blog/multilingual-dictation-guide).
+
+## Hardware: GPU vs Neural Engine
+
+Apple Silicon has two places to run a speech model:
+
+- **Whisper** runs on the **Metal GPU**. The default Whisperer V3 model (Large V3 Turbo, quantized to about 547 MB) is quick on any M-series chip.
+- **Parakeet** runs on the **Neural Engine**, a separate part of the chip. Your GPU stays free for video editing, games, local AI models or a busy browser.
+
+Which is faster on your Mac depends on the chip, the length of the dictation and what else is running. On recent Apple Silicon both are fast enough for dictation that most people won't notice a wait. If your GPU is often busy, Parakeet is the one that stays out of its way.
+
+## Your dictionary works with both
+
+Your [personal dictionary](/features/personal-dictionary) fixes words after transcription with either engine. The engines also take hints before they start:
+
+- With **Whisper**, the **Prompt Words** list is passed to the model so it expects those terms.
+- With **Parakeet**, prompt words and dictionary terms are used to bias recognition toward your words while it decodes. That helps with product names and jargon.
+
+## When to pick which
+
+| If you | Use |
+|---|---|
+| Want one engine for every language | Whisper |
+| Dictate outside Parakeet's 25 languages | Whisper |
+| Want the most accurate model for a hard file | Whisper, Large V3 |
+| Dictate in a supported European language and want the GPU free | Parakeet |
+| Use lots of jargon and Whisper keeps missing it | Try Parakeet with dictionary entries |
+
+Honest advice: stay on Whisper unless you notice a specific problem. Switching takes a moment in Settings, and you can always switch back.
+
+## What stays the same
+
+Whichever you pick, everything else in Whisperer works the same: the live preview while you speak, Fast Polish, the dictionary, AI modes, history and [file transcription](/features/file-transcription). Text is copied when you finish, ready to paste with ⌘V.
+
+## FAQ
+
+### Is NVIDIA Parakeet better than Whisper?
+
+Not across the board. Whisper covers 97 languages to Parakeet's 25, so it's the safer default. Parakeet runs on the Neural Engine, which keeps the GPU free, and for some voices and languages it may suit you better. Try both on your own speech.
+
+### Which languages does Parakeet support in Whisperer?
+
+25 European languages: Bulgarian, Croatian, Czech, Danish, Dutch, English, Estonian, Finnish, French, German, Greek, Hungarian, Italian, Latvian, Lithuanian, Maltese, Polish, Portuguese, Romanian, Russian, Slovak, Slovenian, Spanish, Swedish and Ukrainian.
+
+### Do both run offline?
+
+Yes. Whisper and Parakeet both run on your Mac after a one-time model download. No audio is sent anywhere.
+
+---
+
+*More: [Whisper vs Parakeet vs Apple Speech](/blog/whisper-vs-nvidia-vs-apple-speech), [Best Whisper model for dictation](/blog/best-whisper-model-for-dictation), [Offline transcription engines](/features/offline-transcription). See [pricing](/pricing).*

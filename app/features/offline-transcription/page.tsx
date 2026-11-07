@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { breadcrumbSchema, JsonLd } from "@/lib/structured-data";
-import { EnginesMock, ENGINES } from "@/components/landing/DictationMockups";
+import { EnginesMock } from "@/components/landing/DictationMockups";
+import { ENGINES } from "@/components/landing/engines";
 import { PageHero, PointGrid, Prose, Related, Close } from "@/components/landing/PageKit";
 import { Section, H2, Lede } from "@/components/site/Shell";
 import { FAQSection } from "@/components/home/HomeFAQ";

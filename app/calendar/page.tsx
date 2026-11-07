@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Bell, Video, Tag, Users, KeyRound, Eye } from "lucide-react";
 import { SiteHeader, SiteFooter, Section } from "@/components/site/Shell";
-import { PageHero, SectionHead, Steps, FeatureRow, CheckList } from "@/components/site/PageParts";
 import { CalendarPanel } from "@/components/product/CalendarPanel";
+import { Showcase, PageHero, SectionHead, Steps, CheckList } from "@/components/site/PageParts";
 import { CallDetectedCard } from "@/components/product/Island";
 import { BrandIcon } from "@/components/product/primitives";
 import { FAQSection, type QA } from "@/components/home/HomeFAQ";
@@ -77,22 +77,19 @@ export default function CalendarPage() {
           </div>
         </Section>
 
-        <FeatureRow
+        <Showcase
           id="reminder"
           title="One click to join and record"
-          lede="The card opens the meeting link and starts recording together, so you never forget to take notes on an important call."
-          visual={
-            <div className="relative flex h-[360px] items-center justify-center rounded-[24px] ring-1 ring-white/[0.07] bg-[radial-gradient(100%_90%_at_50%_0%,#2A1B3D_0%,#0D0D20_65%)]">
-              <CallDetectedCard brand="zoom" app="Mobile launch review" title="Starts in 1 min · Zoom · Maya, Dan, Priya" />
-            </div>
-          }
+          lede="A minute before the meeting, a card slides in. Join & Record opens the meeting link and starts recording together, so you never forget to take notes on an important call."
+          video="calendar-loop"
+          alt="A reminder card slides in over the Whisperer calendar; Join & Record starts the meeting and the recording"
         >
-          <CheckList items={["Reminders for meetings with a link or other people", "Optional automatic recording for calendar meetings", "Works alongside call detection for unplanned calls"]} />
-        </FeatureRow>
+          <CheckList className="mx-auto grid max-w-[900px] gap-3 sm:grid-cols-3 sm:space-y-0" items={["Reminders for meetings with a link or other people", "Optional automatic recording for calendar meetings", "Works alongside call detection for unplanned calls"]} />
+        </Showcase>
 
         <Section id="details">
           <SectionHead title="What Whisperer reads from an invite" />
-          <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div data-reveal="list" className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { icon: Tag, t: "The title", b: "Your recording is named after the meeting, not “Meeting 14”." },
               { icon: Users, t: "Who is invited", b: "Attendees are saved with the recording and offered as speaker names." },

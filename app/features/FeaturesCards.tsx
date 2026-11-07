@@ -1,6 +1,6 @@
 import Link from "next/link";
 import {
-  ArrowRight, Eye, Globe, Cpu, BookOpen, FileAudio, Clock, Wand2, NotebookPen, CalendarDays, Sparkles, Workflow,
+  ArrowRight, Eye, Globe, Cpu, BookOpen, FileAudio, Clock, Wand2, NotebookPen, CalendarDays, Sparkles, Workflow, SquareTerminal,
   type LucideIcon,
 } from "lucide-react";
 import { BrandIcon, type Brand } from "@/components/product/primitives";
@@ -58,12 +58,13 @@ const DICTATION: Feature[] = [
   { icon: BookOpen, title: "Personal dictionary", body: "Fix a name once and Whisperer learns it from your correction.", href: "/features/personal-dictionary" },
   { icon: FileAudio, title: "File transcription", body: "Drop in an interview, a lecture or a voice memo and get the text.", href: "/features/file-transcription" },
   { icon: Clock, title: "History and statistics", body: "Every dictation saved with audio, search and your words per minute.", href: "/features/transcription-history" },
+  { icon: SquareTerminal, title: "Voice coding", body: "Speak prompts to Cursor, Claude Code and Codex, then paste.", href: "/voice-coding" },
 ];
 
 export function PillarCards() {
   return (
     <div>
-      <ul className="border-t border-white/[0.08]">
+      <ul data-reveal="list" className="border-t border-white/[0.08]">
         {PILLARS.map((p) => (
           <li key={p.href} className="border-b border-white/[0.08]">
             <Link href={p.href} className="group grid items-center gap-4 py-7 md:grid-cols-[220px_minmax(0,1fr)_auto] md:gap-10">
@@ -91,7 +92,7 @@ export function PillarCards() {
 
 export function DictationCards() {
   return (
-    <ul className="grid border-t border-white/[0.08] md:grid-cols-2 md:gap-x-12">
+    <ul data-reveal="list" className="grid border-t border-white/[0.08] md:grid-cols-2 md:gap-x-12">
       {DICTATION.map((f) => (
         <li key={f.href} className="border-b border-white/[0.08]">
           <Link href={f.href} className="group flex items-start gap-4 py-5">

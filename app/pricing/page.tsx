@@ -52,8 +52,7 @@ export default function PricingPage() {
       <SiteHeader />
       <main className="pt-20">
         <div className="mx-auto max-w-[1240px] px-4 sm:px-6 pt-8"><Crumbs items={[{ name: "Pricing", href: "/pricing" }]} /></div>
-        <h1 className="sr-only">Whisperer pricing</h1>
-        <PricingSection id="plans" />
+        <PricingSection id="plans" asPage />
 
         <Section id="compare-plans">
           <SectionHead title="What each plan includes" />

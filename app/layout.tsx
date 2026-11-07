@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from "@/components/providers";
+import { MotionObserver } from "@/components/site/Motion";
 import { NoiseOverlay } from "@/components/ui/decorations";
 import { JsonLd, softwareAppSchema, organizationSchema } from "@/lib/structured-data";
 import "./globals.css";
@@ -47,12 +48,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <head>
+        {/* Marks that scripts run, so scroll reveals may start hidden. Without it, everything shows. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body>
         <JsonLd data={softwareAppSchema()} />
         <JsonLd data={organizationSchema()} />
         <NoiseOverlay />
         <Providers>{children}</Providers>
+        <MotionObserver />
       </body>
     </html>
   );

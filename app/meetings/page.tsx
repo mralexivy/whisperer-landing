@@ -70,7 +70,7 @@ function NotesAnatomy() {
     { icon: CalendarClock, color: "text-rose-400", label: "Next meeting", body: "When the group said it would meet again." },
   ];
   return (
-    <div className="grid gap-3 sm:grid-cols-2">
+    <div data-reveal="list" className="grid gap-3 sm:grid-cols-2">
       {parts.map((p) => (
         <div key={p.label} className="rounded-[16px] bg-[#101024] ring-1 ring-white/[0.07] p-5 transition-all hover:-translate-y-0.5 hover:ring-white/[0.14]">
           <p.icon className={`h-5 w-5 ${p.color}`} />
@@ -84,7 +84,8 @@ function NotesAnatomy() {
 
 function SpeakersVisual() {
   return (
-    <AppWindow bodyClassName="p-6 space-y-3">
+    <AppWindow bodyClassName="p-6">
+      <div data-reveal="list" className="space-y-3">
       {SEGMENTS.map((s) => (
         <div key={s.t} className="flex gap-3">
           <span
@@ -101,6 +102,7 @@ function SpeakersVisual() {
           </div>
         </div>
       ))}
+      </div>
     </AppWindow>
   );
 }
@@ -153,10 +155,11 @@ export default function MeetingsPage() {
           lede="Whisperer notices when a call starts, records both sides, names every speaker and writes the summary, decisions and action items the moment it ends. No bot joins the call."
           secondary={{ href: "/ai", label: "Choose your AI" }}
           facts={["No bot", "No minute limits", `Pro ${PRICE_PRO} once`]}
+          stacked
           visual={
             <div className="relative">
-              <MeetingStudio compact />
-              <CallDetectedCard className="hidden xl:block absolute -left-8 -bottom-8 z-10" title="Mobile launch review · take notes?" />
+              <MeetingStudio />
+              <CallDetectedCard className="hidden xl:block absolute -left-10 bottom-16 z-10" title="Mobile launch review · take notes?" />
             </div>
           }
         />
@@ -173,7 +176,7 @@ export default function MeetingsPage() {
               ]}
             />
           </div>
-          <div className="mt-10 flex flex-wrap items-center gap-3 text-[14px] text-white/55">
+          <div data-reveal="list" className="mt-10 flex flex-wrap items-center gap-3 text-[14px] text-white/55">
             Works with
             {(["zoom", "teams", "google-meet", "slack", "webex"] as const).map((b) => (
               <span key={b} className="inline-flex items-center gap-2 rounded-full bg-white/[0.04] ring-1 ring-white/10 px-3 py-1.5 text-white/80"><BrandIcon brand={b} size={15} />{b === "google-meet" ? "Google Meet" : b === "teams" ? "Teams" : b[0].toUpperCase() + b.slice(1)}</span>
@@ -214,7 +217,7 @@ export default function MeetingsPage() {
 
         <Section id="library">
           <SectionHead title="Every call, searchable" />
-          <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div data-reveal="list" className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Search, title: "Search every word", body: "Find the call where pricing came up and jump to the second it was said." },
               { icon: Languages, title: "Any of 97 languages", body: "The language is detected for the whole meeting, then the notes follow it." },

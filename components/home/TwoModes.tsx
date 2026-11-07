@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Play, NotebookPen, Mic } from "lucide-react";
 import { VideoModal } from "@/components/landing/VideoModal";
+import { LoopVideo } from "@/components/site/Motion";
 import { Section, H2, Lede } from "@/components/site/Shell";
 import { MODE_VIDEOS, DEMO_VIDEO, DEMO_POSTER } from "@/lib/site";
 import type { Mode } from "./ModeSwitch";
@@ -33,7 +34,7 @@ export function TwoModesSection() {
   const [open, setOpen] = useState<Mode | null>(null);
   const [tour, setTour] = useState(false);
   return (
-    <Section id="two-jobs" tall>
+    <Section id="two-jobs">
       <div className="max-w-[760px]">
         <H2>Your voice in every app, your notes from every call</H2>
         <Lede>Most people start with dictation and keep Whisperer for their meetings. The two work together: hold Fn mid-call to send a quick message, and the recording pauses until you let go.</Lede>
@@ -41,7 +42,7 @@ export function TwoModesSection() {
           <Play className="h-4 w-4 fill-current" /> Watch the full tour <span className="tabular-nums text-white/40">1:21</span>
         </button>
       </div>
-      <div className="mt-12 grid gap-5 lg:grid-cols-2">
+      <div data-reveal="list" className="mt-12 grid gap-5 lg:grid-cols-2">
         {CARDS.map((c) => (
           <article key={c.mode} className="group flex flex-col overflow-hidden rounded-[26px] bg-[#101024] ring-1 ring-white/[0.08] transition-all duration-300 hover:-translate-y-0.5 hover:ring-white/[0.16]">
             <button
@@ -50,12 +51,12 @@ export function TwoModesSection() {
               className="relative block aspect-video w-full overflow-hidden bg-black text-left"
               aria-label={`Play the ${c.title.toLowerCase()} demo, ${MODE_VIDEOS[c.mode].length}`}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={MODE_VIDEOS[c.mode].poster}
+              {/* A silent loop of the job; the button opens the full voiced film. */}
+              <LoopVideo
+                name={c.mode === "meetings" ? "meeting-loop" : "dictation-loop"}
                 alt=""
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+                frameClassName="h-full rounded-none ring-0 shadow-none transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+                className="h-full w-full object-cover"
               />
               <span className="absolute inset-0 bg-gradient-to-t from-[#0B0B19]/80 via-transparent to-transparent" />
               <span className="absolute left-5 bottom-5 inline-flex items-center gap-2.5 rounded-full bg-white px-4 py-2 text-[14px] font-semibold text-[#0B0B19] shadow-[0_10px_30px_-8px_rgba(0,0,0,0.7)] transition-transform duration-200 group-hover:-translate-y-0.5 group-active:scale-95">
