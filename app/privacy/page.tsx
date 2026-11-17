@@ -133,7 +133,7 @@ export default function PrivacyPage() {
               <div className="bg-card border border-border rounded-xl p-5">
                 <h3 className="font-semibold mb-2">Model Downloads</h3>
                 <p className="text-muted-foreground text-sm">
-                  Whisperer downloads AI model weights from Hugging Face. The speech model is about 2.5 GB. The language model is about 3.2 GB. These files are data files, not executable code. The download sends no personal information.
+                  Whisperer downloads AI model weights from Hugging Face. In the China mainland edition (Whisperer China, bundle id com.ivy.whisperer.cn) they are downloaded from ModelScope (modelscope.cn) instead, and only Alibaba Qwen models plus a small voice-activity detector are used. The speech model is about 2.5 GB. The language model is about 3.2 GB. These files are data files, not executable code. The download sends no personal information.
                 </p>
               </div>
               <div className="bg-card border border-border rounded-xl p-5">
@@ -205,7 +205,7 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-semibold mb-6">Third-Party Services</h2>
             <div className="space-y-3">
               {[
-                { label: "Hugging Face", desc: "Used solely to download open-source AI model weights. No personal data is transmitted." },
+                { label: "Hugging Face (ModelScope in the China edition)", desc: "Used solely to download open-source AI model weights. No personal data is transmitted." },
                 { label: "Google and Microsoft (optional)", desc: "Only if you connect a calendar: the app talks directly to Google Calendar or Microsoft Graph to read your events. See Calendar Data." },
                 { label: "Apple App Store", desc: "Handles the Pro Pack purchase. Apple processes all payment information under its own privacy policy." },
                 { label: "No Analytics", desc: "The app does not use Google Analytics, Mixpanel, Segment, or any other analytics platform." },
