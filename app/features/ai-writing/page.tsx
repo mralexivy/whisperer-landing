@@ -29,7 +29,7 @@ const FAQ = [
   {
     question: "What does Fast Polish do?",
     answer:
-      "It cleans each dictation before you paste it: removes fillers like um and uh, fixes repeated words, adds punctuation and capitals, and starts a new paragraph when you say so. It runs on your Mac in a fraction of a second and is part of the $2.99 app.",
+      "It cleans each dictation before you paste it: removes fillers like um and uh, fixes repeated words, adds punctuation and capitals, and starts a new paragraph when you say so. It runs on your Mac in a fraction of a second and is part of the $4.99 app.",
   },
   {
     question: "Does Fast Polish need the internet?",
@@ -58,7 +58,7 @@ const POLISH = [
   { title: "Paragraphs", body: "Say new paragraph and you get one. Long messages stay readable." },
   { title: "Your words", body: "Runs after your dictionary, so names stay spelled your way." },
   { title: "On your Mac", body: "No model download and no network. It is ready the first time you dictate." },
-  { title: "In the base app", body: "Fast Polish is part of the $2.99 app, for every dictation." },
+  { title: "In the base app", body: "Fast Polish is part of the $4.99 app, for every dictation." },
 ];
 
 export default function AIWritingPage() {

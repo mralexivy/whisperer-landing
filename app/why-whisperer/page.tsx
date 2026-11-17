@@ -13,7 +13,7 @@ import { FACTS, PRICE_BASE, PRICE_PRO } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Why Whisperer: Meeting Notes, Your Own AI and Dictation on Your Mac" },
   description:
-    "Why people pick Whisperer: meeting notes with named speakers and no bot, notes written by your Claude, ChatGPT or Gemini plan or offline on your Mac, a built-in MCP server, dictation in 97 languages, and a one-time price of $2.99 plus $14.99 for Pro.",
+    "Why people pick Whisperer: meeting notes with named speakers and no bot, notes written by your Claude, ChatGPT or Gemini plan or offline on your Mac, a built-in MCP server, dictation in 97 languages, and a one-time price of $4.99 plus $14.99 for Pro.",
   keywords:
     "why whisperer, whisperer app, meeting notes mac no subscription, granola alternative mac, otter alternative mac, wispr flow alternative, superwhisper alternative, private meeting notes mac",
   openGraph: {
@@ -36,7 +36,7 @@ const FAQ = [
   {
     question: "How is Whisperer different from Wispr Flow or Superwhisper?",
     answer:
-      "All three do dictation. Whisperer is $2.99 once for it and runs every engine on your Mac. It also takes meeting notes with Pro, which Wispr Flow does not. Wispr Flow runs on more platforms; Whisperer is Mac only.",
+      "All three do dictation. Whisperer is $4.99 once for it and runs every engine on your Mac. It also takes meeting notes with Pro, which Wispr Flow does not. Wispr Flow runs on more platforms; Whisperer is Mac only.",
   },
   {
     question: "Why not use ChatGPT or Claude voice mode?",
@@ -51,7 +51,7 @@ const FAQ = [
   {
     question: "What does it cost?",
     answer:
-      "$2.99 once for the app, which includes dictation. Pro is $14.99 once and adds meetings, calendar, AI notes, your own AI and MCP. No subscription, no account, no minute limits.",
+      "$4.99 once for the app, which includes dictation. Pro is $14.99 once and adds meetings, calendar, AI notes, your own AI and MCP. No subscription, no account, no minute limits.",
   },
 ];
 
@@ -149,7 +149,7 @@ export default function WhyWhispererPage() {
         <div className="mt-12">
           <PriceTable
             rows={[
-              { name: "Whisperer with Pro", price: "$17.98", billing: "Once", note: "Meetings, your AI, MCP and dictation", ours: true },
+              { name: "Whisperer with Pro", price: "$19.97", billing: "Once", note: "Meetings, your AI, MCP and dictation", ours: true },
               { name: "Granola Business", price: "$168", billing: "Monthly only, $14", note: "Has team sharing" },
               { name: "Fireflies Pro", price: "$120", billing: "Yearly, $10 a month", note: "Cloud transcription" },
               { name: "Otter Pro", price: "$100", billing: "Yearly, $8.33 a month", note: "Cloud transcription" },

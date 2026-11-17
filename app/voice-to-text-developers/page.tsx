@@ -10,12 +10,12 @@ import { FACTS, PRICE_BASE, PRICE_PRO } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Voice to Text for Developers: Offline Dictation for Mac",
   description:
-    "Offline voice to text for developers on Mac. Dictate prompts, PR descriptions, code reviews, tickets and Slack in any app. Learns your stack's names, works with Wi-Fi off, 97 languages. $2.99 once.",
+    "Offline voice to text for developers on Mac. Dictate prompts, PR descriptions, code reviews, tickets and Slack in any app. Learns your stack's names, works with Wi-Fi off, 97 languages. $4.99 once.",
   keywords:
     "voice to text for developers, offline dictation for developers mac, developer dictation app, dictation for VS Code, voice dictation cursor, dictation for terminal, speech to text for programmers mac",
   openGraph: {
     title: "Voice to text for developers, on your Mac",
-    description: "Prompts, PRs, reviews and Slack by voice. Learns your stack, works offline. $2.99 once.",
+    description: "Prompts, PRs, reviews and Slack by voice. Learns your stack, works offline. $4.99 once.",
     type: "website",
     url: "https://whispererapp.com/voice-to-text-developers",
     images: [{ url: "/assets/og/og-voice-to-text-developers.png", width: 1200, height: 630, alt: "Voice to text for developers" }],

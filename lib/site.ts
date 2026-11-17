@@ -5,7 +5,7 @@ export const SITE_URL = "https://whispererapp.com";
 // Storefront-neutral link: Apple redirects to the visitor's own country.
 export const APP_STORE_URL = "https://apps.apple.com/app/whisperer-voice-to-text/id6758626671";
 
-export const PRICE_BASE = "$2.99";
+export const PRICE_BASE = "$4.99";
 export const PRICE_PRO = "$14.99";
 
 export const SUPPORT_EMAIL = "support@whispererapp.com";

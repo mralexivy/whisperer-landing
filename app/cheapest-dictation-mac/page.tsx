@@ -7,14 +7,14 @@ import { FAQSection } from "@/components/home/HomeFAQ";
 import { FACTS, PRICE_BASE, PRICE_PRO } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Cheapest Dictation App for Mac: $2.99 Once, No Subscription | Whisperer" },
+  title: { absolute: "Cheapest Dictation App for Mac: $4.99 Once, No Subscription | Whisperer" },
   description:
-    "Whisperer is $2.99 once for offline dictation on Mac: live preview in 97 languages, five on-device engines, a dictionary that learns. Pro adds meeting notes and your own AI for $14.99 once. Compared with Wispr Flow and Superwhisper.",
+    "Whisperer is $4.99 once for offline dictation on Mac: live preview in 97 languages, five on-device engines, a dictionary that learns. Pro adds meeting notes and your own AI for $14.99 once. Compared with Wispr Flow and Superwhisper.",
   keywords:
     "cheap dictation app mac, cheapest dictation app mac, affordable dictation mac, budget voice to text mac, dictation app under $5, free dictation app mac 2026",
   openGraph: {
     title: "The cheapest dictation app for Mac",
-    description: "$2.99 once for dictation. $14.99 once for Pro. No subscription.",
+    description: "$4.99 once for dictation. $14.99 once for Pro. No subscription.",
     type: "website",
     url: "https://whispererapp.com/cheapest-dictation-mac",
     images: [{ url: "/assets/og/og-cheapest-dictation-mac.png", width: 1200, height: 630, alt: "Cheapest dictation app for Mac" }],
@@ -27,12 +27,12 @@ const FAQ = [
   {
     question: "What is the cheapest dictation app for Mac?",
     answer:
-      "Apple Dictation is free and built in. Among paid apps, Whisperer is $2.99 once on the Mac App Store, with live preview in 97 languages, four offline engines, a dictionary that learns your words, file transcription and history.",
+      "Apple Dictation is free and built in. Among paid apps, Whisperer is $4.99 once on the Mac App Store, with live preview in 97 languages, four offline engines, a dictionary that learns your words, file transcription and history.",
   },
   {
     question: "Is there a free dictation app for Mac in 2026?",
     answer:
-      "Yes. Apple Dictation comes with macOS and is fine for short messages. Some paid apps have free tiers with weekly word caps. Whisperer has no free tier, but at $2.99 once it has no caps either.",
+      "Yes. Apple Dictation comes with macOS and is fine for short messages. Some paid apps have free tiers with weekly word caps. Whisperer has no free tier, but at $4.99 once it has no caps either.",
   },
   {
     question: "Why is Whisperer so cheap?",
@@ -42,12 +42,12 @@ const FAQ = [
   {
     question: "Is it cheaper because it does less?",
     answer:
-      "Dictation is complete in the $2.99 app. What it does not have is cross-platform apps or team plans: Whisperer is Mac only. Pro, $14.99 once, adds meeting notes, calendar sync, your own AI and an MCP server, which most dictation apps do not offer at any price.",
+      "Dictation is complete in the $4.99 app. What it does not have is cross-platform apps or team plans: Whisperer is Mac only. Pro, $14.99 once, adds meeting notes, calendar sync, your own AI and an MCP server, which most dictation apps do not offer at any price.",
   },
   {
     question: "How much do I save compared with Wispr Flow or Superwhisper?",
     answer:
-      "Wispr Flow Pro is $144 a year on annual billing. Superwhisper Pro is $84.99 a year or $249.99 lifetime. Whisperer is $2.99 once, or $17.98 once with Pro. Prices are public pricing for one seat, checked November 2026.",
+      "Wispr Flow Pro is $144 a year on annual billing. Superwhisper Pro is $84.99 a year or $249.99 lifetime. Whisperer is $4.99 once, or $19.97 once with Pro. Prices are public pricing for one seat, checked November 2026.",
   },
 ];
 
@@ -86,7 +86,7 @@ export default function CheapestDictationMacPage() {
           <PriceTable
             rows={[
               { name: "Whisperer", price: PRICE_BASE, billing: "Once", note: "Dictation, offline", ours: true },
-              { name: "Whisperer with Pro", price: "$17.98", billing: "Once", note: "Adds meetings, your AI, MCP", ours: true },
+              { name: "Whisperer with Pro", price: "$19.97", billing: "Once", note: "Adds meetings, your AI, MCP", ours: true },
               { name: "Apple Dictation", price: "Free", billing: "Built into macOS", note: "No history or dictionary" },
               { name: "Superwhisper Pro", price: "$84.99 a year", billing: "Yearly, or $249.99 lifetime", note: "$8.49 billed monthly" },
               { name: "Wispr Flow Pro", price: "$144 a year", billing: "Yearly ($12 a month)", note: "$15 billed monthly" },

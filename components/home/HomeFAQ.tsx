@@ -33,7 +33,7 @@ export const HOME_FAQ: QA[] = [
   {
     question: "How much does it cost?",
     answer:
-      "Whisperer is $2.99 on the Mac App Store and includes dictation. Pro is a $14.99 in-app purchase that adds meetings, calendar sync, AI notes, your own AI and the MCP server. Both are one-time. There is no subscription and no minute limit.",
+      "Whisperer is $4.99 on the Mac App Store and includes dictation. Pro is a $14.99 in-app purchase that adds meetings, calendar sync, AI notes, your own AI and the MCP server. Both are one-time. There is no subscription and no minute limit.",
   },
   {
     question: "Which languages does it understand?",

@@ -11,12 +11,12 @@ import { FACTS, PRICE_BASE, PRICE_PRO } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Offline Dictation for Mac: Private Voice to Text on Your Mac | Whisperer" },
   description:
-    "Offline dictation for Mac that never sends your voice to a server. Hold Fn, speak, paste with ⌘V. 97 languages, live preview, five on-device engines. $2.99 once, no account, no subscription.",
+    "Offline dictation for Mac that never sends your voice to a server. Hold Fn, speak, paste with ⌘V. 97 languages, live preview, five on-device engines. $4.99 once, no account, no subscription.",
   keywords:
     "offline dictation mac, offline voice to text mac, private dictation mac, on-device dictation mac, dictation without internet mac, local speech to text mac",
   openGraph: {
     title: "Offline dictation for Mac",
-    description: "Dictation that runs on your Mac, with Wi-Fi off. 97 languages, $2.99 once.",
+    description: "Dictation that runs on your Mac, with Wi-Fi off. 97 languages, $4.99 once.",
     type: "website",
     url: "https://whispererapp.com/offline-dictation-mac",
     images: [{ url: "/assets/og/og-offline-dictation-mac.png", width: 1200, height: 630, alt: "Offline dictation for Mac" }],
@@ -29,7 +29,7 @@ const FAQ = [
   {
     question: "What is the best offline dictation app for Mac?",
     answer:
-      "It depends on what you need. Whisperer runs every speech engine on your Mac, covers 97 languages with live preview, learns your words and costs $2.99 once. If you also want meeting notes that stay on your Mac, Pro adds them for $14.99 once.",
+      "It depends on what you need. Whisperer runs every speech engine on your Mac, covers 97 languages with live preview, learns your words and costs $4.99 once. If you also want meeting notes that stay on your Mac, Pro adds them for $14.99 once.",
   },
   {
     question: "Is Whisperer really offline?",
@@ -53,7 +53,7 @@ const FAQ = [
   {
     question: "Is there a free offline dictation app for Mac?",
     answer:
-      "Apple Dictation is free and built into macOS. Whisperer is $2.99 once and adds a live preview in 97 languages, a choice of four engines, a dictionary that learns your words, file transcription and a searchable history.",
+      "Apple Dictation is free and built into macOS. Whisperer is $4.99 once and adds a live preview in 97 languages, a choice of four engines, a dictionary that learns your words, file transcription and a searchable history.",
   },
 ];
 

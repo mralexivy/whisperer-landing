@@ -379,7 +379,7 @@ export const mdxComponents: MDXComponentsType = {
           Meeting notes and dictation that run on your Mac
         </p>
         <p className="text-sm text-muted-foreground mb-6">
-          $2.99 app, Pro $14.99, paid once. No account, no subscription.
+          $4.99 app, Pro $14.99, paid once. No account, no subscription.
         </p>
         <a
           href="https://apps.apple.com/app/whisperer-voice-to-text/id6758626671"

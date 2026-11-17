@@ -14,7 +14,7 @@ import { FACTS, PRICE_BASE, PRICE_PRO } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Voice Coding on Mac: Talk to Cursor, Claude Code and Codex",
   description:
-    "Voice coding on Mac in 2026: say what you want to Cursor, Claude Code, Codex or Windsurf instead of typing long prompts. Hold Fn, speak, paste with ⌘V. Offline, 97 languages, $2.99 once.",
+    "Voice coding on Mac in 2026: say what you want to Cursor, Claude Code, Codex or Windsurf instead of typing long prompts. Hold Fn, speak, paste with ⌘V. Offline, 97 languages, $4.99 once.",
   keywords:
     "voice coding mac, voice coding, code by voice, voice prompts cursor, dictation for claude code, voice coding RSI, voice coding vs typing, dictate prompts to AI agent, vibe coding voice",
   openGraph: {

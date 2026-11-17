@@ -7,13 +7,13 @@ import { FAQSection, type QA } from "@/components/home/HomeFAQ";
 import { PRICE_BASE, PRICE_PRO, FACTS } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Pricing: $2.99 App, $14.99 Pro, No Subscription",
+  title: "Pricing: $4.99 App, $14.99 Pro, No Subscription",
   description:
-    "Whisperer is $2.99 on the Mac App Store for dictation. Pro is a $14.99 one-time purchase that adds meeting notes, calendar sync, your own AI and the MCP server.",
+    "Whisperer is $4.99 on the Mac App Store for dictation. Pro is a $14.99 one-time purchase that adds meeting notes, calendar sync, your own AI and the MCP server.",
   alternates: { canonical: "https://whispererapp.com/pricing" },
   openGraph: {
     title: "Whisperer pricing: pay once, no subscription",
-    description: "$2.99 app with dictation. $14.99 Pro with meetings, calendar, your own AI and MCP.",
+    description: "$4.99 app with dictation. $14.99 Pro with meetings, calendar, your own AI and MCP.",
     url: "https://whispererapp.com/pricing",
     images: [{ url: "/assets/og/og-pricing.png", width: 1200, height: 630, alt: "Whisperer pricing" }],
   },

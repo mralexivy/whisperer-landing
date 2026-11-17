@@ -11,12 +11,12 @@ import { FACTS, PRICE_BASE, PRICE_PRO } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Speech to Text for Mac: Dictation, Files and Meetings, Offline | Whisperer" },
   description:
-    "Speech to text for Mac that runs on your Mac. Dictate into any app and paste with ⌘V, transcribe audio and video files, and with Pro get meeting transcripts with named speakers. 97 languages. $2.99 once.",
+    "Speech to text for Mac that runs on your Mac. Dictate into any app and paste with ⌘V, transcribe audio and video files, and with Pro get meeting transcripts with named speakers. 97 languages. $4.99 once.",
   keywords:
     "speech to text mac, voice to text mac, speech recognition mac, transcribe speech mac, speech to text app mac, offline speech to text mac",
   openGraph: {
     title: "Speech to text for Mac",
-    description: "Dictation, file transcription and meeting transcripts, on your Mac. 97 languages, $2.99 once.",
+    description: "Dictation, file transcription and meeting transcripts, on your Mac. 97 languages, $4.99 once.",
     type: "website",
     url: "https://whispererapp.com/speech-to-text-mac",
     images: [{ url: "/assets/og/og-speech-to-text-mac.png", width: 1200, height: 630, alt: "Speech to text for Mac" }],
@@ -29,7 +29,7 @@ const FAQ = [
   {
     question: "What is the best speech to text app for Mac?",
     answer:
-      "For dictating into other apps, files and meetings in one place, Whisperer covers all three on your Mac: hold-to-talk dictation with a live preview, audio and video file transcription, and with Pro, meeting transcripts with named speakers and AI notes. It costs $2.99 once, plus $14.99 once for Pro.",
+      "For dictating into other apps, files and meetings in one place, Whisperer covers all three on your Mac: hold-to-talk dictation with a live preview, audio and video file transcription, and with Pro, meeting transcripts with named speakers and AI notes. It costs $4.99 once, plus $14.99 once for Pro.",
   },
   {
     question: "Is speech to text available offline on Mac?",
@@ -49,7 +49,7 @@ const FAQ = [
   {
     question: "How much does speech to text cost on Mac?",
     answer:
-      "Apple Dictation is free. Whisperer is $2.99 once for dictation and file transcription, and Pro is $14.99 once for meetings, calendar, your own AI and MCP. There is no subscription and no minute limit.",
+      "Apple Dictation is free. Whisperer is $4.99 once for dictation and file transcription, and Pro is $14.99 once for meetings, calendar, your own AI and MCP. There is no subscription and no minute limit.",
   },
   {
     question: "Does speech to text work with multiple languages?",

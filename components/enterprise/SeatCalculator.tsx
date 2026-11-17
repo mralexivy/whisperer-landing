@@ -9,7 +9,7 @@ const RIVALS = [
   { name: "Fireflies Business", perSeatYear: 228 },
   { name: "Granola Business", perSeatYear: 168 },
 ];
-const WHISPERER_PER_SEAT = 17.98; // $2.99 app + $14.99 Pro, once
+const WHISPERER_PER_SEAT = 17.98; // $4.99 app + $14.99 Pro, once
 const STEPS = [10, 25, 50, 100, 250, 500, 1000, 2500, 5000];
 
 const cents = (n: number) => n.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2 });

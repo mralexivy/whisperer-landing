@@ -11,12 +11,12 @@ import { PillarCards, DictationCards } from "./FeaturesCards";
 export const metadata: Metadata = {
   title: "Dictation for Mac: Live Preview, 97 Languages, Offline",
   description:
-    "Hold Fn, speak, paste with ⌘V. Whisperer's dictation shows words as you talk, detects 97 languages, runs offline on your Mac and learns your words. $2.99 once. Pro adds meeting notes, calendar, your own AI and MCP.",
+    "Hold Fn, speak, paste with ⌘V. Whisperer's dictation shows words as you talk, detects 97 languages, runs offline on your Mac and learns your words. $4.99 once. Pro adds meeting notes, calendar, your own AI and MCP.",
   keywords:
     "dictation app mac, offline dictation mac, voice to text mac, whisperer features, speech to text mac, mac dictation app features",
   openGraph: {
     title: "Whisperer dictation for Mac",
-    description: "Hold Fn, speak, paste. Live preview in 97 languages, offline engines, a dictionary that learns. $2.99 once.",
+    description: "Hold Fn, speak, paste. Live preview in 97 languages, offline engines, a dictionary that learns. $4.99 once.",
     type: "website",
     url: "https://whispererapp.com/features",
     images: [{ url: "/assets/og/og-features.png", width: 1200, height: 630, alt: "Whisperer dictation features" }],
@@ -44,7 +44,7 @@ const FAQ = [
   {
     question: "What is the difference between Whisperer and Whisperer Pro?",
     answer:
-      "Whisperer is $2.99 once and covers dictation: live preview, 97 languages, every engine, Fast Polish, the dictionary, file transcription and history. Pro is a $14.99 one-time in-app purchase that adds meeting notes, meeting detection, calendar sync, AI notes and Ask AI, your own AI and the MCP server.",
+      "Whisperer is $4.99 once and covers dictation: live preview, 97 languages, every engine, Fast Polish, the dictionary, file transcription and history. Pro is a $14.99 one-time in-app purchase that adds meeting notes, meeting detection, calendar sync, AI notes and Ask AI, your own AI and the MCP server.",
   },
   {
     question: "What Mac do I need?",

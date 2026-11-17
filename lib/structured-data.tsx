@@ -23,7 +23,7 @@ export function softwareAppSchema() {
       {
         "@type": "Offer",
         name: "Whisperer",
-        price: "2.99",
+        price: "4.99",
         priceCurrency: "USD",
         description: "Dictation in any app, live preview in 97 languages, every speech engine, personal dictionary, history and file transcription.",
       },
@@ -155,7 +155,7 @@ export function comparisonPageSchema(competitor: {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: `Whisperer vs ${competitor.name}: ${category} Comparison`,
-    description: `Whisperer ($2.99 for dictation, plus a $14.99 one-time Pro purchase for meetings, your own AI and MCP) compared with ${competitor.name} on a Mac.`,
+    description: `Whisperer ($4.99 for dictation, plus a $14.99 one-time Pro purchase for meetings, your own AI and MCP) compared with ${competitor.name} on a Mac.`,
     url: `https://whispererapp.com/compare/${competitor.slug}`,
     about: [
       {
@@ -167,7 +167,7 @@ export function comparisonPageSchema(competitor: {
           {
             "@type": "Offer",
             name: "Whisperer (dictation)",
-            price: "2.99",
+            price: "4.99",
             priceCurrency: "USD",
             description: "One-time purchase on the Mac App Store",
           },

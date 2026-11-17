@@ -9,7 +9,7 @@ import { FACTS, PRICE_BASE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "File Transcription: Transcribe Audio and Video Files Offline on Mac",
   description:
-    "Drop an MP3, M4A, WAV, MP4 or MOV into Whisperer and get the transcript, offline on your Mac. 97 languages, no per-minute fees, no upload. Part of the $2.99 app.",
+    "Drop an MP3, M4A, WAV, MP4 or MOV into Whisperer and get the transcript, offline on your Mac. 97 languages, no per-minute fees, no upload. Part of the $4.99 app.",
   keywords:
     "transcribe audio file mac, transcribe video offline mac, mp3 to text mac, m4a transcription mac, offline audio transcription, transcribe interview mac",
   openGraph: {
@@ -31,7 +31,7 @@ const FAQ = [
   },
   {
     question: "Are there per-minute charges?",
-    answer: "No. File transcription is part of the $2.99 app and runs on your Mac, so a ten-hour lecture costs the same as a ten-second clip.",
+    answer: "No. File transcription is part of the $4.99 app and runs on your Mac, so a ten-hour lecture costs the same as a ten-second clip.",
   },
   {
     question: "How long does it take?",

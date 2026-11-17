@@ -168,7 +168,7 @@ export function CostCard({ className }: { className?: string }) {
                 </div>
               ))}
               <div>
-                <div className="flex justify-between text-[14px] font-semibold"><span className="text-white">Whisperer with Pro</span><span className="tabular-nums text-white">$17.98 once</span></div>
+                <div className="flex justify-between text-[14px] font-semibold"><span className="text-white">Whisperer with Pro</span><span className="tabular-nums text-white">$19.97 once</span></div>
                 <div className="mt-1 h-2 rounded-full bg-white/[0.05]"><div className="h-2 rounded-full bg-gradient-to-r from-[#6B7BFF] to-[#8B5CF6]" style={{ width: `${(17.98 / 168) * 100}%` }} /></div>
               </div>
             </div>

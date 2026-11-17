@@ -9,12 +9,12 @@ import { FACTS, PRICE_BASE, PRICE_PRO } from "@/lib/site";
 export const metadata: Metadata = {
   title: { absolute: "Dictation App With No Subscription: Pay Once for Mac | Whisperer" },
   description:
-    "A Mac dictation app you buy once. Whisperer is $2.99 for dictation and $14.99 once for Pro meeting notes, your own AI and MCP. No monthly fee, no account, no minute limits.",
+    "A Mac dictation app you buy once. Whisperer is $4.99 for dictation and $14.99 once for Pro meeting notes, your own AI and MCP. No monthly fee, no account, no minute limits.",
   keywords:
     "dictation app no subscription, one time purchase dictation app, dictation app lifetime license mac, no subscription voice to text mac, pay once dictation mac",
   openGraph: {
     title: "Dictation with no subscription",
-    description: "$2.99 once for dictation, $14.99 once for Pro. No monthly bill.",
+    description: "$4.99 once for dictation, $14.99 once for Pro. No monthly bill.",
     type: "website",
     url: "https://whispererapp.com/dictation-no-subscription",
     images: [{ url: "/assets/og/og-dictation-no-subscription.png", width: 1200, height: 630, alt: "Dictation app with no subscription" }],
@@ -27,7 +27,7 @@ const FAQ = [
   {
     question: "Is Whisperer really a one-time purchase?",
     answer:
-      "Yes. The app is $2.99 on the Mac App Store and Pro is a $14.99 one-time in-app purchase. Neither renews. There is no account and no minute limit.",
+      "Yes. The app is $4.99 on the Mac App Store and Pro is a $14.99 one-time in-app purchase. Neither renews. There is no account and no minute limit.",
   },
   {
     question: "Are updates included?",
@@ -36,7 +36,7 @@ const FAQ = [
   {
     question: "Is there a trial?",
     answer:
-      "No. The app is $2.99, which is about what one month of a trial-then-subscribe app costs after the trial ends. If it does not work for you, you can ask Apple for a refund through reportaproblem.apple.com.",
+      "No. The app is $4.99, which is about what one month of a trial-then-subscribe app costs after the trial ends. If it does not work for you, you can ask Apple for a refund through reportaproblem.apple.com.",
   },
   {
     question: "Which dictation apps have no subscription?",
@@ -46,7 +46,7 @@ const FAQ = [
   {
     question: "How does Whisperer compare to subscription meeting note apps?",
     answer:
-      "Granola Business is $14 a month, Otter Pro $8.33 a month billed yearly and Fireflies Pro $10 a month billed yearly. Whisperer with Pro is $17.98 once, and its notes can be written by a model on your Mac or by an AI plan you already pay for. Prices are public pricing for one seat, checked November 2026.",
+      "Granola Business is $14 a month, Otter Pro $8.33 a month billed yearly and Fireflies Pro $10 a month billed yearly. Whisperer with Pro is $19.97 once, and its notes can be written by a model on your Mac or by an AI plan you already pay for. Prices are public pricing for one seat, checked November 2026.",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function DictationNoSubscriptionPage() {
           <PriceTable
             rows={[
               { name: "Whisperer", price: PRICE_BASE, billing: "Once", note: "Dictation", ours: true },
-              { name: "Whisperer with Pro", price: "$17.98", billing: "Once", note: "Dictation, meetings, your AI, MCP", ours: true },
+              { name: "Whisperer with Pro", price: "$19.97", billing: "Once", note: "Dictation, meetings, your AI, MCP", ours: true },
               { name: "Wispr Flow Pro", price: "$144", billing: "Yearly", note: "Dictation" },
               { name: "Superwhisper Pro", price: "$84.99", billing: "Yearly, or $249.99 lifetime", note: "Dictation" },
               { name: "Granola Business", price: "$168", billing: "Monthly only, $14", note: "Meeting notes" },
