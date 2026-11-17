@@ -19,6 +19,14 @@ const KEYS: Row[] = [
   { key: "anthropic-api", brand: "anthropic", title: "Anthropic API", sub: "Billed to your Anthropic API key", status: "Key in Keychain" },
 ];
 
+/** The Mac App Store build: your ChatGPT plan or an API key (the coding-tool providers are direct-build only). */
+const STORE_PLANS: Row[] = PLANS.filter((p) => p.key === "chatgpt");
+const STORE_KEYS: Row[] = [
+  ...KEYS,
+  { key: "gemini-api", brand: "gemini", title: "Gemini API", sub: "Billed to your Gemini API key", status: "Key in Keychain" },
+];
+const STORE_ORDER = ["mac", "chatgpt"];
+
 const ORDER = ["mac", "claude", "chatgpt", "gemini"];
 const WRITER: Record<string, string> = { mac: "this Mac", claude: "Claude", chatgpt: "ChatGPT", gemini: "Gemini" };
 
@@ -51,9 +59,12 @@ function ProviderRow({ row, selected }: { row: Row; selected: boolean }) {
 }
 
 /** Workspace → LLM: the one list of AI choices. The selection cycles through providers. */
-export function ProviderList({ className, sidebar = true }: { className?: string; sidebar?: boolean }) {
-  const { ref, tick } = useLoop(ORDER.length, 2800, { restFrame: 1, startFrame: 1 });
-  const selected = ORDER[tick];
+export function ProviderList({ className, sidebar = true, variant = "direct" }: { className?: string; sidebar?: boolean; variant?: "direct" | "store" }) {
+  const order = variant === "store" ? STORE_ORDER : ORDER;
+  const plans = variant === "store" ? STORE_PLANS : PLANS;
+  const keys = variant === "store" ? STORE_KEYS : KEYS;
+  const { ref, tick } = useLoop(order.length, 2800, { restFrame: 1, startFrame: 1 });
+  const selected = order[tick];
 
   return (
     <div ref={ref} className={className}>
@@ -87,10 +98,10 @@ export function ProviderList({ className, sidebar = true }: { className?: string
           </div>
 
           <div className="mt-3"><ProviderRow row={ON_MAC} selected={selected === "mac"} /></div>
-          <AppLabel className="mt-4 mb-1.5 px-1">YOUR AI SUBSCRIPTIONS</AppLabel>
-          <div className="space-y-2">{PLANS.map((r) => <ProviderRow key={r.key} row={r} selected={selected === r.key} />)}</div>
+          <AppLabel className="mt-4 mb-1.5 px-1">{variant === "store" ? "YOUR AI PLAN" : "YOUR AI SUBSCRIPTIONS"}</AppLabel>
+          <div className="space-y-2">{plans.map((r) => <ProviderRow key={r.key} row={r} selected={selected === r.key} />)}</div>
           <AppLabel className="mt-4 mb-1.5 px-1">API KEYS</AppLabel>
-          <div className="space-y-2">{KEYS.map((r) => <ProviderRow key={r.key} row={r} selected={false} />)}</div>
+          <div className="space-y-2">{keys.map((r) => <ProviderRow key={r.key} row={r} selected={false} />)}</div>
         </div>
       </AppWindow>
     </div>

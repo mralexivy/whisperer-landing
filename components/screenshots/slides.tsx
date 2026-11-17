@@ -6,7 +6,7 @@ import {
   ShieldCheck, Sparkles, UserX, Video, WifiOff, Wallet, ArrowUp, CalendarCheck, Wand2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { MeetingStudio } from "@/components/product/MeetingStudio";
+import { MeetingStudio, WorkspaceSidebar } from "@/components/product/MeetingStudio";
 import { CallDetectedCard, IslandBar } from "@/components/product/Island";
 import { ProviderList } from "@/components/product/ProviderList";
 import { MCPChat, MCPConnectCard } from "@/components/product/MCPChat";
@@ -360,10 +360,10 @@ function S6Providers() {
   return (
     <SplitSlide
       lines={["Use the AI", "you already pay for."]}
-      sub="Claude, ChatGPT or Gemini on your own plan, or the model built into Whisperer that runs on your Mac."
+      sub="Your ChatGPT plan, or your OpenAI, Anthropic or Gemini key, or the model built into Whisperer that runs on your Mac."
       below={
         <div className="flex items-center gap-3">
-          {(["claude", "openai", "gemini"] as Brand[]).map((b) => (
+          {(["openai", "anthropic", "gemini"] as Brand[]).map((b) => (
             <span key={b} className="h-12 w-12 rounded-[13px] bg-white/[0.06] ring-1 ring-white/10 flex items-center justify-center"><BrandIcon brand={b} size={26} /></span>
           ))}
           <span className="h-12 w-12 rounded-[13px] bg-white/[0.06] ring-1 ring-white/10 flex items-center justify-center"><Laptop className="h-6 w-6 text-sky-400" /></span>
@@ -371,7 +371,7 @@ function S6Providers() {
       }
     >
       <Scaled scale={1.0} w={640} h={596}>
-        <ProviderList sidebar={false} className="w-[640px]" />
+        <ProviderList sidebar={false} variant="store" className="w-[640px]" />
       </Scaled>
     </SplitSlide>
   );
@@ -382,9 +382,9 @@ function S6Providers() {
 function S7MCP() {
   return (
     <SplitSlide
-      lines={["Claude can read", "your meetings."]}
-      sub="Connect Claude, ChatGPT, Cursor or VS Code in one click. They search your notes on this Mac."
-      below={<Scaled scale={0.88} w={500} h={262}><MCPConnectCard className="w-[500px]" /></Scaled>}
+      lines={["Your AI apps can", "read your meetings."]}
+      sub="Copy one config into Claude Desktop, Cursor or VS Code. They search your notes on this Mac."
+      below={<Scaled scale={0.88} w={500} h={262}><MCPConnectCard variant="store" className="w-[500px]" /></Scaled>}
     >
       <Scaled scale={1.1} w={600} h={536}>
         <MCPChat className="w-[600px]" />
@@ -517,15 +517,74 @@ function S10Private() {
   );
 }
 
+// ───────────────────────── 10. The base app ─────────────────────────
+
+/** What the $4.99 app does on its own: dictation, files, history, dictionary. Pro adds everything before this slide. */
+function S10Files() {
+  const files = [
+    { name: "Quarterly review.m4a", meta: "48:12 · English", text: "Good afternoon everyone. Let's start with the third quarter numbers and then the priorities for Q4." },
+    { name: "Customer interview.mp4", meta: "21:40 · English", text: "What we care about most is that everything stays on our own machines and never reaches a server." },
+    { name: "Lecture 04.mp3", meta: "1:02:05 · Español", text: "Hoy vamos a hablar de cómo los equipos pequeños entregan software sin demasiado proceso." },
+  ];
+  return (
+    <SplitSlide
+      lines={["Dictation, files,", "history. Offline."]}
+      sub="The $4.99 app: hold Fn and speak, drop in audio or video, and search everything you have ever said. Pro adds meetings."
+      glows={[
+        { x: "20%", y: "30%", color: "#5B6CF7", size: 900, opacity: 0.3 },
+        { x: "75%", y: "85%", color: "#10B981", size: 700, opacity: 0.1 },
+        { x: "90%", y: "20%", color: "#8B5CF6", size: 800, opacity: 0.2 },
+      ]}
+    >
+      <AppWindow title="Workspace · File Transcription" className="w-[700px]" bodyClassName="h-[520px] flex">
+        <WorkspaceSidebar active="File Transcription" className="w-[178px]" />
+        <div className="min-w-0 flex-1 p-5">
+          <div className="rounded-[12px] border border-dashed border-white/15 bg-white/[0.02] px-4 py-5 text-center text-[13px] text-white/50">
+            Drop audio or video here · MP3, WAV, M4A, MP4, MOV and more
+          </div>
+          <div className="mt-4 space-y-3">
+            {files.map((f) => (
+              <div key={f.name} className={cn(card, "p-4")}>
+                <div className="flex items-center gap-2">
+                  <span className="text-[14px] font-semibold text-white">{f.name}</span>
+                  <span className="text-[12px] text-white/35">{f.meta}</span>
+                  <span className="ml-auto inline-flex items-center gap-1 text-[12px] text-emerald-400"><Check className="h-3.5 w-3.5" /> Done</span>
+                </div>
+                <div className="mt-2 text-[13.5px] leading-[1.55] text-white/65">{f.text}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </AppWindow>
+    </SplitSlide>
+  );
+}
+
+/** Marks a slide whose feature is part of the Pro in-app purchase, so the screenshot never implies it is in the base app. */
+function withProTag(Slide: () => ReactNode): () => ReactNode {
+  return function ProSlide() {
+    return (
+      <div className="relative h-full w-full">
+        <Slide />
+        <div className="absolute right-[56px] top-[40px] inline-flex items-center gap-2 rounded-full bg-[#14142B]/90 px-4 py-2 ring-1 ring-[#5B6CF7]/50 shadow-[0_10px_30px_-8px_rgba(91,108,247,0.6)]">
+          <span className="rounded-[6px] bg-gradient-to-r from-[#5B6CF7] to-[#8B5CF6] px-2 py-0.5 text-[12px] font-bold tracking-wide text-white">PRO</span>
+          <span className="text-[13px] font-medium text-white/80">In-app purchase</span>
+        </div>
+      </div>
+    );
+  };
+}
+
 export const SLIDES: { id: string; title: string; component: () => ReactNode }[] = [
-  { id: "01-hero", title: "Hero: AI meeting notes for your Mac", component: S1Hero },
-  { id: "02-detection", title: "Meeting detection", component: S2Detection },
-  { id: "03-speakers", title: "Speakers named from the calendar", component: S3Speakers },
-  { id: "04-notes", title: "Notes, decisions, action items", component: S4Notes },
-  { id: "05-ask-ai", title: "Ask AI with sources", component: S5Ask },
-  { id: "06-your-ai", title: "Your own AI", component: S6Providers },
-  { id: "07-mcp", title: "MCP: Claude can read your meetings", component: S7MCP },
-  { id: "08-calendar", title: "Calendar: Join & Record", component: S8Calendar },
+  { id: "01-hero", title: "Hero: AI meeting notes for your Mac", component: withProTag(S1Hero) },
+  { id: "02-detection", title: "Meeting detection", component: withProTag(S2Detection) },
+  { id: "03-speakers", title: "Speakers named from the calendar", component: withProTag(S3Speakers) },
+  { id: "04-notes", title: "Notes, decisions, action items", component: withProTag(S4Notes) },
+  { id: "05-ask-ai", title: "Ask AI with sources", component: withProTag(S5Ask) },
+  { id: "06-your-ai", title: "Your own AI", component: withProTag(S6Providers) },
+  { id: "07-mcp", title: "MCP: your AI apps read your meetings", component: withProTag(S7MCP) },
+  { id: "08-calendar", title: "Calendar: Join & Record", component: withProTag(S8Calendar) },
   { id: "09-dictation", title: "Dictation", component: S9Dictation },
-  { id: "10-private", title: "Private, no account, pay once", component: S10Private },
+  { id: "10-files", title: "The base app: dictation, files, history", component: S10Files },
+  { id: "11-private", title: "Private, no account, pay once (spare)", component: S10Private },
 ];

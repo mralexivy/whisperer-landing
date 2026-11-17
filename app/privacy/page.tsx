@@ -207,7 +207,8 @@ export default function PrivacyPage() {
               {[
                 { label: "Hugging Face (ModelScope in the China edition)", desc: "Used solely to download open-source AI model weights. No personal data is transmitted." },
                 { label: "Google and Microsoft (optional)", desc: "Only if you connect a calendar: the app talks directly to Google Calendar or Microsoft Graph to read your events. See Calendar Data." },
-                { label: "Apple App Store", desc: "Handles the Pro Pack purchase. Apple processes all payment information under its own privacy policy." },
+                { label: "OpenAI, Anthropic and Google AI (optional)", desc: "Only if you connect one in Workspace, LLM to write meeting notes or answer a question. The text transcript of the meeting you ask about and your question are then sent from your Mac straight to that provider, using your own ChatGPT sign-in or API key. Audio is never sent. Whisperer's developer receives none of it and runs no server in between. Each meeting can stay local, and the provider's own privacy policy applies to what it receives." },
+                { label: "Apple App Store", desc: "Handles the Whisperer purchase and the Pro in-app purchase. Apple processes all payment information under its own privacy policy." },
                 { label: "No Analytics", desc: "The app does not use Google Analytics, Mixpanel, Segment, or any other analytics platform." },
                 { label: "No Ads", desc: "The app contains no advertising or ad networks." },
               ].map((item, i) => (

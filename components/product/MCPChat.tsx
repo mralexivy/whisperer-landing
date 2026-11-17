@@ -82,15 +82,25 @@ export function MCPChat({ className, brand = "claude", app = "Claude" }: { class
 }
 
 /** The MCP connect page: turn on, pick an app, one button. */
-export function MCPConnectCard({ className }: { className?: string }) {
-  const apps: { brand: Brand; name: string; state: string }[] = [
-    { brand: "claude", name: "Claude Desktop", state: "Connected" },
-    { brand: "claude-code", name: "Claude Code", state: "Connected" },
-    { brand: "cursor", name: "Cursor", state: "Connect" },
-    { brand: "codex", name: "Codex", state: "Connect" },
-    { brand: "visual-studio-code", name: "VS Code", state: "Connect" },
-    { brand: "openai", name: "ChatGPT", state: "Connect" },
-  ];
+export function MCPConnectCard({ className, variant = "direct" }: { className?: string; variant?: "direct" | "store" }) {
+  // The Mac App Store build cannot write other apps' config files, so it copies the config and opens the file.
+  const apps: { brand: Brand; name: string; state: string }[] = variant === "store"
+    ? [
+        { brand: "claude", name: "Claude Desktop", state: "Copy config" },
+        { brand: "cursor", name: "Cursor", state: "Copy config" },
+        { brand: "visual-studio-code", name: "VS Code", state: "Copy config" },
+        { brand: "windsurf", name: "Windsurf", state: "Copy config" },
+        { brand: "openai", name: "ChatGPT", state: "Copy config" },
+        { brand: "claude", name: "Other apps", state: "Copy config" },
+      ]
+    : [
+        { brand: "claude", name: "Claude Desktop", state: "Connected" },
+        { brand: "claude-code", name: "Claude Code", state: "Connected" },
+        { brand: "cursor", name: "Cursor", state: "Connect" },
+        { brand: "codex", name: "Codex", state: "Connect" },
+        { brand: "visual-studio-code", name: "VS Code", state: "Connect" },
+        { brand: "openai", name: "ChatGPT", state: "Connect" },
+      ];
   return (
     <AppWindow className={className} bodyClassName="px-6 py-5">
       <div className="flex items-center justify-between">
@@ -110,7 +120,7 @@ export function MCPConnectCard({ className }: { className?: string }) {
             {a.state === "Connected" ? (
               <span className="inline-flex items-center gap-1 text-[10.5px] text-emerald-400"><Check className="h-3 w-3" /> Connected</span>
             ) : (
-              <span className="rounded-[7px] bg-[#5B6CF7]/15 px-2 py-0.5 text-[10.5px] font-medium text-[#9BA6FF]">Connect</span>
+              <span className="rounded-[7px] bg-[#5B6CF7]/15 px-2 py-0.5 text-[10.5px] font-medium text-[#9BA6FF]">{a.state}</span>
             )}
           </div>
         ))}
