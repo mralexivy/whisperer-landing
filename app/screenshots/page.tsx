@@ -4,7 +4,15 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Download } from "lucide-react";
 import { toPng } from "html-to-image";
 import { installFreeze, uninstallFreeze, FREEZE_CSS } from "@/components/screenshots/freeze";
-import { SLIDES, SLIDE_W, SLIDE_H } from "@/components/screenshots/slides";
+import { SLIDES as REGULAR_SLIDES, SLIDE_W, SLIDE_H } from "@/components/screenshots/slides";
+import { CN_SLIDES } from "@/components/screenshots/slides-cn";
+
+/** The two App Store records: the regular app and Whisperer China (com.ivy.whisperer.cn, Chinese text, Qwen-only). */
+const EDITIONS = {
+  regular: { label: "Regular", slides: REGULAR_SLIDES, prefix: "whisperer-appstore" },
+  china: { label: "中国版 · Whisperer China", slides: CN_SLIDES, prefix: "whisperer-china" },
+} as const;
+type EditionKey = keyof typeof EDITIONS;
 
 // Freeze the product loops before any slide mounts (see components/screenshots/freeze.ts).
 installFreeze();
@@ -23,16 +31,25 @@ declare global {
   interface Window {
     /** Automation hook: render slide `index` and resolve with its 2560×1600 PNG data URL. */
     __exportSlide?: (index: number) => Promise<string>;
+    /** Automation hook: switch edition ("regular" or "china"); resolves with the slide count. */
+    __setEdition?: (edition: EditionKey) => Promise<number>;
   }
 }
 
 export default function ScreenshotsPage() {
+  const [edition, setEdition] = useState<EditionKey>("regular");
+  const SLIDES = EDITIONS[edition].slides;
   const [index, setIndex] = useState(0);
   const [busy, setBusy] = useState<string | null>(null);
   const slideRef = useRef<HTMLDivElement>(null);
   const Current = SLIDES[index].component;
 
   useEffect(() => () => uninstallFreeze(), []);
+
+  useEffect(() => {
+    window.__setEdition = async (e) => { setEdition(e); setIndex(0); await wait(300); return EDITIONS[e].slides.length; };
+    return () => { delete window.__setEdition; };
+  }, []);
 
   const capture = useCallback(async (i: number) => {
     setIndex(i);
@@ -48,7 +65,7 @@ export default function ScreenshotsPage() {
 
   const save = (dataUrl: string, i: number) => {
     const a = document.createElement("a");
-    a.download = `whisperer-appstore-${SLIDES[i].id}.png`;
+    a.download = `${EDITIONS[edition].prefix}-${SLIDES[i].id}.png`;
     a.href = dataUrl;
     a.click();
   };
@@ -75,6 +92,14 @@ export default function ScreenshotsPage() {
       <style>{FREEZE_CSS}</style>
       <div className="mx-auto px-6" style={{ maxWidth: SLIDE_W + 48 }}>
         <h1 className="text-2xl font-semibold text-white">Mac App Store screenshots · Whisperer 2.0</h1>
+        <div className="mt-3 flex gap-2">
+          {(Object.keys(EDITIONS) as EditionKey[]).map((k) => (
+            <button key={k} onClick={() => { setEdition(k); setIndex(0); }} disabled={!!busy} data-testid={`edition-${k}`}
+              className={`rounded-lg px-3 py-1.5 text-sm ${k === edition ? "bg-[#5B6CF7] text-white" : "bg-white/[0.08] text-white/70 hover:bg-white/[0.14]"}`}>
+              {EDITIONS[k].label}
+            </button>
+          ))}
+        </div>
         <p className="mt-1 text-sm text-white/50">
           {SLIDES.length} slides, exported at 2560×1600. Product demos are frozen on their resting frame for export.
         </p>

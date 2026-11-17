@@ -25,7 +25,7 @@ export const SLIDE_H = 800;
 
 type Glow = { x: string; y: string; color: string; size?: number; opacity?: number };
 
-function Backdrop({ glows }: { glows: Glow[] }) {
+export function Backdrop({ glows }: { glows: Glow[] }) {
   return (
     <>
       <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, #0A0A1F 0%, #080816 55%, #06060F 100%)" }} />
@@ -47,16 +47,16 @@ function Backdrop({ glows }: { glows: Glow[] }) {
   );
 }
 
-const GLOW_A: Glow[] = [
+export const GLOW_A: Glow[] = [
   { x: "50%", y: "18%", color: "#5B6CF7", size: 1100, opacity: 0.32 },
   { x: "88%", y: "88%", color: "#8B5CF6", size: 800, opacity: 0.22 },
 ];
-const GLOW_B: Glow[] = [
+export const GLOW_B: Glow[] = [
   { x: "18%", y: "30%", color: "#5B6CF7", size: 900, opacity: 0.3 },
   { x: "80%", y: "70%", color: "#8B5CF6", size: 1000, opacity: 0.26 },
 ];
 
-function Headline({ lines, size = 62, className }: { lines: [string, string]; size?: number; className?: string }) {
+export function Headline({ lines, size = 62, className }: { lines: [string, string]; size?: number; className?: string }) {
   return (
     <h2 className={cn("leading-[1.06] font-semibold tracking-[-0.035em] text-white", className)} style={{ fontSize: size }}>
       {lines[0]}
@@ -66,12 +66,12 @@ function Headline({ lines, size = 62, className }: { lines: [string, string]; si
   );
 }
 
-function Sub({ children, className }: { children: ReactNode; className?: string }) {
+export function Sub({ children, className }: { children: ReactNode; className?: string }) {
   return <p className={cn("text-[21px] leading-[1.45] text-white/60 [text-wrap:balance]", className)}>{children}</p>;
 }
 
 /** Headline on top, centred; product below, bleeding off the bottom edge. */
-function StackSlide({
+export function StackSlide({
   lines, sub, glows = GLOW_A, children, productTop = 300,
 }: { lines: [string, string]; sub: ReactNode; glows?: Glow[]; children: ReactNode; productTop?: number }) {
   return (
@@ -87,7 +87,7 @@ function StackSlide({
 }
 
 /** Text on the left, product on the right. */
-function SplitSlide({
+export function SplitSlide({
   lines, sub, glows = GLOW_B, children, below,
 }: { lines: [string, string]; sub: ReactNode; glows?: Glow[]; children: ReactNode; below?: ReactNode }) {
   return (
@@ -103,7 +103,7 @@ function SplitSlide({
   );
 }
 
-function Scaled({ scale, w, h, children }: { scale: number; w: number; h: number; children: ReactNode }) {
+export function Scaled({ scale, w, h, children }: { scale: number; w: number; h: number; children: ReactNode }) {
   return (
     <div style={{ width: w * scale, height: h * scale }}>
       <div style={{ width: w, height: h, transform: `scale(${scale})`, transformOrigin: "top left" }}>{children}</div>
@@ -126,7 +126,7 @@ function Avatar({ id, size = 28 }: { id: keyof typeof SPEAKERS; size?: number })
   );
 }
 
-const card = "rounded-[16px] bg-[#14142B] ring-1 ring-white/[0.07]";
+export const card = "rounded-[16px] bg-[#14142B] ring-1 ring-white/[0.07]";
 
 // ───────────────────────── 1. Hero ─────────────────────────
 
