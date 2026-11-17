@@ -41,7 +41,7 @@ export default function PrivacyPage() {
               Privacy Policy
             </h1>
             <p className="text-muted-foreground text-lg">
-              Last Updated: November 6, 2026
+              Last Updated: November 17, 2026
             </p>
           </div>
         </div>
@@ -67,6 +67,9 @@ export default function PrivacyPage() {
                 <h2 className="text-2xl font-semibold mb-2">Data Collection</h2>
                 <p className="text-xl text-primary font-medium">
                   We do not collect any personal data.
+                </p>
+                <p className="text-muted-foreground mt-3">
+                  Whisperer has no servers, no accounts and no analytics. Nothing you say, write or record ever reaches us. The only time text leaves your Mac is when you yourself connect a third-party service (a calendar or an AI provider) with your own sign-in or API key. That text then goes directly from your Mac to the provider you chose, never through us. We neither see it nor keep a copy, and you can turn it off at any time.
                 </p>
               </div>
             </div>
@@ -140,6 +143,12 @@ export default function PrivacyPage() {
                 <h3 className="font-semibold mb-2">Calendar (only if you connect one)</h3>
                 <p className="text-muted-foreground text-sm">
                   If you connect Google Calendar or Outlook, the app reads your calendar list and upcoming events directly from Google or Microsoft. See Calendar Data below.
+                </p>
+              </div>
+              <div className="bg-card border border-border rounded-xl p-5">
+                <h3 className="font-semibold mb-2">AI providers (only if you connect one)</h3>
+                <p className="text-muted-foreground text-sm">
+                  This is optional and off until you set it up. If you connect ChatGPT, OpenAI, Anthropic or Gemini, the text transcript of the meeting you ask about, and your question, are sent from your Mac straight to that provider under your own account. Audio is never sent, and dictation text is never sent. Whisperer&apos;s developer is not a party to that exchange and receives nothing. The provider processes the text under its own terms and privacy policy, so please read them before you connect. Each meeting can stay fully on this Mac instead.
                 </p>
               </div>
               <div className="bg-card border border-border rounded-xl p-5">
@@ -398,10 +407,10 @@ export default function PrivacyPage() {
               </div>
               <h2 className="text-2xl font-semibold">In-App Purchases</h2>
             </div>
-            <p className="text-muted-foreground mb-4">If you buy the Pro Pack:</p>
+            <p className="text-muted-foreground mb-4">If you buy Whisperer Pro:</p>
             <div className="space-y-3">
               {[
-                "The Pro Pack is a one-time purchase, not a subscription",
+                "Whisperer Pro is a one-time purchase, not a subscription",
                 "Apple's App Store processes the purchase",
                 "Apple handles all payment information under its own privacy policy",
                 "We receive only a confirmation that the purchase completed",
@@ -413,6 +422,31 @@ export default function PrivacyPage() {
                 </div>
               ))}
             </div>
+          </section>
+
+          {/* China edition */}
+          <section id="china">
+            <h2 className="text-2xl font-semibold mb-4">Whisperer China (mainland China edition)</h2>
+            <p className="text-muted-foreground mb-4">
+              Whisperer China is a separate App Store app (bundle id com.ivy.whisperer.cn) for the China mainland storefront. Everything above applies to it, with these differences:
+            </p>
+            <div className="space-y-3 mb-4">
+              {[
+                "It has no cloud AI at all: no ChatGPT, OpenAI, Anthropic or Gemini connection, and no Ask AI chat. Meeting text is never sent to any AI provider.",
+                "Models are downloaded from ModelScope (modelscope.cn) instead of Hugging Face, and only Alibaba Qwen models plus a small voice-activity detector are used. The download sends no personal information.",
+                "Google Calendar sign-in is not offered. Microsoft Outlook calendar is the only optional calendar connection, and it works as described under Calendar Data.",
+                "It contains no voice-alteration feature.",
+                "It collects nothing, has no servers and no accounts. All audio, transcripts and notes stay on your Mac.",
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 shrink-0" />
+                  <p className="text-muted-foreground">{item}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-muted-foreground">
+              A Simplified Chinese version is at <a href="/privacy/china" className="text-primary underline underline-offset-4">whispererapp.com/privacy/china</a>.
+            </p>
           </section>
 
           {/* Children's Privacy */}

@@ -34,8 +34,10 @@ const PAGES: [path: string, modified: string, priority: number][] = [
   ["/speech-to-text-mac", "2026-11-06", 0.75],
   ["/dictation-no-subscription", "2026-11-06", 0.75],
   ["/cheapest-dictation-mac", "2026-11-06", 0.7],
-  ["/privacy", "2026-11-06", 0.3],
-  ["/terms", "2026-10-13", 0.3],
+  ["/privacy", "2026-11-17", 0.3],
+  ["/privacy/china", "2026-11-17", 0.2],
+  ["/terms", "2026-11-17", 0.3],
+  ["/terms/china", "2026-11-17", 0.2],
 ];
 
 type Meta = { slug: string; date?: string; updated?: string };

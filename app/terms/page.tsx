@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "Terms of Use | Whisperer for Mac",
   description:
-    "Whisperer Terms of Use. License, Pro Pack one-time purchase, acceptable use, meeting recording responsibility, warranty disclaimer, and limitation of liability.",
+    "Whisperer Terms of Use. License, Whisperer Pro one-time purchase, acceptable use, meeting recording responsibility, warranty disclaimer, and limitation of liability.",
   alternates: { canonical: "https://whispererapp.com/terms" },
 };
 
@@ -41,7 +41,7 @@ export default function TermsPage() {
               Terms of Use
             </h1>
             <p className="text-muted-foreground text-lg">
-              Last Updated: October 13, 2026
+              Last Updated: November 17, 2026
             </p>
           </div>
         </div>
@@ -106,13 +106,14 @@ export default function TermsPage() {
                 <CreditCard className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-2xl font-semibold">Pro Pack and Payment</h2>
-                <p className="text-muted-foreground">One-time purchase, not a subscription</p>
+                <h2 className="text-2xl font-semibold">Purchase and Whisperer Pro</h2>
+                <p className="text-muted-foreground">One-time purchases, no subscription</p>
               </div>
             </div>
             <div className="space-y-3">
               {[
-                { text: "The Pro Pack is a one-time, non-consumable in-app purchase", highlight: "one-time, non-consumable" },
+                { text: "The app is a paid download. It includes dictation, file transcription, history, the dictionary and Fast Polish" },
+                { text: "Whisperer Pro is a one-time, non-consumable in-app purchase that adds meeting notes and meeting detection, calendar connections, the AI features and the MCP server", highlight: "one-time, non-consumable" },
                 { text: "There is no subscription and no recurring charge", highlight: "no subscription" },
                 { text: "Apple's App Store processes the purchase and holds all payment information" },
                 { text: "Apple handles all refunds under its own refund policy; request a refund through Apple, not through us", highlight: "Apple handles all refunds" },
@@ -142,11 +143,11 @@ export default function TermsPage() {
               </div>
               <div>
                 <h2 className="text-2xl font-semibold">Model Downloads</h2>
-                <p className="text-muted-foreground">Large data files from Hugging Face</p>
+                <p className="text-muted-foreground">Large data files from Hugging Face (ModelScope in China)</p>
               </div>
             </div>
             <p className="text-muted-foreground mb-4">
-              Whisperer downloads AI model weights from Hugging Face before it can transcribe. The speech model is about 2.5 GB. The language model is about 3.2 GB. These files are data files, not executable code.
+              Whisperer downloads AI model weights from Hugging Face (from ModelScope in the China edition) before it can transcribe. The speech model is about 2.5 GB. The language model is about 3.2 GB. These files are data files, not executable code.
             </p>
             <p className="text-muted-foreground">
               You need an internet connection and enough free disk space for the download. Your data plan may charge you for the transfer. After the download finishes, the app transcribes offline.
@@ -209,6 +210,36 @@ export default function TermsPage() {
             </p>
             <p className="text-muted-foreground">
               If you enable the server, you control which tools you connect and what they do with your transcripts. Keep your bearer token private. We are not responsible for how a third-party tool handles data you choose to share with it.
+            </p>
+          </section>
+
+          {/* Third-party services you connect */}
+          <section>
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <Globe className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-semibold">Services You Connect</h2>
+                <p className="text-muted-foreground">Optional, your account, your choice</p>
+              </div>
+            </div>
+            <p className="text-muted-foreground mb-4">
+              Whisperer can connect to a calendar (Google or Microsoft Outlook) and to an AI provider (ChatGPT, OpenAI, Anthropic or Gemini). Both are off until you connect them yourself, with your own sign-in or API key. When you do, the app talks directly from your Mac to that provider. We run no server in between, receive none of the data, and cannot see it.
+            </p>
+            <p className="text-muted-foreground mb-4">
+              The provider is a third party. Its own terms, privacy policy, fees and usage limits apply to what you send it. You are responsible for choosing whether to connect it, for keeping your keys private, and for any charges your provider makes. For an AI provider, the text of the meeting you ask about and your question are sent; audio and dictation text are not. We are not responsible for a third party&apos;s service, availability, or handling of data you choose to send it.
+            </p>
+            <p className="text-muted-foreground">
+              Whisperer collects no data of its own and shares nothing with third parties on its own initiative. You can disconnect any service at any time from inside the app.
+            </p>
+          </section>
+
+          {/* China edition */}
+          <section id="china">
+            <h2 className="text-2xl font-semibold mb-4">Whisperer China (mainland China edition)</h2>
+            <p className="text-muted-foreground mb-4">
+              Whisperer China is a separate App Store app (bundle id com.ivy.whisperer.cn) for the China mainland storefront. These terms apply to it with these differences: it offers no cloud AI provider and no Ask AI chat, no Google Calendar sign-in, and no voice-alteration feature; it downloads its Alibaba Qwen models from ModelScope (modelscope.cn) instead of Hugging Face; and its Whisperer Pro purchase unlocks meeting notes, meeting detection, the Outlook calendar connection, local meeting summaries and the MCP server. Like the app everywhere else, it collects no data and runs no server. A Simplified Chinese version is at <a href="/terms/china" className="text-primary hover:underline">whispererapp.com/terms/china</a>.
             </p>
           </section>
 
