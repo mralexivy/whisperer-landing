@@ -170,6 +170,7 @@ export default function TermsPage() {
                 { text: "Meeting Notes records your microphone only", highlight: "your microphone only" },
                 { text: "The app never records system audio and never records other participants' audio streams" },
                 { text: "Whisperer shows a consent screen before your first meeting recording" },
+                { text: "Recording and transcription run locally on your Mac. Whisperer does not send your audio or your meeting to the cloud", highlight: "run locally on your Mac" },
                 { text: "Recordings and notes stay on your Mac" },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
@@ -189,7 +190,7 @@ export default function TermsPage() {
             <div className="bg-card border border-border rounded-xl p-6">
               <h3 className="font-semibold mb-2">Recording law is your responsibility</h3>
               <p className="text-muted-foreground text-sm">
-                Recording law differs by country and by state. Some places require every party to consent. You are responsible for obtaining consent from the other participants where the law that applies to you requires it. We are not liable for any recording you make.
+                Recording law differs by country and by state. Some places require every party to consent. You decide what to record, and you alone are responsible for it. Before you record, transcribe or process any conversation, you must give every notice and obtain every consent that the law or a contract requires, and you must comply with all laws on recording, monitoring and transcribing communications. Whisperer does not decide whether notice or consent is needed for any recording and gives no legal advice. Do not use Whisperer to record, monitor or transcribe anyone in breach of the law or without a required consent. We take no responsibility for what you record, dictate or write, or for how you use it.
               </p>
             </div>
           </section>
@@ -231,7 +232,7 @@ export default function TermsPage() {
               The provider is a third party. Its own terms, privacy policy, fees and usage limits apply to what you send it. You are responsible for choosing whether to connect it, for keeping your keys private, and for any charges your provider makes. For an AI provider, the text of the meeting you ask about and your question are sent; audio and dictation text are not. We are not responsible for a third party&apos;s service, availability, or handling of data you choose to send it.
             </p>
             <p className="text-muted-foreground">
-              Whisperer collects no data of its own and shares nothing with third parties on its own initiative. You can disconnect any service at any time from inside the app.
+              If you decide to use your own AI provider, that is your decision and your responsibility. What the provider does with the text you send it is between you and that provider, and not our responsibility. We have no control over, and assume no responsibility for, the content, privacy policies or practices of any third-party service. Whisperer collects no data of its own and shares nothing with third parties on its own initiative. You can disconnect any service at any time from inside the app.
             </p>
           </section>
 
@@ -298,6 +299,17 @@ export default function TermsPage() {
             </p>
             <p className="text-muted-foreground">
               Our total liability for any claim related to the app is limited to the amount you paid for the app and any in-app purchase. Some jurisdictions do not allow these limits. In that case, the limits apply only as far as the law allows.
+            </p>
+          </section>
+
+          {/* Your content and indemnity */}
+          <section>
+            <h2 className="text-2xl font-semibold mb-4">Your Content and Responsibility</h2>
+            <p className="text-muted-foreground mb-4">
+              Everything you record, dictate, transcribe or generate with Whisperer is your content. We never receive it and are not responsible for it. You confirm that your use of the app, and of what you record, will not break any law or infringe the rights of any person.
+            </p>
+            <p className="text-muted-foreground">
+              To the extent the law allows, you agree to indemnify and hold us harmless from claims arising out of your recordings, your content, or your use of a third-party service you connect. Nothing here limits any right that mandatory consumer law gives you.
             </p>
           </section>
 

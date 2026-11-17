@@ -309,7 +309,7 @@ export default function PrivacyPage() {
             <div className="bg-card border border-border rounded-xl p-6">
               <h3 className="font-semibold mb-2">Your responsibility for consent</h3>
               <p className="text-muted-foreground text-sm">
-                Recording law differs by country and by state. You are responsible for obtaining consent from the other participants where local law requires it. Whisperer cannot determine which law applies to your meeting.
+                Recording law differs by country and by state. You decide what to record and you are responsible for it, including giving notice to and obtaining consent from the other participants where the law requires it. Whisperer cannot determine which law applies to your meeting, gives no legal advice, and takes no responsibility for your recordings. Recording and transcription run locally on your Mac and are not sent to the cloud.
               </p>
             </div>
           </section>
