@@ -246,6 +246,12 @@ export default function PrivacyPage() {
                   desc: "The microphone permission lets the app capture audio while you hold the recording shortcut. The app processes that audio on your device and never transmits it over the network."
                 },
                 {
+                  icon: Mic,
+                  title: "Screen & System Audio Recording (call audio)",
+                  purpose: "Hear the other participants of a meeting you record",
+                  desc: "macOS asks for this permission the first time you record a meeting. Whisperer then captures only the audio your call app plays (not your screen, and not other apps), only while a meeting is being recorded. It is transcribed on your Mac and never uploaded. You can turn call audio off in Settings, or refuse the permission, and the app then records only your microphone."
+                },
+                {
                   icon: Video,
                   title: "Camera (optional, off by default)",
                   purpose: "Tell a video call apart from an audio-only app",
@@ -276,13 +282,14 @@ export default function PrivacyPage() {
               </div>
               <div>
                 <h2 className="text-2xl font-semibold">Meeting Notes</h2>
-                <p className="text-muted-foreground">Your microphone only, stored on your Mac</p>
+                <p className="text-muted-foreground">Your microphone and your call app's audio, stored on your Mac</p>
               </div>
             </div>
             <div className="space-y-3 mb-6">
               {[
-                { text: "Meeting Notes records your microphone only", highlight: "your microphone only" },
-                { text: "The app never records system audio and never records other participants' audio streams", highlight: "never records system audio" },
+                { text: "Meeting Notes records your microphone and, by default, the audio your call app plays so the other participants are in the transcript", highlight: "your call app" },
+                { text: "Call audio uses macOS's own Screen & System Audio Recording permission. Only the call app's audio is captured, only while you record a meeting, and you can turn it off in Settings. Without the permission only your microphone is recorded" },
+                { text: "All of it is transcribed on your Mac and never uploaded", highlight: "never uploaded" },
                 { text: "Recordings and notes stay on your Mac and are never uploaded" },
                 { text: "Whisperer shows a consent screen before your first meeting recording" },
                 { text: "Your audio retention setting also applies to meeting audio" },

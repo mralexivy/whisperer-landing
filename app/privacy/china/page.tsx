@@ -22,7 +22,7 @@ const zh: { h: string; p: string[] }[] = [
     "本版本不包含任何声音变换功能。",
   ]},
   { h: "麦克风与摄像头", p: [
-    "麦克风：仅在您按住录音快捷键或开始会议录音时采集音频，音频在本机处理，绝不上传。会议记录只录制您的麦克风，不录制系统声音或其他参与者的音频流。",
+    "麦克风：仅在您按住录音快捷键或开始会议录音时采集音频，音频在本机处理，绝不上传。会议记录会录制您的麦克风，并默认录制通话应用播放的声音，以便转写包含其他参与者。通话声音使用 macOS 自带的“屏幕与系统音频录制”权限，只采集通话应用的声音，且仅在您录制会议期间；可在设置中关闭，拒绝权限时只录制麦克风。全部在本机转写，绝不上传。",
     "摄像头（可选，默认关闭）：仅检测摄像头是否被其他应用占用，用于判断是否为视频会议，绝不拍摄、录制或查看画面。",
     "您有责任在当地法律要求时取得其他参与者的录音同意。",
   ]},
@@ -52,7 +52,7 @@ const en: { h: string; p: string[] }[] = [
     "No cloud AI of any kind (no ChatGPT, OpenAI, Anthropic or Gemini) and no Ask AI chat. Meeting text is never sent to an AI provider. It has no voice-alteration feature.",
   ]},
   { h: "Microphone and camera", p: [
-    "The microphone is used only while you hold the recording shortcut or run a meeting recording; audio is processed on the Mac and never uploaded. Meeting notes record your microphone only. The optional, off-by-default camera permission only checks whether another app is using the camera; it never captures video. You are responsible for obtaining other participants' consent where the law requires it.",
+    "The microphone is used only while you hold the recording shortcut or run a meeting recording; audio is processed on the Mac and never uploaded. Meeting notes record your microphone and, by default, the audio your call app plays so the other participants are in the transcript; this uses the macOS Screen & System Audio Recording permission, captures only the call app's audio while you record a meeting, stays on your Mac, and can be turned off in Settings (without the permission only the microphone is recorded). The optional, off-by-default camera permission only checks whether another app is using the camera; it never captures video. You are responsible for obtaining other participants' consent where the law requires it.",
   ]},
   { h: "MCP server", p: ["Optional, off by default, loopback only, protected by a token. It serves your own transcripts to local AI tools you configure and sends nothing to us or to the internet."] },
   { h: "Purchase", p: ["Whisperer Pro is a one-time purchase, not a subscription. Apple processes payment; we receive only a confirmation."] },

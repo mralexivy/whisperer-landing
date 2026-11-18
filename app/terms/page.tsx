@@ -167,8 +167,8 @@ export default function TermsPage() {
             </div>
             <div className="space-y-3 mb-6">
               {[
-                { text: "Meeting Notes records your microphone only", highlight: "your microphone only" },
-                { text: "The app never records system audio and never records other participants' audio streams" },
+                { text: "Meeting Notes records your microphone and, by default, the audio your call app plays so the other participants are in the transcript", highlight: "your call app" },
+                { text: "Call audio uses macOS's Screen & System Audio Recording permission, captures only the call app's audio while you record a meeting, and can be turned off in Settings" },
                 { text: "Whisperer shows a consent screen before your first meeting recording" },
                 { text: "Recording and transcription run locally on your Mac. Whisperer does not send your audio or your meeting to the cloud", highlight: "run locally on your Mac" },
                 { text: "Recordings and notes stay on your Mac" },
